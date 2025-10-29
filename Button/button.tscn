@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://c161xbj0sh7v"]
+
+[ext_resource type="Script" uid="uid://d0vjlxip75nr7" path="res://Button/button.gd" id="1_r04n3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_n4tde"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vxja4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lt4la"]
+
+[node name="Button" type="StaticBody3D"]
+script = ExtResource("1_r04n3")
+activation_timeframe = 3.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 0.1, 0, 0, 0, 2, 0, 0, 0)
+mesh = SubResource("BoxMesh_n4tde")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 0.1, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_vxja4")
+
+[node name="ActivationArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ActivationArea"]
+transform = Transform3D(2, 0, 0, 0, 0.3, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_lt4la")
+debug_color = Color(0.99999994, 0.016033605, 0.02410388, 0.41960785)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
