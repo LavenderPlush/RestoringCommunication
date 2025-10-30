@@ -6,7 +6,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qryyx"]
 
-[node name="Qweqwe" type="Node3D"]
+[node name="ButtonTestingGround" type="Node3D"]
 
 [node name="AnimatableBody3D" parent="." instance=ExtResource("1_ayiaq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0019375086, 1.1920929e-07, -0.12500572)
