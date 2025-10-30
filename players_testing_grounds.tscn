@@ -13,7 +13,7 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4554799, 1.96766)
 
 [node name="CharacterBody3D2" parent="." instance=ExtResource("2_kqrly")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4554796, 0)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 1.4554796, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0.1736482, -0.9848078, 0, 0.9848078, 0.1736482, 1, 7.590404e-09, -4.3047315e-08, -12, 10, -7)

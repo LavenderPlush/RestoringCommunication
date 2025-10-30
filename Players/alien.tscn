@@ -10,7 +10,7 @@ albedo_color = Color(0.10080001, 0.56, 0.4222399, 1)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_s1pbw"]
 material = SubResource("StandardMaterial3D_gjav3")
 
-[node name="CharacterBody3D" type="CharacterBody3D"]
+[node name="CharacterBody3D" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_hs0f4")
 player_type = 1
 speed = 7.0
