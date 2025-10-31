@@ -1,8 +1,5 @@
 # Transmutable objects
 
-## Grouping
-Transmutable objects must be added to the group "Transmutable".
-
 ## Structure
 Transmutable objects must either have the transmutable script attached
 or derive from the Transmutable class.

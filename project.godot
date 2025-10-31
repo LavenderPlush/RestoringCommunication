@@ -17,7 +17,6 @@ config/features=PackedStringArray("4.5", "Forward Plus")
 [global_group]
 
 Player=""
-Transmutable="Items the alien character can transmute into"
 
 [input]
 
