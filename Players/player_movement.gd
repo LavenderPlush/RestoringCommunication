@@ -1,19 +1,11 @@
 extends CharacterBody3D
 
-enum PlayerType { Human, Alien }
-
-@export var player_type: PlayerType = PlayerType.Human
+##human or alien
+@export var player_prefix: String = "human"
 @export var speed: float = 5
 @export var jump_velocity: float = 8.5
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-var player_prefix: String
-
-func _ready() -> void:
-    if player_type == PlayerType.Human:
-        player_prefix = "human"
-    elif player_type == PlayerType.Alien:
-        player_prefix = "alien"
 
 func _physics_process(delta: float) -> void:
     if not is_on_floor():

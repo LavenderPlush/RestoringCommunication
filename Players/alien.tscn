@@ -12,7 +12,7 @@ material = SubResource("StandardMaterial3D_gjav3")
 
 [node name="CharacterBody3D" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_hs0f4")
-player_type = 1
+player_prefix = "alien"
 speed = 7.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
