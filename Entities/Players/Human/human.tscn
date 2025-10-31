@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bd388rue7yafh"]
 
-[ext_resource type="Script" uid="uid://3jycqkafpcw6" path="res://Entities/Players/player_movement.gd" id="1_gjav3"]
+[ext_resource type="PackedScene" uid="uid://bkkcqtuj5t1cq" path="res://Entities/Players/Movement/movement.tscn" id="1_rmm0b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gjav3"]
 albedo_color = Color(0.3147406, 0.47996408, 0.7378255, 1)
@@ -10,12 +10,13 @@ material = SubResource("StandardMaterial3D_gjav3")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vbhk0"]
 
-[node name="CharacterBody3D" type="CharacterBody3D" groups=["Player"]]
-script = ExtResource("1_gjav3")
-speed = 7.0
+[node name="Human" type="CharacterBody3D" groups=["Player"]]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_xctmb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_vbhk0")
+
+[node name="Movement" parent="." node_paths=PackedStringArray("player_body") instance=ExtResource("1_rmm0b")]
+player_body = NodePath("..")

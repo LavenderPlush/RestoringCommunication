@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhiq3nc3vmcij"]
+
+[ext_resource type="Script" uid="uid://bbp4nr6d5vc8n" path="res://Entities/Players/Alien/Abilities/TransmuteSoul/transmute_soul.gd" id="1_raxrg"]
+
+[node name="TransmuteSoul" type="Node"]
+script = ExtResource("1_raxrg")
