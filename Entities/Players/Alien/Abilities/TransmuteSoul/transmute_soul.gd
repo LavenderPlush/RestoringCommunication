@@ -43,9 +43,10 @@ func untransmute_soul():
 	
 func reset_transmutable(transmutable: Transmutable):
 	Common.reparent_children(transmutable.character_body, transmutable.rigid_body)
+	transmutable.rigid_body.freeze = false
+	transmutable.rigid_body.linear_velocity = transmutable.character_body.get_real_velocity()
 	transmutable.character_body.queue_free()
 	transmutable.character_body = null
-	transmutable.rigid_body.freeze = false
 
 # Signals
 func _object_entered(object: Node3D):
