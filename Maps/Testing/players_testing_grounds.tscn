@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://wv7mhgpex08w"]
 
-[ext_resource type="PackedScene" uid="uid://bh7w25o2ijqo6" path="res://Players/alien.tscn" id="1_vfhqw"]
-[ext_resource type="PackedScene" uid="uid://bd388rue7yafh" path="res://Players/human.tscn" id="2_kqrly"]
+[ext_resource type="PackedScene" uid="uid://bh7w25o2ijqo6" path="res://Entities/Players/alien.tscn" id="1_vfhqw"]
+[ext_resource type="PackedScene" uid="uid://bd388rue7yafh" path="res://Entities/Players/human.tscn" id="2_kqrly"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_08bup"]
 
