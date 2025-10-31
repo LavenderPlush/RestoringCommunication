@@ -8,7 +8,9 @@ class_name PlayerMovement
 @export var jump_velocity: float = 8.5
 
 @export_category("Developers")
-@export var player_body: CharacterBody3D
+@export var player_body: CharacterBody3D:
+	set(body):
+		player_body = body
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
