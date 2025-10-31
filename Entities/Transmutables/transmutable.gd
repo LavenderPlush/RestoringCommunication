@@ -6,7 +6,7 @@ class_name Transmutable
 		return rigid_body
 
 var transmute_controller: TransmuteController:
-	set(body):
-		transmute_controller = body
+	set(value):
+		transmute_controller = value
 	get:
 		return transmute_controller
