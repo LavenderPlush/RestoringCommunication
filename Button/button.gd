@@ -8,8 +8,7 @@ extends AnimatableBody3D
 
 var press_count: int = 0
 var original_position: Vector3
-var press_1_offset: float = -0.1
-var press_2_offset: float = -0.2
+var press_offset: float = -0.1
 var animation_duration: float = 0.2
 
 func _ready() -> void:
@@ -22,24 +21,17 @@ func _ready() -> void:
 
 func _on_body_entered(body):
 	if not body.is_in_group("Player"): return
-	
-	var target_y
 
+	if press_count >= 2: return
+	
 	press_count += 1
 
-	if press_count == 1:
-		timer.start()
+	var target_y = original_position.y + (press_count * press_offset)
 
-		target_y= original_position.y + press_1_offset
+	timer.start()
 		
-	elif press_count == 2:
-		if not timer.is_stopped():
-			timer.stop()
-
-			press_count = 0
-			target_y = original_position.y + press_2_offset
-
-			activate_button()
+	if press_count == 2:
+		activate_button()
 
 	animate_button(target_y)
 	

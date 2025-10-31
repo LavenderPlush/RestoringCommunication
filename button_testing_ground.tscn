@@ -15,7 +15,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0019375086, 1.1920929e-07, 
 transform = Transform3D(1, 0, 0, 0, 0.9078141, 0.41937286, 0, -0.41937286, 0.9078141, 0, 1.380074, 3.3020442)
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." groups=["Player"]]
-transform = Transform3D(0.37, 0, 0, 0, 0.37, 0, 0, 0, 0.37, -0.4746909, 2.674552, -0.3139602)
+transform = Transform3D(0.37, 0, 0, 0, 0.37, 0, 0, 0, 0.37, -0.60574484, 2.674552, -0.59791064)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
 mesh = SubResource("CapsuleMesh_3kgjm")
@@ -24,7 +24,7 @@ mesh = SubResource("CapsuleMesh_3kgjm")
 shape = SubResource("CapsuleShape3D_qryyx")
 
 [node name="RigidBody3D2" type="RigidBody3D" parent="." groups=["Player"]]
-transform = Transform3D(0.37, 0, 0, 0, 0.37, 0, 0, 0, 0.37, 0.38023013, 4.3201084, 0.4303664)
+transform = Transform3D(0.37, 0, 0, 0, 0.37, 0, 0, 0, 0.37, -0.0020106435, 4.3201084, 0.67063206)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D2"]
 mesh = SubResource("CapsuleMesh_3kgjm")
