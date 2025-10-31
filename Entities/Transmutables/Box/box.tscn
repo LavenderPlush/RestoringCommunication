@@ -15,6 +15,8 @@ script = ExtResource("1_seryr")
 rigid_body = NodePath("RigidBody3D")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
+axis_lock_linear_x = true
+axis_lock_angular_z = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 shape = SubResource("BoxShape3D_oovab")

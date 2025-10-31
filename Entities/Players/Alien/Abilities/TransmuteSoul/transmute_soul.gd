@@ -40,6 +40,7 @@ func make_transmutable(transmutable: Transmutable):
 func untransmute_soul():
 	movement.player_body = alien_body
 	reset_transmutable(active_object)
+	active_object = null
 	
 func reset_transmutable(transmutable: Transmutable):
 	Common.reparent_children(transmutable.character_body, transmutable.rigid_body)

@@ -11,6 +11,8 @@ material = SubResource("StandardMaterial3D_gjav3")
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vbhk0"]
 
 [node name="Human" type="CharacterBody3D" groups=["Player"]]
+axis_lock_linear_x = true
+axis_lock_angular_z = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_xctmb")
