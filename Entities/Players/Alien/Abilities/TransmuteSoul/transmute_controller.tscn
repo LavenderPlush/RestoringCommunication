@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhqmr26arldx3"]
+
+[ext_resource type="Script" uid="uid://dkjgm6tt4yd8m" path="res://Entities/Players/Alien/Abilities/TransmuteSoul/transmute_controller.gd" id="1_optld"]
+[ext_resource type="PackedScene" uid="uid://bkkcqtuj5t1cq" path="res://Entities/Players/Movement/movement.tscn" id="1_xkhby"]
+
+[node name="TransmuteController" type="CharacterBody3D" node_paths=PackedStringArray("movement")]
+script = ExtResource("1_optld")
+movement = NodePath("Movement")
+
+[node name="Movement" parent="." node_paths=PackedStringArray("player_body") instance=ExtResource("1_xkhby")]
+player_prefix = "alien"
+player_body = NodePath("..")

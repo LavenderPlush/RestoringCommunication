@@ -12,12 +12,20 @@ class_name PlayerMovement
 	set(body):
 		player_body = body
 
+var controls_locked: bool = false:
+	set(value):
+		controls_locked = value
+
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _physics_process(delta: float) -> void:
 	if not player_body.is_on_floor():
 		player_body.velocity.y -= gravity * delta
-
+	
+	if controls_locked:
+		player_body.move_and_slide()
+		return
+	
 	if (Input.is_action_just_pressed("%s_jump" % player_prefix) and
 		player_body.is_on_floor()):
 		player_body.velocity.y = jump_velocity

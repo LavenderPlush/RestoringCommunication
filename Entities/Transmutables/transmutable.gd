@@ -5,8 +5,8 @@ class_name Transmutable
 	get:
 		return rigid_body
 
-var character_body: CharacterBody3D:
+var transmute_controller: TransmuteController:
 	set(body):
-		character_body = body
+		transmute_controller = body
 	get:
-		return character_body
+		return transmute_controller
