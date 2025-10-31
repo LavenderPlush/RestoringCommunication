@@ -32,7 +32,7 @@ func make_transmutable(transmutable: Transmutable):
 	transmutable.character_body = character_body
 	
 	# Reparent meshes and collision shape
-	reparent_children(transmutable.rigid_body, character_body)
+	Common.reparent_children(transmutable.rigid_body, character_body)
 	
 	# Disable rigid body
 	transmutable.rigid_body.freeze = true
@@ -42,15 +42,10 @@ func untransmute_soul():
 	reset_transmutable(active_object)
 	
 func reset_transmutable(transmutable: Transmutable):
-	reparent_children(transmutable.character_body, transmutable.rigid_body)
+	Common.reparent_children(transmutable.character_body, transmutable.rigid_body)
 	transmutable.character_body.queue_free()
 	transmutable.character_body = null
 	transmutable.rigid_body.freeze = false
-
-func reparent_children(a: Node3D, b: Node3D):
-	for child in a.get_children():
-		if child != b:
-			child.reparent(b, true)
 
 # Signals
 func _object_entered(object: Node3D):
