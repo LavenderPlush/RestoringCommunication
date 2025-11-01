@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://wv7mhgpex08w"]
+[gd_scene load_steps=6 format=3 uid="uid://wv7mhgpex08w"]
 
-[ext_resource type="PackedScene" uid="uid://bh7w25o2ijqo6" path="res://Entities/Players/alien.tscn" id="1_vfhqw"]
-[ext_resource type="PackedScene" uid="uid://bd388rue7yafh" path="res://Entities/Players/human.tscn" id="2_kqrly"]
+[ext_resource type="PackedScene" uid="uid://bh7w25o2ijqo6" path="res://Entities/Players/Alien/alien.tscn" id="1_vfhqw"]
+[ext_resource type="PackedScene" uid="uid://bd388rue7yafh" path="res://Entities/Players/Human/human.tscn" id="2_kqrly"]
+[ext_resource type="PackedScene" uid="uid://cut37mic2ba8v" path="res://Entities/Transmutables/Box/box.tscn" id="3_8aafw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_08bup"]
 
@@ -50,3 +51,6 @@ shape = SubResource("BoxShape3D_08bup")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D2"]
 mesh = SubResource("BoxMesh_jw2t6")
+
+[node name="Box" parent="." instance=ExtResource("3_8aafw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9145172, -3.647511)

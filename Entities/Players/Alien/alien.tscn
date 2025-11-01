@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://bh7w25o2ijqo6"]
+
+[ext_resource type="PackedScene" uid="uid://bkkcqtuj5t1cq" path="res://Entities/Players/Movement/movement.tscn" id="1_n6muv"]
+[ext_resource type="PackedScene" uid="uid://dhiq3nc3vmcij" path="res://Entities/Players/Alien/Abilities/TransmuteSoul/transmute_soul.tscn" id="2_ksuwr"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qefdq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gjav3"]
+albedo_color = Color(0.10080001, 0.56, 0.4222399, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_s1pbw"]
+material = SubResource("StandardMaterial3D_gjav3")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ksuwr"]
+size = Vector3(1, 2, 2)
+
+[node name="Alien" type="CharacterBody3D" groups=["Player"]]
+axis_lock_linear_x = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_qefdq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_s1pbw")
+
+[node name="Movement" parent="." node_paths=PackedStringArray("player_body") instance=ExtResource("1_n6muv")]
+player_prefix = "alien"
+player_body = NodePath("..")
+
+[node name="TransmuteSoul" parent="." node_paths=PackedStringArray("interaction_area", "movement", "alien_body") instance=ExtResource("2_ksuwr")]
+interaction_area = NodePath("../Area3D")
+movement = NodePath("../Movement")
+alien_body = NodePath("..")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_ksuwr")
