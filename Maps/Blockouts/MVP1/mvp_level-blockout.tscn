@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://c6oklhpgf3nhd"]
 
-[ext_resource type="PackedScene" uid="uid://bchgqbxt6d357" path="res://player-character_mvp-placeholder.glb" id="1_dsxaf"]
+[ext_resource type="PackedScene" uid="uid://bchgqbxt6d357" path="res://Assets/Players/player_base_placeholder.glb" id="1_4alle"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dsxaf"]
 albedo_color = Color(0, 0.6953369, 0.26724935, 1)
@@ -184,8 +184,8 @@ material_override = SubResource("StandardMaterial3D_gfd8v")
 use_collision = true
 size = Vector3(1, 4, 1)
 
-[node name="player-characters_mvp-placeholder1" parent="." instance=ExtResource("1_dsxaf")]
+[node name="player-characters_mvp-placeholder1" parent="." instance=ExtResource("1_4alle")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.149286, 1.079098, 0.024074972)
 
-[node name="player-characters_mvp-placeholder2" parent="." instance=ExtResource("1_dsxaf")]
+[node name="player-characters_mvp-placeholder2" parent="." instance=ExtResource("1_4alle")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.717824, 1.079098, 0.024074972)
