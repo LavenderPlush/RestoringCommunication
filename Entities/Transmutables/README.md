@@ -1,11 +1,7 @@
 # Transmutable objects
 
 ## Structure
-Transmutable objects must either have the transmutable script attached
-or derive from the Transmutable class.
-The root node must be of Node3D and must have a direct child node of RigidBody3D:
-Node3D (Script: e.g. transmutable.gd)
-- RigidBody3D
-	- Mesh
-	- CollisionShape
-	- etc.
+Transmutable objects must inherit from the Transmutable class.
+The idea is to have a root node that stores the physics body of the object,
+to allow replacing it with a character body to retain the same controls of
+the alien character.
