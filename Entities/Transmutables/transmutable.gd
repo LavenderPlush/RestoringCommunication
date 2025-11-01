@@ -1,12 +1,8 @@
-extends Node3D
-class_name Transmutable
+@abstract
+class_name Transmutable extends Node3D
 
-@export var rigid_body: RigidBody3D:
-	get:
-		return rigid_body
+@abstract
+func transmute() -> void
 
-var transmute_controller: TransmuteController:
-	set(value):
-		transmute_controller = value
-	get:
-		return transmute_controller
+@abstract
+func release() -> void

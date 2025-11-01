@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cut37mic2ba8v"]
 
-[ext_resource type="Script" uid="uid://b55gqcvyk20u" path="res://Entities/Transmutables/transmutable.gd" id="1_seryr"]
+[ext_resource type="Script" uid="uid://yexedhc585ix" path="res://Entities/Transmutables/transmutable_rigidbody.gd" id="1_seryr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oovab"]
 size = Vector3(2, 2, 2)
