@@ -1,5 +1,4 @@
 extends Transmutable
-class_name TransmutableRB
 
 @export var rigid_body: RigidBody3D
 @export var control_scheme: String = "alien"
@@ -32,6 +31,9 @@ func release() -> void:
 	
 	# Reparent meshes and collision shape
 	Common.reparent_children(character_body, rigid_body)
+	
+	# Remove character body
+	character_body.queue_free()
 	
 	# Enable rigid body
 	rigid_body.freeze = false
