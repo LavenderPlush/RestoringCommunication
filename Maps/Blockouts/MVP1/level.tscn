@@ -1,0 +1,191 @@
+[gd_scene load_steps=7 format=3 uid="uid://c6oklhpgf3nhd"]
+
+[ext_resource type="PackedScene" uid="uid://bchgqbxt6d357" path="res://Assets/Players/player_base_placeholder.glb" id="1_4alle"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dsxaf"]
+albedo_color = Color(0, 0.6953369, 0.26724935, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d5nmt"]
+albedo_color = Color(0.9193767, 0, 0.008246145, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sfp1i"]
+albedo_color = Color(0, 0.38819155, 0.77087724, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fvchn"]
+albedo_color = Color(0.54056764, 0.64030707, 7.70092e-07, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gfd8v"]
+albedo_color = Color(0.54056764, 0.64030707, 7.70092e-07, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="LevelBorder1" type="CSGBox3D" parent="."]
+use_collision = true
+size = Vector3(24, 2, 1)
+
+[node name="LevelBorder2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.997, 17.0029, 0)
+use_collision = true
+size = Vector3(2, 36, 1)
+
+[node name="LevelBorder3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.957, 17, 0)
+use_collision = true
+size = Vector3(2, 36, 1)
+
+[node name="LevelBorder4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 33.99991, 0)
+use_collision = true
+size = Vector3(24, 2, 1)
+
+[node name="BoxPlaceholder1" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, 0)
+material_override = SubResource("StandardMaterial3D_dsxaf")
+use_collision = true
+size = Vector3(2, 2, 1)
+
+[node name="BoxPlaceholder2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 4, 0)
+material_override = SubResource("StandardMaterial3D_dsxaf")
+use_collision = true
+size = Vector3(2, 2, 1)
+
+[node name="BoxPlaceholder3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 15, 0)
+material_override = SubResource("StandardMaterial3D_dsxaf")
+use_collision = true
+size = Vector3(2, 2, 1)
+
+[node name="ButtonPlaceholder1" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 7.1015625, 0)
+material_override = SubResource("StandardMaterial3D_d5nmt")
+use_collision = true
+size = Vector3(1.1279297, 0.203125, 1)
+
+[node name="LadderPlaceholder1" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 4, 1)
+material_override = SubResource("StandardMaterial3D_sfp1i")
+height = 6.0
+
+[node name="LadderPlaceholder2" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 26.5, 1)
+material_override = SubResource("StandardMaterial3D_sfp1i")
+height = 5.0
+
+[node name="ExitTriggerHuman_Placeholder" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 27, 0)
+material_override = SubResource("StandardMaterial3D_fvchn")
+
+[node name="ExitTriggerAlien_Placeholder" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 30, 0)
+material_override = SubResource("StandardMaterial3D_fvchn")
+
+[node name="Platform1" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 6, 0)
+use_collision = true
+size = Vector3(4, 2, 1)
+
+[node name="Platform1-Extension1" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 8.98659, 0)
+use_collision = true
+size = Vector3(2, 4, 1)
+
+[node name="Platform2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 3, 0)
+use_collision = true
+size = Vector3(6, 4, 1)
+
+[node name="Platform3" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+use_collision = true
+
+[node name="Platform3_Shape1" type="CSGBox3D" parent="Platform3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.0069999695, 0)
+size = Vector3(6, 2, 1)
+
+[node name="Platform3_Shape2" type="CSGBox3D" parent="Platform3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -0.99300003, 0)
+size = Vector3(2, 4, 1)
+
+[node name="Platform4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.001, 13.010246, 0)
+use_collision = true
+size = Vector3(18, 2, 1)
+
+[node name="Platform4_Extension1" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9820757, 12.509083, 0)
+use_collision = true
+size = Vector3(2, 1, 1)
+
+[node name="Stairs_Step1" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 15, 0)
+use_collision = true
+size = Vector3(8, 2, 1)
+
+[node name="Stairs_Step2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 17, 0)
+use_collision = true
+size = Vector3(6, 2, 1)
+
+[node name="Stairs_Step3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 19, 0)
+use_collision = true
+size = Vector3(4, 2, 1)
+
+[node name="Platform5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 21, 0)
+use_collision = true
+size = Vector3(6, 2, 1)
+
+[node name="Platform6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 23, 0)
+use_collision = true
+size = Vector3(4, 2, 1)
+
+[node name="Platform7" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 25, 0)
+use_collision = true
+size = Vector3(2, 2, 1)
+
+[node name="Platform8" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 23, 0)
+use_collision = true
+size = Vector3(2, 2, 1)
+
+[node name="ExitPlatform1" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 29, 0)
+use_collision = true
+size = Vector3(8, 2, 1)
+
+[node name="ExitPlatform2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 28.5, 0)
+use_collision = true
+size = Vector3(4, 1, 1)
+
+[node name="ExitPlatform3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 28.5, 0)
+use_collision = true
+size = Vector3(4, 1, 1)
+
+[node name="ExitPlatform4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 28.5, 0)
+use_collision = true
+size = Vector3(2, 1, 1)
+
+[node name="ExitDoor1" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 31, 0)
+material_override = SubResource("StandardMaterial3D_gfd8v")
+use_collision = true
+size = Vector3(1, 4, 1)
+
+[node name="ExitDoor2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 31, 0)
+material_override = SubResource("StandardMaterial3D_gfd8v")
+use_collision = true
+size = Vector3(1, 4, 1)
+
+[node name="player-characters_mvp-placeholder1" parent="." instance=ExtResource("1_4alle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.149286, 1.079098, 0.024074972)
+
+[node name="player-characters_mvp-placeholder2" parent="." instance=ExtResource("1_4alle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.717824, 1.079098, 0.024074972)
