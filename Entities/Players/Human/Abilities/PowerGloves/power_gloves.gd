@@ -3,9 +3,10 @@ extends Node
 @export_category("Developers")
 @export var interaction_area: Area3D
 @export var holding_position: Marker3D
+@export var dropping_position: Marker3D
 
 var object_in_range: Node3D
-var held_object: Node3D
+var held_object: RigidBody3D
 
 func _ready() -> void:
 	interaction_area.body_entered.connect(_object_entered)
@@ -16,16 +17,20 @@ func _input(event: InputEvent) -> void:
 		if object_in_range and not held_object:
 			pick_up()
 		elif held_object:
-			throw()
+			drop()
 
 func _process(_delta: float) -> void:
 	if held_object:
 		held_object.global_position = holding_position.global_position
 
+
 func pick_up():
 	held_object = object_in_range
+	held_object.freeze = true
 
-func throw():
+func drop():
+	held_object.global_position = dropping_position.global_position
+	held_object.freeze = false
 	held_object = null
 
 # Signals
