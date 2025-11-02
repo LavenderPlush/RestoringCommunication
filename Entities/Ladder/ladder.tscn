@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6p354rt6aa7i"]
+
+[ext_resource type="Script" uid="uid://c5kt4cniijre6" path="res://Entities/Ladder/ladder.gd" id="1_p2676"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jatgk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p2676"]
+albedo_color = Color(0.5, 0.5, 0.5, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_p2676"]
+material = SubResource("StandardMaterial3D_p2676")
+
+[node name="Ladder" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 6, 0, 0, 0, 0.5, 0, 0, 0)
+script = ExtResource("1_p2676")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_jatgk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.099999964, 0, 0, 0, 1, 0, 0, 0, 0.099999964, -0.5, 0.5, 0)
+mesh = SubResource("BoxMesh_p2676")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.099999964, 0, 0, 0, 1, 0, 0, 0, 0.099999964, 0.5, 0.5, 0)
+mesh = SubResource("BoxMesh_p2676")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.3711357e-10, -1, 0, 0.009999993, -4.3711392e-08, 0, 0, 0, 0.099999964, 0, 0.9, 0)
+mesh = SubResource("BoxMesh_p2676")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.3711357e-10, -1, 0, 0.009999993, -4.3711392e-08, 0, 0, 0, 0.099999964, 0, 0.7, 0)
+mesh = SubResource("BoxMesh_p2676")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.3711357e-10, -1, 0, 0.009999993, -4.3711392e-08, 0, 0, 0, 0.099999964, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_p2676")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.3711357e-10, -1, 0, 0.009999993, -4.3711392e-08, 0, 0, 0, 0.099999964, 0, 0.3, 0)
+mesh = SubResource("BoxMesh_p2676")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.3711357e-10, -1, 0, 0.009999993, -4.3711392e-08, 0, 0, 0, 0.099999964, 0, 0.1, 0)
+mesh = SubResource("BoxMesh_p2676")

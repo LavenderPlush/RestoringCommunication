@@ -24,7 +24,8 @@ mesh = SubResource("CapsuleMesh_xctmb")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_vbhk0")
 
-[node name="Movement" parent="." node_paths=PackedStringArray("player_body") instance=ExtResource("1_rmm0b")]
+[node name="Movement" parent="." node_paths=PackedStringArray("player_collider", "player_body") instance=ExtResource("1_rmm0b")]
+player_collider = NodePath("../CollisionShape3D")
 player_body = NodePath("..")
 
 [node name="PowerGloves" parent="." node_paths=PackedStringArray("interaction_area", "holding_position", "dropping_position", "movement") instance=ExtResource("2_rj3cs")]
