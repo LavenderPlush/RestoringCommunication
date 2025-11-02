@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsqwvch37wg86"]
+
+[ext_resource type="Script" uid="uid://c8iid4n88d4vw" path="res://Entities/Players/Human/Abilities/PowerGloves/power_gloves.gd" id="1_f5gxr"]
+
+[node name="PowerGloves" type="Node"]
+script = ExtResource("1_f5gxr")

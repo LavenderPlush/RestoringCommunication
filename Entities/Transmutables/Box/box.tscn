@@ -12,7 +12,7 @@ albedo_color = Color(0.35, 0.09333333, 0, 1)
 material = SubResource("StandardMaterial3D_mgwb1")
 size = Vector3(2, 2, 2)
 
-[node name="Box" type="Node3D" node_paths=PackedStringArray("rigid_body")]
+[node name="Box" type="Node3D" node_paths=PackedStringArray("rigid_body") groups=["Pickupable"]]
 script = ExtResource("1_seryr")
 rigid_body = NodePath("RigidBody3D")
 
