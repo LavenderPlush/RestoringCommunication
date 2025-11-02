@@ -21,6 +21,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _physics_process(delta: float) -> void:
 	if controls_locked:
+		player_body.velocity.y -= gravity * delta
 		player_body.move_and_slide()
 		return
 
