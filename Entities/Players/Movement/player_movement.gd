@@ -18,6 +18,9 @@ var controls_locked: bool = false:
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+var is_facing_left: bool = false
+
+
 func _physics_process(delta: float) -> void:
 	if not player_body.is_on_floor():
 		player_body.velocity.y -= gravity * delta
@@ -42,9 +45,13 @@ func _physics_process(delta: float) -> void:
 
 	if direction:
 		player_body.velocity.z = direction.z * speed
+		_set_facing_direction(direction)
 	else:
 		player_body.velocity.z = move_toward(player_body.velocity.z, 0, speed)
 
 	player_body.velocity.x = 0
 
 	player_body.move_and_slide()
+
+func _set_facing_direction(direction: Vector3) -> void:
+	is_facing_left = true if direction.z < 0 else false

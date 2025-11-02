@@ -7,6 +7,7 @@ extends Node
 @export var interaction_area: Area3D
 @export var holding_position: Marker3D
 @export var dropping_position: Marker3D
+@export var movement: PlayerMovement
 
 var object_in_range: Node3D
 var held_object: RigidBody3D
@@ -35,12 +36,22 @@ func pick_up():
 	held_object.freeze = true
 
 func throw():
+	var momentum = Vector3(0, throw_momentum.y, throw_momentum.x)
+	if movement.is_facing_left:
+		momentum.z *= -1
+	
 	held_object.freeze = false
-	held_object.apply_central_force(Vector3(0, throw_momentum.y, throw_momentum.x))
+	held_object.apply_central_force(momentum)
 	held_object = null
 
 func drop():
-	held_object.global_position = dropping_position.global_position
+	var new_pos = dropping_position.global_position
+	
+	#maybe not the best way of handling this
+	if movement.is_facing_left:
+		new_pos.z -= 2 * (dropping_position.global_position.z - get_parent().global_position.z)
+	
+	held_object.global_position = new_pos
 	held_object.freeze = false
 	held_object = null
 
