@@ -4,3 +4,4 @@
 
 [node name="PowerGloves" type="Node"]
 script = ExtResource("1_f5gxr")
+throw_momentum = Vector2(600, 200)

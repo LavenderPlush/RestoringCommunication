@@ -1,5 +1,8 @@
 extends Node
 
+@export_category("Designers")
+@export var throw_momentum: Vector2
+
 @export_category("Developers")
 @export var interaction_area: Area3D
 @export var holding_position: Marker3D
@@ -17,6 +20,9 @@ func _input(event: InputEvent) -> void:
 		if object_in_range and not held_object:
 			pick_up()
 		elif held_object:
+			throw()
+	elif event.is_action_pressed("ability_power_gloves_drop"):
+		if held_object:
 			drop()
 
 func _process(_delta: float) -> void:
@@ -27,6 +33,11 @@ func _process(_delta: float) -> void:
 func pick_up():
 	held_object = object_in_range
 	held_object.freeze = true
+
+func throw():
+	held_object.freeze = false
+	held_object.apply_central_force(Vector3(0, throw_momentum.y, throw_momentum.x))
+	held_object = null
 
 func drop():
 	held_object.global_position = dropping_position.global_position
