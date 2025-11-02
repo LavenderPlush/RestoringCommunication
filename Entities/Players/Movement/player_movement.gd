@@ -49,6 +49,7 @@ func _physics_process(delta: float) -> void:
 		if (Input.is_action_just_pressed("%s_jump" % player_prefix) and
 			player_body.is_on_floor()):
 			player_body.velocity.y = jump_velocity
+			$FmodEventEmitter3D.play()
 
 		var input_direction = Input.get_vector(
 			"%s_move_left" % player_prefix,

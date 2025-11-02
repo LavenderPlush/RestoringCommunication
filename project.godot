@@ -8,11 +8,23 @@
 
 config_version=5
 
+[Fmod]
+
+General/banks_path="res://Assets/FMODBank/Desktop"
+
 [application]
 
 config/name="Restoring Communication"
 run/main_scene="uid://dsqe0taye0dcr"
 config/features=PackedStringArray("4.5", "Forward Plus")
+
+[autoload]
+
+FmodManager="*res://addons/fmod/FmodManager.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/fmod/plugin.cfg")
 
 [global_group]
 
