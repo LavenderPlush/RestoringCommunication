@@ -34,7 +34,7 @@ dropping_position = NodePath("../DroppingPosition")
 movement = NodePath("../Movement")
 
 [node name="HoldingPosition" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0224051, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5757918, 0)
 
 [node name="DroppingPosition" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6765735, 0.20618999, 0)
