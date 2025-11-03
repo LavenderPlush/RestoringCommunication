@@ -19,6 +19,9 @@ var controls_locked: bool = false:
 var is_climbing: bool = false
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+var is_facing_left: bool = false
+
+
 func _physics_process(delta: float) -> void:
 	if controls_locked:
 		player_body.velocity.y -= gravity * delta
@@ -62,6 +65,7 @@ func _physics_process(delta: float) -> void:
 
 		if direction:
 			player_body.velocity.z = direction.z * speed
+			_set_facing_direction(direction)
 		else:
 			player_body.velocity.z = move_toward(player_body.velocity.z, 0, speed)
 
@@ -74,3 +78,6 @@ func set_is_climbing(new_is_climbing: bool) -> void:
 
 	if not is_climbing:
 		player_body.velocity.y = 0
+
+func _set_facing_direction(direction: Vector3) -> void:
+	is_facing_left = true if direction.z < 0 else false
