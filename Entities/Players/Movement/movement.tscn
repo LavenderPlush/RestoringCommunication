@@ -4,3 +4,7 @@
 
 [node name="Movement" type="Node"]
 script = ExtResource("1_6o0r4")
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/Jump"
+event_guid = "{b3850534-5bda-4b82-9601-51438fdad158}"

@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://wv7mhgpex08w"]
+[gd_scene load_steps=7 format=3 uid="uid://wv7mhgpex08w"]
 
 [ext_resource type="PackedScene" uid="uid://bh7w25o2ijqo6" path="res://Entities/Players/Alien/alien.tscn" id="1_vfhqw"]
 [ext_resource type="PackedScene" uid="uid://bd388rue7yafh" path="res://Entities/Players/Human/human.tscn" id="2_kqrly"]
 [ext_resource type="PackedScene" uid="uid://cut37mic2ba8v" path="res://Entities/Transmutables/Box/box.tscn" id="3_8aafw"]
-[ext_resource type="PackedScene" uid="uid://b6p354rt6aa7i" path="res://Entities/Ladder/ladder.tscn" id="4_cmn6o"]
 [ext_resource type="PackedScene" uid="uid://c161xbj0sh7v" path="res://Entities/Button/button.tscn" id="5_u5ick"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_08bup"]
@@ -63,5 +62,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -6.601)
 
 [node name="AnimatableBody3D" parent="." node_paths=PackedStringArray("ladder_spawn_point") instance=ExtResource("5_u5ick")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5635568, -8.601)
-ladder_scene = ExtResource("4_cmn6o")
 ladder_spawn_point = NodePath("../Node3D")
+
+[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
+bank_paths = ["res://Assets/FMODBank/Desktop/Master.bank"]
+
+[node name="FmodListener3D" type="FmodListener3D" parent="."]
