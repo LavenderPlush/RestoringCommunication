@@ -12,7 +12,7 @@ material = SubResource("StandardMaterial3D_gjav3")
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vbhk0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rj3cs"]
-size = Vector3(1.7145386, 2.234558, 1)
+size = Vector3(1, 2, 2)
 
 [node name="Human" type="CharacterBody3D" groups=["Player"]]
 axis_lock_linear_x = true
@@ -24,21 +24,25 @@ mesh = SubResource("CapsuleMesh_xctmb")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_vbhk0")
 
-[node name="Movement" parent="." node_paths=PackedStringArray("player_collider", "player_body") instance=ExtResource("1_rmm0b")]
-player_collider = NodePath("../CollisionShape3D")
+[node name="Movement" parent="." node_paths=PackedStringArray("player_body") instance=ExtResource("1_rmm0b")]
 player_body = NodePath("..")
 
-[node name="PowerGloves" parent="." node_paths=PackedStringArray("interaction_area", "holding_position", "dropping_position", "movement") instance=ExtResource("2_rj3cs")]
+[node name="PowerGloves" parent="." node_paths=PackedStringArray("interaction_area", "holding_position", "dropping_position", "movement", "collision_timer") instance=ExtResource("2_rj3cs")]
 interaction_area = NodePath("../Area3D")
 holding_position = NodePath("../HoldingPosition")
 dropping_position = NodePath("../DroppingPosition")
 movement = NodePath("../Movement")
+collision_timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="PowerGloves"]
+wait_time = 0.2
+one_shot = true
 
 [node name="HoldingPosition" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5757918, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="DroppingPosition" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6765735, 0.20618999, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
 
 [node name="Area3D" type="Area3D" parent="."]
 
