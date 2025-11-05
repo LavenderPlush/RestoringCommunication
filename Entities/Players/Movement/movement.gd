@@ -1,5 +1,5 @@
 extends Node
-class_name movement
+class_name Movement
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -14,27 +14,38 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @export var body: CharacterBody3D
 
 # Exposed
+var is_climbing: bool = false
 var is_facing_left: bool = false
 
-func process_climb():
+func process_climb(can_climb: bool):
 	var climb_input_vertical = Input.get_axis(
 		"%s_move_backward" % control_prefix, 
 		"%s_move_forward" % control_prefix
 	)
-	var climb_input_horizontal = Input.get_axis(
-		"%s_move_left" % control_prefix, 
-		"%s_move_right" % control_prefix
-	)
+	
+	if !is_climbing and climb_input_vertical != 0:
+		is_climbing = true
+	
+	if is_climbing:
+		body.velocity.y = climb_input_vertical * climb_speed
+		body.velocity.z = 0
+	
+	if (!can_climb
+		or body.is_on_floor()
+		or Input.is_action_just_pressed("%s_jump" % control_prefix)):
+		is_climbing = false
 
-	body.velocity.y = climb_input_vertical * climb_speed
-	body.velocity.z = climb_input_horizontal * speed
-	body.velocity.x = 0
-
-func process_gravity():
-	body.velocity.y -= gravity
+func process_gravity(delta: float):
+	if not body.is_on_floor():
+		body.velocity.y -= gravity * delta
 
 func process_jump():
-	body.velocity.y = jump_velocity
+	if is_climbing:
+		body.velocity.y = 0
+		is_climbing = false
+	if (Input.is_action_just_pressed("%s_jump" % control_prefix)
+		and body.is_on_floor()):
+			body.velocity.y = jump_velocity
 
 func process_movement():
 	var input_direction = Input.get_vector(

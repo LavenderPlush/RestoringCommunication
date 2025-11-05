@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bh7w25o2ijqo6" path="res://Entities/Players/Alien/alien.tscn" id="1_vfhqw"]
 [ext_resource type="PackedScene" uid="uid://bd388rue7yafh" path="res://Entities/Players/Human/human.tscn" id="2_kqrly"]
-[ext_resource type="PackedScene" uid="uid://cut37mic2ba8v" path="res://Entities/Interactables/Box/box.tscn" id="3_8aafw"]
+[ext_resource type="PackedScene" uid="uid://cut37mic2ba8v" path="res://Entities/Transmutables/Box/box.tscn" id="3_8aafw"]
 [ext_resource type="PackedScene" uid="uid://c161xbj0sh7v" path="res://Entities/Button/button.tscn" id="5_u5ick"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_08bup"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bd388rue7yafh"]
+[gd_scene load_steps=8 format=3 uid="uid://bd388rue7yafh"]
 
+[ext_resource type="Script" uid="uid://cp0jcwymqkbr0" path="res://Entities/Players/Human/human.gd" id="1_q78xk"]
 [ext_resource type="PackedScene" uid="uid://bkkcqtuj5t1cq" path="res://Entities/Players/Movement/movement.tscn" id="1_rmm0b"]
-[ext_resource type="PackedScene" uid="uid://bsqwvch37wg86" path="res://Entities/Players/Human/Abilities/PowerGloves/power_gloves.tscn" id="2_rj3cs"]
+[ext_resource type="PackedScene" uid="uid://bsqwvch37wg86" path="res://Entities/Players/Abilities/PowerGloves/power_gloves.tscn" id="2_rj3cs"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gjav3"]
 albedo_color = Color(0.3147406, 0.47996408, 0.7378255, 1)
@@ -14,9 +15,12 @@ material = SubResource("StandardMaterial3D_gjav3")
 [sub_resource type="BoxShape3D" id="BoxShape3D_rj3cs"]
 size = Vector3(1.7145386, 2.234558, 1)
 
-[node name="Human" type="CharacterBody3D" groups=["Player"]]
+[node name="Human" type="CharacterBody3D" node_paths=PackedStringArray("movement", "ability") groups=["Player"]]
 axis_lock_linear_x = true
 axis_lock_angular_z = true
+script = ExtResource("1_q78xk")
+movement = NodePath("Movement")
+ability = NodePath("PowerGloves")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_xctmb")
@@ -24,9 +28,9 @@ mesh = SubResource("CapsuleMesh_xctmb")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_vbhk0")
 
-[node name="Movement" parent="." node_paths=PackedStringArray("player_collider", "player_body") instance=ExtResource("1_rmm0b")]
-player_collider = NodePath("../CollisionShape3D")
-player_body = NodePath("..")
+[node name="Movement" parent="." node_paths=PackedStringArray("body") instance=ExtResource("1_rmm0b")]
+control_prefix = "human"
+body = NodePath("..")
 
 [node name="PowerGloves" parent="." node_paths=PackedStringArray("interaction_area", "holding_position", "dropping_position", "movement") instance=ExtResource("2_rj3cs")]
 interaction_area = NodePath("../Area3D")

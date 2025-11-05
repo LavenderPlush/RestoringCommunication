@@ -8,13 +8,9 @@ func _ready() -> void:
 	ladder.body_exited.connect(_on_body_exited)
 
 func _on_body_entered(body):
-	if not body.is_in_group("Player"): return
-
-	if body.has_node(movement):
-		body.get_node(movement).set_is_climbing(true)
+	if body is not Player: return
+	body.can_climb = true
 
 func _on_body_exited(body):
-	if not body.is_in_group("Player"): return
-
-	if body.has_node(movement):
-		body.get_node(movement).set_is_climbing(false)
+	if body is not Player: return
+	body.can_climb = false
