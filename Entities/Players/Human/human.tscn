@@ -28,6 +28,7 @@ shape = SubResource("CapsuleShape3D_vbhk0")
 player_body = NodePath("..")
 
 [node name="PowerGloves" parent="." node_paths=PackedStringArray("interaction_area", "holding_position", "dropping_position", "movement", "collision_timer") instance=ExtResource("2_rj3cs")]
+throw_momentum = Vector2(300, 75)
 interaction_area = NodePath("../Area3D")
 holding_position = NodePath("../HoldingPosition")
 dropping_position = NodePath("../DroppingPosition")
