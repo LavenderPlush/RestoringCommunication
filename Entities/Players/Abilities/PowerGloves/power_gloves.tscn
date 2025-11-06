@@ -2,6 +2,11 @@
 
 [ext_resource type="Script" uid="uid://c8iid4n88d4vw" path="res://Entities/Players/Abilities/PowerGloves/power_gloves.gd" id="1_f5gxr"]
 
-[node name="PowerGloves" type="Node"]
+[node name="PowerGloves" type="Node" node_paths=PackedStringArray("shape_cast")]
 script = ExtResource("1_f5gxr")
 throw_momentum = Vector2(600, 200)
+shape_cast = NodePath("ShapeCast3D")
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="."]
+enabled = false
+target_position = Vector3(0, 0, 0)

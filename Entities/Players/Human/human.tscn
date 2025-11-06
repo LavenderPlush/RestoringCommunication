@@ -32,8 +32,9 @@ shape = SubResource("CapsuleShape3D_vbhk0")
 control_prefix = "human"
 body = NodePath("..")
 
-[node name="PowerGloves" parent="." node_paths=PackedStringArray("interaction_area", "holding_position", "dropping_position", "movement", "collision_timer") instance=ExtResource("2_rj3cs")]
+[node name="PowerGloves" parent="." node_paths=PackedStringArray("player", "interaction_area", "holding_position", "dropping_position", "movement", "collision_timer") instance=ExtResource("2_rj3cs")]
 throw_momentum = Vector2(300, 75)
+player = NodePath("..")
 interaction_area = NodePath("../Area3D")
 holding_position = NodePath("../HoldingPosition")
 dropping_position = NodePath("../DroppingPosition")
@@ -48,7 +49,7 @@ one_shot = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="DroppingPosition" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.47329843, 2)
 
 [node name="Area3D" type="Area3D" parent="."]
 
