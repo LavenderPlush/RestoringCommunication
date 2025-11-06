@@ -26,7 +26,6 @@ func _physics_process(delta: float) -> void:
 		movement.process_movement()
 		movement.process_jump()
 		movement.process_gravity(delta)
-		transmuted_object.move_and_slide()
 
 func transmute_soul():
 	transmuted_object = transmutable_object
