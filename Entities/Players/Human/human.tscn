@@ -33,7 +33,7 @@ control_prefix = "human"
 body = NodePath("..")
 
 [node name="PowerGloves" parent="." node_paths=PackedStringArray("player", "interaction_area", "holding_position", "dropping_position", "movement", "collision_timer") instance=ExtResource("2_rj3cs")]
-throw_momentum = Vector2(300, 75)
+throw_momentum = Vector2(5, 5)
 player = NodePath("..")
 interaction_area = NodePath("../Area3D")
 holding_position = NodePath("../HoldingPosition")
