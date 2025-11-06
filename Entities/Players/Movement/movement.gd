@@ -23,8 +23,9 @@ func process_climb(can_climb: bool):
 		"%s_move_forward" % control_prefix
 	)
 	
-	if !is_climbing and climb_input_vertical != 0:
+	if !is_climbing and climb_input_vertical != 0 and can_climb:
 		is_climbing = true
+		body.global_position.z = body.climb_snap_position
 	
 	if is_climbing:
 		body.velocity.y = climb_input_vertical * climb_speed
