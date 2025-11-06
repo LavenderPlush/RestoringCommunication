@@ -66,7 +66,7 @@ func throw():
 
 	held_object.add_collision_exception_with(player)
 	held_object.pick_up(false)
-	held_object.throw()
+	held_object.throw(momentum)
 	player_to_reset = player
 	box_to_reset = held_object
 	collision_timer.start()
