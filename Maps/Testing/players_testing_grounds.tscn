@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://wv7mhgpex08w"]
+[gd_scene load_steps=9 format=3 uid="uid://wv7mhgpex08w"]
 
 [ext_resource type="PackedScene" uid="uid://bh7w25o2ijqo6" path="res://Entities/Players/Alien/alien.tscn" id="1_vfhqw"]
 [ext_resource type="PackedScene" uid="uid://bd388rue7yafh" path="res://Entities/Players/Human/human.tscn" id="2_kqrly"]
 [ext_resource type="PackedScene" uid="uid://cut37mic2ba8v" path="res://Entities/Interactables/Box/box.tscn" id="3_8aafw"]
 [ext_resource type="Material" uid="uid://b30elpo3lu5rq" path="res://Materials/background_mat.tres" id="3_u5ick"]
 [ext_resource type="PackedScene" uid="uid://c161xbj0sh7v" path="res://Entities/Button/button.tscn" id="5_u5ick"]
+[ext_resource type="PackedScene" uid="uid://b8hxsnh6e1jfh" path="res://Entities/Ladder/extendable_ladder.tscn" id="6_hly84"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_08bup"]
 
@@ -19,7 +20,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4554799, 1.96766)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4554796, -14.398378)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0.1736482, -0.9848078, 0, 0.9848078, 0.1736482, 1, 7.590404e-09, -4.3047315e-08, -12.000002, 0.60609627, -17.674644)
+transform = Transform3D(-4.371139e-08, 0.1736482, -0.9848078, 0, 0.9848078, 0.1736482, 1, 7.590404e-09, -4.3047315e-08, -12.000002, 4.878173, -7.1722236)
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0.16052532)
@@ -84,14 +85,14 @@ mesh = SubResource("BoxMesh_jw2t6")
 [node name="Box" parent="." instance=ExtResource("3_8aafw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -16.423992)
 
-[node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -6.601)
-
-[node name="AnimatableBody3D" parent="." node_paths=PackedStringArray("ladder_spawn_point") instance=ExtResource("5_u5ick")]
+[node name="AnimatableBody3D" parent="." node_paths=PackedStringArray("extendable_ladder") instance=ExtResource("5_u5ick")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5635568, -8.601)
-ladder_spawn_point = NodePath("../Node3D")
+extendable_ladder = NodePath("../NewLadder")
 
 [node name="FmodBankLoader" type="FmodBankLoader" parent="."]
 bank_paths = ["res://Assets/FMODBank/Desktop/Master.bank"]
 
 [node name="FmodListener3D" type="FmodListener3D" parent="."]
+
+[node name="NewLadder" parent="." instance=ExtResource("6_hly84")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 4.5, -7)
