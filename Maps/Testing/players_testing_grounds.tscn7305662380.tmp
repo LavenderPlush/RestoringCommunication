@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://wv7mhgpex08w"]
+[gd_scene load_steps=7 format=3 uid="uid://wv7mhgpex08w"]
 
 [ext_resource type="PackedScene" uid="uid://bh7w25o2ijqo6" path="res://Entities/Players/Alien/alien.tscn" id="1_vfhqw"]
 [ext_resource type="PackedScene" uid="uid://bd388rue7yafh" path="res://Entities/Players/Human/human.tscn" id="2_kqrly"]
-[ext_resource type="PackedScene" uid="uid://cut37mic2ba8v" path="res://Entities/Interactables/Box/box.tscn" id="3_8aafw"]
-[ext_resource type="Material" uid="uid://b30elpo3lu5rq" path="res://Materials/background_mat.tres" id="3_u5ick"]
+[ext_resource type="PackedScene" uid="uid://cut37mic2ba8v" path="res://Entities/Transmutables/Box/box.tscn" id="3_8aafw"]
 [ext_resource type="PackedScene" uid="uid://c161xbj0sh7v" path="res://Entities/Button/button.tscn" id="5_u5ick"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_08bup"]
@@ -16,10 +15,10 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4554799, 1.96766)
 
 [node name="CharacterBody3D2" parent="." instance=ExtResource("2_kqrly")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4554796, -14.398378)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 1.4554796, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0.1736482, -0.9848078, 0, 0.9848078, 0.1736482, 1, 7.590404e-09, -4.3047315e-08, -12.000002, 0.60609627, -17.674644)
+transform = Transform3D(-4.371139e-08, 0.1736482, -0.9848078, 0, 0.9848078, 0.1736482, 1, 7.590404e-09, -4.3047315e-08, -12, 10, -14.716718)
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0.16052532)
@@ -33,7 +32,7 @@ shape = SubResource("BoxShape3D_08bup")
 mesh = SubResource("BoxMesh_jw2t6")
 
 [node name="RigidBody3D3" type="RigidBody3D" parent="."]
-transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 4, 0, 0, -19)
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, -25.839474)
 freeze = true
 freeze_mode = 1
 
@@ -41,36 +40,10 @@ freeze_mode = 1
 shape = SubResource("BoxShape3D_08bup")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D3"]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
-mesh = SubResource("BoxMesh_jw2t6")
-
-[node name="RigidBody3D5" type="RigidBody3D" parent="."]
-transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 4, 0, 0, -15)
-freeze = true
-freeze_mode = 1
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D5"]
-shape = SubResource("BoxShape3D_08bup")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D5"]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
-material_override = ExtResource("3_u5ick")
-mesh = SubResource("BoxMesh_jw2t6")
-
-[node name="RigidBody3D4" type="RigidBody3D" parent="."]
-transform = Transform3D(4.9999995, 0, 0, 0, 0, -4.9999995, 0, 0.9999997, 2.3841858e-07, 0, 3, -21.5)
-freeze = true
-freeze_mode = 1
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D4"]
-shape = SubResource("BoxShape3D_08bup")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D4"]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
 mesh = SubResource("BoxMesh_jw2t6")
 
 [node name="RigidBody3D2" type="RigidBody3D" parent="."]
-transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 4.6358666, -3.7516916)
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 5.96797, -3.7516916)
 freeze = true
 freeze_mode = 1
 
@@ -82,7 +55,7 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0.039888
 mesh = SubResource("BoxMesh_jw2t6")
 
 [node name="Box" parent="." instance=ExtResource("3_8aafw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -16.423992)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1300778, -2.7074518)
 
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -6.601)

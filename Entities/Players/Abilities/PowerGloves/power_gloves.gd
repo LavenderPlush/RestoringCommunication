@@ -1,4 +1,4 @@
-extends Node
+extends Ability
 
 @export_category("Designers")
 @export var throw_momentum: Vector2
@@ -7,7 +7,7 @@ extends Node
 @export var interaction_area: Area3D
 @export var holding_position: Marker3D
 @export var dropping_position: Marker3D
-@export var movement: PlayerMovement
+@export var movement: Movement
 @export var collision_timer: Timer
 
 var object_in_range: Node3D
@@ -22,15 +22,18 @@ func _ready() -> void:
 	interaction_area.body_exited.connect(_object_exited)
 	collision_timer.timeout.connect(_enable_dropped_collision)
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ability_power_gloves"):
+func process_ability() -> void:
+	if Input.is_action_just_pressed("ability_power_gloves"):
 		if object_in_range and not held_object:
 			pick_up()
+			engange()
 		elif held_object:
 			throw()
-	elif event.is_action_pressed("ability_power_gloves_drop"):
+			disengage()
+	elif Input.is_action_just_pressed("ability_power_gloves_drop"):
 		if held_object:
 			drop()
+			disengage()
 
 func _process(_delta: float) -> void:
 	if held_object:
