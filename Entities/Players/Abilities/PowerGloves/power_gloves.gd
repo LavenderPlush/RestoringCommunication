@@ -4,6 +4,8 @@ extends Ability
 @export var throw_momentum: Vector2
 
 @export_category("Developers")
+@export var player: Player
+@export var shape_cast: ShapeCast3D
 @export var interaction_area: Area3D
 @export var holding_position: Marker3D
 @export var dropping_position: Marker3D
@@ -11,16 +13,17 @@ extends Ability
 @export var collision_timer: Timer
 
 var object_in_range: Node3D
-var held_object: RigidBody3D
+var held_object: Interactable
 var original_collider: CollisionShape3D
 var player_held_collider: CollisionShape3D
 var player_to_reset: PhysicsBody3D
-var box_to_reset: RigidBody3D
+var box_to_reset: Interactable
 
 func _ready() -> void:
 	interaction_area.body_entered.connect(_object_entered)
 	interaction_area.body_exited.connect(_object_exited)
 	collision_timer.timeout.connect(_enable_dropped_collision)
+	shape_cast.add_exception(player)
 
 func process_ability() -> void:
 	if Input.is_action_just_pressed("ability_power_gloves"):
@@ -33,16 +36,14 @@ func process_ability() -> void:
 	elif Input.is_action_just_pressed("ability_power_gloves_drop"):
 		if held_object:
 			drop()
-			disengage()
 
-func _process(_delta: float) -> void:
 	if held_object:
 		held_object.global_position = holding_position.global_position
 
 #Freezes the box, disables its collider and creates a new collider.
 func pick_up():
 	held_object = object_in_range
-	held_object.freeze = true
+	held_object.pick_up(true)
 	original_collider = held_object.get_node_or_null("CollisionShape3D")
 
 	if original_collider:
@@ -63,8 +64,6 @@ func throw():
 	player_held_collider.queue_free()
 	original_collider.disabled = false
 
-	var player = get_parent()
-
 	held_object.add_collision_exception_with(player)
 	held_object.freeze = false
 	held_object.apply_central_force(momentum)
@@ -82,17 +81,36 @@ func drop():
 	if movement.is_facing_left:
 		new_pos.z -= 2 * (dropping_position.global_position.z - get_parent().global_position.z)
 	
+	if check_box_collide(new_pos):
+		return
+	
 	player_held_collider.queue_free()
 	original_collider.disabled = false
+	
+	# Avoid colliding with player
+	held_object.add_collision_exception_with(player)
+	box_to_reset = held_object
+	collision_timer.start()
+	
 	held_object.global_position = new_pos
-	held_object.freeze = false
+	held_object.pick_up(false)
 	held_object = null
 	original_collider = null
 	player_held_collider = null
+	disengage()
+
+## Requires a global position
+func check_box_collide(target_position: Vector3):
+	var ray_target = target_position - player.global_position
+	shape_cast.global_position = player.global_position
+	shape_cast.shape = original_collider.shape
+	shape_cast.target_position = ray_target
+	shape_cast.force_shapecast_update()
+	return shape_cast.is_colliding()
 
 # Signals
 func _object_entered(object: Node3D):
-	if object.get_parent().is_in_group("Pickupable"):
+	if object is Interactable:
 		object_in_range = object
 
 func _object_exited(object: Node3D):
@@ -100,7 +118,5 @@ func _object_exited(object: Node3D):
 		object_in_range = null
 
 func _enable_dropped_collision():
-	box_to_reset.remove_collision_exception_with(player_to_reset)
-
-	player_to_reset = null
+	box_to_reset.remove_collision_exception_with(player)
 	box_to_reset = null
