@@ -1,0 +1,66 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhnhxmanovl57"]
+
+[ext_resource type="Script" uid="uid://brfxfwmekgcg8" path="res://Tools/PlayerConfig/Movement/movement_config.gd" id="1_ehfcy"]
+
+[node name="MovementConfig" type="Control" node_paths=PackedStringArray("label", "speed_control", "jump_control", "climb_control", "gravity")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ehfcy")
+label = NodePath("Options/Player")
+speed_control = NodePath("Options/Speed/LineEdit")
+jump_control = NodePath("Options/Jump/LineEdit")
+climb_control = NodePath("Options/Climb/LineEdit")
+gravity = NodePath("Options/Gravity/LineEdit")
+
+[node name="Options" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 317.0
+offset_bottom = 58.0
+
+[node name="Player" type="Label" parent="Options"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Speed" type="VBoxContainer" parent="Options"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="Options/Speed"]
+layout_mode = 2
+text = "Speed"
+
+[node name="LineEdit" type="LineEdit" parent="Options/Speed"]
+layout_mode = 2
+
+[node name="Jump" type="VBoxContainer" parent="Options"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="Options/Jump"]
+layout_mode = 2
+text = "Jump velocity"
+
+[node name="LineEdit" type="LineEdit" parent="Options/Jump"]
+layout_mode = 2
+
+[node name="Climb" type="VBoxContainer" parent="Options"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="Options/Climb"]
+layout_mode = 2
+text = "Climbing velocity"
+
+[node name="LineEdit" type="LineEdit" parent="Options/Climb"]
+layout_mode = 2
+
+[node name="Gravity" type="VBoxContainer" parent="Options"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="Options/Gravity"]
+layout_mode = 2
+text = "Gravity"
+
+[node name="LineEdit" type="LineEdit" parent="Options/Gravity"]
+layout_mode = 2

@@ -1,7 +1,8 @@
 extends Node
 class_name Movement
 
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var gravity: float: 
+	get(): return ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @export_category("Designers")
 @export var speed: float = 5

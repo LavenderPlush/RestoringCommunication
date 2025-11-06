@@ -1,4 +1,4 @@
-extends Ability
+class_name PowerGloves extends Ability
 
 @export_category("Designers")
 @export var throw_momentum: Vector2
