@@ -26,8 +26,10 @@ func pick_up(new_picked_up: bool) -> void:
 	is_picked_up = new_picked_up
 
 func _physics_process(delta: float) -> void:
-	if not (is_picked_up):
-		move_and_slide()
+	if is_picked_up:
+		return
+	
+	move_and_slide()
 
 	if is_thrown:
 		if is_on_wall():

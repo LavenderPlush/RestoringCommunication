@@ -21,11 +21,10 @@ func process_ability() -> void:
 			untransmute_soul()
 			disengage()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if transmuted_object and not (transmuted_object.is_picked_up or transmuted_object.is_thrown):
 		movement.process_movement()
 		movement.process_jump()
-		movement.process_gravity(delta)
 
 func transmute_soul():
 	transmuted_object = transmutable_object
@@ -35,7 +34,6 @@ func transmute_soul():
 func untransmute_soul():
 	transmuted_object.control(false)
 	transmuted_object = null
-	# movement.body = null
 
 # Signals
 func _object_entered(object: Node3D):
