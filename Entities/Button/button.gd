@@ -6,10 +6,8 @@ extends AnimatableBody3D
 @export_category("Designers")
 ##Time allowed between button presses.
 @export var activation_timeframe: float = 5
-
-#temp for mvp: spawn ladder at point
-@onready var ladder_scene: PackedScene = preload("res://Entities/Ladder/ladder.tscn")
-@export var ladder_spawn_point: Node3D
+##Drag extendable_ladder scene here.
+@export var extendable_ladder: Area3D
 
 var press_count: int = 0
 var original_position: Vector3
@@ -51,16 +49,10 @@ func _on_timer_timeout():
 	animate_button(original_position.y)
 
 func activate_button():
-	if ladder_spawn_point == null: return
+	if extendable_ladder == null: return
 
 	button_used = true
-
-	var ladder = ladder_scene.instantiate()
-
-	get_parent().add_child(ladder)
-
-	ladder.global_position = ladder_spawn_point.position
-	ladder.global_rotation = ladder_spawn_point.rotation
+	extendable_ladder.call_deferred("extend_ladder")
 
 func animate_button(target_y: float):
 	var tween = create_tween()
