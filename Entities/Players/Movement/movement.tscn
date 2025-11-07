@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://lys2dqu3ilr1" path="res://Entities/Players/Movement/movement.gd" id="1_6o0r4"]
 
-[node name="Movement" type="Node"]
+[node name="Movement" type="Node" node_paths=PackedStringArray("footstep_sound_timer")]
 script = ExtResource("1_6o0r4")
+footstep_sound_timer = NodePath("FootstepSoundTimer")
 
-[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="."]
-event_name = "event:/Jump"
-event_guid = "{b3850534-5bda-4b82-9601-51438fdad158}"
+[node name="FootstepSoundTimer" type="Timer" parent="."]
+wait_time = 0.3
