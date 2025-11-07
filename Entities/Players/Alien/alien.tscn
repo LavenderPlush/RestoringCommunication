@@ -28,9 +28,10 @@ shape = SubResource("CapsuleShape3D_qefdq")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_s1pbw")
 
-[node name="Movement" parent="." node_paths=PackedStringArray("body") instance=ExtResource("1_n6muv")]
+[node name="Movement" parent="." node_paths=PackedStringArray("body", "floor_rays") instance=ExtResource("1_n6muv")]
 control_prefix = "alien"
 body = NodePath("..")
+floor_rays = [NodePath("../FloorRays/LeftFloorRay"), NodePath("../FloorRays/MiddleFloorRay"), NodePath("../FloorRays/RightFloorRay")]
 
 [node name="TransmuteSoul" parent="." node_paths=PackedStringArray("interaction_area", "alien_body") instance=ExtResource("2_ksuwr")]
 interaction_area = NodePath("../Area3D")
@@ -40,3 +41,17 @@ alien_body = NodePath("..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_ksuwr")
+
+[node name="FloorRays" type="Node3D" parent="."]
+
+[node name="LeftFloorRay" type="RayCast3D" parent="FloorRays"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 0.3)
+target_position = Vector3(0, -0.3, 0)
+
+[node name="MiddleFloorRay" type="RayCast3D" parent="FloorRays"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0)
+target_position = Vector3(0, -0.15, 0)
+
+[node name="RightFloorRay" type="RayCast3D" parent="FloorRays"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, -0.3)
+target_position = Vector3(0, -0.3, 0)

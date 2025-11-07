@@ -28,9 +28,10 @@ mesh = SubResource("CapsuleMesh_xctmb")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_vbhk0")
 
-[node name="Movement" parent="." node_paths=PackedStringArray("body", "jump_emitter", "footstep_emitter", "land_emitter") instance=ExtResource("1_rmm0b")]
+[node name="Movement" parent="." node_paths=PackedStringArray("body", "floor_rays", "jump_emitter", "footstep_emitter", "land_emitter") instance=ExtResource("1_rmm0b")]
 control_prefix = "human"
 body = NodePath("..")
+floor_rays = [NodePath("../FloorRays/LeftFloorRay"), NodePath("../FloorRays/MiddleFloorRay"), NodePath("../FloorRays/RightFloorRay")]
 jump_emitter = NodePath("../Sound/Jump")
 footstep_emitter = NodePath("../Sound/Footstep")
 land_emitter = NodePath("../Sound/Land")
@@ -72,3 +73,17 @@ event_guid = "{3e03ccbb-9cb5-4225-b874-90666e4d2fe0}"
 [node name="Land" type="FmodEventEmitter3D" parent="Sound"]
 event_name = "event:/Human Land"
 event_guid = "{fb6b3249-edc1-4037-a211-c77009ea5d16}"
+
+[node name="FloorRays" type="Node3D" parent="."]
+
+[node name="LeftFloorRay" type="RayCast3D" parent="FloorRays"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 0.3)
+target_position = Vector3(0, -0.3, 0)
+
+[node name="MiddleFloorRay" type="RayCast3D" parent="FloorRays"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0)
+target_position = Vector3(0, -0.15, 0)
+
+[node name="RightFloorRay" type="RayCast3D" parent="FloorRays"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, -0.3)
+target_position = Vector3(0, -0.3, 0)

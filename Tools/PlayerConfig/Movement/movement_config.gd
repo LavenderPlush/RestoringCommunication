@@ -17,6 +17,9 @@ var alien_movement: Movement
 # Option 3
 @export var climb_control: LineEdit
 
+# Option 3
+@export var slide_control: LineEdit
+
 # Option 4
 @export var gravity: LineEdit
 
@@ -27,6 +30,7 @@ func _ready() -> void:
 	speed_control.text = str(human_movement.speed)
 	jump_control.text = str(human_movement.jump_velocity)
 	climb_control.text = str(human_movement.climb_speed)
+	slide_control.text = str(human_movement.slide_speed)
 	gravity.text = str(human_movement.gravity)
 
 func _process(_delta: float) -> void:
@@ -34,9 +38,11 @@ func _process(_delta: float) -> void:
 	human_movement.speed = float(speed_control.text)
 	human_movement.jump_velocity = float(jump_control.text)
 	human_movement.climb_speed = float(climb_control.text)
+	human_movement.slide_speed = float(slide_control.text)
 	# Alien
 	alien_movement.speed = float(speed_control.text)
 	alien_movement.jump_velocity = float(jump_control.text)
 	alien_movement.climb_speed = float(climb_control.text)
+	alien_movement.slide_speed = float(slide_control.text)
 	# Gravity
 	ProjectSettings.set_setting("physics/3d/default_gravity", float(gravity.text))

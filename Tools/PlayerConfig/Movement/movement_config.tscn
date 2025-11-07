@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://brfxfwmekgcg8" path="res://Tools/PlayerConfig/Movement/movement_config.gd" id="1_ehfcy"]
 
-[node name="MovementConfig" type="Control" node_paths=PackedStringArray("label", "speed_control", "jump_control", "climb_control", "gravity")]
+[node name="MovementConfig" type="Control" node_paths=PackedStringArray("label", "speed_control", "jump_control", "climb_control", "slide_control", "gravity")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_ehfcy")
@@ -10,6 +10,7 @@ label = NodePath("Options/Player")
 speed_control = NodePath("Options/Speed/LineEdit")
 jump_control = NodePath("Options/Jump/LineEdit")
 climb_control = NodePath("Options/Climb/LineEdit")
+slide_control = NodePath("Options/Slide/LineEdit")
 gravity = NodePath("Options/Gravity/LineEdit")
 
 [node name="Options" type="HBoxContainer" parent="."]
@@ -49,9 +50,20 @@ alignment = 2
 
 [node name="Label" type="Label" parent="Options/Climb"]
 layout_mode = 2
-text = "Climbing velocity"
+text = "Climbing speed"
 
 [node name="LineEdit" type="LineEdit" parent="Options/Climb"]
+layout_mode = 2
+
+[node name="Slide" type="VBoxContainer" parent="Options"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="Options/Slide"]
+layout_mode = 2
+text = "Slide speed"
+
+[node name="LineEdit" type="LineEdit" parent="Options/Slide"]
 layout_mode = 2
 
 [node name="Gravity" type="VBoxContainer" parent="Options"]
