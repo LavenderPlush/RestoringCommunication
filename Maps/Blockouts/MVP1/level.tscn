@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c6oklhpgf3nhd"]
+[gd_scene load_steps=12 format=3 uid="uid://c6oklhpgf3nhd"]
 
 [ext_resource type="Material" uid="uid://b30elpo3lu5rq" path="res://Materials/background_mat.tres" id="1_urqtd"]
 [ext_resource type="PackedScene" uid="uid://bd388rue7yafh" path="res://Entities/Players/Human/human.tscn" id="2_6s5ol"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://c161xbj0sh7v" path="res://Entities/Button/button.tscn" id="4_ylgno"]
 [ext_resource type="PackedScene" uid="uid://bh7w25o2ijqo6" path="res://Entities/Players/Alien/alien.tscn" id="5_vwio2"]
 [ext_resource type="PackedScene" uid="uid://b6p354rt6aa7i" path="res://Entities/Ladder/ladder.tscn" id="7_wlcil"]
+[ext_resource type="PackedScene" uid="uid://dhnhxmanovl57" path="res://Tools/PlayerConfig/Movement/movement_config.tscn" id="8_5g1l7"]
+[ext_resource type="PackedScene" uid="uid://dthh7uiror650" path="res://Tools/PlayerConfig/PowerGloves/power_gloves_config.tscn" id="9_byane"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fvchn"]
 albedo_color = Color(0.54056764, 0.64030707, 7.70092e-07, 1)
@@ -200,3 +202,27 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1, 5
 
 [node name="Ladder" parent="." instance=ExtResource("7_wlcil")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1, 24, 9.5)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="TabContainer" type="TabContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+current_tab = 0
+tab_focus_mode = 0
+
+[node name="MovementConfig" parent="CanvasLayer/VBoxContainer/TabContainer" node_paths=PackedStringArray("alien", "human") instance=ExtResource("8_5g1l7")]
+layout_mode = 2
+alien = NodePath("../../../../Alien")
+human = NodePath("../../../../Human")
+metadata/_tab_index = 0
+
+[node name="PowerGlovesConfig" parent="CanvasLayer/VBoxContainer/TabContainer" node_paths=PackedStringArray("human") instance=ExtResource("9_byane")]
+visible = false
+layout_mode = 2
+human = NodePath("../../../../Human")
+metadata/_tab_index = 1

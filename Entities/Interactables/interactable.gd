@@ -1,6 +1,7 @@
 class_name Interactable extends CharacterBody3D
 
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var gravity: float: 
+	get(): return ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var is_picked_up: bool = false
 var is_thrown: bool = false

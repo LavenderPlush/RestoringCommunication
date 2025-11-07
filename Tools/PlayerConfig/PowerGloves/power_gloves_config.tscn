@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://dthh7uiror650"]
+
+[ext_resource type="Script" uid="uid://cq06e8k2ncjdj" path="res://Tools/PlayerConfig/PowerGloves/power_gloves_config.gd" id="1_impbj"]
+
+[node name="PowerGlovesConfig" type="Control" node_paths=PackedStringArray("throw_x", "throw_y")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_impbj")
+throw_x = NodePath("Options/Speed/LineEdit")
+throw_y = NodePath("Options/Speed/LineEdit2")
+
+[node name="Options" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 206.0
+offset_bottom = 176.0
+
+[node name="Ability" type="Label" parent="Options"]
+layout_mode = 2
+text = "Power Glove"
+horizontal_alignment = 1
+
+[node name="Speed" type="HBoxContainer" parent="Options"]
+layout_mode = 2
+alignment = 2
+
+[node name="Throw X and Y" type="Label" parent="Options/Speed"]
+layout_mode = 2
+text = "Throw speed x / y"
+
+[node name="LineEdit" type="LineEdit" parent="Options/Speed"]
+layout_mode = 2
+
+[node name="LineEdit2" type="LineEdit" parent="Options/Speed"]
+layout_mode = 2
