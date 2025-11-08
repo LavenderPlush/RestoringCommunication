@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://c6oklhpgf3nhd"]
+[gd_scene load_steps=13 format=3 uid="uid://c6oklhpgf3nhd"]
 
+[ext_resource type="Script" uid="uid://clheyshb47air" path="res://Entities/Camera/camera_controller.gd" id="1_byane"]
 [ext_resource type="Material" uid="uid://b30elpo3lu5rq" path="res://Materials/background_mat.tres" id="1_urqtd"]
 [ext_resource type="PackedScene" uid="uid://bd388rue7yafh" path="res://Entities/Players/Human/human.tscn" id="2_6s5ol"]
 [ext_resource type="PackedScene" uid="uid://b8hxsnh6e1jfh" path="res://Entities/Ladder/extendable_ladder.tscn" id="3_1xxi2"]
@@ -20,6 +21,7 @@ albedo_color = Color(0.54056764, 0.64030707, 7.70092e-07, 1)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0.25881907, -0.9659258, 0, 0.9659259, 0.25881907, 1, 1.1313341e-08, -4.222196e-08, -20, 25, 1)
+script = ExtResource("1_byane")
 
 [node name="Human" parent="." instance=ExtResource("2_6s5ol")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -11)
