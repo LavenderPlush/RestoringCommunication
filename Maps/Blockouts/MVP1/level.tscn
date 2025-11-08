@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c6oklhpgf3nhd"]
+[gd_scene load_steps=14 format=3 uid="uid://c6oklhpgf3nhd"]
 
 [ext_resource type="Script" uid="uid://clheyshb47air" path="res://Entities/Camera/camera_controller.gd" id="1_byane"]
 [ext_resource type="Material" uid="uid://b30elpo3lu5rq" path="res://Materials/background_mat.tres" id="1_urqtd"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b6p354rt6aa7i" path="res://Entities/Ladder/ladder.tscn" id="7_wlcil"]
 [ext_resource type="PackedScene" uid="uid://dhnhxmanovl57" path="res://Tools/PlayerConfig/Movement/movement_config.tscn" id="8_5g1l7"]
 [ext_resource type="PackedScene" uid="uid://dthh7uiror650" path="res://Tools/PlayerConfig/PowerGloves/power_gloves_config.tscn" id="9_byane"]
+[ext_resource type="PackedScene" uid="uid://c0glvy4nmgyh5" path="res://Tools/CameraConfig/camera_config.tscn" id="11_78qo5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fvchn"]
 albedo_color = Color(0.54056764, 0.64030707, 7.70092e-07, 1)
@@ -230,3 +231,9 @@ visible = false
 layout_mode = 2
 human = NodePath("../../../../Human")
 metadata/_tab_index = 1
+
+[node name="CameraConfig" parent="CanvasLayer/VBoxContainer/TabContainer" node_paths=PackedStringArray("camera") instance=ExtResource("11_78qo5")]
+visible = false
+layout_mode = 2
+camera = NodePath("../../../../Camera3D")
+metadata/_tab_index = 2
