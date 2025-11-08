@@ -37,7 +37,7 @@ footstep_emitter = NodePath("../Sound/Footstep")
 land_emitter = NodePath("../Sound/Land")
 
 [node name="PowerGloves" parent="." node_paths=PackedStringArray("player", "interaction_area", "holding_position", "dropping_position", "movement", "collision_timer") instance=ExtResource("2_rj3cs")]
-throw_momentum = Vector2(5, 5)
+throw_momentum = Vector2(16, 5)
 player = NodePath("..")
 interaction_area = NodePath("../Area3D")
 holding_position = NodePath("../HoldingPosition")
