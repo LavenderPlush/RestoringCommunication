@@ -19,23 +19,23 @@ extends Camera3D
 @export var vertical_offset: float = 4.0
 
 func _process(delta: float) -> void:
-    var p1_pos: Vector3 = player1.global_position
-    var p2_pos: Vector3 = player2.global_position
-    var midpoint: Vector3 = (p1_pos + p2_pos) / 2.0
-    var distance: float = abs(p1_pos.z - p2_pos.z)
-    var target_fov: float
+	var p1_pos: Vector3 = player1.get_target_position()
+	var p2_pos: Vector3 = player2.get_target_position()
+	var midpoint: Vector3 = (p1_pos + p2_pos) / 2.0
+	var distance: float = abs(p1_pos.z - p2_pos.z)
+	var target_fov: float
 
-    if distance > distance_treshold:
-        target_fov = wide_fov
-    else:
-        target_fov = small_fov
-    
-    self.fov = lerp(self.fov, target_fov, delta * transition_speed)
+	if distance > distance_treshold:
+		target_fov = wide_fov
+	else:
+		target_fov = small_fov
+	
+	self.fov = lerp(self.fov, target_fov, delta * transition_speed)
 
-    var new_pos: Vector3 = self.global_position
-    var target_y = midpoint.y + vertical_offset
+	var new_pos: Vector3 = self.global_position
+	var target_y = midpoint.y + vertical_offset
 
-    new_pos.y = lerp(new_pos.y, target_y, delta * follow_speed)
-    new_pos.z = lerp(new_pos.z, midpoint.z, delta * follow_speed)
+	new_pos.y = lerp(new_pos.y, target_y, delta * follow_speed)
+	new_pos.z = lerp(new_pos.z, midpoint.z, delta * follow_speed)
 
-    self.global_position = new_pos
+	self.global_position = new_pos

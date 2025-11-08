@@ -10,3 +10,6 @@ func _physics_process(delta: float) -> void:
 		movement.process_gravity(delta)
 		ability.process_ability()
 	move_and_slide()
+
+func get_target_position() -> Vector3:
+	return self.global_position

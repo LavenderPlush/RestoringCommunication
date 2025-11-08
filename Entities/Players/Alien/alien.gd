@@ -11,3 +11,9 @@ func _physics_process(delta: float) -> void:
 		movement.process_gravity(delta)
 		ability.process_ability()
 	move_and_slide()
+
+func get_target_position() -> Vector3:
+	if is_instance_valid(ability.transmuted_object):
+		return ability.transmuted_object.global_position
+	else:
+		return self.global_position
