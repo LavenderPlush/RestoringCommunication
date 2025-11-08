@@ -125,6 +125,17 @@ func _handle_land_on_player(other_player: Player):
 	var slide_direction = body.global_position - other_player.global_position
 	body.velocity.z += slide_direction.normalized().z * slide_speed
 
+# Setters
+func set_body(_body: CharacterBody3D) -> void:
+	body = _body
+
+## Parameter has to be un-typed due to constraints of Godot
+## _floor_rays: Array[RayCast3D]
+func set_floor_rays(_floor_rays) -> void:
+	floor_rays = []
+	for ray in _floor_rays:
+		floor_rays.append(ray as RayCast3D)
+
 # Signals
 func _on_footstep_timer():
 	if not is_walking or not on_floor():

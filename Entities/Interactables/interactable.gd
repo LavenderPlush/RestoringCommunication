@@ -1,5 +1,7 @@
 class_name Interactable extends CharacterBody3D
 
+@export var floor_rays: Node3D
+
 var gravity: float: 
 	get(): return ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -12,9 +14,14 @@ var horizontal_velocity: float
 var initial_vertical_velocity: float
 var air_time: float
 
+func _ready() -> void:
+	for ray in floor_rays.get_children():
+		ray.add_exception(self)
 
 func control(new_controlled: bool) -> void:
 	is_controlled = new_controlled
+	for ray in floor_rays.get_children():
+		ray.enabled = new_controlled
 
 func throw(initial_velocity: Vector3) -> void:
 	is_thrown = true
@@ -25,6 +32,9 @@ func throw(initial_velocity: Vector3) -> void:
 
 func pick_up(new_picked_up: bool) -> void:
 	is_picked_up = new_picked_up
+
+func get_floor_rays():
+	return floor_rays.get_children()
 
 func _physics_process(delta: float) -> void:
 	if is_picked_up:
