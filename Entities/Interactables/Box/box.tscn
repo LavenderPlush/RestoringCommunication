@@ -12,11 +12,29 @@ albedo_color = Color(0.35, 0.09333333, 0, 1)
 material = SubResource("StandardMaterial3D_mgwb1")
 size = Vector3(2, 2, 2)
 
-[node name="Box" type="CharacterBody3D" groups=["Pickupable"]]
+[node name="Box" type="CharacterBody3D" node_paths=PackedStringArray("floor_rays") groups=["Pickupable"]]
 script = ExtResource("1_6eev6")
+floor_rays = NodePath("FloorRays")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_oovab")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_k5cr6")
+
+[node name="FloorRays" type="Node3D" parent="."]
+
+[node name="LeftFloorRay" type="RayCast3D" parent="FloorRays"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 1)
+enabled = false
+target_position = Vector3(0, -0.15, 0)
+
+[node name="MiddleFloorRay" type="RayCast3D" parent="FloorRays"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0)
+enabled = false
+target_position = Vector3(0, -0.15, 0)
+
+[node name="RightFloorRay" type="RayCast3D" parent="FloorRays"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, -1)
+enabled = false
+target_position = Vector3(0, -0.15, 0)

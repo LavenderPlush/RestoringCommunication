@@ -13,7 +13,7 @@ albedo_color = Color(0.10080001, 0.56, 0.4222399, 1)
 material = SubResource("StandardMaterial3D_gjav3")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ksuwr"]
-size = Vector3(1, 2, 2)
+size = Vector3(1, 0.59869385, 1.6721191)
 
 [node name="Alien" type="CharacterBody3D" node_paths=PackedStringArray("movement", "ability") groups=["Player"]]
 axis_lock_linear_x = true
@@ -40,6 +40,7 @@ alien_body = NodePath("..")
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.047454834, -0.002319336)
 shape = SubResource("BoxShape3D_ksuwr")
 
 [node name="FloorRays" type="Node3D" parent="."]

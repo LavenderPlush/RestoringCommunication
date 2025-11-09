@@ -28,7 +28,8 @@ func _physics_process(_delta: float) -> void:
 
 func transmute_soul():
 	transmuted_object = transmutable_object
-	movement.body = transmutable_object
+	movement.set_body(transmutable_object)
+	movement.set_floor_rays(transmutable_object.get_floor_rays())
 	transmuted_object.control(true)
 
 func untransmute_soul():
