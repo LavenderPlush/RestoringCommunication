@@ -49,7 +49,7 @@ func process_climb(can_climb: bool):
 	elif is_climbing and just_pressed_jump:
 		is_climbing = false
 
-		_play_sound(jump_emitter)
+		Common.play_sound(jump_emitter)
 		
 		body.velocity.y = jump_velocity
 
@@ -82,7 +82,7 @@ func process_gravity(delta: float):
 func process_jump():
 	if (Input.is_action_just_pressed("%s_jump" % control_prefix)
 		and on_floor()):
-			_play_sound(jump_emitter)
+			Common.play_sound(jump_emitter)
 			body.velocity.y = jump_velocity
 
 func process_movement():
@@ -106,22 +106,18 @@ func process_movement():
 
 func _handle_walk_sound():
 	if not is_walking and on_floor():
-		_play_sound(footstep_emitter)
+		Common.play_sound(footstep_emitter)
 		is_walking = true
 		footstep_sound_timer.start()
 
 func _handle_landing_sound():
-	if not land_emitter:
+	if not land_emitter or _fall_velocity < 9.0:
 		return
 
 	# Magic number used for POC
-	var normalized_velocity = clampf(_fall_velocity / 10.0, 0.0, 1.0)
+	var normalized_velocity = clampf(_fall_velocity / 20.0, 0.0, 1.0)
 	land_emitter.set_volume(normalized_velocity) 
-	_play_sound(land_emitter)
-
-func _play_sound(emitter: FmodEventEmitter3D):
-	if emitter:
-		emitter.play()
+	Common.play_sound(land_emitter)
 
 func _set_facing_direction(direction: Vector3) -> void:
 	is_facing_left = true if direction.z < 0 else false
@@ -158,6 +154,6 @@ func set_floor_rays(_floor_rays) -> void:
 func _on_footstep_timer():
 	if not is_walking or not on_floor():
 		return
-	_play_sound(footstep_emitter)
+	Common.play_sound(footstep_emitter)
 	footstep_sound_timer.start()
 	

@@ -3,7 +3,11 @@ class_name Interactable extends CharacterBody3D
 @export_category("Designers")
 @export var collision_push_off_velocity: float = 1.0
 
+@export_category("Developers")
 @export var floor_rays: Node3D
+
+@export_category("Sound")
+@export var landing_sound: FmodEventEmitter3D
 
 var gravity: float: 
 	get(): return ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -51,6 +55,7 @@ func _physics_process(delta: float) -> void:
 			horizontal_velocity = 0
 		
 		if is_on_floor():
+			Common.play_sound(landing_sound)
 			is_thrown = false
 		else:
 			# Physics taken from: https://www.sciencefacts.net/projectile-motion.html
