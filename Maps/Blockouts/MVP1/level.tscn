@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c6oklhpgf3nhd"]
+[gd_scene load_steps=13 format=3 uid="uid://c6oklhpgf3nhd"]
 
 [ext_resource type="Script" uid="uid://clheyshb47air" path="res://Entities/Camera/camera_controller.gd" id="1_byane"]
 [ext_resource type="Material" uid="uid://b30elpo3lu5rq" path="res://Materials/background_mat.tres" id="1_urqtd"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cut37mic2ba8v" path="res://Entities/Interactables/Box/box.tscn" id="4_vwio2"]
 [ext_resource type="PackedScene" uid="uid://c161xbj0sh7v" path="res://Entities/Button/button.tscn" id="4_ylgno"]
 [ext_resource type="PackedScene" uid="uid://bh7w25o2ijqo6" path="res://Entities/Players/Alien/alien.tscn" id="5_vwio2"]
-[ext_resource type="PackedScene" uid="uid://b6p354rt6aa7i" path="res://Entities/Ladder/ladder.tscn" id="7_wlcil"]
 [ext_resource type="PackedScene" uid="uid://dhnhxmanovl57" path="res://Tools/PlayerConfig/Movement/movement_config.tscn" id="8_5g1l7"]
 [ext_resource type="PackedScene" uid="uid://dthh7uiror650" path="res://Tools/PlayerConfig/PowerGloves/power_gloves_config.tscn" id="9_byane"]
 [ext_resource type="PackedScene" uid="uid://c0glvy4nmgyh5" path="res://Tools/CameraConfig/camera_config.tscn" id="11_78qo5"]
@@ -27,10 +26,10 @@ player1 = NodePath("../Human")
 player2 = NodePath("../Alien")
 
 [node name="Human" parent="." instance=ExtResource("2_6s5ol")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2929125, -10.023271)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2176762, -10.872026)
 
 [node name="Alien" parent="." instance=ExtResource("5_vwio2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3542614, -2.8656967)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3938649, -9.3601055)
 
 [node name="Borders" type="Node3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, -3, 0, 1, 0, 1, 0, -1.3113416e-07, 0, 0, 0)
@@ -130,9 +129,9 @@ use_collision = true
 size = Vector3(8, 2, 1)
 
 [node name="Platform15" type="CSGBox3D" parent="Platforms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 28.5, 1.4210855e-14)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.77124, 28.5, 2.1316282e-14)
 use_collision = true
-size = Vector3(6, 1, 1)
+size = Vector3(5.5424805, 1, 1)
 
 [node name="Platform16" type="CSGBox3D" parent="Platforms"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.294861, 28.5, 0)
@@ -184,19 +183,19 @@ size = Vector3(24, 32, 1)
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 
 [node name="Box" parent="Boxes" instance=ExtResource("4_vwio2")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.8585427, 2.3590965, 3.7528093e-08)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.087198, 4.56271, 3.0979126e-07)
 
 [node name="Box2" parent="Boxes" instance=ExtResource("4_vwio2")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.51549, 2.254114, -1.9737834e-07)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.0999236, 2.504706, 3.1034753e-07)
 
 [node name="Box3" parent="Boxes" instance=ExtResource("4_vwio2")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.20164251, 15.1859455, 8.814074e-09)
 
 [node name="Box4" parent="Boxes" instance=ExtResource("4_vwio2")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.251811, 30.123213, -2.2956395e-07)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.2116976, 30.257084, -2.2781053e-07)
 
 [node name="Box5" parent="Boxes" instance=ExtResource("4_vwio2")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.78163, 34.1028, 4.7128e-07)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.767114, 34.1127, 4.706455e-07)
 
 [node name="Exit" type="Node3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
@@ -238,13 +237,11 @@ bank_paths = ["res://Assets/FMODBank/Desktop/Master.bank"]
 [node name="ExtendableLadder1" parent="." instance=ExtResource("3_1xxi2")]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 1, 5.5, 1)
 
-[node name="ExtendableLadder2" parent="." instance=ExtResource("7_wlcil")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1, 24, 9.331626)
-is_extendable = true
+[node name="ExtendableLadder2" parent="." instance=ExtResource("3_1xxi2")]
+transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, 0.99999976, 27.951836, 9.30291)
 
-[node name="ExtendableLadder3" parent="." instance=ExtResource("7_wlcil")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1, 33, -6.763623)
-is_extendable = true
+[node name="ExtendableLadder3" parent="." instance=ExtResource("3_1xxi2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1, 37.325745, -6.765045)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
