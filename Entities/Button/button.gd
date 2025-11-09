@@ -26,7 +26,7 @@ func _ready() -> void:
 func _on_body_entered(body):
 	if button_used == true: return
 
-	if not body.is_in_group("Player"): return
+	if not (body.is_in_group("Player") or body is Interactable): return
 
 	if press_count >= 2: return
 	
