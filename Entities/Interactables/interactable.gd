@@ -1,5 +1,8 @@
 class_name Interactable extends CharacterBody3D
 
+@export_category("Designers")
+@export var collision_push_off_velocity: float = 1.0
+
 @export var floor_rays: Node3D
 
 var gravity: float: 
@@ -39,8 +42,9 @@ func get_floor_rays():
 func _physics_process(delta: float) -> void:
 	if is_picked_up:
 		return
-	
+
 	move_and_slide()
+	_handle_collisions()
 
 	if is_thrown:
 		if is_on_wall():
@@ -56,3 +60,12 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.z = 0
 		velocity.y -= gravity * delta
+
+func _handle_collisions():
+	var count = get_slide_collision_count()
+	for i in range(count):
+		var col = get_slide_collision(i)
+		var collider = col.get_collider()
+		if collider is Interactable:
+			if collider.is_controlled:
+				velocity.y += collision_push_off_velocity
