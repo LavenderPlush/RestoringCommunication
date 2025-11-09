@@ -38,16 +38,15 @@ func process_climb(can_climb: bool):
 		"%s_move_backward" % control_prefix, 
 		"%s_move_forward" % control_prefix
 	)
-	
 	var climb_input_horizontal = Input.get_axis(
 		"%s_move_left" % control_prefix, 
 		"%s_move_right" % control_prefix
 	)
+	var just_pressed_jump = Input.is_action_just_pressed("%s_jump" % control_prefix)
 
-	if !is_climbing and climb_input_vertical != 0 and can_climb:
+	if !is_climbing and just_pressed_jump and can_climb:
 		is_climbing = true
-
-	if is_climbing and Input.is_action_just_pressed("%s_jump" % control_prefix):
+	elif is_climbing and just_pressed_jump:
 		is_climbing = false
 
 		_play_sound(jump_emitter)
@@ -68,7 +67,7 @@ func process_climb(can_climb: bool):
 		else:
 			body.velocity.z = move_toward(body.velocity.z, 0, speed)
 	
-	if !can_climb or on_floor():
+	if !can_climb or (on_floor() and not Input.is_action_just_pressed("%s_jump" % control_prefix)):
 		is_climbing = false
 
 func process_gravity(delta: float):
