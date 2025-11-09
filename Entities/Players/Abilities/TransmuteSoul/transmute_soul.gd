@@ -17,10 +17,12 @@ func process_ability() -> void:
 		if transmutable_object and not transmuted_object:
 			transmute_soul()
 			engange()
-		elif transmuted_object:
+
+	if Input.is_action_just_pressed("ability_untransmute_soul"):
+		if transmuted_object:
 			untransmute_soul()
 			disengage()
-
+			
 func _physics_process(_delta: float) -> void:
 	if transmuted_object and not (transmuted_object.is_picked_up or transmuted_object.is_thrown):
 		movement.process_movement()

@@ -110,4 +110,4 @@ bank_paths = ["res://Assets/FMODBank/Desktop/Master.bank"]
 [node name="FmodListener3D" type="FmodListener3D" parent="."]
 
 [node name="NewLadder" parent="." instance=ExtResource("6_hly84")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 4.5, -7)
+transform = Transform3D(1.1920929e-07, 0, -1, 0, 1, 0, 1, 0, 1.1920929e-07, 0, 4.5, -7)
