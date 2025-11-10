@@ -1,6 +1,6 @@
-extends AnimatableBody3D
+extends ButtonBase
+class_name LadderButton
 
-@onready var activation_area: Area3D = $ActivationArea
 @onready var timer: Timer = $Timer
 
 @export_category("Designers")
@@ -10,23 +10,20 @@ extends AnimatableBody3D
 @export var extendable_ladder: Area3D
 
 var press_count: int = 0
-var original_position: Vector3
 var press_offset: float = -0.05
-var animation_duration: float = 0.2
 var button_used: bool = false
 
 func _ready() -> void:
-	timer.wait_time = activation_timeframe
-	timer.one_shot = true;
-	original_position = self.position
+	super._ready()
 
-	activation_area.body_entered.connect(_on_body_entered)
+	timer.wait_time = activation_timeframe
+	timer.one_shot = true
+
+	player_entered.connect(_on_player_entered)
 	timer.timeout.connect(_on_timer_timeout)
 
-func _on_body_entered(body):
+func _on_player_entered(_body: Node3D):
 	if button_used == true: return
-
-	if not (body.is_in_group("Player") or body is Interactable): return
 
 	if press_count >= 2: return
 	
@@ -53,8 +50,3 @@ func activate_button():
 
 	button_used = true
 	extendable_ladder.call_deferred("extend_ladder")
-
-func animate_button(target_y: float):
-	var tween = create_tween()
-
-	tween.tween_property(self, "position:y", target_y, animation_duration)

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bd388rue7yafh" path="res://Entities/Players/Human/human.tscn" id="2_6s5ol"]
 [ext_resource type="PackedScene" uid="uid://b8hxsnh6e1jfh" path="res://Entities/Ladder/extendable_ladder.tscn" id="3_1xxi2"]
 [ext_resource type="PackedScene" uid="uid://cut37mic2ba8v" path="res://Entities/Interactables/Box/box.tscn" id="4_vwio2"]
-[ext_resource type="PackedScene" uid="uid://c161xbj0sh7v" path="res://Entities/Button/button.tscn" id="4_ylgno"]
+[ext_resource type="PackedScene" uid="uid://c161xbj0sh7v" path="res://Entities/Button/ladder_button.tscn" id="4_ylgno"]
 [ext_resource type="PackedScene" uid="uid://bh7w25o2ijqo6" path="res://Entities/Players/Alien/alien.tscn" id="5_vwio2"]
 [ext_resource type="PackedScene" uid="uid://dhnhxmanovl57" path="res://Tools/PlayerConfig/Movement/movement_config.tscn" id="8_5g1l7"]
 [ext_resource type="PackedScene" uid="uid://dthh7uiror650" path="res://Tools/PlayerConfig/PowerGloves/power_gloves_config.tscn" id="9_byane"]
