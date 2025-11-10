@@ -12,6 +12,9 @@ class_name PowerGloves extends Ability
 @export var movement: Movement
 @export var collision_timer: Timer
 
+@export_category("Sound")
+@export var engage_emitter: FmodEventEmitter3D
+
 var object_in_range: Node3D
 var held_object: Interactable
 var original_collider: CollisionShape3D
@@ -30,6 +33,7 @@ func process_ability() -> void:
 		if object_in_range and not held_object:
 			pick_up()
 			engange()
+			Common.play_sound(engage_emitter)
 		elif held_object:
 			throw()
 			disengage()

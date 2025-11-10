@@ -3,9 +3,19 @@
 [ext_resource type="Script" uid="uid://bbp4nr6d5vc8n" path="res://Entities/Players/Abilities/TransmuteSoul/transmute_soul.gd" id="1_raxrg"]
 [ext_resource type="PackedScene" uid="uid://bkkcqtuj5t1cq" path="res://Entities/Players/Movement/movement.tscn" id="2_gi7m8"]
 
-[node name="TransmuteSoul" type="Node" node_paths=PackedStringArray("movement")]
+[node name="TransmuteSoul" type="Node" node_paths=PackedStringArray("movement", "engage_emitter", "disengage_emitter")]
 script = ExtResource("1_raxrg")
 movement = NodePath("Movement")
+engage_emitter = NodePath("EngageEmitter")
+disengage_emitter = NodePath("DisengageEmitter")
 
 [node name="Movement" parent="." instance=ExtResource("2_gi7m8")]
 control_prefix = "alien"
+
+[node name="EngageEmitter" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/Transmute"
+event_guid = "{69bd5e65-5f04-4cfc-870f-3d7add620e98}"
+
+[node name="DisengageEmitter" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/Untransmute"
+event_guid = "{bcb4ba37-93eb-49a4-9f64-79a2fae48d0e}"

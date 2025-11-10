@@ -104,10 +104,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 3.9522152)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5635568, -8.601)
 extendable_ladder = NodePath("../NewLadder")
 
-[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
-bank_paths = ["res://Assets/FMODBank/Desktop/Master.bank"]
-
-[node name="FmodListener3D" type="FmodListener3D" parent="."]
-
 [node name="NewLadder" parent="." instance=ExtResource("6_hly84")]
 transform = Transform3D(1.1920929e-07, 0, -1, 0, 1, 0, 1, 0, 1.1920929e-07, 0, 4.5, -7)

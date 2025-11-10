@@ -5,6 +5,10 @@ extends Ability
 @export var movement: Movement
 @export var alien_body: CharacterBody3D
 
+@export_category("Sound")
+@export var engage_emitter: FmodEventEmitter3D
+@export var disengage_emitter: FmodEventEmitter3D
+
 var transmutable_object: Interactable
 var transmuted_object: Interactable
 
@@ -33,10 +37,12 @@ func transmute_soul():
 	movement.set_body(transmutable_object)
 	movement.set_floor_rays(transmutable_object.get_floor_rays())
 	transmuted_object.control(true)
+	Common.play_sound(engage_emitter)
 
 func untransmute_soul():
 	transmuted_object.control(false)
 	transmuted_object = null
+	Common.play_sound(disengage_emitter)
 
 # Signals
 func _object_entered(object: Node3D):
