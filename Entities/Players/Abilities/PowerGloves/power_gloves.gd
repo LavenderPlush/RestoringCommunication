@@ -107,6 +107,8 @@ func drop():
 func check_box_collide(target_position: Vector3):
 	var ray_target = target_position - player.global_position
 	shape_cast.global_position = player.global_position
+	# Avoid collision with floor
+	shape_cast.global_position.y += 0.2
 	shape_cast.shape = original_collider.shape
 	shape_cast.target_position = ray_target
 	shape_cast.force_shapecast_update()
