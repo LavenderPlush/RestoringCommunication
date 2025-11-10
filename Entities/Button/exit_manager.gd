@@ -3,36 +3,40 @@ extends Node
 @export var button_a: ExitButton
 @export var button_b: ExitButton
 @export var door: Node3D
+@export var required_hold_time: float = 0.1
 
 var button_a_player: Node = null
 var button_b_player: Node = null
 var door_opened: bool = false
+var hold_timer: float = 0.0
 
 func _ready() -> void:
-    button_a.engaged.connect(_on_button_a_engaged)
-    button_b.engaged.connect(_on_button_b_engaged)
-    button_a.disengaged.connect(_on_button_a_disengaged)
-    button_a.disengaged.connect(_on_button_b_disengaged)
+    set_process(true)
 
-func check_activation():
+func _process(delta: float) -> void:
     if door_opened: return
 
-    if button_a_player != null && button_b_player != null:
-        if button_a_player != button_b_player:
-            # door_opened = true
-            print("door opened")
+    var a_held = button_a.is_engaged
+    var b_held = button_b.is_engaged
+    var is_valid_state = false
 
-func _on_button_a_engaged(player_body: Node3D):
-    button_a_player = player_body
-    
-    check_activation()
+    if a_held && b_held:
+        var player_a = button_a.current_player_body
+        var player_b = button_b.current_player_body
 
-func _on_button_a_disengaged():
-    button_a_player = null
+        if player_a != null and player_b != null and player_a != player_b:
+            is_valid_state = true
 
-func _on_button_b_engaged(player_body: Node3D):
-    button_b_player = player_body
-    check_activation()
+    if is_valid_state:
+        hold_timer += delta
 
-func _on_button_b_disengaged():
-    button_b_player = null
+        if hold_timer >= required_hold_time:
+            door_opened = true
+
+            button_a.lock_engaged()
+            button_b.lock_engaged()
+
+            print("open door")
+            set_process(false)
+    else:
+        hold_timer = 0.0

@@ -4,8 +4,8 @@ class_name ExitButton
 signal engaged(player_body: Node3D)
 signal disengaged
 
-@export var engaged_color: Color = Color.GREEN
-@export var disengaged_color: Color = Color.RED
+var engaged_color: Color = Color.GREEN
+var disengaged_color: Color = Color.RED
 
 @onready var mesh: MeshInstance3D = $MeshInstance3D
 
@@ -14,6 +14,7 @@ var current_player_body: Node3D = null
 var press_offset: float = -0.05
 var is_in_area: bool = false
 var is_engaged: bool = false
+var is_locked: bool = false
 
 func _ready() -> void:
 	super._ready()
@@ -35,6 +36,8 @@ func _ready() -> void:
 	set_process(true)
 
 func _process(_delta):
+	if is_locked: return
+
 	if not is_in_area: return
 
 	var player_action = current_player_body.get("interact_action")
@@ -43,6 +46,8 @@ func _process(_delta):
 	update_state(is_input_held)
 
 func update_state(should_be_engaged: bool):
+	if is_locked: return
+
 	if should_be_engaged and not is_engaged:
 		is_engaged = true
 
@@ -60,12 +65,24 @@ func update_state(should_be_engaged: bool):
 		
 		material_instance.albedo_color = disengaged_color
 
+func lock_engaged():
+	is_locked = true
+	is_engaged = true
+
+	animate_button(original_position.y + press_offset)
+
+	material_instance.albedo_color = engaged_color
+
 func _on_player_entered(body: Node3D):
+	if is_locked: return
+
 	if current_player_body == null:
 		current_player_body = body
 		is_in_area = true
 
 func _on_player_exited(body: Node3D):
+	if is_locked: return
+
 	if body == current_player_body:
 		current_player_body = null
 		is_in_area = false
