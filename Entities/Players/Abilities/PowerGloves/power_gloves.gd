@@ -30,7 +30,7 @@ func _ready() -> void:
 
 func process_ability() -> void:
 	if Input.is_action_just_pressed("ability_power_gloves"):
-		if object_in_range and not held_object:
+		if object_in_range and not held_object and movement.on_floor():
 			pick_up()
 			engange()
 			Common.play_sound(engage_emitter)
