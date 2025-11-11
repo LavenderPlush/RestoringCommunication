@@ -4,14 +4,12 @@ class_name ExitButton
 signal engaged(player_body: Node3D)
 signal disengaged
 
-var engaged_color: Color = Color.GREEN
-var disengaged_color: Color = Color.RED
-
 @onready var mesh: MeshInstance3D = $MeshInstance3D
 
+var engaged_color: Color = Color.GREEN
+var disengaged_color: Color = Color.RED
 var material_instance: StandardMaterial3D
 var current_player_body: Node3D = null
-var press_offset: float = -0.05
 var is_in_area: bool = false
 var is_engaged: bool = false
 var is_locked: bool = false
@@ -53,23 +51,17 @@ func update_state(should_be_engaged: bool):
 
 		engaged.emit(current_player_body)
 
-		animate_button(original_position.y + press_offset)
-
 		material_instance.albedo_color = engaged_color
 	elif not should_be_engaged and is_engaged:
 		is_engaged = false
 
 		disengaged.emit()
-
-		animate_button(original_position.y)
 		
 		material_instance.albedo_color = disengaged_color
 
 func lock_engaged():
 	is_locked = true
 	is_engaged = true
-
-	animate_button(original_position.y + press_offset)
 
 	material_instance.albedo_color = engaged_color
 

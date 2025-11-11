@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://c3ocixu65cif1"]
 
-[ext_resource type="Script" uid="uid://cc7d0bu1ftrru" path="res://Entities/Button/exit_button.gd" id="1_sdk8m"]
+[ext_resource type="Script" uid="uid://cc7d0bu1ftrru" path="res://Entities/Button/ExitButton/exit_button.gd" id="1_sdk8m"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3fn0b"]
 albedo_color = Color(1, 0, 0, 1)
@@ -19,6 +19,7 @@ height = 2.0289993
 radius = 0.83984375
 
 [node name="ExitButton" type="AnimatableBody3D"]
+transform = Transform3D(-3.059797e-08, -0.7, 0, 0.7, -3.059797e-08, 0, 0, 0, 0.7, 0, 0, 0)
 sync_to_physics = false
 script = ExtResource("1_sdk8m")
 

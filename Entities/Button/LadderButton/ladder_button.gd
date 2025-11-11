@@ -1,5 +1,4 @@
 extends ButtonBase
-class_name LadderButton
 
 @onready var timer: Timer = $Timer
 

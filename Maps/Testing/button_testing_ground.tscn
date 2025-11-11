@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dgqnrmucgmtb1"]
 
-[ext_resource type="PackedScene" uid="uid://c161xbj0sh7v" path="res://Entities/Button/ladder_button.tscn" id="1_ayiaq"]
+[ext_resource type="PackedScene" uid="uid://c161xbj0sh7v" path="res://Entities/Button/LadderButton/ladder_button.tscn" id="1_ayiaq"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3kgjm"]
 

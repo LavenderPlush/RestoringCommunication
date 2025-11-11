@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://cut37mic2ba8v" path="res://Entities/Interactables/Box/box.tscn" id="3_8aafw"]
 [ext_resource type="Script" uid="uid://clheyshb47air" path="res://Entities/Camera/camera_controller.gd" id="3_g32nx"]
 [ext_resource type="Material" uid="uid://b30elpo3lu5rq" path="res://Materials/background_mat.tres" id="3_u5ick"]
-[ext_resource type="PackedScene" uid="uid://c161xbj0sh7v" path="res://Entities/Button/ladder_button.tscn" id="5_u5ick"]
+[ext_resource type="PackedScene" uid="uid://c161xbj0sh7v" path="res://Entities/Button/LadderButton/ladder_button.tscn" id="5_u5ick"]
 [ext_resource type="PackedScene" uid="uid://b8hxsnh6e1jfh" path="res://Entities/Ladder/extendable_ladder.tscn" id="6_hly84"]
-[ext_resource type="PackedScene" uid="uid://q5kt65k1meus" path="res://Entities/exit_manager.tscn" id="8_ajho5"]
+[ext_resource type="PackedScene" uid="uid://q5kt65k1meus" path="res://Entities/Button/ExitButton/exit_manager.tscn" id="8_ajho5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_08bup"]
 
@@ -62,7 +62,7 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
 mesh = SubResource("BoxMesh_jw2t6")
 
 [node name="RigidBody3D5" type="RigidBody3D" parent="."]
-transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 4, 0, 0, -15)
+transform = Transform3D(-1.2940953, -0.9659258, 0, 4.829629, -0.25881904, 0, 0, 0, 4, 2, 2.7038126, 4.166188)
 freeze = true
 freeze_mode = 1
 
@@ -108,8 +108,9 @@ extendable_ladder = NodePath("../NewLadder")
 [node name="NewLadder" parent="." instance=ExtResource("6_hly84")]
 transform = Transform3D(1.1920929e-07, 0, -1, 0, 1, 0, 1, 0, 1.1920929e-07, 0, 4.5, -7)
 
-[node name="ExitManager" parent="." instance=ExtResource("8_ajho5")]
+[node name="ExitManager" parent="." node_paths=PackedStringArray("door") instance=ExtResource("8_ajho5")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.2197441, 1.5, -0.14369828)
+door = NodePath("../RigidBody3D5")
 
 [node name="FmodBankLoader" type="FmodBankLoader" parent="."]
 bank_paths = ["res://Assets/FMODBank/Desktop/Master.bank"]

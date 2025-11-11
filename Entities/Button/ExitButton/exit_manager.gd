@@ -3,8 +3,10 @@ extends Node
 @export var button_a: ExitButton
 @export var button_b: ExitButton
 @export var door: Node3D
-@export var required_hold_time: float = 0.1
 
+var required_hold_time: float = 0.1
+var door_offset: float = 4.0
+var animation_duration: float = 1.0
 var button_a_player: Node = null
 var button_b_player: Node = null
 var door_opened: bool = false
@@ -36,7 +38,11 @@ func _process(delta: float) -> void:
             button_a.lock_engaged()
             button_b.lock_engaged()
 
-            print("open door")
+            var target_y = door.position.y + door_offset
+            var tween := create_tween()
+
+            tween.tween_property(door, "position:y", target_y, animation_duration)
+
             set_process(false)
     else:
         hold_timer = 0.0
