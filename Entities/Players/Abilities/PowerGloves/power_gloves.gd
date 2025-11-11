@@ -30,9 +30,9 @@ func _ready() -> void:
 
 func process_ability() -> void:
 	if Input.is_action_just_pressed("ability_power_gloves"):
-		if object_in_range and not held_object:
-			pick_up()
+		if object_in_range and not held_object and movement.on_floor():
 			engange()
+			pick_up()
 			Common.play_sound(engage_emitter)
 		elif held_object:
 			throw()
@@ -47,8 +47,13 @@ func process_ability() -> void:
 #Freezes the box, disables its collider and creates a new collider.
 func pick_up():
 	held_object = object_in_range
-	held_object.pick_up(true)
 	original_collider = held_object.get_node_or_null("CollisionShape3D")
+	if check_box_collide(holding_position.global_position):
+		held_object = null
+		original_collider = null
+		disengage()
+		return
+	held_object.pick_up(true)
 
 	if original_collider:
 		original_collider.disabled = true
@@ -107,9 +112,13 @@ func drop():
 func check_box_collide(target_position: Vector3):
 	var ray_target = target_position - player.global_position
 	shape_cast.global_position = player.global_position
+	shape_cast.add_exception(held_object)
+	# Avoid collision with floor
+	shape_cast.global_position.y += 0.2
 	shape_cast.shape = original_collider.shape
 	shape_cast.target_position = ray_target
 	shape_cast.force_shapecast_update()
+	shape_cast.remove_exception(held_object)
 	return shape_cast.is_colliding()
 
 # Signals
