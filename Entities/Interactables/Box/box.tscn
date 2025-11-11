@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cut37mic2ba8v"]
+[gd_scene load_steps=6 format=3 uid="uid://cut37mic2ba8v"]
 
 [ext_resource type="Script" uid="uid://b55gqcvyk20u" path="res://Entities/Interactables/interactable.gd" id="1_6eev6"]
 
@@ -12,9 +12,13 @@ albedo_color = Color(0.35, 0.09333333, 0, 1)
 material = SubResource("StandardMaterial3D_mgwb1")
 size = Vector3(2, 2, 2)
 
-[node name="Box" type="CharacterBody3D" node_paths=PackedStringArray("floor_rays", "landing_sound") groups=["Pickupable"]]
+[sub_resource type="BoxShape3D" id="BoxShape3D_6eev6"]
+size = Vector3(2.2933693, 1.8685303, 1.6887207)
+
+[node name="Box" type="CharacterBody3D" node_paths=PackedStringArray("floor_rays", "ability_extension_area", "landing_sound") groups=["Pickupable"]]
 script = ExtResource("1_6eev6")
 floor_rays = NodePath("FloorRays")
+ability_extension_area = NodePath("AbilityExtensionArea")
 landing_sound = NodePath("Sound/LandEmitter")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -45,3 +49,9 @@ target_position = Vector3(0, -0.15, 0)
 [node name="LandEmitter" type="FmodEventEmitter3D" parent="Sound"]
 event_name = "event:/Wood Crate Hit"
 event_guid = "{ef01a44a-4dea-406a-b5ad-5cd0850332ec}"
+
+[node name="AbilityExtensionArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AbilityExtensionArea"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_6eev6")
