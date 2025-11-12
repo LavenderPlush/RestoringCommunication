@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bd388rue7yafh"]
+[gd_scene load_steps=9 format=3 uid="uid://bd388rue7yafh"]
 
 [ext_resource type="Script" uid="uid://cp0jcwymqkbr0" path="res://Entities/Players/Human/human.gd" id="1_q78xk"]
 [ext_resource type="PackedScene" uid="uid://bkkcqtuj5t1cq" path="res://Entities/Players/Movement/movement.tscn" id="1_rmm0b"]
 [ext_resource type="PackedScene" uid="uid://bsqwvch37wg86" path="res://Entities/Players/Abilities/PowerGloves/power_gloves.tscn" id="2_rj3cs"]
+[ext_resource type="Material" uid="uid://bbp852166q7um" path="res://Materials/outline_human_material.tres" id="4_bicdd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gjav3"]
 albedo_color = Color(0.3147406, 0.47996408, 0.7378255, 1)
@@ -45,6 +46,7 @@ holding_position = NodePath("../HoldingPosition")
 dropping_position = NodePath("../DroppingPosition")
 movement = NodePath("../Movement")
 collision_timer = NodePath("Timer")
+outline = ExtResource("4_bicdd")
 
 [node name="Timer" type="Timer" parent="PowerGloves"]
 wait_time = 0.2

@@ -11,6 +11,7 @@ class_name PowerGloves extends Ability
 @export var dropping_position: Marker3D
 @export var movement: Movement
 @export var collision_timer: Timer
+@export var outline: Material
 
 @export_category("Sound")
 @export var engage_emitter: FmodEventEmitter3D
@@ -21,6 +22,7 @@ var original_collider: CollisionShape3D
 var player_held_collider: CollisionShape3D
 var player_to_reset: PhysicsBody3D
 var box_to_reset: Interactable
+var object_mesh: MeshInstance3D
 
 func _ready() -> void:
 	interaction_area.body_entered.connect(_object_entered)
@@ -125,9 +127,12 @@ func check_box_collide(target_position: Vector3):
 func _object_entered(object: Node3D):
 	if object is Interactable:
 		object_in_range = object
+		object_mesh = object_in_range.get_node("MeshInstance3D")
+		object_mesh.material_overlay = outline
 
 func _object_exited(object: Node3D):
 	if object == object_in_range:
+		object_mesh.material_overlay = null
 		object_in_range = null
 
 func _enable_dropped_collision():

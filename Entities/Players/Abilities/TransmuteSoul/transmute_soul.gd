@@ -4,6 +4,7 @@ extends Ability
 @export var interaction_area: Area3D
 @export var movement: Movement
 @export var alien_body: CharacterBody3D
+@export var outline: Material
 
 @export_category("Sound")
 @export var engage_emitter: FmodEventEmitter3D
@@ -11,6 +12,7 @@ extends Ability
 
 var transmutable_object: Interactable
 var transmuted_object: Interactable
+var object_mesh: MeshInstance3D
 
 func _ready() -> void:
 	interaction_area.body_entered.connect(_object_entered)
@@ -57,6 +59,11 @@ func _object_entered(object: Node3D):
 	if object is Interactable:
 		transmutable_object = object
 
+		object_mesh = transmutable_object.get_node("MeshInstance3D")
+		object_mesh.material_overlay = outline
+
+
 func _object_exited(object: Node3D):
 	if object == transmutable_object:
+		object_mesh.material_overlay = null
 		transmutable_object = null
