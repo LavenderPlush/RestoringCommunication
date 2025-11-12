@@ -87,8 +87,6 @@ func _handle_collisions():
 func _on_ability_extension_area_entered(body: Node3D):
 	if is_controlled and body is Interactable:
 		interactable_extension = body
-	print("set")
-
 
 func _on_ability_extension_area_exited(body: Node3D):
 	if interactable_extension and interactable_extension == body:
