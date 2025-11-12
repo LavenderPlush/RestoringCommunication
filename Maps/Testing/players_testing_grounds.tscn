@@ -1,32 +1,35 @@
-[gd_scene load_steps=12 format=3 uid="uid://wv7mhgpex08w"]
+[gd_scene load_steps=13 format=3 uid="uid://wv7mhgpex08w"]
 
 [ext_resource type="PackedScene" uid="uid://bh7w25o2ijqo6" path="res://Entities/Players/Alien/alien.tscn" id="1_vfhqw"]
 [ext_resource type="PackedScene" uid="uid://bd388rue7yafh" path="res://Entities/Players/Human/human.tscn" id="2_kqrly"]
 [ext_resource type="PackedScene" uid="uid://cut37mic2ba8v" path="res://Entities/Interactables/Box/box.tscn" id="3_8aafw"]
 [ext_resource type="Script" uid="uid://clheyshb47air" path="res://Entities/Camera/camera_controller.gd" id="3_g32nx"]
-[ext_resource type="Material" uid="uid://b30elpo3lu5rq" path="res://Materials/background_mat.tres" id="3_u5ick"]
 [ext_resource type="PackedScene" uid="uid://c161xbj0sh7v" path="res://Entities/Button/LadderButton/ladder_button.tscn" id="5_u5ick"]
 [ext_resource type="PackedScene" uid="uid://b8hxsnh6e1jfh" path="res://Entities/Ladder/extendable_ladder.tscn" id="6_hly84"]
-[ext_resource type="PackedScene" uid="uid://q5kt65k1meus" path="res://Entities/Button/ExitButton/exit_manager.tscn" id="8_ajho5"]
-[ext_resource type="PackedScene" uid="uid://c3ocixu65cif1" path="res://Entities/Button/ExitButton/exit_button.tscn" id="9_vlpq4"]
+[ext_resource type="PackedScene" uid="uid://dk6nscx8wfi48" path="res://Entities/Checkpoint/checkpoint.tscn" id="8_ajho5"]
+[ext_resource type="PackedScene" uid="uid://q5kt65k1meus" path="res://Entities/Button/ExitButton/exit_manager.tscn" id="8_vlpq4"]
+[ext_resource type="PackedScene" uid="uid://c3ocixu65cif1" path="res://Entities/Button/ExitButton/exit_button.tscn" id="9_6h5gp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_08bup"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_jw2t6"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ddmds"]
+albedo_color = Color(0.31, 1, 0.34449995, 1)
+
 [node name="PlayersTestingGrounds" type="Node3D"]
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("1_vfhqw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4554799, 3.7854738)
+[node name="Human" parent="." instance=ExtResource("2_kqrly")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4554796, -2.5371113)
 
-[node name="CharacterBody3D2" parent="." instance=ExtResource("2_kqrly")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4554796, -4.5371113)
+[node name="Alien" parent="." instance=ExtResource("1_vfhqw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4554799, 2.7854738)
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("player1", "player2")]
 transform = Transform3D(-4.371139e-08, 0.1736482, -0.9848077, 0, 0.9848077, 0.1736482, 1, 7.590404e-09, -4.304731e-08, -15, 5.486, -7.562)
 script = ExtResource("3_g32nx")
-player1 = NodePath("../CharacterBody3D2")
-player2 = NodePath("../CharacterBody3D")
+player1 = NodePath("../Human")
+player2 = NodePath("../Alien")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0.16052532)
@@ -45,9 +48,22 @@ freeze = true
 freeze_mode = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D6"]
+transform = Transform3D(0.99999976, 0, 0, 0, 1, 0, 0, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("BoxShape3D_08bup")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D6"]
+mesh = SubResource("BoxMesh_jw2t6")
+
+[node name="RigidBody3D7" type="RigidBody3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 40.160526)
+freeze = true
+freeze_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D7"]
+transform = Transform3D(0.99999976, 0, 0, 0, 1, 0, 0, 0, 0.99999976, 0, 0, 0)
+shape = SubResource("BoxShape3D_08bup")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D7"]
 mesh = SubResource("BoxMesh_jw2t6")
 
 [node name="RigidBody3D3" type="RigidBody3D" parent="."]
@@ -60,19 +76,6 @@ shape = SubResource("BoxShape3D_08bup")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D3"]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
-mesh = SubResource("BoxMesh_jw2t6")
-
-[node name="RigidBody3D5" type="RigidBody3D" parent="."]
-transform = Transform3D(-1.2940953, -0.9659258, 0, 4.829629, -0.25881904, 0, 0, 0, 4, 2, 2.7038126, 4.166188)
-freeze = true
-freeze_mode = 1
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D5"]
-shape = SubResource("BoxShape3D_08bup")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D5"]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
-material_override = ExtResource("3_u5ick")
 mesh = SubResource("BoxMesh_jw2t6")
 
 [node name="RigidBody3D4" type="RigidBody3D" parent="."]
@@ -100,7 +103,10 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0.039888
 mesh = SubResource("BoxMesh_jw2t6")
 
 [node name="Box" parent="." instance=ExtResource("3_8aafw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 11.588022)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 25.91248)
+
+[node name="Box2" parent="." instance=ExtResource("3_8aafw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 9.171949)
 
 [node name="AnimatableBody3D" parent="." node_paths=PackedStringArray("extendable_ladder") instance=ExtResource("5_u5ick")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5635568, -8.601)
@@ -114,14 +120,47 @@ bank_paths = ["res://Assets/FMODBank/Desktop/Master.bank"]
 
 [node name="FmodListener3D" type="FmodListener3D" parent="."]
 
-[node name="ExitManager" parent="." node_paths=PackedStringArray("button_a", "button_b", "door") instance=ExtResource("8_ajho5")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.2197441, 1.5, -0.14369828)
+[node name="Checkpoint" parent="." node_paths=PackedStringArray("human_spawn", "alien_spawn") instance=ExtResource("8_ajho5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 11)
+human_spawn = NodePath("HumanSpawn2")
+alien_spawn = NodePath("AlienSpawn2")
+
+[node name="HumanSpawn2" type="Marker3D" parent="Checkpoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="AlienSpawn2" type="Marker3D" parent="Checkpoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11)
+
+[node name="Checkpoint2" parent="." node_paths=PackedStringArray("human_spawn", "alien_spawn") instance=ExtResource("8_ajho5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 26.864311)
+human_spawn = NodePath("HumanSpawn3")
+alien_spawn = NodePath("AlienSpawn3")
+
+[node name="HumanSpawn3" type="Marker3D" parent="Checkpoint2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.5151024)
+
+[node name="AlienSpawn3" type="Marker3D" parent="Checkpoint2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.890049)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.71105725, 0, -0.7031341, 0.14808585, 0.97757053, 0.14975452, 0.6873632, -0.21060824, 0.6951086, 0, 4.4490185, 9.657062)
+
+[node name="Exit" type="Node3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="ExitManager" parent="Exit" node_paths=PackedStringArray("button_a", "button_b", "door") instance=ExtResource("8_vlpq4")]
 button_a = NodePath("../ExitButton")
 button_b = NodePath("../ExitButton2")
-door = NodePath("../RigidBody3D5")
+door = NodePath("../ExitDoor")
 
-[node name="ExitButton" parent="." instance=ExtResource("9_vlpq4")]
-transform = Transform3D(-3.059797e-08, -0.7, 0, 0.7, -3.059797e-08, 0, 0, 0, 0.7, 1.5, 1.5, -2)
+[node name="ExitButton" parent="Exit" instance=ExtResource("9_6h5gp")]
+transform = Transform3D(1.3374798e-15, 3.059797e-08, 0.7, 0.7, -3.059797e-08, 0, 3.059797e-08, 0.7, -3.059797e-08, -5.0000043, 2.477159, -0.9999999)
 
-[node name="ExitButton2" parent="." instance=ExtResource("9_vlpq4")]
-transform = Transform3D(-3.059797e-08, -0.7, 0, 0.7, -3.059797e-08, 0, 0, 0, 0.7, 1.5, 1.5, 0)
+[node name="ExitButton2" parent="Exit" instance=ExtResource("9_6h5gp")]
+transform = Transform3D(1.3374798e-15, 3.059797e-08, 0.7, 0.7, -3.059797e-08, 0, 3.059797e-08, 0.7, -3.059797e-08, 4.999996, 2.477159, -1)
+
+[node name="ExitDoor" type="CSGBox3D" parent="Exit"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, 0.012756216, 2.477159, -3.0004456)
+use_collision = true
+size = Vector3(4, 4, 1)
+material = SubResource("StandardMaterial3D_ddmds")

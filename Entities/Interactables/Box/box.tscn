@@ -5,11 +5,11 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_oovab"]
 size = Vector3(2, 2, 2)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mgwb1"]
-albedo_color = Color(0.35, 0.09333333, 0, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6eev6"]
+albedo_color = Color(0.34901962, 0.09411765, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_k5cr6"]
-material = SubResource("StandardMaterial3D_mgwb1")
+material = SubResource("StandardMaterial3D_6eev6")
 size = Vector3(2, 2, 2)
 
 [node name="Box" type="CharacterBody3D" node_paths=PackedStringArray("floor_rays", "landing_sound") groups=["Pickupable"]]

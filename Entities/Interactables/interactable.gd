@@ -2,6 +2,8 @@ class_name Interactable extends CharacterBody3D
 
 @export_category("Designers")
 @export var collision_push_off_velocity: float = 1.0
+##This Object will keep resetting until Players reach this Checkpoint ID. Keep at -1 to always reset.
+@export var reset_until_checkpoint_id: int = -1
 
 @export_category("Developers")
 @export var floor_rays: Node3D
@@ -9,6 +11,7 @@ class_name Interactable extends CharacterBody3D
 @export_category("Sound")
 @export var landing_sound: FmodEventEmitter3D
 
+var initial_transform: Transform3D
 var gravity: float: 
 	get(): return ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -22,6 +25,10 @@ var initial_vertical_velocity: float
 var air_time: float
 
 func _ready() -> void:
+	add_to_group("resettable")
+
+	initial_transform = self.global_transform
+
 	for ray in floor_rays.get_children():
 		ray.add_exception(self)
 
@@ -74,3 +81,15 @@ func _handle_collisions():
 		if collider is Interactable:
 			if collider.is_controlled:
 				velocity.y += collision_push_off_velocity
+
+func reset_state():
+	global_transform = initial_transform
+	velocity = Vector3.ZERO
+	air_time = 0
+	horizontal_velocity = 0
+	initial_vertical_velocity = 0
+	is_picked_up = false
+	is_thrown = false
+
+	if is_controlled:
+		control(false)

@@ -1,9 +1,13 @@
 extends Node
 
+@export_category("Developers")
 @export var button_a: ExitButton
 @export var button_b: ExitButton
 @export var door: Node3D
+##This Object will keep resetting until Players reach this Checkpoint ID. Keep at -1 to always reset.
+@export var reset_until_checkpoint_id: int = -1
 
+var original_door_position: Vector3
 var required_hold_time: float = 0.1
 var door_offset: float = 4.0
 var animation_duration: float = 1.0
@@ -14,6 +18,9 @@ var door_opened: bool = false
 
 func _ready() -> void:
     if !button_a || !button_b || !door: return
+
+    add_to_group("resettable")
+    original_door_position = door.position
 
     button_a.engaged.connect(_on_button_a_engaged)
     button_a.disengaged.connect(_on_button_a_disengaged)
@@ -66,3 +73,11 @@ func _on_button_b_engaged():
 
 func _on_button_b_disengaged():
     button_b_engaged = false
+
+func reset_state():
+    if door_opened:
+        door_opened = false
+        hold_timer = 0.1
+        door.position = original_door_position
+
+        set_process(false)

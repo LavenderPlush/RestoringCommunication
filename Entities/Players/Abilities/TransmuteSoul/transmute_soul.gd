@@ -41,6 +41,7 @@ func transmute_soul():
 
 func untransmute_soul():
 	transmuted_object.control(false)
+	movement.set_body(alien_body)
 	transmuted_object = null
 	Common.play_sound(disengage_emitter)
 

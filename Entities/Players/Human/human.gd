@@ -1,5 +1,10 @@
 class_name Human extends Player
 
+func _ready():
+	super()
+	add_to_group("Human")
+	CheckpointManager.set_original_position(self)
+
 func _physics_process(delta: float) -> void:
 	if ((can_climb or movement.is_climbing)
 		and not ability_active):
@@ -14,3 +19,9 @@ func _physics_process(delta: float) -> void:
 
 func get_target_position() -> Vector3:
 	return self.global_position
+
+func reset_state():
+	super()
+
+	if is_instance_valid(ability.held_object):
+		ability.force_drop()
