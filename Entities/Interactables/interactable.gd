@@ -74,6 +74,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y -= gravity * delta
 
 func _handle_collisions():
+	if is_controlled: return
 	var count = get_slide_collision_count()
 	for i in range(count):
 		var col = get_slide_collision(i)
@@ -81,14 +82,16 @@ func _handle_collisions():
 		if collider is Interactable:
 			if collider.is_controlled:
 				velocity.y += collision_push_off_velocity
+		if collider is Player:
+			if collider.global_position.y > global_position.y:
+				return
+			velocity.y += collision_push_off_velocity
 
 
 # Signals
 func _on_ability_extension_area_entered(body: Node3D):
 	if is_controlled and body is Interactable:
 		interactable_extension = body
-	print("set")
-
 
 func _on_ability_extension_area_exited(body: Node3D):
 	if interactable_extension and interactable_extension == body:
