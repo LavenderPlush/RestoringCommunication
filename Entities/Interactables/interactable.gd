@@ -81,6 +81,9 @@ func _handle_collisions():
 		if collider is Interactable:
 			if collider.is_controlled:
 				velocity.y += collision_push_off_velocity
+		if not is_controlled:
+			if collider is Player:
+				velocity.y += collision_push_off_velocity
 
 
 # Signals
