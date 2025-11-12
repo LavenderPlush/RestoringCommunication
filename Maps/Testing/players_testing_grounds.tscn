@@ -88,7 +88,7 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
 mesh = SubResource("BoxMesh_jw2t6")
 
 [node name="RigidBody3D2" type="RigidBody3D" parent="."]
-transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 4.6358666, -3.7516916)
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 8.8904, -3.7516916)
 freeze = true
 freeze_mode = 1
 
@@ -98,6 +98,9 @@ shape = SubResource("BoxShape3D_08bup")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D2"]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0.039888382, 0)
 mesh = SubResource("BoxMesh_jw2t6")
+
+[node name="Box2" parent="." instance=ExtResource("3_8aafw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.449296, 24.46857)
 
 [node name="Box" parent="." instance=ExtResource("3_8aafw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 11.588022)
