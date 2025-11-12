@@ -1,17 +1,17 @@
 extends ButtonBase
 class_name ExitButton
 
-signal engaged(player_body: Node3D)
+signal engaged
 signal disengaged
 
 @onready var mesh: MeshInstance3D = $MeshInstance3D
 
 var engaged_color: Color = Color.GREEN
 var disengaged_color: Color = Color.RED
-var material_instance: StandardMaterial3D
+var material: StandardMaterial3D
 var current_player_body: Node3D = null
-var is_in_area: bool = false
-var is_engaged: bool = false
+var player_in_area: bool = false
+var button_engaged: bool = false
 var is_locked: bool = false
 
 func _ready() -> void:
@@ -20,63 +20,64 @@ func _ready() -> void:
 	player_entered.connect(_on_player_entered)
 	player_exited.connect(_on_player_exited)
 	
-	material_instance = StandardMaterial3D.new()
-
-	var base_material = mesh.get_active_material(0)
-	
-	if base_material and base_material is StandardMaterial3D:
-		material_instance.albedo_texture = base_material.albedo_texture
-
-	material_instance.vertex_color_use_as_albedo = false
-	mesh.material_override = material_instance
-	material_instance.albedo_color = disengaged_color
-	
+	setup_material()
 	set_process(true)
 
 func _process(_delta):
 	if is_locked: return
 
-	if not is_in_area: return
+	if !player_in_area: return
 
-	var player_action = current_player_body.get("interact_action")
-	var is_input_held = Input.is_action_pressed(player_action)
+	var player = current_player_body as Player
+	var player_action = player.get_interact_action()
 
-	update_state(is_input_held)
+	if Input.is_action_just_pressed(player_action):
+		update_state(true)
 
+	if Input.is_action_just_released(player_action):
+		update_state(false)
+
+#Compares the desired state with the current state and emits the correct signal to engage or disengage the button.
 func update_state(should_be_engaged: bool):
 	if is_locked: return
 
-	if should_be_engaged and not is_engaged:
-		is_engaged = true
+	if should_be_engaged and not button_engaged:
+		button_engaged = true
 
-		engaged.emit(current_player_body)
+		engaged.emit()
 
-		material_instance.albedo_color = engaged_color
-	elif not should_be_engaged and is_engaged:
-		is_engaged = false
+		material.albedo_color = engaged_color
+	elif not should_be_engaged and button_engaged:
+		button_engaged = false
 
 		disengaged.emit()
 		
-		material_instance.albedo_color = disengaged_color
+		material.albedo_color = disengaged_color
 
 func lock_engaged():
 	is_locked = true
-	is_engaged = true
-
-	material_instance.albedo_color = engaged_color
+	button_engaged = true
+	material.albedo_color = engaged_color
 
 func _on_player_entered(body: Node3D):
 	if is_locked: return
 
 	if current_player_body == null:
 		current_player_body = body
-		is_in_area = true
+		player_in_area = true
 
 func _on_player_exited(body: Node3D):
 	if is_locked: return
 
 	if body == current_player_body:
 		current_player_body = null
-		is_in_area = false
+		player_in_area = false
 
 		update_state(false)
+
+#Creates a new material to not affect buttons that share the same mesh. Red is default.
+func setup_material():
+	material = StandardMaterial3D.new()
+
+	mesh.material_override = material
+	material.albedo_color = disengaged_color

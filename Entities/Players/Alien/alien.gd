@@ -1,7 +1,5 @@
 class_name Alien extends Player
 
-var interact_action: StringName = &"alien_interact"
-
 func _physics_process(delta: float) -> void:
 	if ((can_climb or movement.is_climbing)
 		and not ability_active):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://wv7mhgpex08w"]
+[gd_scene load_steps=12 format=3 uid="uid://wv7mhgpex08w"]
 
 [ext_resource type="PackedScene" uid="uid://bh7w25o2ijqo6" path="res://Entities/Players/Alien/alien.tscn" id="1_vfhqw"]
 [ext_resource type="PackedScene" uid="uid://bd388rue7yafh" path="res://Entities/Players/Human/human.tscn" id="2_kqrly"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c161xbj0sh7v" path="res://Entities/Button/LadderButton/ladder_button.tscn" id="5_u5ick"]
 [ext_resource type="PackedScene" uid="uid://b8hxsnh6e1jfh" path="res://Entities/Ladder/extendable_ladder.tscn" id="6_hly84"]
 [ext_resource type="PackedScene" uid="uid://q5kt65k1meus" path="res://Entities/Button/ExitButton/exit_manager.tscn" id="8_ajho5"]
+[ext_resource type="PackedScene" uid="uid://c3ocixu65cif1" path="res://Entities/Button/ExitButton/exit_button.tscn" id="9_vlpq4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_08bup"]
 
@@ -108,11 +109,19 @@ extendable_ladder = NodePath("../NewLadder")
 [node name="NewLadder" parent="." instance=ExtResource("6_hly84")]
 transform = Transform3D(1.1920929e-07, 0, -1, 0, 1, 0, 1, 0, 1.1920929e-07, 0, 4.5, -7)
 
-[node name="ExitManager" parent="." node_paths=PackedStringArray("door") instance=ExtResource("8_ajho5")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.2197441, 1.5, -0.14369828)
-door = NodePath("../RigidBody3D5")
-
 [node name="FmodBankLoader" type="FmodBankLoader" parent="."]
 bank_paths = ["res://Assets/FMODBank/Desktop/Master.bank"]
 
 [node name="FmodListener3D" type="FmodListener3D" parent="."]
+
+[node name="ExitManager" parent="." node_paths=PackedStringArray("button_a", "button_b", "door") instance=ExtResource("8_ajho5")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.2197441, 1.5, -0.14369828)
+button_a = NodePath("../ExitButton")
+button_b = NodePath("../ExitButton2")
+door = NodePath("../RigidBody3D5")
+
+[node name="ExitButton" parent="." instance=ExtResource("9_vlpq4")]
+transform = Transform3D(-3.059797e-08, -0.7, 0, 0.7, -3.059797e-08, 0, 0, 0, 0.7, 1.5, 1.5, -2)
+
+[node name="ExitButton2" parent="." instance=ExtResource("9_vlpq4")]
+transform = Transform3D(-3.059797e-08, -0.7, 0, 0.7, -3.059797e-08, 0, 0, 0, 0.7, 1.5, 1.5, 0)
