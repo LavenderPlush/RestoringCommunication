@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cut37mic2ba8v"]
+[gd_scene load_steps=7 format=3 uid="uid://cut37mic2ba8v"]
 
 [ext_resource type="Script" uid="uid://b55gqcvyk20u" path="res://Entities/Interactables/interactable.gd" id="1_6eev6"]
+[ext_resource type="PackedScene" uid="uid://ckjtbcb1ds8y8" path="res://Assets/MetalBox/box.glb" id="2_m2xwx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oovab"]
 size = Vector3(2, 2, 2)
@@ -21,10 +22,13 @@ floor_rays = NodePath("FloorRays")
 ability_extension_area = NodePath("AbilityExtensionArea")
 landing_sound = NodePath("Sound/LandEmitter")
 
+[node name="box" parent="." instance=ExtResource("2_m2xwx")]
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_oovab")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("BoxMesh_k5cr6")
 
 [node name="FloorRays" type="Node3D" parent="."]
