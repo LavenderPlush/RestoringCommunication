@@ -21,6 +21,7 @@ axis_lock_angular_z = true
 script = ExtResource("1_q78xk")
 movement = NodePath("Movement")
 ability = NodePath("PowerGloves")
+action_prefix = &"human"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_xctmb")

@@ -21,6 +21,7 @@ axis_lock_angular_z = true
 script = ExtResource("1_crjm4")
 movement = NodePath("Movement")
 ability = NodePath("TransmuteSoul")
+action_prefix = &"alien"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_qefdq")

@@ -1,12 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://wv7mhgpex08w"]
+[gd_scene load_steps=12 format=3 uid="uid://wv7mhgpex08w"]
 
 [ext_resource type="PackedScene" uid="uid://bh7w25o2ijqo6" path="res://Entities/Players/Alien/alien.tscn" id="1_vfhqw"]
 [ext_resource type="PackedScene" uid="uid://bd388rue7yafh" path="res://Entities/Players/Human/human.tscn" id="2_kqrly"]
 [ext_resource type="PackedScene" uid="uid://cut37mic2ba8v" path="res://Entities/Interactables/Box/box.tscn" id="3_8aafw"]
 [ext_resource type="Script" uid="uid://clheyshb47air" path="res://Entities/Camera/camera_controller.gd" id="3_g32nx"]
 [ext_resource type="Material" uid="uid://b30elpo3lu5rq" path="res://Materials/background_mat.tres" id="3_u5ick"]
-[ext_resource type="PackedScene" uid="uid://c161xbj0sh7v" path="res://Entities/Button/button.tscn" id="5_u5ick"]
+[ext_resource type="PackedScene" uid="uid://c161xbj0sh7v" path="res://Entities/Button/LadderButton/ladder_button.tscn" id="5_u5ick"]
 [ext_resource type="PackedScene" uid="uid://b8hxsnh6e1jfh" path="res://Entities/Ladder/extendable_ladder.tscn" id="6_hly84"]
+[ext_resource type="PackedScene" uid="uid://q5kt65k1meus" path="res://Entities/Button/ExitButton/exit_manager.tscn" id="8_ajho5"]
+[ext_resource type="PackedScene" uid="uid://c3ocixu65cif1" path="res://Entities/Button/ExitButton/exit_button.tscn" id="9_vlpq4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_08bup"]
 
@@ -15,7 +17,7 @@
 [node name="PlayersTestingGrounds" type="Node3D"]
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_vfhqw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4554799, 6.785474)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4554799, 3.7854738)
 
 [node name="CharacterBody3D2" parent="." instance=ExtResource("2_kqrly")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4554796, -4.5371113)
@@ -61,7 +63,7 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
 mesh = SubResource("BoxMesh_jw2t6")
 
 [node name="RigidBody3D5" type="RigidBody3D" parent="."]
-transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 4, 0, 0, -15)
+transform = Transform3D(-1.2940953, -0.9659258, 0, 4.829629, -0.25881904, 0, 0, 0, 4, 2, 2.7038126, 4.166188)
 freeze = true
 freeze_mode = 1
 
@@ -98,7 +100,7 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0.039888
 mesh = SubResource("BoxMesh_jw2t6")
 
 [node name="Box" parent="." instance=ExtResource("3_8aafw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 3.9522152)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 11.588022)
 
 [node name="AnimatableBody3D" parent="." node_paths=PackedStringArray("extendable_ladder") instance=ExtResource("5_u5ick")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5635568, -8.601)
@@ -106,3 +108,20 @@ extendable_ladder = NodePath("../NewLadder")
 
 [node name="NewLadder" parent="." instance=ExtResource("6_hly84")]
 transform = Transform3D(1.1920929e-07, 0, -1, 0, 1, 0, 1, 0, 1.1920929e-07, 0, 4.5, -7)
+
+[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
+bank_paths = ["res://Assets/FMODBank/Desktop/Master.bank"]
+
+[node name="FmodListener3D" type="FmodListener3D" parent="."]
+
+[node name="ExitManager" parent="." node_paths=PackedStringArray("button_a", "button_b", "door") instance=ExtResource("8_ajho5")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.2197441, 1.5, -0.14369828)
+button_a = NodePath("../ExitButton")
+button_b = NodePath("../ExitButton2")
+door = NodePath("../RigidBody3D5")
+
+[node name="ExitButton" parent="." instance=ExtResource("9_vlpq4")]
+transform = Transform3D(-3.059797e-08, -0.7, 0, 0.7, -3.059797e-08, 0, 0, 0, 0.7, 1.5, 1.5, -2)
+
+[node name="ExitButton2" parent="." instance=ExtResource("9_vlpq4")]
+transform = Transform3D(-3.059797e-08, -0.7, 0, 0.7, -3.059797e-08, 0, 0, 0, 0.7, 1.5, 1.5, 0)

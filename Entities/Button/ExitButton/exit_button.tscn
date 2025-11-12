@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3ocixu65cif1"]
+
+[ext_resource type="Script" uid="uid://cc7d0bu1ftrru" path="res://Entities/Button/ExitButton/exit_button.gd" id="1_sdk8m"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3fn0b"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sdk8m"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_71fid"]
+material = SubResource("StandardMaterial3D_sdk8m")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3fn0b"]
+height = 0.19812012
+radius = 1.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_71fid"]
+height = 2.0289993
+radius = 0.83984375
+
+[node name="ExitButton" type="AnimatableBody3D"]
+transform = Transform3D(-3.059797e-08, -0.7, 0, 0.7, -3.059797e-08, 0, 0, 0, 0.7, 0, 0, 0)
+sync_to_physics = false
+script = ExtResource("1_sdk8m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 0.1, 0, 0, 0, 2, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_3fn0b")
+mesh = SubResource("CylinderMesh_71fid")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
+shape = SubResource("CylinderShape3D_3fn0b")
+debug_color = Color(0.055494063, 0.65032375, 0, 0.41960785)
+
+[node name="ActivationArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ActivationArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6919411, 0)
+shape = SubResource("CylinderShape3D_71fid")
+debug_color = Color(0.99999994, 0.016033605, 0.02410388, 0.41960785)

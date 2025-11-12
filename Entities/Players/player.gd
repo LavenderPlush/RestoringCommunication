@@ -4,6 +4,7 @@ class_name Player
 
 @export var movement: Movement
 @export var ability: Ability
+@export var action_prefix: StringName = &""
 
 var ability_active: bool = false
 var can_climb: bool = false
@@ -19,6 +20,10 @@ func set_can_climb(new_can_climb: bool) -> void:
 
 func set_climb_snap(new_position: float) -> void:
 	climb_snap_position = new_position
+
+# Getters
+func get_interact_action() -> StringName:
+	return StringName(action_prefix + "_interact")
 
 # Signals
 func ability_engaged():
