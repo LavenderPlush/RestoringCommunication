@@ -49,3 +49,12 @@ func activate_button():
 
 	button_used = true
 	extendable_ladder.call_deferred("extend_ladder")
+
+func reset_state():
+	super()
+	
+	press_count = 0
+	button_used = false
+	timer.stop()
+	
+	animate_button(original_position.y)

@@ -25,9 +25,18 @@ func set_climb_snap(new_position: float) -> void:
 func get_interact_action() -> StringName:
 	return StringName(action_prefix + "_interact")
 
+func get_controlled_body() -> CharacterBody3D:
+	return self
+
 # Signals
 func ability_engaged():
 	ability_active = true
 	
 func ability_disengaged():
+	ability_active = false
+
+func reset_state():
+	if ability_active:
+		ability_disengaged()
+
 	ability_active = false

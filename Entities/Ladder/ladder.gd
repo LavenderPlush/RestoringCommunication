@@ -3,6 +3,8 @@ extends Area3D
 @onready var ladder: Area3D = $"."
 
 @export_category("Designers")
+##This Object will keep resetting until Players reach this Checkpoint ID. Keep at -1 to always reset.
+@export var reset_until_checkpoint_id: int = -1
 ##True for extendable ladders (used for buttons). False for normal ladders.
 @export var is_extendable: bool = false
 
@@ -15,6 +17,8 @@ extends Area3D
 var is_extended: bool = false
 
 func _ready() -> void:
+	add_to_group("resettable")
+
 	ladder.body_entered.connect(_on_body_entered)
 	ladder.body_exited.connect(_on_body_exited)
 	
@@ -49,3 +53,9 @@ func _on_body_exited(body):
 	if body is not Player: return
 
 	body.set_can_climb(false)
+
+func reset_state():
+	if is_extendable and is_extended:
+		is_extended = false
+		
+		_set_active(false)

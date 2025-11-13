@@ -39,12 +39,10 @@ func transmute_soul():
 	movement.set_body(transmutable_object)
 	movement.set_floor_rays(transmutable_object.get_floor_rays())
 	transmuted_object.control(true)
-	transmuted_object.add_to_group("Player")
 	Common.play_sound(engage_emitter)
 
 func untransmute_soul():
 	transmuted_object.control(false)
-	transmuted_object.remove_from_group("Player")
 	transmuted_object = null
 	Common.play_sound(disengage_emitter)
 

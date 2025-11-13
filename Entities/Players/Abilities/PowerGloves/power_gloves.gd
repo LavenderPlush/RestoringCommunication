@@ -108,6 +108,26 @@ func drop():
 	player_held_collider = null
 	disengage()
 
+func force_drop():
+	if !is_instance_valid(held_object): return
+
+	if is_instance_valid(player_held_collider):
+		player_held_collider.queue_free()
+
+	if is_instance_valid(original_collider):
+		original_collider.disabled = false
+
+	if is_instance_valid(box_to_reset):
+		box_to_reset.remove_collision_exception_with(player)
+		
+	held_object.pick_up(false)
+	held_object = null
+	original_collider = null
+	player_held_collider = null
+	box_to_reset = null
+
+	disengage()
+
 ## Requires a global position
 func check_box_collide(target_position: Vector3):
 	var ray_target = target_position - player.global_position

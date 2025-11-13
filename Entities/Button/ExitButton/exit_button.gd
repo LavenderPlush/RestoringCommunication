@@ -81,3 +81,12 @@ func setup_material():
 
 	mesh.material_override = material
 	material.albedo_color = disengaged_color
+
+func reset_state():
+	super()
+
+	is_locked = false
+	player_in_area = false
+	current_player_body = null
+
+	update_state(false)
