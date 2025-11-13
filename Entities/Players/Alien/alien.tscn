@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bh7w25o2ijqo6"]
+[gd_scene load_steps=9 format=3 uid="uid://bh7w25o2ijqo6"]
 
 [ext_resource type="Script" uid="uid://cmbc0ore3ui3r" path="res://Entities/Players/Alien/alien.gd" id="1_crjm4"]
 [ext_resource type="PackedScene" uid="uid://bkkcqtuj5t1cq" path="res://Entities/Players/Movement/movement.tscn" id="1_n6muv"]
 [ext_resource type="PackedScene" uid="uid://dhiq3nc3vmcij" path="res://Entities/Players/Abilities/TransmuteSoul/transmute_soul.tscn" id="2_ksuwr"]
+[ext_resource type="Material" uid="uid://dj155ieclu81o" path="res://Materials/outline_alien_material.tres" id="4_gy6r5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qefdq"]
 
@@ -37,6 +38,7 @@ floor_rays = [NodePath("../FloorRays/LeftFloorRay"), NodePath("../FloorRays/Midd
 [node name="TransmuteSoul" parent="." node_paths=PackedStringArray("interaction_area", "alien_body") instance=ExtResource("2_ksuwr")]
 interaction_area = NodePath("../Area3D")
 alien_body = NodePath("..")
+outline = ExtResource("4_gy6r5")
 
 [node name="Area3D" type="Area3D" parent="."]
 
