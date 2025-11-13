@@ -21,6 +21,8 @@ func process_ability() -> void:
 		if transmutable_object and not transmuted_object:
 			transmute_soul()
 			engange()
+		elif transmuted_object:
+			extend_transmute()
 
 	if Input.is_action_just_pressed("ability_untransmute_soul"):
 		if transmuted_object:
@@ -41,9 +43,14 @@ func transmute_soul():
 
 func untransmute_soul():
 	transmuted_object.control(false)
-	movement.set_body(alien_body)
 	transmuted_object = null
 	Common.play_sound(disengage_emitter)
+
+func extend_transmute():
+	if transmuted_object.interactable_extension:
+		transmutable_object = transmuted_object.interactable_extension
+		untransmute_soul()
+		transmute_soul()
 
 # Signals
 func _object_entered(object: Node3D):

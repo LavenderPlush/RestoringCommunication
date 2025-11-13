@@ -7,11 +7,16 @@ class_name Interactable extends CharacterBody3D
 
 @export_category("Developers")
 @export var floor_rays: Node3D
+@export var ability_extension_area: Area3D
 
 @export_category("Sound")
 @export var landing_sound: FmodEventEmitter3D
 
 var initial_transform: Transform3D
+
+var interactable_extension: Interactable:
+	get(): return interactable_extension
+
 var gravity: float: 
 	get(): return ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -31,6 +36,9 @@ func _ready() -> void:
 
 	for ray in floor_rays.get_children():
 		ray.add_exception(self)
+	
+	ability_extension_area.connect("body_entered", _on_ability_extension_area_entered)
+	ability_extension_area.connect("body_exited", _on_ability_extension_area_exited)
 
 func control(new_controlled: bool) -> void:
 	is_controlled = new_controlled
@@ -74,6 +82,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y -= gravity * delta
 
 func _handle_collisions():
+	if is_controlled: return
 	var count = get_slide_collision_count()
 	for i in range(count):
 		var col = get_slide_collision(i)
@@ -81,6 +90,10 @@ func _handle_collisions():
 		if collider is Interactable:
 			if collider.is_controlled:
 				velocity.y += collision_push_off_velocity
+		if collider is Player:
+			if collider.global_position.y > global_position.y:
+				return
+			velocity.y += collision_push_off_velocity
 
 func reset_state():
 	global_transform = initial_transform
@@ -93,3 +106,12 @@ func reset_state():
 
 	if is_controlled:
 		control(false)
+
+# Signals
+func _on_ability_extension_area_entered(body: Node3D):
+	if is_controlled and body is Interactable:
+		interactable_extension = body
+
+func _on_ability_extension_area_exited(body: Node3D):
+	if interactable_extension and interactable_extension == body:
+		interactable_extension = null
