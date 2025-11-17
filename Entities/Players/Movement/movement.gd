@@ -15,6 +15,7 @@ var gravity: float:
 @export var control_prefix: String
 @export var body: CharacterBody3D
 @export var floor_rays: Array[RayCast3D]
+@export var player_mesh: MeshInstance3D
 
 @export_group("Sound")
 @export var footstep_sound_timer: Timer
@@ -120,7 +121,15 @@ func _handle_landing_sound():
 	Common.play_sound(land_emitter)
 
 func _set_facing_direction(direction: Vector3) -> void:
-	is_facing_left = true if direction.z < 0 else false
+	if direction.z < 0:
+		is_facing_left = true
+		if player_mesh:
+			player_mesh.rotation.y = PI
+	else:
+		is_facing_left = false
+		if player_mesh:
+			player_mesh.rotation.y = 0
+		
 
 func on_floor() -> bool:
 	if floor_rays.is_empty():
