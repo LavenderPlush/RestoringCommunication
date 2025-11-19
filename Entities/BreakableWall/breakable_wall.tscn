@@ -12,7 +12,7 @@ albedo_color = Color(0.4384219, 0.25916803, 0.20261782, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_4awdx"]
 size = Vector3(1.0552979, 1.0565796, 1.0657959)
 
-[node name="BreakableWall" type="StaticBody3D"]
+[node name="BreakableWall" type="StaticBody3D" groups=["Destructable"]]
 script = ExtResource("1_y28ec")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

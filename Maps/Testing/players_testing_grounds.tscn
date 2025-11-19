@@ -167,4 +167,4 @@ size = Vector3(4, 4, 1)
 material = SubResource("StandardMaterial3D_ddmds")
 
 [node name="BreakableWall" parent="." instance=ExtResource("10_6h5gp")]
-transform = Transform3D(5.452853, 0, 0, 0, 5.145575, 0, 0, 0, 1, -1.1745534, 3.0019178, 18.506971)
+transform = Transform3D(5.452853, 0, 0, 0, 3.6019025, 0, 0, 0, 1, -0.057981968, 2.2166824, 18.506971)
