@@ -1,4 +1,4 @@
-class_name GameScene extends Node
+class_name GameScene extends Node3D
 
 signal finished
 

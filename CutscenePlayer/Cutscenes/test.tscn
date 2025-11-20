@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ksm03gj3e2pf" path="res://CutscenePlayer/frame.tscn" id="2_5sbmx"]
 
 [node name="CutesceneOne" instance=ExtResource("1_6bxqr")]
+wait_time = 1.0
 
 [node name="Frame" parent="CanvasLayer/Frames" index="0" node_paths=PackedStringArray("emitter") instance=ExtResource("2_5sbmx")]
 layout_mode = 0
