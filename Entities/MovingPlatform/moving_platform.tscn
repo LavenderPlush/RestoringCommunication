@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dhfj2dvwjwwoh"]
+
+[ext_resource type="Script" uid="uid://67po38gn4ed1" path="res://Entities/MovingPlatform/moving_platform.gd" id="1_mt08w"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1fs3k"]
+size = Vector3(1, 1, 1.9912109)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mt08w"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_co3a5"]
+size = Vector3(1, 0.55859375, 1.7833862)
+
+[node name="MovingPlatform" type="AnimatableBody3D" node_paths=PackedStringArray("point_a", "point_b")]
+script = ExtResource("1_mt08w")
+point_a = NodePath("")
+point_b = NodePath("")
+speed = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_1fs3k")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0)
+mesh = SubResource("BoxMesh_mt08w")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7, 0)
+shape = SubResource("BoxShape3D_co3a5")
+debug_color = Color(0.9, 0, 0, 0.41960785)

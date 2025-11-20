@@ -14,6 +14,9 @@ extends Area3D
 @export var climb_snap_point: Node3D
 @export var collision: CollisionShape3D
 
+@export_category("Sound")
+@export var slide_emitter: FmodEventEmitter3D
+
 var is_extended: bool = false
 
 func _ready() -> void:
@@ -38,6 +41,8 @@ func extend_ladder():
 	is_extended = true
 
 	_set_active(true)
+	
+	Common.play_sound(slide_emitter)
 
 	var tween = create_tween()
 

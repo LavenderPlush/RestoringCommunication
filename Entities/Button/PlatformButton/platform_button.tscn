@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://c161xbj0sh7v"]
+[gd_scene load_steps=6 format=3 uid="uid://rxoqkldt0t5s"]
 
-[ext_resource type="Script" uid="uid://d0vjlxip75nr7" path="res://Entities/Button/LadderButton/ladder_button.gd" id="1_r04n3"]
+[ext_resource type="Script" uid="uid://bh0p0nfak0k4n" path="res://Entities/Button/PlatformButton/platform_button.gd" id="1_yhqr1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3fn0b"]
 albedo_color = Color(1, 0, 0, 1)
@@ -15,12 +15,9 @@ radius = 1.0
 height = 0.44667053
 radius = 0.83984375
 
-[node name="LadderButton" type="AnimatableBody3D" node_paths=PackedStringArray("half_emitter", "full_emitter", "release_emitter")]
+[node name="PlatformButton" type="AnimatableBody3D"]
 sync_to_physics = false
-script = ExtResource("1_r04n3")
-half_emitter = NodePath("HalfPress")
-full_emitter = NodePath("FullPress")
-release_emitter = NodePath("Release")
+script = ExtResource("1_yhqr1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 0.1, 0, 0, 0, 2, 0, 0, 0)
@@ -43,15 +40,3 @@ debug_color = Color(0.99999994, 0.016033605, 0.02410388, 0.41960785)
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
-
-[node name="HalfPress" type="FmodEventEmitter3D" parent="."]
-event_name = "event:/Button Press Half"
-event_guid = "{69064f0a-4508-43bc-bf88-1d417e30cc35}"
-
-[node name="FullPress" type="FmodEventEmitter3D" parent="."]
-event_name = "event:/Button Press Full"
-event_guid = "{047443db-8668-4683-a2ab-8a256fcb56bc}"
-
-[node name="Release" type="FmodEventEmitter3D" parent="."]
-event_name = "event:/Button Release"
-event_guid = "{9aa475f9-c085-4dea-9cb5-1564bec2359a}"
