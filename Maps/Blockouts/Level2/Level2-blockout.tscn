@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c1c2sdp376k65"]
+[gd_scene load_steps=13 format=3 uid="uid://c1c2sdp376k65"]
 
 [ext_resource type="Script" uid="uid://clheyshb47air" path="res://Entities/Camera/camera_controller.gd" id="1_fp5q1"]
 [ext_resource type="PackedScene" uid="uid://bd388rue7yafh" path="res://Entities/Players/Human/human.tscn" id="2_706ts"]
@@ -9,8 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://b6p354rt6aa7i" path="res://Entities/Ladder/ladder.tscn" id="6_dh41h"]
 [ext_resource type="PackedScene" uid="uid://dhfj2dvwjwwoh" path="res://Entities/MovingPlatform/moving_platform.tscn" id="8_o2hav"]
 [ext_resource type="PackedScene" uid="uid://b2mgbokpp37sx" path="res://Entities/BreakableWall/breakable_wall.tscn" id="9_j6fa1"]
+[ext_resource type="PackedScene" uid="uid://q5kt65k1meus" path="res://Entities/Button/ExitButton/exit_manager.tscn" id="10_h1itt"]
+[ext_resource type="PackedScene" uid="uid://c3ocixu65cif1" path="res://Entities/Button/ExitButton/exit_button.tscn" id="11_3lfcs"]
 
-[node name="Level1Blockout" type="Node3D"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w51oj"]
+albedo_color = Color(0.31, 1, 0.34449995, 1)
+
+[node name="Level2-Blockout" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.48696113, 0.20176174, -0.84980065, -0.1003131, 0.9794346, 0.17505738, 0.867644, 0, 0.49718595, -24.128925, 27.08886, 6.976858)
@@ -41,12 +46,12 @@ use_collision = true
 size = Vector3(2, 26, 2)
 
 [node name="Border3" type="CSGBox3D" parent="AlienHalf/Borders_AlienHalf"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.957001, 19.21466, 1.7053026e-13)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.957001, 20.000458, 2.842171e-13)
 use_collision = true
-size = Vector3(2, 40.42932, 2)
+size = Vector3(2, 42.000916, 2)
 
 [node name="Border4" type="CSGBox3D" parent="AlienHalf/Borders_AlienHalf"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01373291, 41.18062, -1.0103838)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01373291, 40.033943, -1.0103838)
 use_collision = true
 size = Vector3(24, 2, 4)
 
@@ -56,7 +61,7 @@ use_collision = true
 size = Vector3(2, 5.145508, 2)
 
 [node name="Border6" type="CSGBox3D" parent="AlienHalf/Borders_AlienHalf"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.997, 41.18488, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.997, 40.038204, 0)
 use_collision = true
 size = Vector3(2, 1.9901123, 2)
 
@@ -175,12 +180,12 @@ use_collision = true
 size = Vector3(24, 2, 2)
 
 [node name="Border2" type="CSGBox3D" parent="HumanHalf/Borders_HumanHalf"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.997, 19.5029, -1.1368684e-13)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.997, 20.050049, -3.410605e-13)
 use_collision = true
-size = Vector3(2, 41, 2)
+size = Vector3(2, 42.0943, 2)
 
 [node name="Border4" type="CSGBox3D" parent="HumanHalf/Borders_HumanHalf"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01373291, 41.18062, -1.0103838)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01373291, 40.033943, -1.0103838)
 use_collision = true
 size = Vector3(24, 2, 4)
 
@@ -274,3 +279,23 @@ transform = Transform3D(1, 0, 0, 0, 7.1484365, 0, 0, 0, 1, 0, 21.184916, 21.552)
 
 [node name="BreakableWall2" parent="." instance=ExtResource("9_j6fa1")]
 transform = Transform3D(1, 0, 0, 0, 6.6819, 0, 0, 0, 1, 0, 36.970192, 0.039544344)
+
+[node name="Exit" type="Node3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="ExitManager" parent="Exit" node_paths=PackedStringArray("button_a", "button_b", "door") instance=ExtResource("10_h1itt")]
+button_a = NodePath("../ExitButton")
+button_b = NodePath("../ExitButton2")
+door = NodePath("../ExitDoor")
+
+[node name="ExitButton" parent="Exit" instance=ExtResource("11_3lfcs")]
+transform = Transform3D(1.3374798e-15, 3.059797e-08, 0.7, 0.7, -3.059797e-08, 0, 3.059797e-08, 0.7, -3.059797e-08, -21.239353, 35.739204, -0.9999989)
+
+[node name="ExitButton2" parent="Exit" instance=ExtResource("11_3lfcs")]
+transform = Transform3D(1.3374798e-15, 3.059797e-08, 0.7, 0.7, -3.059797e-08, 0, 3.059797e-08, 0.7, -3.059797e-08, -12.839353, 35.739204, -0.9999993)
+
+[node name="ExitDoor" type="CSGBox3D" parent="Exit"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, -17.031536, 35.620228, -2.7919724)
+use_collision = true
+size = Vector3(4, 4, 1)
+material = SubResource("StandardMaterial3D_w51oj")
