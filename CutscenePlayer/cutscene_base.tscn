@@ -1,9 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://dq77apc8gosic"]
 
-[ext_resource type="Script" uid="uid://c1oy1eihe03ab" path="res://Cutscenes/cutscene_player.gd" id="1_fcd0k"]
+[ext_resource type="Script" uid="uid://c1oy1eihe03ab" path="res://CutscenePlayer/cutscene_base.gd" id="1_fcd0k"]
 
-[node name="CutsceneBase" type="Node3D"]
+[node name="CutsceneBase" type="Node3D" node_paths=PackedStringArray("frame_holder")]
 script = ExtResource("1_fcd0k")
+frame_holder = NodePath("CanvasLayer/Frames")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

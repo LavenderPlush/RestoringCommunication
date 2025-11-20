@@ -8,3 +8,7 @@ static func reparent_children(a: Node3D, b: Node3D):
 static func play_sound(emitter: FmodEventEmitter3D):
 	if emitter:
 		emitter.play()
+
+static func stop_sound(emitter: FmodEventEmitter3D):
+	if emitter:
+		emitter.stop()
