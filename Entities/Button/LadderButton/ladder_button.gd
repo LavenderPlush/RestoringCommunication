@@ -8,6 +8,11 @@ extends ButtonBase
 ##Drag extendable_ladder scene here.
 @export var extendable_ladder: Area3D
 
+@export_category("Sound")
+@export var half_emitter: FmodEventEmitter3D
+@export var full_emitter: FmodEventEmitter3D
+@export var release_emitter: FmodEventEmitter3D
+
 var press_count: int = 0
 var press_offset: float = -0.05
 var button_used: bool = false
@@ -24,6 +29,10 @@ func _ready() -> void:
 func _on_player_entered(_body: Node3D):
 	if button_used == true: return
 
+	if press_count == 1:
+		Common.play_sound(full_emitter)
+	else:
+		Common.play_sound(half_emitter)
 	if press_count >= 2: return
 	
 	press_count += 1
@@ -39,6 +48,8 @@ func _on_player_entered(_body: Node3D):
 	
 func _on_timer_timeout():
 	if button_used == true: return
+	
+	Common.play_sound(release_emitter)
 
 	press_count = 0
 

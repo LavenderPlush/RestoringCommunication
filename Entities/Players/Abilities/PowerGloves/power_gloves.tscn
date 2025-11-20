@@ -2,11 +2,12 @@
 
 [ext_resource type="Script" uid="uid://c8iid4n88d4vw" path="res://Entities/Players/Abilities/PowerGloves/power_gloves.gd" id="1_f5gxr"]
 
-[node name="PowerGloves" type="Node" node_paths=PackedStringArray("shape_cast", "engage_emitter")]
+[node name="PowerGloves" type="Node" node_paths=PackedStringArray("shape_cast", "engage_emitter", "disengage_emitter")]
 script = ExtResource("1_f5gxr")
 throw_momentum = Vector2(600, 200)
 shape_cast = NodePath("ShapeCast3D")
 engage_emitter = NodePath("EngageEmitter")
+disengage_emitter = NodePath("DisengageEmitter")
 
 [node name="ShapeCast3D" type="ShapeCast3D" parent="."]
 enabled = false
@@ -15,3 +16,7 @@ target_position = Vector3(0, 0, 0)
 [node name="EngageEmitter" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/Power Glove Pickup"
 event_guid = "{99bf67dd-38e2-413d-ad1e-ab9b807e8681}"
+
+[node name="DisengageEmitter" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/Power Glove Throw"
+event_guid = "{d3d68252-aad3-4044-a86e-be69745977aa}"
