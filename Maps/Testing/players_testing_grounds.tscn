@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://wv7mhgpex08w"]
+[gd_scene load_steps=15 format=3 uid="uid://wv7mhgpex08w"]
 
 [ext_resource type="PackedScene" uid="uid://bh7w25o2ijqo6" path="res://Entities/Players/Alien/alien.tscn" id="1_vfhqw"]
 [ext_resource type="PackedScene" uid="uid://bd388rue7yafh" path="res://Entities/Players/Human/human.tscn" id="2_kqrly"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://dk6nscx8wfi48" path="res://Entities/Checkpoint/checkpoint.tscn" id="8_ajho5"]
 [ext_resource type="PackedScene" uid="uid://q5kt65k1meus" path="res://Entities/Button/ExitButton/exit_manager.tscn" id="8_vlpq4"]
 [ext_resource type="PackedScene" uid="uid://c3ocixu65cif1" path="res://Entities/Button/ExitButton/exit_button.tscn" id="9_6h5gp"]
+[ext_resource type="PackedScene" uid="uid://dhfj2dvwjwwoh" path="res://Entities/MovingPlatform/moving_platform.tscn" id="10_6h5gp"]
+[ext_resource type="PackedScene" uid="uid://rxoqkldt0t5s" path="res://Entities/Button/PlatformButton/platform_button.tscn" id="11_ddmds"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_08bup"]
 
@@ -164,3 +166,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, 0.012756216, 2.477159, -3.000
 use_collision = true
 size = Vector3(4, 4, 1)
 material = SubResource("StandardMaterial3D_ddmds")
+
+[node name="MovingPlatform" parent="." node_paths=PackedStringArray("point_a", "point_b") instance=ExtResource("10_6h5gp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6.4960823)
+point_a = NodePath("Marker3D")
+point_b = NodePath("Marker3D2")
+wait_time = 0.2
+auto_start = false
+
+[node name="Marker3D" type="Marker3D" parent="MovingPlatform"]
+
+[node name="Marker3D2" type="Marker3D" parent="MovingPlatform"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="PlatformButton" parent="." node_paths=PackedStringArray("moving_platform") instance=ExtResource("11_ddmds")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0.454)
+moving_platform = NodePath("../MovingPlatform")
