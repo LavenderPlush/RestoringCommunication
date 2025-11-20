@@ -2,9 +2,20 @@
 
 [ext_resource type="Script" uid="uid://c1oy1eihe03ab" path="res://CutscenePlayer/cutscene_base.gd" id="1_fcd0k"]
 
-[node name="CutsceneBase" type="Node3D" node_paths=PackedStringArray("frame_holder")]
+[node name="CutsceneBase" type="Node3D" node_paths=PackedStringArray("frame_holder", "wait_timer")]
 script = ExtResource("1_fcd0k")
 frame_holder = NodePath("CanvasLayer/Frames")
+wait_timer = NodePath("WaitTimer")
+
+[node name="WaitTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Sound" type="Node" parent="."]
+
+[node name="FmodListener3D" type="FmodListener3D" parent="Sound"]
+
+[node name="FmodBankLoader" type="FmodBankLoader" parent="Sound"]
+bank_paths = ["res://Assets/FMODBank/Desktop/Master.bank"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
