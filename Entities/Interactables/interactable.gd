@@ -21,7 +21,8 @@ var gravity: float:
 	get(): return ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var is_picked_up: bool = false
-var is_thrown: bool = false
+var is_thrown: bool = false:
+	get(): return is_thrown
 var is_controlled: bool = false
 
 # throwing
@@ -67,7 +68,9 @@ func _physics_process(delta: float) -> void:
 
 	if is_thrown:
 		if is_on_wall():
-			horizontal_velocity = 0
+			var collision = get_last_slide_collision()
+			if not collision.get_collider().is_in_group("Destructable"):
+				horizontal_velocity = 0
 		
 		if is_on_floor():
 			Common.play_sound(landing_sound)

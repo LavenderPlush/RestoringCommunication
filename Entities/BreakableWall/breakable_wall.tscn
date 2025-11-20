@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://b2mgbokpp37sx"]
+
+[ext_resource type="Script" uid="uid://ci84h3o7v4cky" path="res://Entities/BreakableWall/breakable_wall.gd" id="1_y28ec"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_rqbmb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4kv87"]
+albedo_color = Color(0.4384219, 0.25916803, 0.20261782, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y28ec"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4awdx"]
+size = Vector3(1.0552979, 1.0565796, 1.0657959)
+
+[node name="BreakableWall" type="StaticBody3D" groups=["Destructable"]]
+script = ExtResource("1_y28ec")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_rqbmb")
+skeleton = NodePath("../DestructionArea")
+surface_material_override/0 = SubResource("StandardMaterial3D_4kv87")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_y28ec")
+
+[node name="DestructionArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DestructionArea"]
+shape = SubResource("BoxShape3D_4awdx")

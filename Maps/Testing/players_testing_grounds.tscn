@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://wv7mhgpex08w"]
+[gd_scene load_steps=14 format=3 uid="uid://wv7mhgpex08w"]
 
 [ext_resource type="PackedScene" uid="uid://bh7w25o2ijqo6" path="res://Entities/Players/Alien/alien.tscn" id="1_vfhqw"]
 [ext_resource type="PackedScene" uid="uid://bd388rue7yafh" path="res://Entities/Players/Human/human.tscn" id="2_kqrly"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dk6nscx8wfi48" path="res://Entities/Checkpoint/checkpoint.tscn" id="8_ajho5"]
 [ext_resource type="PackedScene" uid="uid://q5kt65k1meus" path="res://Entities/Button/ExitButton/exit_manager.tscn" id="8_vlpq4"]
 [ext_resource type="PackedScene" uid="uid://c3ocixu65cif1" path="res://Entities/Button/ExitButton/exit_button.tscn" id="9_6h5gp"]
+[ext_resource type="PackedScene" uid="uid://b2mgbokpp37sx" path="res://Entities/BreakableWall/breakable_wall.tscn" id="10_6h5gp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_08bup"]
 
@@ -164,3 +165,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, 0.012756216, 2.477159, -3.000
 use_collision = true
 size = Vector3(4, 4, 1)
 material = SubResource("StandardMaterial3D_ddmds")
+
+[node name="BreakableWall" parent="." instance=ExtResource("10_6h5gp")]
+transform = Transform3D(5.452853, 0, 0, 0, 3.6019025, 0, 0, 0, 1, -0.057981968, 2.2166824, 18.506971)
