@@ -112,7 +112,7 @@ func _handle_walk_sound():
 		footstep_sound_timer.start()
 
 func _handle_landing_sound():
-	if not land_emitter or _fall_velocity < 9.0:
+	if not land_emitter or _fall_velocity < 11.0:
 		return
 
 	# Magic number used for POC

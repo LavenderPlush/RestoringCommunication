@@ -11,14 +11,15 @@ material = SubResource("StandardMaterial3D_p2676")
 [sub_resource type="BoxShape3D" id="BoxShape3D_78g60"]
 size = Vector3(1, 7, 2)
 
-[node name="ExtendableLadder" type="Area3D" node_paths=PackedStringArray("extendable_part", "pre_existing_part", "climb_snap_point", "collision")]
+[node name="ExtendableLadder" type="Area3D" node_paths=PackedStringArray("extendable_part", "pre_existing_part", "climb_snap_point", "collision", "slide_emitter")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 script = ExtResource("1_dprsh")
+is_extendable = true
 extendable_part = NodePath("ExtendablePart")
 pre_existing_part = NodePath("PreExistingPart")
 climb_snap_point = NodePath("ClimbSnapPoint")
 collision = NodePath("CollisionShape3D")
-is_extendable = true
+slide_emitter = NodePath("SlideSound")
 
 [node name="ExtendablePart" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
@@ -130,3 +131,7 @@ skeleton = NodePath("../../ExtendablePart")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.2563477, 0.5)
 shape = SubResource("BoxShape3D_78g60")
 debug_color = Color(0, 0.5950001, 0.7, 0.89411765)
+
+[node name="SlideSound" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/Ladder Slide"
+event_guid = "{f778fcd1-85b3-4045-9d7d-bf64351afc7c}"

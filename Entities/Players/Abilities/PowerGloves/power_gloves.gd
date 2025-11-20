@@ -15,6 +15,7 @@ class_name PowerGloves extends Ability
 
 @export_category("Sound")
 @export var engage_emitter: FmodEventEmitter3D
+@export var disengage_emitter: FmodEventEmitter3D
 
 var object_in_range: Node3D
 var held_object: Interactable
@@ -38,6 +39,7 @@ func process_ability() -> void:
 			Common.play_sound(engage_emitter)
 		elif held_object:
 			throw()
+			Common.play_sound(disengage_emitter)
 			disengage()
 	elif Input.is_action_just_pressed("ability_power_gloves_drop"):
 		if held_object:

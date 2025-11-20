@@ -60,11 +60,14 @@ gi_mode = 2
 mesh = SubResource("ArrayMesh_vwnpv")
 skeleton = NodePath("")
 
-[node name="Movement" parent="." node_paths=PackedStringArray("body", "floor_rays", "player_mesh") instance=ExtResource("1_n6muv")]
+[node name="Movement" parent="." node_paths=PackedStringArray("body", "floor_rays", "player_mesh", "jump_emitter", "footstep_emitter", "land_emitter") instance=ExtResource("1_n6muv")]
 control_prefix = "alien"
 body = NodePath("..")
 floor_rays = [NodePath("../FloorRays/LeftFloorRay"), NodePath("../FloorRays/MiddleFloorRay"), NodePath("../FloorRays/RightFloorRay")]
 player_mesh = NodePath("../Mesh")
+jump_emitter = NodePath("../Sound/Jump")
+footstep_emitter = NodePath("../Sound/Footstep")
+land_emitter = NodePath("../Sound/Land")
 
 [node name="TransmuteSoul" parent="." node_paths=PackedStringArray("interaction_area", "alien_body") instance=ExtResource("2_ksuwr")]
 interaction_area = NodePath("../Area3D")
@@ -90,3 +93,17 @@ target_position = Vector3(0, -0.15, 0)
 [node name="RightFloorRay" type="RayCast3D" parent="FloorRays"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, -0.3)
 target_position = Vector3(0, -0.3, 0)
+
+[node name="Sound" type="Node" parent="."]
+
+[node name="Jump" type="FmodEventEmitter3D" parent="Sound"]
+event_name = "event:/Jump"
+event_guid = "{b3850534-5bda-4b82-9601-51438fdad158}"
+
+[node name="Footstep" type="FmodEventEmitter3D" parent="Sound"]
+event_name = "event:/Alien Walk"
+event_guid = "{3c4be8df-5d1d-4b9a-b398-2d3218fdafd9}"
+
+[node name="Land" type="FmodEventEmitter3D" parent="Sound"]
+event_name = "event:/Alien Land"
+event_guid = "{35a18bc1-3bd1-45b5-9b5c-0f3cc91de1f0}"
