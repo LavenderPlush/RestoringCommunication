@@ -171,8 +171,6 @@ material = SubResource("StandardMaterial3D_ddmds")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6.4960823)
 point_a = NodePath("Marker3D")
 point_b = NodePath("Marker3D2")
-wait_time = 0.2
-auto_start = false
 
 [node name="Marker3D" type="Marker3D" parent="MovingPlatform"]
 
