@@ -10,6 +10,6 @@ func _ready() -> void:
 func _on_destruction_area_entered(body: Node3D) -> void:
 	if body is Interactable and body.is_thrown:
 		var particles = wall_break_particles.instantiate()
-		particles.global_position = global_position
 		get_parent().add_child(particles)
+		particles.global_position = global_position
 		queue_free()
