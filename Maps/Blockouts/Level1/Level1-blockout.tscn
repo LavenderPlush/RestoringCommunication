@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmkejbdukgoaq"]
+[gd_scene load_steps=9 format=3 uid="uid://dmkejbdukgoaq"]
 
 [ext_resource type="Script" uid="uid://clheyshb47air" path="res://Entities/Camera/camera_controller.gd" id="1_1irt7"]
 [ext_resource type="PackedScene" uid="uid://bd388rue7yafh" path="res://Entities/Players/Human/human.tscn" id="1_wmgaj"]
 [ext_resource type="PackedScene" uid="uid://bh7w25o2ijqo6" path="res://Entities/Players/Alien/alien.tscn" id="3_gawjb"]
 [ext_resource type="PackedScene" uid="uid://b6p354rt6aa7i" path="res://Entities/Ladder/ladder.tscn" id="4_gawjb"]
+[ext_resource type="PackedScene" uid="uid://q5kt65k1meus" path="res://Entities/Button/ExitButton/exit_manager.tscn" id="5_ie4pk"]
+[ext_resource type="PackedScene" uid="uid://c3ocixu65cif1" path="res://Entities/Button/ExitButton/exit_button.tscn" id="6_r1paq"]
+[ext_resource type="PackedScene" uid="uid://dhfj2dvwjwwoh" path="res://Entities/MovingPlatform/moving_platform.tscn" id="7_6prd5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qd8xy"]
+albedo_color = Color(0.31, 1, 0.34449995, 1)
 
 [node name="Level1Blockout" type="Node3D"]
 
@@ -18,10 +24,10 @@ player1 = NodePath("../Human")
 player2 = NodePath("../Alien")
 
 [node name="Human" parent="." instance=ExtResource("1_wmgaj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.999, 3.557)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.06042, 2.0388722)
 
 [node name="Alien" parent="." instance=ExtResource("3_gawjb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.988, -1.2000715)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.985526, -1.8305395)
 
 [node name="Borders" type="Node3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
@@ -41,9 +47,9 @@ use_collision = true
 size = Vector3(2, 32.200684, 2)
 
 [node name="Border4" type="CSGBox3D" parent="Borders"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013732889, 30.180618, -1.0103838)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013732889, 30.180618, -1.9488604)
 use_collision = true
-size = Vector3(24, 2, 4)
+size = Vector3(24, 2, 5.876953)
 
 [node name="PlatformsLEFT" type="Node3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
@@ -88,6 +94,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.955015, 24.486, 0)
 use_collision = true
 size = Vector3(4, 1, 2)
 
+[node name="PlatformLeft9" type="CSGBox3D" parent="PlatformsLEFT"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.044984818, 24.768778, -4.371139e-07)
+use_collision = true
+size = Vector3(7, 1, 2)
+
 [node name="PlatformsRIGHT" type="Node3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 
@@ -128,3 +139,49 @@ transform = Transform3D(8.940697e-08, 0, -1, 0, 1, 0, 1, 0, 8.940697e-08, 0.9427
 
 [node name="Ladder2" parent="Ladders" instance=ExtResource("4_gawjb")]
 transform = Transform3D(8.940697e-08, 0, -1, 0, 1, 0, 1, 0, 8.940697e-08, 0.9427879, 10.965216, 11.068277)
+
+[node name="Exit" type="Node3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="ExitManager" parent="Exit" node_paths=PackedStringArray("button_a", "button_b", "door") instance=ExtResource("5_ie4pk")]
+button_a = NodePath("../ExitButton")
+button_b = NodePath("../ExitButton2")
+door = NodePath("../ExitDoor")
+
+[node name="ExitButton" parent="Exit" instance=ExtResource("6_r1paq")]
+transform = Transform3D(1.3374798e-15, 3.059797e-08, 0.7, 0.7, -3.059797e-08, 0, 3.059797e-08, 0.7, -3.059797e-08, -10.000004, 26.64745, -0.9999997)
+
+[node name="ExitButton2" parent="Exit" instance=ExtResource("6_r1paq")]
+transform = Transform3D(1.3374798e-15, 3.059797e-08, 0.7, 0.7, -3.059797e-08, 0, 3.059797e-08, 0.7, -3.059797e-08, 9.999996, 26.64745, -1.0000002)
+
+[node name="ExitDoor" type="CSGBox3D" parent="Exit"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, 0.012756226, 27.17448, -2.7919724)
+use_collision = true
+size = Vector3(4, 4, 1)
+material = SubResource("StandardMaterial3D_qd8xy")
+
+[node name="MovingPlatform1" parent="." node_paths=PackedStringArray("point_a", "point_b") instance=ExtResource("7_6prd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20.968075, 5.018998)
+point_a = NodePath("MovingPlatform1_A")
+point_b = NodePath("MovingPlatform1_B")
+speed = 4.0
+wait_time = 0.8
+
+[node name="MovingPlatform1_A" type="Marker3D" parent="MovingPlatform1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5144596, -1.2285333)
+
+[node name="MovingPlatform1_B" type="Marker3D" parent="MovingPlatform1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.9974747, 0.9531307)
+
+[node name="MovingPlatform2" parent="." node_paths=PackedStringArray("point_a", "point_b") instance=ExtResource("7_6prd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20.968, -5.019)
+point_a = NodePath("MovingPlatform2_A")
+point_b = NodePath("MovingPlatform2_B")
+speed = 4.0
+wait_time = 0.3
+
+[node name="MovingPlatform2_A" type="Marker3D" parent="MovingPlatform2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.514, 1.229)
+
+[node name="MovingPlatform2_B" type="Marker3D" parent="MovingPlatform2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.997, -0.953)

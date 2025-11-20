@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1c2sdp376k65"]
+[gd_scene load_steps=10 format=3 uid="uid://c1c2sdp376k65"]
 
 [ext_resource type="Script" uid="uid://clheyshb47air" path="res://Entities/Camera/camera_controller.gd" id="1_fp5q1"]
 [ext_resource type="PackedScene" uid="uid://bd388rue7yafh" path="res://Entities/Players/Human/human.tscn" id="2_706ts"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://b8hxsnh6e1jfh" path="res://Entities/Ladder/extendable_ladder.tscn" id="5_5antb"]
 [ext_resource type="PackedScene" uid="uid://c161xbj0sh7v" path="res://Entities/Button/LadderButton/ladder_button.tscn" id="5_jxnts"]
 [ext_resource type="PackedScene" uid="uid://b6p354rt6aa7i" path="res://Entities/Ladder/ladder.tscn" id="6_dh41h"]
+[ext_resource type="PackedScene" uid="uid://dhfj2dvwjwwoh" path="res://Entities/MovingPlatform/moving_platform.tscn" id="8_o2hav"]
+[ext_resource type="PackedScene" uid="uid://b2mgbokpp37sx" path="res://Entities/BreakableWall/breakable_wall.tscn" id="9_j6fa1"]
 
 [node name="Level1Blockout" type="Node3D"]
 
@@ -24,7 +26,7 @@ player2 = NodePath("../AlienHalf/Alien")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13)
 
 [node name="Alien" parent="AlienHalf" instance=ExtResource("3_cbx5x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 27.462831, 6.033618)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7137485, -5.817168)
 
 [node name="Borders_AlienHalf" type="Node3D" parent="AlienHalf"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
@@ -142,7 +144,7 @@ transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-
 transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, -8.083292, 21.840595, 3.5333227e-07)
 
 [node name="Box5" parent="AlienHalf/Boxes_AlienHalf" instance=ExtResource("4_pbqym")]
-transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, 9.2063055, 27.17083, -4.0242e-07)
+transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, -4.4892797, 21.725796, 1.9623306e-07)
 
 [node name="Box6" parent="AlienHalf/Boxes_AlienHalf" instance=ExtResource("4_pbqym")]
 transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, -11.13715, 21.786407, 4.868205e-07)
@@ -163,7 +165,7 @@ extendable_ladder = NodePath("../ExtendableLadder1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 13)
 
 [node name="Human" parent="HumanHalf" instance=ExtResource("2_706ts")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 27.343668, -6.0825233)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.536743e-07, 2.165863, 8.83023)
 
 [node name="Borders_HumanHalf" type="Node3D" parent="HumanHalf"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
@@ -240,3 +242,35 @@ transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-
 
 [node name="PlaceholderButton" parent="HumanHalf" instance=ExtResource("5_jxnts")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.545295, -10.797881)
+
+[node name="MovingPlatform1_AlienHalf" parent="." node_paths=PackedStringArray("point_a", "point_b") instance=ExtResource("8_o2hav")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.571383, -5.3488564)
+point_a = NodePath("MovingPlatform1_A")
+point_b = NodePath("MovingPlatform1_B")
+speed = 4.0
+wait_time = 0.3
+
+[node name="MovingPlatform1_A" type="Marker3D" parent="MovingPlatform1_AlienHalf"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5471344, -0.030750751)
+
+[node name="MovingPlatform1_B" type="Marker3D" parent="MovingPlatform1_AlienHalf"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4528656, -0.030750751)
+
+[node name="MovingPlatform1_HumanHalf" parent="." node_paths=PackedStringArray("point_a", "point_b") instance=ExtResource("8_o2hav")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.5713825, 6.0147424)
+point_a = NodePath("MovingPlatform1_A")
+point_b = NodePath("MovingPlatform1_B")
+speed = 4.0
+wait_time = 0.3
+
+[node name="MovingPlatform1_A" type="Marker3D" parent="MovingPlatform1_HumanHalf"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.78712, -0.030750751)
+
+[node name="MovingPlatform1_B" type="Marker3D" parent="MovingPlatform1_HumanHalf"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.669485, -0.030750751)
+
+[node name="BreakableWall1" parent="." instance=ExtResource("9_j6fa1")]
+transform = Transform3D(1, 0, 0, 0, 7.1484365, 0, 0, 0, 1, 0, 21.184916, 21.552)
+
+[node name="BreakableWall2" parent="." instance=ExtResource("9_j6fa1")]
+transform = Transform3D(1, 0, 0, 0, 6.6819, 0, 0, 0, 1, 0, 36.970192, 0.039544344)
