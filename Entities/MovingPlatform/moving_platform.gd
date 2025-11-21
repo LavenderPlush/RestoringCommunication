@@ -75,6 +75,7 @@ func _on_body_exited(body):
 func reset_state():
 	if auto_start: return
 
-	tween.stop()
+	if tween:
+		tween.stop()
 
 	global_position = original_position
