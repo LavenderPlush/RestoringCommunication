@@ -4,7 +4,6 @@ extends Ability
 @export var interaction_area: Area3D
 @export var movement: Movement
 @export var alien_body: CharacterBody3D
-@export var outline: Material
 
 @export_category("Sound")
 @export var engage_emitter: FmodEventEmitter3D
@@ -12,7 +11,7 @@ extends Ability
 
 var transmutable_object: Interactable
 var transmuted_object: Interactable
-var object_mesh: MeshInstance3D
+var available_objects: Array[Interactable] = []
 
 func _ready() -> void:
 	interaction_area.body_entered.connect(_object_entered)
@@ -32,6 +31,8 @@ func process_ability() -> void:
 			disengage()
 			
 func _physics_process(_delta: float) -> void:
+	_handle_targeting()
+
 	if transmuted_object and not (transmuted_object.is_picked_up or transmuted_object.is_thrown):
 		movement.process_movement()
 		movement.process_jump()
@@ -54,16 +55,37 @@ func extend_transmute():
 		untransmute_soul()
 		transmute_soul()
 
+func _handle_targeting() -> void:
+	if transmuted_object: return
+
+	var closest_obj: Interactable = null
+	var closest_dist: float = 9999.0
+
+	for obj in available_objects:
+		obj.set_targeted(false, false)
+		
+		var dist = alien_body.global_position.distance_squared_to(obj.global_position)
+
+		if dist < closest_dist:
+			closest_dist = dist
+			closest_obj = obj
+
+	if closest_obj:
+		closest_obj.set_targeted(false, true)
+	
+	transmutable_object = closest_obj
+
 # Signals
 func _object_entered(object: Node3D):
-	if object is Interactable:
-		transmutable_object = object
-
-		object_mesh = transmutable_object.get_node("MeshInstance3D")
-		object_mesh.material_overlay = outline
+	if object is Interactable and object not in available_objects:
+		# transmutable_object = object
+		available_objects.append(object)
 
 
 func _object_exited(object: Node3D):
-	if object == transmutable_object:
-		object_mesh.material_overlay = null
-		transmutable_object = null
+	if object is Interactable:
+		object.set_targeted(false, false)
+		available_objects.erase(object)
+		
+		if object == transmutable_object:
+			transmutable_object = null

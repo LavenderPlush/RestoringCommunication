@@ -11,7 +11,6 @@ class_name PowerGloves extends Ability
 @export var dropping_position: Marker3D
 @export var movement: Movement
 @export var collision_timer: Timer
-@export var outline: Material
 
 @export_category("Sound")
 @export var engage_emitter: FmodEventEmitter3D
@@ -23,7 +22,7 @@ var original_collider: CollisionShape3D
 var player_held_collider: CollisionShape3D
 var player_to_reset: PhysicsBody3D
 var box_to_reset: Interactable
-var object_mesh: MeshInstance3D
+var available_objects: Array[Interactable] = []
 
 func _ready() -> void:
 	interaction_area.body_entered.connect(_object_entered)
@@ -44,6 +43,8 @@ func process_ability() -> void:
 	elif Input.is_action_just_pressed("ability_power_gloves_drop"):
 		if held_object:
 			drop()
+
+	_handle_targeting()
 
 	if held_object:
 		held_object.global_position = holding_position.global_position
@@ -145,17 +146,39 @@ func check_box_collide(target_position: Vector3):
 	shape_cast.remove_exception(held_object)
 	return shape_cast.is_colliding()
 
+func _handle_targeting() -> void:
+	if held_object: return
+
+	var closest_obj: Interactable = null
+	var closest_dist: float = 9999.0
+
+	for obj in available_objects:
+		obj.set_targeted(true, false) 
+		
+		var dist = player.global_position.distance_squared_to(obj.global_position)
+
+		if dist < closest_dist:
+			closest_dist = dist
+			closest_obj = obj
+
+	if closest_obj:
+		closest_obj.set_targeted(true, true)
+	
+	object_in_range = closest_obj
+
 # Signals
 func _object_entered(object: Node3D):
-	if object is Interactable:
-		object_in_range = object
-		object_mesh = object_in_range.get_node("MeshInstance3D")
-		object_mesh.material_overlay = outline
+	if object is Interactable and object not in available_objects:
+		# object_in_range = object
+		available_objects.append(object)
 
 func _object_exited(object: Node3D):
-	if object == object_in_range:
-		object_mesh.material_overlay = null
-		object_in_range = null
+	if object is Interactable:
+		object.set_targeted(true, false)
+		available_objects.erase(object)
+
+		if object == object_in_range:
+			object_in_range = null
 
 func _enable_dropped_collision():
 	box_to_reset.remove_collision_exception_with(player)
