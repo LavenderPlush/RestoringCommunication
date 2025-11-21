@@ -6,9 +6,12 @@ class_name CutscenePlayer extends GameScene
 @export_category("Developers")
 @export var frame_holder: Control
 @export var wait_timer: Timer
+@export var progress_bar: ProgressBar
 
 var frames: Array[Frame] = []
 var current_frame: int = 0
+
+var hold_to_skip: bool = false
 
 func _ready() -> void:
 	load_frames()
@@ -20,9 +23,20 @@ func _ready() -> void:
 	wait_timer.timeout.connect(play_frame)
 	wait_timer.start(wait_time)
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("alien_jump") or event.is_action_pressed("human_jump"):
+func _process(delta: float) -> void:
+	if hold_to_skip:
+		if progress_bar.value == progress_bar.max_value:
 			force_skip()
+			hold_to_skip = false
+		else:
+			progress_bar.value += delta * 100
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("human_jump"):
+		hold_to_skip = true
+	if event.is_action_released("human_jump"):
+		hold_to_skip = false
+		progress_bar.value = 0
 
 func load_frames() -> void:
 	var raw_frames = frame_holder.get_children()
@@ -41,10 +55,10 @@ func play_frame() -> void:
 		current_frame += 1
 
 func force_skip() -> void:
-	if wait_timer.time_left > 0:
-		wait_timer.stop()
 	frames[current_frame - 1].stop()
-	play_frame()
+	if current_frame < frames.size():
+		frames[current_frame].stop()
+	finish_scene()
 
 # Signals
 func frame_finish(id) -> void:

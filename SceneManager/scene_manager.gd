@@ -1,6 +1,8 @@
 extends Node3D
 
+##This decides how long the fade takes when transitioning scenes
 @export var fade_time: float = 1.0
+##The order decides the order of the scenes
 @export var scenes: Array[PackedScene]
 
 @export var overlay: ColorRect

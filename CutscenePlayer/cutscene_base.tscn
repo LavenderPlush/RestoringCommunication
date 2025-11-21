@@ -1,11 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://dq77apc8gosic"]
+[gd_scene load_steps=3 format=3 uid="uid://dq77apc8gosic"]
 
 [ext_resource type="Script" uid="uid://c1oy1eihe03ab" path="res://CutscenePlayer/cutscene_base.gd" id="1_fcd0k"]
 
-[node name="CutsceneBase" type="Node3D" node_paths=PackedStringArray("frame_holder", "wait_timer")]
+[sub_resource type="Theme" id="Theme_wvej0"]
+default_font_size = 19
+
+[node name="CutsceneBase" type="Node3D" node_paths=PackedStringArray("frame_holder", "wait_timer", "progress_bar")]
 script = ExtResource("1_fcd0k")
 frame_holder = NodePath("CanvasLayer/Frames")
 wait_timer = NodePath("WaitTimer")
+progress_bar = NodePath("CanvasLayer/ProgressBar")
 
 [node name="WaitTimer" type="Timer" parent="."]
 one_shot = true
@@ -18,6 +22,26 @@ one_shot = true
 bank_paths = ["res://Assets/FMODBank/Desktop/Master.bank"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+z_index = 1
+offset_left = 888.0
+offset_top = 596.0
+offset_right = 1139.0
+offset_bottom = 633.0
+theme_override_colors/font_color = Color(9.62615e-08, 0.4618798, 0.72395194, 1)
+max_value = 200.0
+rounded = true
+show_percentage = false
+
+[node name="Skip label" type="Label" parent="CanvasLayer"]
+z_index = 2
+offset_left = 900.0
+offset_top = 600.0
+offset_right = 1127.0
+offset_bottom = 627.0
+theme = SubResource("Theme_wvej0")
+text = "Hold x / Spacebar to skip"
 
 [node name="Background" type="Control" parent="CanvasLayer"]
 layout_mode = 3
