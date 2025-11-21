@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://wv7mhgpex08w"]
+[gd_scene load_steps=15 format=3 uid="uid://wv7mhgpex08w"]
 
 [ext_resource type="PackedScene" uid="uid://bh7w25o2ijqo6" path="res://Entities/Players/Alien/alien.tscn" id="1_vfhqw"]
 [ext_resource type="PackedScene" uid="uid://bd388rue7yafh" path="res://Entities/Players/Human/human.tscn" id="2_kqrly"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://q5kt65k1meus" path="res://Entities/Button/ExitButton/exit_manager.tscn" id="8_vlpq4"]
 [ext_resource type="PackedScene" uid="uid://c3ocixu65cif1" path="res://Entities/Button/ExitButton/exit_button.tscn" id="9_6h5gp"]
 [ext_resource type="PackedScene" uid="uid://b2mgbokpp37sx" path="res://Entities/BreakableWall/breakable_wall.tscn" id="10_6h5gp"]
+[ext_resource type="PackedScene" uid="uid://dhfj2dvwjwwoh" path="res://Entities/MovingPlatform/moving_platform.tscn" id="11_ddmds"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_08bup"]
 
@@ -136,6 +137,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 26.864311)
 human_spawn = NodePath("HumanSpawn3")
 alien_spawn = NodePath("AlienSpawn3")
+checkpoint_id = 1
 
 [node name="HumanSpawn3" type="Marker3D" parent="Checkpoint2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.5151024)
@@ -168,3 +170,14 @@ material = SubResource("StandardMaterial3D_ddmds")
 
 [node name="BreakableWall" parent="." instance=ExtResource("10_6h5gp")]
 transform = Transform3D(5.452853, 0, 0, 0, 3.6019025, 0, 0, 0, 1, -0.057981968, 2.2166824, 18.506971)
+
+[node name="MovingPlatform" parent="." node_paths=PackedStringArray("point_a", "point_b") instance=ExtResource("11_ddmds")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09, 0.003)
+point_a = NodePath("Marker3D")
+point_b = NodePath("Marker3D2")
+wait_time = 0.4
+
+[node name="Marker3D" type="Marker3D" parent="MovingPlatform"]
+
+[node name="Marker3D2" type="Marker3D" parent="MovingPlatform"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)

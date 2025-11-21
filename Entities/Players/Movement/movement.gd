@@ -84,7 +84,10 @@ func process_jump():
 	if (Input.is_action_just_pressed("%s_jump" % control_prefix)
 		and on_floor()):
 			Common.play_sound(jump_emitter)
-			body.velocity.y = jump_velocity
+			
+			var platform_velocity = body.get_platform_velocity()
+
+			body.velocity.y = jump_velocity - (platform_velocity.y / 2.5)
 
 func process_movement():
 	var input_direction = Input.get_vector(

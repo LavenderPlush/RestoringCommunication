@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c5kt4cniijre6" path="res://Entities/Ladder/ladder.gd" id="1_dprsh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p2676"]
-albedo_color = Color(0.5, 0.5, 0.5, 1)
+albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_wx3jk"]
 material = SubResource("StandardMaterial3D_p2676")
@@ -11,10 +11,9 @@ material = SubResource("StandardMaterial3D_p2676")
 [sub_resource type="BoxShape3D" id="BoxShape3D_78g60"]
 size = Vector3(1, 7, 2)
 
-[node name="Ladder" type="Area3D" node_paths=PackedStringArray("pre_existing_part", "climb_snap_point", "collision")]
+[node name="Ladder" type="Area3D" node_paths=PackedStringArray("climb_snap_point", "collision")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 script = ExtResource("1_dprsh")
-pre_existing_part = NodePath("")
 climb_snap_point = NodePath("ClimbSnapPoint")
 collision = NodePath("CollisionShape3D")
 
