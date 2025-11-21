@@ -4,7 +4,6 @@ extends Ability
 @export var interaction_area: Area3D
 @export var movement: Movement
 @export var alien_body: CharacterBody3D
-@export var outline: Material
 
 @export_category("Sound")
 @export var engage_emitter: FmodEventEmitter3D
@@ -12,11 +11,10 @@ extends Ability
 
 var transmutable_object: Interactable
 var transmuted_object: Interactable
-var object_mesh: MeshInstance3D
 
 func _ready() -> void:
-	interaction_area.body_entered.connect(_object_entered)
-	interaction_area.body_exited.connect(_object_exited)
+	interaction_area.body_entered.connect(_on_object_entered_area)
+	interaction_area.body_exited.connect(_on_object_exited_area)
 	
 func process_ability() -> void:
 	if Input.is_action_just_pressed("ability_transmute_soul"):
@@ -32,6 +30,9 @@ func process_ability() -> void:
 			disengage()
 			
 func _physics_process(_delta: float) -> void:
+	if not transmuted_object:
+		transmutable_object = get_closest_interactable(alien_body.global_position, false)
+
 	if transmuted_object and not (transmuted_object.is_picked_up or transmuted_object.is_thrown):
 		movement.process_movement()
 		movement.process_jump()
@@ -53,17 +54,3 @@ func extend_transmute():
 		transmutable_object = transmuted_object.interactable_extension
 		untransmute_soul()
 		transmute_soul()
-
-# Signals
-func _object_entered(object: Node3D):
-	if object is Interactable:
-		transmutable_object = object
-
-		object_mesh = transmutable_object.get_node("MeshInstance3D")
-		object_mesh.material_overlay = outline
-
-
-func _object_exited(object: Node3D):
-	if object == transmutable_object:
-		object_mesh.material_overlay = null
-		transmutable_object = null

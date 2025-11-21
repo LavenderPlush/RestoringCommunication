@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://wv7mhgpex08w"]
+[gd_scene load_steps=19 format=3 uid="uid://wv7mhgpex08w"]
 
 [ext_resource type="PackedScene" uid="uid://bh7w25o2ijqo6" path="res://Entities/Players/Alien/alien.tscn" id="1_vfhqw"]
 [ext_resource type="PackedScene" uid="uid://bd388rue7yafh" path="res://Entities/Players/Human/human.tscn" id="2_kqrly"]
@@ -11,13 +11,29 @@
 [ext_resource type="PackedScene" uid="uid://c3ocixu65cif1" path="res://Entities/Button/ExitButton/exit_button.tscn" id="9_6h5gp"]
 [ext_resource type="PackedScene" uid="uid://b2mgbokpp37sx" path="res://Entities/BreakableWall/breakable_wall.tscn" id="10_6h5gp"]
 [ext_resource type="PackedScene" uid="uid://dhfj2dvwjwwoh" path="res://Entities/MovingPlatform/moving_platform.tscn" id="11_ddmds"]
+[ext_resource type="PackedScene" uid="uid://1p2rwqwpq1w5" path="res://Entities/Checkpoint/checkpoint_light.tscn" id="12_xgm8l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_08bup"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_jw2t6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ddmds"]
-albedo_color = Color(0.31, 1, 0.34449995, 1)
+albedo_color = Color(0.195, 0.75, 0.22274995, 1)
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_xgm8l"]
+
+[sub_resource type="Sky" id="Sky_xitqv"]
+sky_material = SubResource("PhysicalSkyMaterial_xgm8l")
+
+[sub_resource type="Environment" id="Environment_xgm8l"]
+background_mode = 2
+background_energy_multiplier = 2.0
+sky = SubResource("Sky_xitqv")
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
 
 [node name="PlayersTestingGrounds" type="Node3D"]
 
@@ -122,16 +138,21 @@ bank_paths = ["res://Assets/FMODBank/Desktop/Master.bank"]
 
 [node name="FmodListener3D" type="FmodListener3D" parent="."]
 
-[node name="Checkpoint" parent="." node_paths=PackedStringArray("human_spawn", "alien_spawn") instance=ExtResource("8_ajho5")]
+[node name="Checkpoint" parent="." node_paths=PackedStringArray("human_spawn", "alien_spawn", "checkpoint_light") instance=ExtResource("8_ajho5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 11)
 human_spawn = NodePath("HumanSpawn2")
 alien_spawn = NodePath("AlienSpawn2")
+checkpoint_light = NodePath("CheckpointLight")
 
 [node name="HumanSpawn2" type="Marker3D" parent="Checkpoint"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
 
 [node name="AlienSpawn2" type="Marker3D" parent="Checkpoint"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11)
+
+[node name="CheckpointLight" parent="Checkpoint" instance=ExtResource("12_xgm8l")]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.1350033, 0, 4.0457516)
+skeleton = NodePath("../..")
 
 [node name="Checkpoint2" parent="." node_paths=PackedStringArray("human_spawn", "alien_spawn") instance=ExtResource("8_ajho5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 26.864311)
@@ -181,3 +202,6 @@ wait_time = 0.4
 
 [node name="Marker3D2" type="Marker3D" parent="MovingPlatform"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xgm8l")
