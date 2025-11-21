@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://m3adhinc17pt"]
+
+[ext_resource type="PackedScene" uid="uid://dq77apc8gosic" path="res://CutscenePlayer/cutscene_base.tscn" id="1_6bxqr"]
+[ext_resource type="PackedScene" uid="uid://ksm03gj3e2pf" path="res://CutscenePlayer/frame.tscn" id="2_5sbmx"]
+
+[node name="CutesceneOne" instance=ExtResource("1_6bxqr")]
+wait_time = 1.0
+
+[node name="Frame" parent="CanvasLayer/Frames" index="0" node_paths=PackedStringArray("emitter") instance=ExtResource("2_5sbmx")]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 192.0
+offset_right = 832.0
+offset_bottom = 576.0
+expand_mode = 1
+stretch_mode = 4
+emitter = NodePath("FmodEventEmitter3D")
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/Frame" index="0"]
+event_name = "event:/Power Glove Pickup"
+event_guid = "{99bf67dd-38e2-413d-ad1e-ab9b807e8681}"
+
+[node name="Frame2" parent="CanvasLayer/Frames" index="1" node_paths=PackedStringArray("emitter") instance=ExtResource("2_5sbmx")]
+layout_mode = 0
+offset_left = 896.0
+offset_top = 64.0
+offset_right = 1088.0
+offset_bottom = 278.0
+expand_mode = 1
+stretch_mode = 4
+emitter = NodePath("FmodEventEmitter3D")
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/Frame2" index="0"]
+event_name = "event:/Button Press Full"
+event_guid = "{047443db-8668-4683-a2ab-8a256fcb56bc}"
+
+[node name="Frame3" parent="CanvasLayer/Frames" index="2" instance=ExtResource("2_5sbmx")]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 384.0
+offset_bottom = 390.0
+expand_mode = 4
+stretch_mode = 4
