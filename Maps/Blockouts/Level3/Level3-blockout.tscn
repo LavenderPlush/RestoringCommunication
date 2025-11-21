@@ -29,10 +29,10 @@ player1 = NodePath("../Human")
 player2 = NodePath("../Alien")
 
 [node name="Human" parent="." instance=ExtResource("2_btj0u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 47.13653, -4.9516816)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.4246397, -9.155542)
 
 [node name="Alien" parent="." instance=ExtResource("3_bryoy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 33.070232, -5.856076)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.3272343, -6.489757)
 
 [node name="Borders" type="Node3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
@@ -169,10 +169,10 @@ transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-
 transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, 8.633, 7.3999996, -3.7736044e-07)
 
 [node name="Box3" parent="Boxes" instance=ExtResource("5_mda56")]
-transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, -2.735476, 21, 1.1957147e-07)
+transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, -4.0156813, 21, 1.7553101e-07)
 
 [node name="Box4" parent="Boxes" instance=ExtResource("5_mda56")]
-transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, -7.0078864, 27.399801, 3.0632447e-07)
+transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, -4.0149565, 23.017118, 1.7549934e-07)
 
 [node name="Box5" parent="Boxes" instance=ExtResource("5_mda56")]
 transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, 1.4781728, 34.5998, -6.461296e-08)
