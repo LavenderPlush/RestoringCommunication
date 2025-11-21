@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmkejbdukgoaq"]
+[gd_scene load_steps=10 format=3 uid="uid://dmkejbdukgoaq"]
 
 [ext_resource type="Script" uid="uid://clheyshb47air" path="res://Entities/Camera/camera_controller.gd" id="1_1irt7"]
+[ext_resource type="Script" uid="uid://o651tn751848" path="res://Maps/level.gd" id="1_r1paq"]
 [ext_resource type="PackedScene" uid="uid://bd388rue7yafh" path="res://Entities/Players/Human/human.tscn" id="1_wmgaj"]
 [ext_resource type="PackedScene" uid="uid://bh7w25o2ijqo6" path="res://Entities/Players/Alien/alien.tscn" id="3_gawjb"]
 [ext_resource type="PackedScene" uid="uid://b6p354rt6aa7i" path="res://Entities/Ladder/ladder.tscn" id="4_gawjb"]
@@ -11,7 +12,10 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qd8xy"]
 albedo_color = Color(0.31, 1, 0.34449995, 1)
 
-[node name="Level1-Blockout" type="Node3D"]
+[node name="Level1-Blockout" type="Node3D" node_paths=PackedStringArray("exit_manager")]
+script = ExtResource("1_r1paq")
+exit_manager = NodePath("Exit/ExitManager")
+metadata/_custom_type_script = "uid://bmdsfg7x3w32q"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.48696113, 0.20176174, -0.84980065, -0.1003131, 0.9794346, 0.17505738, 0.867644, 0, 0.49718595, -24.128925, 27.08886, 6.976858)
@@ -19,6 +23,7 @@ light_color = Color(1, 0.8, 0.52, 1)
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("player1", "player2")]
 transform = Transform3D(-4.371139e-08, 0.25881907, -0.9659258, 0, 0.9659259, 0.25881907, 1, 1.1313341e-08, -4.222196e-08, -20, 25, 1)
+current = true
 script = ExtResource("1_1irt7")
 player1 = NodePath("../Human")
 player2 = NodePath("../Alien")
