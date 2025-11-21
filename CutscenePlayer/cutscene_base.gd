@@ -32,9 +32,9 @@ func _process(delta: float) -> void:
 			progress_bar.value += delta * 100
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("human_jump"):
+	if event.is_action_pressed("human_jump") or event.is_action_pressed("alien_jump"):
 		hold_to_skip = true
-	if event.is_action_released("human_jump"):
+	if event.is_action_released("human_jump") or event.is_action_released("alien_jump"):
 		hold_to_skip = false
 		progress_bar.value = 0
 
