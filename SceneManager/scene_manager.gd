@@ -41,4 +41,6 @@ func fade_out():
 
 # Signals
 func scene_finished():
+	if current_scene == scenes.size() - 1:
+		return
 	load_scene(current_scene + 1)

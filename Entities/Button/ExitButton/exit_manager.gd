@@ -1,4 +1,4 @@
-extends Node
+class_name ExitManager extends Node
 
 @export_category("Developers")
 @export var button_a: ExitButton
@@ -6,6 +6,8 @@ extends Node
 @export var door: Node3D
 ##This Object will keep resetting until Players reach this Checkpoint ID. Keep at -1 to always reset.
 @export var reset_until_checkpoint_id: int = -1
+
+signal exit
 
 var original_door_position: Vector3
 var required_hold_time: float = 0.1
@@ -55,7 +57,8 @@ func _open_doors():
 	var tween := create_tween()
 
 	tween.tween_property(door, "position:y", target_y, animation_duration)
-
+	exit.emit()
+	
 	set_process(false)
 
 func _on_button_a_engaged():
