@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://rosr55bvybx0"]
 
 [ext_resource type="Script" uid="uid://clheyshb47air" path="res://Entities/Camera/camera_controller.gd" id="1_drf14"]
-[ext_resource type="Script" uid="uid://o651tn751848" path="res://Maps/level.gd" id="1_pe32b"]
+[ext_resource type="Script" path="res://Maps/level.gd" id="1_pe32b"]
 [ext_resource type="PackedScene" uid="uid://bd388rue7yafh" path="res://Entities/Players/Human/human.tscn" id="2_btj0u"]
 [ext_resource type="PackedScene" uid="uid://bh7w25o2ijqo6" path="res://Entities/Players/Alien/alien.tscn" id="3_bryoy"]
 [ext_resource type="PackedScene" uid="uid://b6p354rt6aa7i" path="res://Entities/Ladder/ladder.tscn" id="4_visvr"]
@@ -34,10 +34,10 @@ player1 = NodePath("../Human")
 player2 = NodePath("../Alien")
 
 [node name="Human" parent="." instance=ExtResource("2_btj0u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.4246397, -9.155542)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.308464, -10.844626)
 
 [node name="Alien" parent="." instance=ExtResource("3_bryoy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.3272343, -6.489757)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.2661476, -9.489989)
 
 [node name="Borders" type="Node3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
@@ -105,7 +105,7 @@ use_collision = true
 size = Vector3(19.003174, 1, 2)
 
 [node name="Platform6" type="CSGBox3D" parent="Platforms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7517195, 20.98632, -2.6460583e-07)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7517195, 20.98632, -2.6460583e-07)
 use_collision = true
 size = Vector3(2.5039063, 2, 2)
 
@@ -130,9 +130,9 @@ use_collision = true
 size = Vector3(18.012207, 2, 2)
 
 [node name="Platform11" type="CSGBox3D" parent="Platforms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.503673, 22.48632, -2.6460583e-07)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.503673, 22.48632, -2.6460583e-07)
 use_collision = true
-size = Vector3(7, 5, 2)
+size = Vector3(5, 5, 2)
 
 [node name="Platform12" type="CSGBox3D" parent="Platforms"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.028209, 34.728844, -2.6460572e-07)
@@ -174,13 +174,13 @@ transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-
 transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, 8.633, 7.3999996, -3.7736044e-07)
 
 [node name="Box3" parent="Boxes" instance=ExtResource("5_mda56")]
-transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, -4.0156813, 21, 1.7553101e-07)
+transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, -3.2156813, 21, 1.405619e-07)
 
 [node name="Box4" parent="Boxes" instance=ExtResource("5_mda56")]
-transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, -4.0149565, 23.017118, 1.7549934e-07)
+transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, -3.2149565, 23.017118, 1.4053023e-07)
 
 [node name="Box5" parent="Boxes" instance=ExtResource("5_mda56")]
-transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, 1.4781728, 34.5998, -6.461296e-08)
+transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, 2.0232317, 34.014915, -8.843825e-08)
 
 [node name="Box6" parent="Boxes" instance=ExtResource("5_mda56")]
 transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, -12.040909, 38.98861, 5.263249e-07)

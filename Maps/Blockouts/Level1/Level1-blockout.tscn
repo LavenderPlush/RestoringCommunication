@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://dmkejbdukgoaq"]
 
 [ext_resource type="Script" uid="uid://clheyshb47air" path="res://Entities/Camera/camera_controller.gd" id="1_1irt7"]
-[ext_resource type="Script" uid="uid://o651tn751848" path="res://Maps/level.gd" id="1_r1paq"]
+[ext_resource type="Script" path="res://Maps/level.gd" id="1_r1paq"]
 [ext_resource type="PackedScene" uid="uid://bd388rue7yafh" path="res://Entities/Players/Human/human.tscn" id="1_wmgaj"]
 [ext_resource type="PackedScene" uid="uid://bh7w25o2ijqo6" path="res://Entities/Players/Alien/alien.tscn" id="3_gawjb"]
 [ext_resource type="PackedScene" uid="uid://b6p354rt6aa7i" path="res://Entities/Ladder/ladder.tscn" id="4_gawjb"]
