@@ -31,6 +31,7 @@ var is_thrown: bool = false:
 var is_controlled: bool = false
 var targeted_by_human: bool = false
 var targeted_by_alien: bool = false
+var targeted_by_extension: bool = false
 
 # throwing
 var horizontal_velocity: float
@@ -53,6 +54,17 @@ func control(new_controlled: bool) -> void:
 
 	for ray in floor_rays.get_children():
 		ray.enabled = new_controlled
+
+	if is_controlled:
+		for body in ability_extension_area.get_overlapping_bodies():
+			_on_ability_extension_area_entered(body)
+	else:
+		if interactable_extension:
+			interactable_extension.set_targeted_by_extension(false)
+			interactable_extension = null
+
+		targeted_by_alien = false
+		targeted_by_extension = false
 
 	_update_outline()
 
@@ -111,7 +123,7 @@ func _handle_collisions():
 func _update_outline():
 	mesh.material_overlay = null
 
-	var alien_active = targeted_by_alien or is_controlled
+	var alien_active = targeted_by_alien or is_controlled or targeted_by_extension
 
 	if targeted_by_human and alien_active:
 		mesh.material_overlay = together_outline
@@ -126,6 +138,11 @@ func set_targeted(is_human: bool, state: bool) -> void:
 	else:
 		targeted_by_alien = state
 	
+	_update_outline()
+
+func set_targeted_by_extension(state: bool) -> void:
+	targeted_by_extension = state
+
 	_update_outline()
 
 func reset_state():
@@ -144,7 +161,9 @@ func reset_state():
 func _on_ability_extension_area_entered(body: Node3D):
 	if is_controlled and body is Interactable:
 		interactable_extension = body
+		body.set_targeted_by_extension(true)
 
 func _on_ability_extension_area_exited(body: Node3D):
 	if interactable_extension and interactable_extension == body:
+		body.set_targeted_by_extension(false)
 		interactable_extension = null
