@@ -37,12 +37,12 @@ func process_ability() -> void:
 			engange()
 			pick_up()
 			Common.play_sound(engage_emitter)
-		elif held_object:
+		elif held_object and movement.on_floor():
 			throw()
 			Common.play_sound(disengage_emitter)
 			disengage()
 	elif Input.is_action_just_pressed("ability_power_gloves_drop"):
-		if held_object:
+		if held_object and movement.on_floor():
 			drop()
 
 	if held_object:
