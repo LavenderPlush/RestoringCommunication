@@ -15,12 +15,10 @@ extends AnimatableBody3D
 @onready var area: Area3D = $Area3D
 
 var tween: Tween
-var original_position: Vector3
 
 func _ready() -> void:
 	add_to_group("resettable")
 
-	original_position = position
 	global_position = point_a.global_position
 	
 	area.body_entered.connect(_on_body_entered)
@@ -76,6 +74,7 @@ func reset_state():
 	if auto_start: return
 
 	if tween:
-		tween.stop()
+		tween.kill()
+		tween = null
 
-	global_position = original_position
+	global_position = point_a.global_position
