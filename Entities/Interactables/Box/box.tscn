@@ -18,6 +18,7 @@ size = Vector3(2.2933693, 1.8685303, 1.6887207)
 
 [node name="Box" type="CharacterBody3D" node_paths=PackedStringArray("floor_rays", "ability_extension_area", "landing_sound") groups=["Pickupable"]]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+collision_mask = 7
 script = ExtResource("1_6eev6")
 floor_rays = NodePath("FloorRays")
 ability_extension_area = NodePath("AbilityExtensionArea")
