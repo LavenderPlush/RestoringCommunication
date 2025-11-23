@@ -4,6 +4,8 @@ class_name ExitButton
 signal engaged
 signal disengaged
 
+@export var outline: Material
+
 @onready var mesh: MeshInstance3D = $MeshInstance3D
 
 var engaged_color: Color = Color.GREEN
@@ -58,9 +60,13 @@ func lock_engaged():
 	is_locked = true
 	button_engaged = true
 	material.albedo_color = engaged_color
+	mesh.material_overlay = null
 
 func _on_player_entered(body: Node3D):
 	if is_locked: return
+
+	if body is Player:
+		mesh.material_overlay = outline
 
 	if current_player_body == null:
 		current_player_body = body
@@ -68,6 +74,9 @@ func _on_player_entered(body: Node3D):
 
 func _on_player_exited(body: Node3D):
 	if is_locked: return
+
+	if body is Player:
+		mesh.material_overlay = null
 
 	if body == current_player_body:
 		current_player_body = null
