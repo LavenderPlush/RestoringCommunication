@@ -44,6 +44,7 @@ shadow_mesh = SubResource("ArrayMesh_jjubd")
 size = Vector3(1, 0.59869385, 1.6721191)
 
 [node name="Alien" type="CharacterBody3D" node_paths=PackedStringArray("movement", "ability") groups=["Player"]]
+collision_layer = 4
 axis_lock_linear_x = true
 axis_lock_angular_z = true
 script = ExtResource("1_crjm4")

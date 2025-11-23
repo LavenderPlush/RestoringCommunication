@@ -6,6 +6,7 @@
 size = Vector3(1, 4, 4)
 
 [node name="Checkpoint" type="Area3D"]
+collision_mask = 7
 script = ExtResource("1_rhvwg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

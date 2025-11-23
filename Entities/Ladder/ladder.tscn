@@ -13,6 +13,7 @@ size = Vector3(1, 7, 2)
 
 [node name="Ladder" type="Area3D" node_paths=PackedStringArray("climb_snap_point", "collision")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+collision_mask = 7
 script = ExtResource("1_dprsh")
 climb_snap_point = NodePath("ClimbSnapPoint")
 collision = NodePath("CollisionShape3D")
