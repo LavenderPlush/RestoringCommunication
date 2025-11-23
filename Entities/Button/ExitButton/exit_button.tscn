@@ -36,6 +36,7 @@ debug_color = Color(0.055494063, 0.65032375, 0, 0.41960785)
 
 [node name="ActivationArea" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ActivationArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6919411, 0)
