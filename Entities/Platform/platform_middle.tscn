@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvu68pgtelehw"]
+
+[ext_resource type="PackedScene" uid="uid://b1u45lywcj85" path="res://Assets/Platform/Middle/platform_middle.glb" id="1_lj15f"]
+
+[node name="PlatformMiddle" type="Node3D"]
+
+[node name="platform_middle" parent="." instance=ExtResource("1_lj15f")]

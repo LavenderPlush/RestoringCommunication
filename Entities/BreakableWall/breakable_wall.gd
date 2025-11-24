@@ -6,7 +6,7 @@ extends StaticBody3D
 
 @onready var destruction_area: Area3D = $DestructionArea
 @onready var destruction_collider: CollisionShape3D = $DestructionArea/CollisionShape3D
-@onready var mesh: MeshInstance3D = $MeshInstance3D
+@onready var mesh: MeshInstance3D = $Mesh/Cube_003
 @onready var collider: CollisionShape3D = $CollisionShape3D
 
 var wall_break_particles: PackedScene = preload("res://Entities/BreakableWall/wall_break_particles.tscn")

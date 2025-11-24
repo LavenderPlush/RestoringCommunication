@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://b55gqcvyk20u" path="res://Entities/Interactables/interactable.gd" id="1_6eev6"]
 [ext_resource type="Material" uid="uid://bbp852166q7um" path="res://Materials/outline_human_material.tres" id="2_eolob"]
-[ext_resource type="PackedScene" uid="uid://ckjtbcb1ds8y8" path="res://Assets/MetalBox/box.glb" id="2_m2xwx"]
 [ext_resource type="Material" uid="uid://dj155ieclu81o" path="res://Materials/outline_alien_material.tres" id="3_i3jk6"]
 [ext_resource type="Material" uid="uid://djb8yrpyqcmfs" path="res://Materials/outline_together_material.tres" id="4_cegm6"]
+[ext_resource type="PackedScene" uid="uid://cal44diu6jvsv" path="res://Assets/MetalBox/box.glb" id="5_eolob"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oovab"]
 size = Vector3(2, 2, 2)
@@ -30,7 +30,10 @@ floor_rays = NodePath("FloorRays")
 ability_extension_area = NodePath("AbilityExtensionArea")
 landing_sound = NodePath("Sound/LandEmitter")
 
-[node name="Mesh" parent="." instance=ExtResource("2_m2xwx")]
+[node name="Mesh" parent="." instance=ExtResource("5_eolob")]
+
+[node name="Cube" parent="Mesh" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01091814, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_oovab")

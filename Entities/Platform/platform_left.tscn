@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3g6hgdw5u3ue"]
+
+[ext_resource type="PackedScene" uid="uid://cu8lgktgi44uw" path="res://Assets/Platform/Left/platform_left.glb" id="1_8jfw0"]
+
+[node name="PlatformLeft" type="Node3D"]
+
+[node name="platform_left" parent="." instance=ExtResource("1_8jfw0")]
+
+[editable path="platform_left"]
