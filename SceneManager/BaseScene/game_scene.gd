@@ -1,6 +1,6 @@
 class_name GameScene extends Node3D
 
-signal finished
+signal finished(custom_skip: int)
 
 func finish_scene() -> void:
-	finished.emit()
+	finished.emit(1)
