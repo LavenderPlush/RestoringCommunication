@@ -10,6 +10,9 @@ extends Node3D
 var current_scene: int
 var scene_loaded: GameScene
 
+# Branching
+var branching_offset: bool = false
+
 func _ready() -> void:
 	if scenes.size() == 0:
 		return
@@ -23,6 +26,7 @@ func load_scene(id: int):
 	add_child(new_scene)
 	scene_loaded = new_scene
 	scene_loaded.finished.connect(scene_finished)
+	scene_loaded.finished_branch.connect(scene_finished_branching)
 	fade_out()
 
 func unload_scene():
@@ -43,4 +47,16 @@ func fade_out():
 func scene_finished():
 	if current_scene == scenes.size() - 1:
 		return
-	load_scene(current_scene + 1)
+
+	if branching_offset:
+		load_scene(current_scene + 2)
+		branching_offset = false
+	else:
+		load_scene(current_scene + 1)
+
+func scene_finished_branching(branch: int):
+	if current_scene == scenes.size() - branch:
+		return
+	if branch == 1:
+		branching_offset = true
+	load_scene(current_scene + branch)

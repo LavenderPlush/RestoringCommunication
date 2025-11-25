@@ -8,7 +8,7 @@ class_name ExitManager extends Node
 ##This Object will keep resetting until Players reach this Checkpoint ID. Keep at -1 to always reset.
 @export var reset_until_checkpoint_id: int = -1
 
-signal exit
+signal exit(first_to_exit: String)
 
 var original_door_position: Vector3
 var required_hold_time: float = 0.1
@@ -18,6 +18,8 @@ var hold_timer: float = 0.1
 var button_a_engaged: bool = false
 var button_b_engaged: bool = false
 var door_opened: bool = false
+
+var players_in_exit_area: Array[Player] = []
 
 func _ready() -> void:
 	if !button_a || !button_b || !door: return
@@ -30,10 +32,9 @@ func _ready() -> void:
 	button_b.engaged.connect(_on_button_b_engaged)
 	button_b.disengaged.connect(_on_button_b_disengaged)
 
-	set_process(false)
-
 func _process(delta: float) -> void:
-	if door_opened: return
+	if door_opened:
+		return
 
 	var is_valid_state = button_a_engaged && button_b_engaged
 
@@ -45,10 +46,10 @@ func _process(delta: float) -> void:
 	else:
 		hold_timer = 0.0
 
-	if !button_a_engaged && !button_b_engaged:
-		set_process(false)
-
 func _open_doors():
+	if door_opened:
+		return
+
 	door_opened = true
 
 	button_a.lock_engaged()
@@ -58,8 +59,9 @@ func _open_doors():
 	var tween := create_tween()
 
 	tween.tween_property(door, "position:y", target_y, animation_duration)
-	
-	set_process(false)
+
+	exit_area.body_entered.connect(_on_body_enter_exit_area)
+	exit_area.body_exited.connect(_on_body_exit_exit_area)
 
 func reset_state():
 	if door_opened:
@@ -67,13 +69,9 @@ func reset_state():
 		hold_timer = 0.1
 		door.position = original_door_position
 
-		set_process(false)
-
 # Signals
 func _on_button_a_engaged():
 	button_a_engaged = true
-
-	set_process(true)
 
 func _on_button_a_disengaged():
 	button_a_engaged = false
@@ -81,7 +79,21 @@ func _on_button_a_disengaged():
 func _on_button_b_engaged():
 	button_b_engaged = true
 
-	set_process(true)
-
 func _on_button_b_disengaged():
 	button_b_engaged = false
+
+func _on_body_enter_exit_area(body: Node3D):
+	if body is not Player:
+		return
+	players_in_exit_area.append(body)
+
+	# Get Alien / Human - this is hacky and will break
+	# if the order of groups is changed.
+	# We should introduce an enum for players or something
+	if players_in_exit_area.size() == 2:
+		exit.emit(players_in_exit_area[0].get_groups()[1])
+
+func _on_body_exit_exit_area(body: Node3D):
+	if body is not Player or players_in_exit_area.size() == 2:
+		return
+	players_in_exit_area = []

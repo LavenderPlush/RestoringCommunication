@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c1c2sdp376k65"]
+[gd_scene load_steps=16 format=3 uid="uid://c1c2sdp376k65"]
 
 [ext_resource type="Script" uid="uid://o651tn751848" path="res://Maps/level.gd" id="1_3lfcs"]
 [ext_resource type="Script" uid="uid://clheyshb47air" path="res://Entities/Camera/camera_controller.gd" id="1_fp5q1"]
@@ -16,6 +16,9 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w51oj"]
 albedo_color = Color(0.31, 1, 0.34449995, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w51oj"]
+size = Vector3(1.9257813, 3.8337402, 3.8535461)
 
 [node name="Level2-Blockout" type="Node3D" node_paths=PackedStringArray("exit_manager")]
 script = ExtResource("1_3lfcs")
@@ -299,10 +302,11 @@ transform = Transform3D(1, 0, 0, 0, 1.692, 0, 0, 0, 1, 0, 36.08343, 0.039544344)
 [node name="Exit" type="Node3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 
-[node name="ExitManager" parent="Exit" node_paths=PackedStringArray("button_a", "button_b", "door") instance=ExtResource("10_h1itt")]
+[node name="ExitManager" parent="Exit" node_paths=PackedStringArray("button_a", "button_b", "door", "exit_area") instance=ExtResource("10_h1itt")]
 button_a = NodePath("../ExitButton")
 button_b = NodePath("../ExitButton2")
 door = NodePath("../ExitDoor")
+exit_area = NodePath("../ExitArea")
 
 [node name="ExitButton" parent="Exit" instance=ExtResource("11_3lfcs")]
 transform = Transform3D(1.3374798e-15, 3.059797e-08, 0.7, 0.7, -3.059797e-08, 0, 3.059797e-08, 0.7, -3.059797e-08, -21.239353, 35.739204, -0.9999989)
@@ -315,3 +319,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, -17.031536, 35.620228, -2.791
 use_collision = true
 size = Vector3(4, 4, 1)
 material = SubResource("StandardMaterial3D_w51oj")
+
+[node name="ExitArea" type="Area3D" parent="Exit"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -17.026016, 35.507465, 7.442308e-07)
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Exit/ExitArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19494629, -0.03794861)
+shape = SubResource("BoxShape3D_w51oj")
