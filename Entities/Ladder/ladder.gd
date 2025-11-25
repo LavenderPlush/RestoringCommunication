@@ -17,6 +17,8 @@ extends Area3D
 @export_category("Sound")
 @export var slide_emitter: FmodEventEmitter3D
 
+var original_position: float
+var tween: Tween
 var is_extended: bool = false
 
 func _ready() -> void:
@@ -26,6 +28,7 @@ func _ready() -> void:
 	ladder.body_exited.connect(_on_body_exited)
 	
 	if is_extendable && extendable_part != null && pre_existing_part != null:
+		original_position = extendable_part.position.y
 		_set_active(false)
 
 #Taking a page from Unity. Sad Godot doesn't have this :(.
@@ -44,8 +47,10 @@ func extend_ladder():
 	
 	Common.play_sound(slide_emitter)
 
-	var tween = create_tween()
+	if tween:
+		tween.kill()
 
+	tween = create_tween()
 	tween.tween_property(extendable_part, "position:y", 0, 1).set_trans(Tween.TRANS_QUAD)
 
 func _on_body_entered(body):
@@ -60,7 +65,11 @@ func _on_body_exited(body):
 	body.set_can_climb(false)
 
 func reset_state():
+	if tween:
+		tween.kill()
+	
 	if is_extendable and is_extended:
 		is_extended = false
-		
+		extendable_part.position.y = original_position
+
 		_set_active(false)

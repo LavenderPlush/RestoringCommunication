@@ -19,11 +19,13 @@ radius = 1.0
 height = 2.0289993
 radius = 0.83984375
 
-[node name="ExitButton" type="AnimatableBody3D"]
+[node name="ExitButton" type="AnimatableBody3D" node_paths=PackedStringArray("full_emitter", "release_emitter")]
 transform = Transform3D(-3.059797e-08, -0.7, 0, 0.7, -3.059797e-08, 0, 0, 0, 0.7, 0, 0, 0)
 sync_to_physics = false
 script = ExtResource("1_sdk8m")
 outline = ExtResource("2_mk26y")
+full_emitter = NodePath("FullPress")
+release_emitter = NodePath("Release")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 0.1, 0, 0, 0, 2, 0, 0, 0)
@@ -44,3 +46,11 @@ collision_mask = 7
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6919411, 0)
 shape = SubResource("CylinderShape3D_71fid")
 debug_color = Color(0.99999994, 0.016033605, 0.02410388, 0.41960785)
+
+[node name="FullPress" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/Button Press Full"
+event_guid = "{047443db-8668-4683-a2ab-8a256fcb56bc}"
+
+[node name="Release" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/Button Release"
+event_guid = "{9aa475f9-c085-4dea-9cb5-1564bec2359a}"

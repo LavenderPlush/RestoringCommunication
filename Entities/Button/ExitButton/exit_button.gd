@@ -4,9 +4,13 @@ class_name ExitButton
 signal engaged
 signal disengaged
 
+@onready var mesh: MeshInstance3D = $MeshInstance3D
+
 @export var outline: Material
 
-@onready var mesh: MeshInstance3D = $MeshInstance3D
+@export_category("Sound")
+@export var full_emitter: FmodEventEmitter3D
+@export var release_emitter: FmodEventEmitter3D
 
 var engaged_color: Color = Color.GREEN
 var disengaged_color: Color = Color.RED
@@ -45,6 +49,8 @@ func update_state(should_be_engaged: bool):
 
 	if should_be_engaged and not button_engaged:
 		button_engaged = true
+		
+		Common.play_sound(full_emitter)
 
 		engaged.emit()
 
@@ -52,6 +58,8 @@ func update_state(should_be_engaged: bool):
 	elif not should_be_engaged and button_engaged:
 		button_engaged = false
 
+		Common.play_sound(release_emitter)
+		
 		disengaged.emit()
 		
 		material.albedo_color = disengaged_color

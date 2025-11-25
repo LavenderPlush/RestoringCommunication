@@ -1,6 +1,7 @@
 extends ButtonBase
 
 @onready var timer: Timer = $Timer
+@onready var animator: AnimationPlayer = $Mesh/AnimationPlayer
 
 @export_category("Designers")
 ##Time allowed between button presses.
@@ -33,27 +34,26 @@ func _on_player_entered(_body: Node3D):
 		Common.play_sound(full_emitter)
 	else:
 		Common.play_sound(half_emitter)
+
 	if press_count >= 2: return
 	
 	press_count += 1
-
-	var target_y = original_position.y + (press_count * press_offset)
-
 	timer.start()
 		
-	if press_count == 2:
-		activate_button()
+	if press_count == 1:
+		animator.play("half_press")
+	elif press_count == 2:
+		animator.play("full_press")
 
-	animate_button(target_y)
+		activate_button()
 	
 func _on_timer_timeout():
 	if button_used == true: return
 	
 	Common.play_sound(release_emitter)
 
+	animator.play_backwards("half_press")
 	press_count = 0
-
-	animate_button(original_position.y)
 
 func activate_button():
 	if extendable_ladder == null: return
@@ -67,5 +67,4 @@ func reset_state():
 	press_count = 0
 	button_used = false
 	timer.stop()
-	
-	animate_button(original_position.y)
+	animator.play("RESET")

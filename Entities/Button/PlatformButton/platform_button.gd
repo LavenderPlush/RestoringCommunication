@@ -1,12 +1,18 @@
 extends ButtonBase
 
 @onready var timer: Timer = $Timer
+@onready var animator: AnimationPlayer = $Mesh/AnimationPlayer
 
 @export_category("Designers")
 ##Time allowed between button presses.
 @export var activation_timeframe: float = 5
 ##Drag moving_platform scene here.
 @export var moving_platform: Node3D
+
+@export_category("Sound")
+@export var half_emitter: FmodEventEmitter3D
+@export var full_emitter: FmodEventEmitter3D
+@export var release_emitter: FmodEventEmitter3D
 
 var press_count: int = 0
 var press_offset: float = -0.05
@@ -24,25 +30,30 @@ func _ready() -> void:
 func _on_player_entered(_body: Node3D):
 	if button_used == true: return
 
+	if press_count == 1:
+		Common.play_sound(full_emitter)
+	else:
+		Common.play_sound(half_emitter)
+
 	if press_count >= 2: return
 	
 	press_count += 1
-
-	var target_y = original_position.y + (press_count * press_offset)
-
 	timer.start()
 		
-	if press_count == 2:
-		activate_button()
+	if press_count == 1:
+		animator.play("half_press")
+	elif press_count == 2:
+		animator.play("full_press")
 
-	animate_button(target_y)
+		activate_button()
 	
 func _on_timer_timeout():
 	if button_used == true: return
 
-	press_count = 0
+	Common.play_sound(release_emitter)
 
-	animate_button(original_position.y)
+	animator.play_backwards("half_press")
+	press_count = 0
 
 func activate_button():
 	if moving_platform == null: return
@@ -56,5 +67,4 @@ func reset_state():
 	press_count = 0
 	button_used = false
 	timer.stop()
-	
-	animate_button(original_position.y)
+	animator.play("RESET")
