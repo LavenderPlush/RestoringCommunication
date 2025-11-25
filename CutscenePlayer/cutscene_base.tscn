@@ -5,11 +5,12 @@
 [sub_resource type="Theme" id="Theme_wvej0"]
 default_font_size = 19
 
-[node name="CutsceneBase" type="Node3D" node_paths=PackedStringArray("frame_holder", "wait_timer", "progress_bar")]
+[node name="CutsceneBase" type="Node3D" node_paths=PackedStringArray("frame_holder", "wait_timer", "progress_bar", "bgm_emitter")]
 script = ExtResource("1_fcd0k")
 frame_holder = NodePath("CanvasLayer/Frames")
 wait_timer = NodePath("WaitTimer")
 progress_bar = NodePath("CanvasLayer/ProgressBar")
+bgm_emitter = NodePath("FmodEventEmitter3D")
 
 [node name="WaitTimer" type="Timer" parent="."]
 one_shot = true
@@ -68,3 +69,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/Cutscene Test"
+event_guid = "{d6fe329a-dc7f-4bcf-a174-b2945e4d0837}"
+fmod_parameters/Ambience/id = -1899470134043834807
+fmod_parameters/Ambience = "Chill"
+fmod_parameters/Ambience/labels = PackedStringArray("Chill", "Tension")
+fmod_parameters/Ambience/variant_type = 4
