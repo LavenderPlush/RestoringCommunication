@@ -9,12 +9,7 @@ signal player_exited(body: Node3D)
 
 @onready var activation_area: Area3D = $ActivationArea
 
-var original_position: Vector3
-var animation_duration: float = 0.2
-
 func _ready() -> void:
-	original_position = self.position
-
 	add_to_group("resettable")
 
 	activation_area.body_entered.connect(_on_body_entered)
@@ -27,11 +22,6 @@ func _on_body_entered(body):
 func _on_body_exited(body):
 	if body.is_in_group("Player") || body is Interactable:
 		player_exited.emit(body)
-	
-func animate_button(target_y: float):
-	var tween = create_tween()
-	
-	tween.tween_property(self, "position:y", target_y, animation_duration)
 
 func reset_state():
 	pass

@@ -203,7 +203,7 @@ auto_start = false
 [node name="Marker3D" type="Marker3D" parent="MovingPlatform"]
 
 [node name="Marker3D2" type="Marker3D" parent="MovingPlatform"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 6.940991)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_xgm8l")
