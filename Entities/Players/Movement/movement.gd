@@ -44,7 +44,7 @@ func process_climb(can_climb: bool):
 	)
 	var just_pressed_jump = Input.is_action_just_pressed("%s_jump" % control_prefix)
 
-	if !is_climbing and just_pressed_jump and can_climb:
+	if !is_climbing and can_climb and abs(climb_input_vertical) > 0.1:
 		is_climbing = true
 	elif is_climbing and just_pressed_jump:
 		is_climbing = false
