@@ -26,7 +26,6 @@ var gravity: float:
 # Exposed
 var is_climbing: bool = false
 var is_facing_left: bool = false
-var is_walking: bool = false
 var is_falling: bool = false
 
 var _fall_velocity: float
@@ -105,13 +104,11 @@ func process_movement():
 		body.velocity.z = direction.z * speed
 		_set_facing_direction(direction)
 	else:
-		is_walking = false
 		body.velocity.z = move_toward(body.velocity.z, 0, speed)
 
 func _handle_walk_sound():
-	if not is_walking and on_floor():
+	if on_floor() and footstep_sound_timer.is_stopped():
 		Common.play_sound(footstep_emitter)
-		is_walking = true
 		footstep_sound_timer.start()
 
 func _handle_landing_sound():
@@ -164,7 +161,7 @@ func set_floor_rays(_floor_rays) -> void:
 
 # Signals
 func _on_footstep_timer():
-	if not is_walking or not on_floor():
+	if not on_floor() or body.velocity.length() == 0:
 		return
 	Common.play_sound(footstep_emitter)
 	footstep_sound_timer.start()
