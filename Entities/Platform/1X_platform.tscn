@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8k5kmbyb6nim"]
+
+[ext_resource type="PackedScene" uid="uid://d3g6hgdw5u3ue" path="res://Entities/Platform/platform_left.tscn" id="1_voku2"]
+[ext_resource type="PackedScene" uid="uid://dvu68pgtelehw" path="res://Entities/Platform/platform_middle.tscn" id="2_xn0mg"]
+[ext_resource type="PackedScene" uid="uid://8rl4ctn0rhq3" path="res://Entities/Platform/platform_right.tscn" id="3_ksnno"]
+
+[node name="1X_platform" type="Node3D"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="PlatformLeft" parent="." instance=ExtResource("1_voku2")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, -1.5319167)
+
+[node name="PlatformMiddle" parent="." instance=ExtResource("2_xn0mg")]
+
+[node name="PlatformRight" parent="." instance=ExtResource("3_ksnno")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 1.5317513)
