@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://8rl4ctn0rhq3"]
+
+[ext_resource type="PackedScene" uid="uid://grgc65xt7p8x" path="res://Assets/Platform/Right/platform_right.glb" id="1_7u4e2"]
+
+[node name="PlatformRight" type="Node3D"]
+
+[node name="platform_right" parent="." instance=ExtResource("1_7u4e2")]

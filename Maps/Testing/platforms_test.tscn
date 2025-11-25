@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://bldwg02t1iuqd"]
+
+[ext_resource type="PackedScene" uid="uid://d3g6hgdw5u3ue" path="res://Entities/Platform/platform_left.tscn" id="1_bba4j"]
+[ext_resource type="PackedScene" uid="uid://dvu68pgtelehw" path="res://Entities/Platform/platform_middle.tscn" id="2_24bpw"]
+[ext_resource type="PackedScene" uid="uid://8rl4ctn0rhq3" path="res://Entities/Platform/platform_right.tscn" id="3_v5wl4"]
+[ext_resource type="PackedScene" uid="uid://bh7w25o2ijqo6" path="res://Entities/Players/Alien/alien.tscn" id="4_io5um"]
+[ext_resource type="PackedScene" uid="uid://bd388rue7yafh" path="res://Entities/Players/Human/human.tscn" id="5_f6q0y"]
+[ext_resource type="Script" uid="uid://clheyshb47air" path="res://Entities/Camera/camera_controller.gd" id="6_24bpw"]
+
+[node name="PlatformsTest" type="Node3D"]
+
+[node name="Resized" type="Node3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="PlatformLeft" parent="Resized" instance=ExtResource("1_bba4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+
+[node name="PlatformMiddle" parent="Resized" instance=ExtResource("2_24bpw")]
+transform = Transform3D(5.482926, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="PlatformRight" parent="Resized" instance=ExtResource("3_v5wl4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+
+[node name="Resized2" type="Node3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.0041196346, 1.5084548, 11.679494)
+
+[node name="PlatformLeft" parent="Resized2" instance=ExtResource("1_bba4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+
+[node name="PlatformMiddle" parent="Resized2" instance=ExtResource("2_24bpw")]
+transform = Transform3D(5.482926, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="PlatformRight" parent="Resized2" instance=ExtResource("3_v5wl4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+
+[node name="Alien" parent="." instance=ExtResource("4_io5um")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023729801, 1.1847248, 2.7925677)
+
+[node name="Human" parent="." instance=ExtResource("5_f6q0y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5495002, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("player1", "player2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -13.867393, 0.59532285, 0)
+script = ExtResource("6_24bpw")
+player1 = NodePath("../Human")
+player2 = NodePath("../Alien")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 0, 9, 1)
