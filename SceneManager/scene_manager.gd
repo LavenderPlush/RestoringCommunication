@@ -14,6 +14,16 @@ func _ready() -> void:
 	if scenes.size() == 0:
 		return
 	load_scene(0)
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("developer_next_scene"):
+		var next_scene = current_scene + 1
+		if next_scene < scenes.size():
+			load_scene(next_scene)
+	if event.is_action_pressed("developer_previous_scene"):
+		var previous_scene = current_scene - 1
+		if previous_scene >= 0:
+			load_scene(previous_scene)
 	
 func load_scene(id: int):
 	await fade_in()

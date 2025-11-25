@@ -1,7 +1,7 @@
 class_name Interactable extends CharacterBody3D
 
 @export_category("Designers")
-@export var collision_push_off_velocity: float = 1.0
+@export var collision_push_off_velocity: float = 0.75
 ##This Object will keep resetting until Players reach this Checkpoint ID. Keep at -1 to always reset.
 @export var reset_until_checkpoint_id: int = -1
 @export var human_outline: Material
@@ -112,13 +112,12 @@ func _handle_collisions():
 	for i in range(count):
 		var col = get_slide_collision(i)
 		var collider = col.get_collider()
-		if collider is Interactable:
-			if collider.is_controlled:
+		if collider.global_position.y < global_position.y - 1.0:
+			if collider is Interactable:
+				if collider.is_controlled:
+					velocity.y += collision_push_off_velocity
+			if collider is Player:
 				velocity.y += collision_push_off_velocity
-		if collider is Player:
-			if collider.global_position.y > global_position.y:
-				return
-			velocity.y += collision_push_off_velocity
 
 func _update_outline():
 	mesh.material_overlay = null
