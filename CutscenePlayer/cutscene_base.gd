@@ -9,6 +9,9 @@ class_name CutscenePlayer extends GameScene
 @export var wait_timer: Timer
 @export var progress_bar: ProgressBar
 
+@export_category("Sound")
+@export var bgm_emitter: FmodEventEmitter3D
+
 var frames: Array[Frame] = []
 var current_frame: int = 0
 
@@ -25,6 +28,9 @@ func _ready() -> void:
 	# Wait before playing
 	wait_timer.timeout.connect(play_frame)
 	wait_timer.start(wait_time)
+	
+	# Start music
+	bgm_emitter.play()
 
 func _process(delta: float) -> void:
 	if hold_to_skip:
@@ -56,6 +62,7 @@ func play_frame() -> void:
 		finish_scene()
 	else:
 		frames[current_frame].play(current_frame)
+		bgm_emitter.set_parameter("Ambience", frames[current_frame].ambience)
 		current_frame += 1
 
 func skip_frame() -> void:

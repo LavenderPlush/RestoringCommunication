@@ -68,6 +68,7 @@ texture = ExtResource("6_mlfo1")
 expand_mode = 1
 stretch_mode = 4
 emitter = NodePath("FmodEventEmitter3D")
+ambience = "Tension"
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/Frame4" index="0"]
 event_name = "event:/Power Glove Throw"
@@ -83,6 +84,7 @@ texture = ExtResource("7_06t80")
 expand_mode = 1
 stretch_mode = 4
 emitter = NodePath("FmodEventEmitter3D")
+ambience = "Tension"
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/Frame5" index="0"]
 event_name = "event:/Power Glove Throw"
@@ -98,6 +100,7 @@ texture = ExtResource("8_uil53")
 expand_mode = 1
 stretch_mode = 4
 emitter = NodePath("FmodEventEmitter3D")
+ambience = "Tension"
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/Frame6" index="0"]
 event_name = "event:/Power Glove Throw"
@@ -113,6 +116,7 @@ texture = ExtResource("9_ixigx")
 expand_mode = 1
 stretch_mode = 4
 emitter = NodePath("FmodEventEmitter3D")
+ambience = "Tension"
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/Frame7" index="0"]
 event_name = "event:/Power Glove Throw"
