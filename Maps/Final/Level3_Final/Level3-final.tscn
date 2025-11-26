@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dp1odyr1v87bv"]
+[gd_scene load_steps=26 format=3 uid="uid://dp1odyr1v87bv"]
 
 [ext_resource type="Script" path="res://Maps/level.gd" id="1_xlq1i"]
 [ext_resource type="Script" uid="uid://clheyshb47air" path="res://Entities/Camera/camera_controller.gd" id="2_vqw3q"]
@@ -21,6 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://q5kt65k1meus" path="res://Entities/Button/ExitButton/exit_manager.tscn" id="12_3xdfc"]
 [ext_resource type="PackedScene" uid="uid://d0xf1ulhb8syi" path="res://Entities/Platform/4X_platform.tscn" id="12_gsre5"]
 [ext_resource type="PackedScene" uid="uid://c3ocixu65cif1" path="res://Entities/Button/ExitButton/exit_button.tscn" id="13_a83id"]
+[ext_resource type="PackedScene" uid="uid://dk6nscx8wfi48" path="res://Entities/Checkpoint/checkpoint.tscn" id="22_kh76j"]
+[ext_resource type="PackedScene" uid="uid://1p2rwqwpq1w5" path="res://Entities/Checkpoint/checkpoint_light.tscn" id="23_61hp7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4maoy"]
 albedo_color = Color(0.15294118, 0.105882354, 0.09019608, 1)
@@ -235,38 +237,41 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.973878, 44.581966, -0.8788
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6070023, 45.907516, 0)
 extendable_ladder = NodePath("../ExtendableLadder2")
 
-[node name="MovingPlatform1" type="Node3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 13, 0)
+[node name="MovingPlatforms" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24.937181, -1)
 
-[node name="MovingPlatform1_Platform" parent="MovingPlatform1" node_paths=PackedStringArray("point_a", "point_b") instance=ExtResource("9_a5oo3")]
+[node name="MovingPlatform1" type="Node3D" parent="MovingPlatforms"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -11.937181, 1)
+
+[node name="MovingPlatform1_Platform" parent="MovingPlatforms/MovingPlatform1" node_paths=PackedStringArray("point_a", "point_b") instance=ExtResource("9_a5oo3")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -0.18424797, 0)
 point_a = NodePath("../MovingPlatform1_A")
 point_b = NodePath("../MovingPlatform1_B")
 wait_time = 0.3
 
-[node name="MovingPlatform1_A" type="Marker3D" parent="MovingPlatform1"]
+[node name="MovingPlatform1_A" type="Marker3D" parent="MovingPlatforms/MovingPlatform1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0250633, -6.0118637, 4.2615834e-08)
 
-[node name="MovingPlatform1_B" type="Marker3D" parent="MovingPlatform1"]
+[node name="MovingPlatform1_B" type="Marker3D" parent="MovingPlatforms/MovingPlatform1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3313036, 2.4685698, 4.0369702e-07)
 
-[node name="MovingPlatform2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 37, -2)
+[node name="MovingPlatform2" type="Node3D" parent="MovingPlatforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.062819, -1)
 
-[node name="MovingPlatform2_Platform" parent="MovingPlatform2" node_paths=PackedStringArray("point_a", "point_b") instance=ExtResource("9_a5oo3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.0044823, -3)
+[node name="MovingPlatform2_Platform" parent="MovingPlatforms/MovingPlatform2" node_paths=PackedStringArray("point_a", "point_b") instance=ExtResource("9_a5oo3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.0044823, -2.0265317)
 point_a = NodePath("../MovingPlatform2_A")
 point_b = NodePath("../MovingPlatform2_B")
 wait_time = 0.5
 auto_start = false
 
-[node name="MovingPlatform2_B" type="Marker3D" parent="MovingPlatform2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.4141273, -3)
+[node name="MovingPlatform2_B" type="Marker3D" parent="MovingPlatforms/MovingPlatform2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.4119606, -2.0265317)
 
-[node name="MovingPlatform2_A" type="Marker3D" parent="MovingPlatform2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.333744, -3)
+[node name="MovingPlatform2_A" type="Marker3D" parent="MovingPlatforms/MovingPlatform2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.333744, -2.0265317)
 
-[node name="MovingPlatform2_Button" parent="MovingPlatform2" node_paths=PackedStringArray("moving_platform") instance=ExtResource("10_um14u")]
+[node name="MovingPlatform2_Button" parent="MovingPlatforms/MovingPlatform2" node_paths=PackedStringArray("moving_platform") instance=ExtResource("10_um14u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0859985, -6.7272635)
 moving_platform = NodePath("../MovingPlatform2_Platform")
 
@@ -298,3 +303,60 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, 13.539827, 51.305225, -2.7919
 use_collision = true
 size = Vector3(4, 4, 1)
 material = SubResource("StandardMaterial3D_cojp5")
+
+[node name="Checkpoint1" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20.435165, -7.736949)
+
+[node name="Checkpoint1_TriggerArea" parent="Checkpoint1" node_paths=PackedStringArray("human_spawn", "alien_spawn", "checkpoint_light") instance=ExtResource("22_kh76j")]
+transform = Transform3D(1, 0, 0, 0, 1.8532774, 0, 0, 0, 1.8929893, 0, -3.5178528, -3.4136987)
+human_spawn = NodePath("../Checkpoint1_HumanSpawn")
+alien_spawn = NodePath("../Checkpoint1_AlienSpawn")
+checkpoint_light = NodePath("../Checkpoint1_Light")
+
+[node name="Checkpoint1_HumanSpawn" type="Marker3D" parent="Checkpoint1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.181, 1.438)
+
+[node name="Checkpoint1_AlienSpawn" type="Marker3D" parent="Checkpoint1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18137455, 2.7479255)
+
+[node name="Checkpoint1_Light" parent="Checkpoint1" instance=ExtResource("23_61hp7")]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.135, 0.5454878, 0.31794977)
+skeleton = NodePath("../..")
+
+[node name="Checkpoint2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 34.02623, -7.671649)
+
+[node name="Checkpoint2_TriggerArea" parent="Checkpoint2" node_paths=PackedStringArray("human_spawn", "alien_spawn", "checkpoint_light") instance=ExtResource("22_kh76j")]
+transform = Transform3D(1, 0, 0, 0, 1.8532774, 0, 0, 0, 1.8929893, 0, -3.5178528, -3.4136987)
+human_spawn = NodePath("../Checkpoint2_HumanSpawn")
+alien_spawn = NodePath("../Checkpoint2_AlienSpawn")
+checkpoint_light = NodePath("../Checkpoint2_Light")
+
+[node name="Checkpoint2_HumanSpawn" type="Marker3D" parent="Checkpoint2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.459, -2.317)
+
+[node name="Checkpoint2_AlienSpawn" type="Marker3D" parent="Checkpoint2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.4589567, -1.2711046)
+
+[node name="Checkpoint2_Light" parent="Checkpoint2" instance=ExtResource("23_61hp7")]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.135, -3.3874059, -3.5745022)
+skeleton = NodePath("../..")
+
+[node name="Checkpoint3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50.56812, 8.805821)
+
+[node name="Checkpoint3_TriggerArea" parent="Checkpoint3" node_paths=PackedStringArray("human_spawn", "alien_spawn", "checkpoint_light") instance=ExtResource("22_kh76j")]
+transform = Transform3D(1, 0, 0, 0, 1.8532774, 0, 0, 0, 2.4159546, 0, -5.038597, -3.4136987)
+human_spawn = NodePath("../Checkpoint3_HumanSpawn")
+alien_spawn = NodePath("../Checkpoint3_AlienSpawn")
+checkpoint_light = NodePath("../Checkpoint3_Light")
+
+[node name="Checkpoint3_HumanSpawn" type="Marker3D" parent="Checkpoint3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.459, 0.36346483)
+
+[node name="Checkpoint3_AlienSpawn" type="Marker3D" parent="Checkpoint3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.4589567, 1.9211285)
+
+[node name="Checkpoint3_Light" parent="Checkpoint3" instance=ExtResource("23_61hp7")]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.135, -3.7571416, -1.4805264)
+skeleton = NodePath("../..")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cjlo2enoms44b"]
+[gd_scene load_steps=29 format=3 uid="uid://cjlo2enoms44b"]
 
 [ext_resource type="Script" path="res://Maps/level.gd" id="1_fit1s"]
 [ext_resource type="Script" uid="uid://clheyshb47air" path="res://Entities/Camera/camera_controller.gd" id="2_j7s5s"]
@@ -24,6 +24,8 @@
 [ext_resource type="PackedScene" uid="uid://c3ocixu65cif1" path="res://Entities/Button/ExitButton/exit_button.tscn" id="13_j1i5m"]
 [ext_resource type="PackedScene" uid="uid://d0xf1ulhb8syi" path="res://Entities/Platform/4X_platform.tscn" id="17_hd4rv"]
 [ext_resource type="PackedScene" uid="uid://dcm74yel6wcjy" path="res://Entities/Platform/15X_platform.tscn" id="18_j2bmq"]
+[ext_resource type="PackedScene" uid="uid://dk6nscx8wfi48" path="res://Entities/Checkpoint/checkpoint.tscn" id="25_k5x0g"]
+[ext_resource type="PackedScene" uid="uid://1p2rwqwpq1w5" path="res://Entities/Checkpoint/checkpoint_light.tscn" id="26_07gr3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lh5rv"]
 albedo_color = Color(0.15294118, 0.105882354, 0.09019608, 1)
@@ -304,11 +306,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.926594, 1.8437338)
 [node name="MovingPlatform1_B" type="Marker3D" parent="HumanHalf/MovingPlatform1_HumanHalf"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5300112, 1.8437338)
 
-[node name="BreakableWall1" parent="." instance=ExtResource("11_hxy3h")]
-transform = Transform3D(0.7987834, 0, 0, 0, 2.5145125, 0, 0, 0, 3.6521363, 0, 21.216663, 21.552)
+[node name="BreakableWalls" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 29.092512, 10.606202)
 
-[node name="BreakableWall2" parent="." instance=ExtResource("11_hxy3h")]
-transform = Transform3D(0.7987834, 0, 0, 0, 2.243, 0, 0, 0, 3.6521363, 0, 36.582054, -0.060645103)
+[node name="BreakableWall1" parent="BreakableWalls" instance=ExtResource("11_hxy3h")]
+transform = Transform3D(0.7987834, 0, 0, 0, 2.5145125, 0, 0, 0, 3.6521363, 0, -7.875849, 10.945798)
+
+[node name="BreakableWall2" parent="BreakableWalls" instance=ExtResource("11_hxy3h")]
+transform = Transform3D(0.7987834, 0, 0, 0, 2.243, 0, 0, 0, 3.6521363, 0, 7.489542, -10.666847)
 
 [node name="Exit" type="Node3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
@@ -329,3 +334,70 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, -17.031536, 35.620228, -2.791
 use_collision = true
 size = Vector3(4, 4, 1)
 material = SubResource("StandardMaterial3D_w51oj")
+
+[node name="Checkpoint1" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.197532, -2.756801)
+
+[node name="Checkpoint1_TriggerArea" parent="Checkpoint1" node_paths=PackedStringArray("human_spawn", "alien_spawn", "checkpoint_light") instance=ExtResource("25_k5x0g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 4.8578873, 0, -0.2660246, -9.3024645)
+human_spawn = NodePath("../Checkpoint1_HumanSpawn")
+alien_spawn = NodePath("../Checkpoint1_AlienSpawn")
+checkpoint_light = NodePath("../Checkpoint1_AlienLight")
+
+[node name="Checkpoint1_HumanSpawn" type="Marker3D" parent="Checkpoint1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2660246, 6.9080024)
+
+[node name="Checkpoint1_AlienSpawn" type="Marker3D" parent="Checkpoint1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2660246, -6.2451887)
+
+[node name="Checkpoint1_AlienLight" parent="Checkpoint1" instance=ExtResource("26_07gr3")]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.135, -0.185, -6.245)
+skeleton = NodePath("../..")
+
+[node name="Checkpoint1_HumanLight" parent="Checkpoint1" instance=ExtResource("26_07gr3")]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.1350033, 0.24984264, 7.270362)
+skeleton = NodePath("../..")
+
+[node name="Checkpoint2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.611, 0)
+
+[node name="Checkpoint2_TriggerArea" parent="Checkpoint2" node_paths=PackedStringArray("human_spawn", "alien_spawn", "checkpoint_light") instance=ExtResource("25_k5x0g")]
+transform = Transform3D(1, 0, 0, 0, 2.1442342, 0, 0, 0, 7.8737125, 0, -0.17643642, -9.3024645)
+human_spawn = NodePath("../Checkpoint2_HumanSpawn")
+alien_spawn = NodePath("../Checkpoint2_AlienSpawn")
+checkpoint_light = NodePath("../Checkpoint2_AlienLight")
+checkpoint_id = 1
+
+[node name="Checkpoint2_HumanSpawn" type="Marker3D" parent="Checkpoint2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0284872, 14.9952755)
+
+[node name="Checkpoint2_AlienSpawn" type="Marker3D" parent="Checkpoint2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8637018, -10.022875)
+
+[node name="Checkpoint2_HumanLight" parent="Checkpoint2" instance=ExtResource("26_07gr3")]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0, 3.1628714, 14.9952755)
+skeleton = NodePath("../..")
+
+[node name="Checkpoint2_AlienLight" parent="Checkpoint2" instance=ExtResource("26_07gr3")]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0, -1.8637018, -10.022875)
+skeleton = NodePath("../..")
+
+[node name="Checkpoint3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.611, 0)
+
+[node name="Checkpoint3_TriggerArea" parent="Checkpoint3" node_paths=PackedStringArray("human_spawn", "alien_spawn", "checkpoint_light") instance=ExtResource("25_k5x0g")]
+transform = Transform3D(1, 0, 0, 0, 1.4303532, 0, 0, 0, 1, 0, 10.562142, -9.543713)
+human_spawn = NodePath("../Checkpoint3_HumanSpawn")
+alien_spawn = NodePath("../Checkpoint3_AlienSpawn")
+checkpoint_light = NodePath("../Checkpoint3_Light")
+checkpoint_id = 2
+
+[node name="Checkpoint3_HumanSpawn" type="Marker3D" parent="Checkpoint3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0284872, 14.9952755)
+
+[node name="Checkpoint3_AlienSpawn" type="Marker3D" parent="Checkpoint3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8637018, -10.022875)
+
+[node name="Checkpoint3_Light" parent="Checkpoint3" instance=ExtResource("26_07gr3")]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0, 11.113254, -10.022875)
+skeleton = NodePath("../..")
