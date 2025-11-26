@@ -315,3 +315,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, -17.031536, 35.620228, -2.791
 use_collision = true
 size = Vector3(4, 4, 1)
 material = SubResource("StandardMaterial3D_w51oj")
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/BGM/Level 2 BGM"
+event_guid = "{ff60e275-ba36-4629-92b0-23a4da214b28}"
+autoplay = true
