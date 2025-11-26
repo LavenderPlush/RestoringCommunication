@@ -202,3 +202,7 @@ collision_mask = 7
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Exit/ExitArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19494629, -0.03794861)
 shape = SubResource("BoxShape3D_r1paq")
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/BGM/Level 1 BGM"
+event_guid = "{55b57034-338d-4b4f-87dd-333afc50a5f8}"
+autoplay = true
