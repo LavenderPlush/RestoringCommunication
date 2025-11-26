@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cjlo2enoms44b"]
+[gd_scene load_steps=27 format=3 uid="uid://cjlo2enoms44b"]
 
 [ext_resource type="Script" path="res://Maps/level.gd" id="1_fit1s"]
 [ext_resource type="Script" uid="uid://clheyshb47air" path="res://Entities/Camera/camera_controller.gd" id="2_j7s5s"]
@@ -18,9 +18,12 @@
 [ext_resource type="PackedScene" uid="uid://b6p354rt6aa7i" path="res://Entities/Ladder/ladder.tscn" id="10_bxhdx"]
 [ext_resource type="PackedScene" uid="uid://d3g6hgdw5u3ue" path="res://Entities/Platform/platform_left.tscn" id="10_ittuh"]
 [ext_resource type="PackedScene" uid="uid://b2mgbokpp37sx" path="res://Entities/BreakableWall/breakable_wall.tscn" id="11_hxy3h"]
+[ext_resource type="PackedScene" uid="uid://dc100abwiouxn" path="res://Entities/Platform/6X_platform.tscn" id="11_lh5rv"]
+[ext_resource type="PackedScene" uid="uid://cxncxrl1jobtx" path="res://Entities/Platform/7X_platform.tscn" id="12_lp0f5"]
 [ext_resource type="PackedScene" uid="uid://q5kt65k1meus" path="res://Entities/Button/ExitButton/exit_manager.tscn" id="12_wdnp7"]
 [ext_resource type="PackedScene" uid="uid://c3ocixu65cif1" path="res://Entities/Button/ExitButton/exit_button.tscn" id="13_j1i5m"]
 [ext_resource type="PackedScene" uid="uid://d0xf1ulhb8syi" path="res://Entities/Platform/4X_platform.tscn" id="17_hd4rv"]
+[ext_resource type="PackedScene" uid="uid://dcm74yel6wcjy" path="res://Entities/Platform/15X_platform.tscn" id="18_j2bmq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lh5rv"]
 albedo_color = Color(0.15294118, 0.105882354, 0.09019608, 1)
@@ -48,7 +51,7 @@ player2 = NodePath("../AlienHalf/Alien")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13)
 
 [node name="Alien" parent="AlienHalf" instance=ExtResource("3_8hqu6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.60243, 1.985074)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1874437, -6.28386)
 
 [node name="Borders_AlienHalf" type="Node3D" parent="AlienHalf"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
@@ -57,9 +60,9 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.8984394, 0)
 
 [node name="Border2" type="CSGBox3D" parent="AlienHalf/Borders_AlienHalf"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.997, 12.002899, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.997, 12.256866, 0)
 use_collision = true
-size = Vector3(2, 26, 2)
+size = Vector3(2, 26.507935, 2)
 
 [node name="Border3" type="CSGBox3D" parent="AlienHalf/Borders_AlienHalf"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.957001, 20.000458, 2.842171e-13)
@@ -72,9 +75,9 @@ use_collision = true
 size = Vector3(24, 2, 4)
 
 [node name="Border5" type="CSGBox3D" parent="AlienHalf/Borders_AlienHalf"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.997, 30.22802, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.997, 30.588951, 0)
 use_collision = true
-size = Vector3(2, 5.145508, 2)
+size = Vector3(2, 5.8673706, 2)
 
 [node name="Border6" type="CSGBox3D" parent="AlienHalf/Borders_AlienHalf"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.997, 40.038204, 0)
@@ -147,15 +150,11 @@ size = Vector3(1, 1.470459, 2)
 [node name="Platform9" parent="AlienHalf/Platforms_AlienHalf" instance=ExtResource("7_48amp")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3, 20.621878, 1.3113419e-07)
 
-[node name="Platform13" type="CSGBox3D" parent="AlienHalf/Platforms_AlienHalf"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.053439, 33.232, 1.7053026e-13)
-use_collision = true
-size = Vector3(14, 1, 2)
+[node name="Platform10" parent="AlienHalf/Platforms_AlienHalf" instance=ExtResource("11_lh5rv")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 13.053439, 33.62484, 1.7053026e-13)
 
-[node name="Platform14" type="CSGBox3D" parent="AlienHalf/Platforms_AlienHalf"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9465218, 33.232304, 8.28179e-07)
-use_collision = true
-size = Vector3(16, 1, 2)
+[node name="Platform11" parent="AlienHalf/Platforms_AlienHalf" instance=ExtResource("12_lp0f5")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.9465218, 33.61589, 8.28179e-07)
 
 [node name="Boxes_AlienHalf" type="Node3D" parent="AlienHalf"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
@@ -254,25 +253,17 @@ material_override = SubResource("StandardMaterial3D_lh5rv")
 use_collision = true
 size = Vector3(4, 3.4458008, 2)
 
-[node name="Platform4" type="CSGBox3D" parent="HumanHalf/Platforms_HumanHalf"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.040142, 17.215012, -3.077344e-07)
-use_collision = true
-size = Vector3(16, 1, 2)
+[node name="Platform4" parent="HumanHalf/Platforms_HumanHalf" instance=ExtResource("12_lp0f5")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.9789715, 17.604017, -3.0506055e-07)
 
-[node name="Platform5" type="CSGBox3D" parent="HumanHalf/Platforms_HumanHalf"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2607965, 25.232, -5.1159077e-13)
-use_collision = true
-size = Vector3(33.35013, 1, 2)
+[node name="Platform5" parent="HumanHalf/Platforms_HumanHalf" instance=ExtResource("18_j2bmq")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.2607965, 25.629118, -5.1159077e-13)
 
-[node name="Platform6" type="CSGBox3D" parent="HumanHalf/Platforms_HumanHalf"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.850813, 28.862545, -6.1645886e-07)
-use_collision = true
-size = Vector3(8.418457, 1, 2)
+[node name="Platform6" parent="HumanHalf/Platforms_HumanHalf" instance=ExtResource("4_6wpl1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.850813, 29.249844, -6.1645886e-07)
 
-[node name="Platform7" type="CSGBox3D" parent="HumanHalf/Platforms_HumanHalf"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4410763, 31.068233, -2.1029763e-07)
-use_collision = true
-size = Vector3(4, 1, 2)
+[node name="Platform7" parent="HumanHalf/Platforms_HumanHalf" instance=ExtResource("5_i7lwa")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.4410763, 31.461433, -2.1029763e-07)
 
 [node name="Ladder" parent="HumanHalf/Platforms_HumanHalf" instance=ExtResource("10_bxhdx")]
 transform = Transform3D(1, 0, 1.9272301e-07, 0, 1, 0, -1.9272301e-07, 0, 1, 11.2617035, 20.979183, -0.9322816)
@@ -314,7 +305,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.926594, 1.8437338)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5300112, 1.8437338)
 
 [node name="BreakableWall1" parent="." instance=ExtResource("11_hxy3h")]
-transform = Transform3D(0.7987834, 0, 0, 0, 2.243, 0, 0, 0, 3.6521363, 0, 20.881054, 21.552)
+transform = Transform3D(0.7987834, 0, 0, 0, 2.5145125, 0, 0, 0, 3.6521363, 0, 21.216663, 21.552)
 
 [node name="BreakableWall2" parent="." instance=ExtResource("11_hxy3h")]
 transform = Transform3D(0.7987834, 0, 0, 0, 2.243, 0, 0, 0, 3.6521363, 0, 36.582054, -0.060645103)
