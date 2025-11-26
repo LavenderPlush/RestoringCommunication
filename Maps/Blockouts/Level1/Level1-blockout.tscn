@@ -8,9 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://q5kt65k1meus" path="res://Entities/Button/ExitButton/exit_manager.tscn" id="5_ie4pk"]
 [ext_resource type="PackedScene" uid="uid://c3ocixu65cif1" path="res://Entities/Button/ExitButton/exit_button.tscn" id="6_r1paq"]
 [ext_resource type="PackedScene" uid="uid://dhfj2dvwjwwoh" path="res://Entities/MovingPlatform/moving_platform.tscn" id="7_6prd5"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qd8xy"]
-albedo_color = Color(0.31, 1, 0.34449995, 1)
+[ext_resource type="PackedScene" uid="uid://cikinc5wcoang" path="res://Entities/ExitDoor/exit_door.tscn" id="9_6prd5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r1paq"]
 size = Vector3(1.9257813, 3.8337402, 3.8535461)
@@ -184,16 +182,10 @@ door = NodePath("../ExitDoor")
 exit_area = NodePath("../ExitArea")
 
 [node name="ExitButton" parent="Exit" instance=ExtResource("6_r1paq")]
-transform = Transform3D(1.3374798e-15, 3.059797e-08, 0.7, 0.7, -3.059797e-08, 0, 3.059797e-08, 0.7, -3.059797e-08, -10.000004, 26.64745, -0.9999997)
+transform = Transform3D(1.3374798e-15, 3.059797e-08, 0.7, 0.7, -3.059797e-08, 0, 3.059797e-08, 0.7, -3.059797e-08, -10.000004, 25.000263, -0.8104064)
 
 [node name="ExitButton2" parent="Exit" instance=ExtResource("6_r1paq")]
-transform = Transform3D(1.3374798e-15, 3.059797e-08, 0.7, 0.7, -3.059797e-08, 0, 3.059797e-08, 0.7, -3.059797e-08, 9.999996, 26.64745, -1.0000002)
-
-[node name="ExitDoor" type="CSGBox3D" parent="Exit"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, 0.012756226, 27.17448, -2.7919724)
-use_collision = true
-size = Vector3(4, 4, 1)
-material = SubResource("StandardMaterial3D_qd8xy")
+transform = Transform3D(1.3374798e-15, 3.059797e-08, 0.7, 0.7, -3.059797e-08, 0, 3.059797e-08, 0.7, -3.059797e-08, 9.999996, 25.000263, -0.8104069)
 
 [node name="ExitArea" type="Area3D" parent="Exit"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 27, 0)
@@ -202,6 +194,10 @@ collision_mask = 7
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Exit/ExitArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19494629, -0.03794861)
 shape = SubResource("BoxShape3D_r1paq")
+
+[node name="ExitDoor" parent="Exit" instance=ExtResource("9_6prd5")]
+transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -5.2082335e-08, 27.113132, -1.191505)
+
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/BGM/Level 1 BGM"
 event_guid = "{55b57034-338d-4b4f-87dd-333afc50a5f8}"

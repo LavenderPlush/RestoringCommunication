@@ -4,7 +4,8 @@ class_name ExitButton
 signal engaged
 signal disengaged
 
-@onready var mesh: MeshInstance3D = $MeshInstance3D
+@onready var mesh: MeshInstance3D = $Button
+@onready var light: OmniLight3D = $OmniLight3D
 
 @export var outline: Material
 
@@ -55,6 +56,7 @@ func update_state(should_be_engaged: bool):
 		engaged.emit()
 
 		material.albedo_color = engaged_color
+		light.light_color = engaged_color
 	elif not should_be_engaged and button_engaged:
 		button_engaged = false
 
@@ -63,11 +65,12 @@ func update_state(should_be_engaged: bool):
 		disengaged.emit()
 		
 		material.albedo_color = disengaged_color
-
+		light.light_color = disengaged_color
 func lock_engaged():
 	is_locked = true
 	button_engaged = true
 	material.albedo_color = engaged_color
+	light.light_color = engaged_color
 	mesh.material_overlay = null
 
 func _on_player_entered(body: Node3D):
@@ -98,6 +101,7 @@ func setup_material():
 
 	mesh.material_override = material
 	material.albedo_color = disengaged_color
+	light.light_color = disengaged_color
 
 func reset_state():
 	super()
