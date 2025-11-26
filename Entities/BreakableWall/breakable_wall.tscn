@@ -7,7 +7,7 @@
 size = Vector3(2.4315796, 3.1139832, 0.21826172)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4awdx"]
-size = Vector3(2.4315796, 3.170395, 0.21826172)
+size = Vector3(2.4315796, 3.170395, 0.30249023)
 
 [node name="BreakableWall" type="StaticBody3D" groups=["Destructable"]]
 script = ExtResource("1_y28ec")
@@ -22,7 +22,7 @@ shape = SubResource("BoxShape3D_y28ec")
 [node name="DestructionArea" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DestructionArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14820588, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14820588, 0.0072021484)
 shape = SubResource("BoxShape3D_4awdx")
 
 [editable path="Mesh"]
