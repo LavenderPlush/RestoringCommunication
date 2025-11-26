@@ -1,20 +1,35 @@
-[gd_scene load_steps=14 format=3 uid="uid://cryhwogoyglmt"]
+[gd_scene load_steps=17 format=3 uid="uid://cryhwogoyglmt"]
 
-[ext_resource type="Script" path="res://Maps/level.gd" id="1_sk6fj"]
+[ext_resource type="Script" uid="uid://o651tn751848" path="res://Maps/level.gd" id="1_sk6fj"]
 [ext_resource type="Script" uid="uid://clheyshb47air" path="res://Entities/Camera/camera_controller.gd" id="2_ljjfv"]
 [ext_resource type="PackedScene" uid="uid://bd388rue7yafh" path="res://Entities/Players/Human/human.tscn" id="3_oaioo"]
 [ext_resource type="PackedScene" uid="uid://bh7w25o2ijqo6" path="res://Entities/Players/Alien/alien.tscn" id="4_4yj03"]
-[ext_resource type="PackedScene" uid="uid://dr8a0vyee5uwm" path="res://Entities/Platform/2X_platform.tscn" id="5_5tig6"]
-[ext_resource type="PackedScene" uid="uid://b8k5kmbyb6nim" path="res://Entities/Platform/1X_platform.tscn" id="5_i80e6"]
+[ext_resource type="PackedScene" path="res://Entities/Platform/2X_platform.tscn" id="5_5tig6"]
+[ext_resource type="PackedScene" path="res://Entities/Platform/1X_platform.tscn" id="5_i80e6"]
 [ext_resource type="PackedScene" uid="uid://c3d8ssuosdpx2" path="res://Entities/Borders/11X_bottom-border.tscn" id="5_m8yh1"]
 [ext_resource type="PackedScene" uid="uid://b6p354rt6aa7i" path="res://Entities/Ladder/ladder.tscn" id="5_yt25g"]
 [ext_resource type="PackedScene" uid="uid://dhfj2dvwjwwoh" path="res://Entities/MovingPlatform/moving_platform.tscn" id="6_yvndw"]
 [ext_resource type="PackedScene" uid="uid://q5kt65k1meus" path="res://Entities/Button/ExitButton/exit_manager.tscn" id="7_fusx4"]
-[ext_resource type="PackedScene" uid="uid://biiyay6ugshvd" path="res://Entities/Platform/0X_platform.tscn" id="7_m8yh1"]
+[ext_resource type="PackedScene" path="res://Entities/Platform/0X_platform.tscn" id="7_m8yh1"]
 [ext_resource type="PackedScene" uid="uid://c3ocixu65cif1" path="res://Entities/Button/ExitButton/exit_button.tscn" id="8_bmeh1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qd8xy"]
 albedo_color = Color(0.31, 1, 0.34449995, 1)
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_m8yh1"]
+
+[sub_resource type="Sky" id="Sky_07gr3"]
+sky_material = SubResource("PhysicalSkyMaterial_m8yh1")
+
+[sub_resource type="Environment" id="Environment_yqoyr"]
+background_mode = 2
+background_energy_multiplier = 2.0
+sky = SubResource("Sky_07gr3")
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
 
 [node name="Level1-Blockout" type="Node3D" node_paths=PackedStringArray("exit_manager")]
 script = ExtResource("1_sk6fj")
@@ -175,3 +190,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, 0.012756226, 27.17448, -2.791
 use_collision = true
 size = Vector3(4, 4, 1)
 material = SubResource("StandardMaterial3D_qd8xy")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_yqoyr")
