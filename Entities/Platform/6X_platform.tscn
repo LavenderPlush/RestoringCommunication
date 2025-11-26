@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://dc100abwiouxn"]
+
+[ext_resource type="PackedScene" uid="uid://d3g6hgdw5u3ue" path="res://Entities/Platform/platform_left.tscn" id="1_4wr0o"]
+[ext_resource type="PackedScene" uid="uid://dvu68pgtelehw" path="res://Entities/Platform/platform_middle.tscn" id="2_b7dfg"]
+[ext_resource type="PackedScene" uid="uid://8rl4ctn0rhq3" path="res://Entities/Platform/platform_right.tscn" id="3_jjych"]
+
+[node name="6X_platform" type="Node3D"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="PlatformLeft" parent="." instance=ExtResource("1_4wr0o")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.3113417e-07, 0, -6.5319166)
+
+[node name="PlatformMiddle" parent="." instance=ExtResource("2_b7dfg")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.3113416e-07, 0, -5)
+
+[node name="PlatformMiddle2" parent="." instance=ExtResource("2_b7dfg")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.1855693e-07, 0, -3)
+
+[node name="PlatformMiddle3" parent="." instance=ExtResource("2_b7dfg")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.3113416e-07, 0, -1)
+
+[node name="PlatformMiddle4" parent="." instance=ExtResource("2_b7dfg")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.371139e-08, 0, 1)
+
+[node name="PlatformMiddle5" parent="." instance=ExtResource("2_b7dfg")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.371138e-08, 0, 3)
+
+[node name="PlatformMiddle6" parent="." instance=ExtResource("2_b7dfg")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.3113416e-07, 0, 5)
+
+[node name="PlatformRight" parent="." instance=ExtResource("3_jjych")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.3113417e-07, 0, 6.5317516)

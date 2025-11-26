@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://c1c2sdp376k65"]
 
-[ext_resource type="Script" uid="uid://o651tn751848" path="res://Maps/level.gd" id="1_3lfcs"]
+[ext_resource type="Script" path="res://Maps/level.gd" id="1_3lfcs"]
 [ext_resource type="Script" uid="uid://clheyshb47air" path="res://Entities/Camera/camera_controller.gd" id="1_fp5q1"]
 [ext_resource type="PackedScene" uid="uid://bd388rue7yafh" path="res://Entities/Players/Human/human.tscn" id="2_706ts"]
 [ext_resource type="PackedScene" uid="uid://bh7w25o2ijqo6" path="res://Entities/Players/Alien/alien.tscn" id="3_cbx5x"]
@@ -38,7 +38,7 @@ player2 = NodePath("../AlienHalf/Alien")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13)
 
 [node name="Alien" parent="AlienHalf" instance=ExtResource("3_cbx5x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7137485, -5.817168)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.710456, -9.296301)
 
 [node name="Borders_AlienHalf" type="Node3D" parent="AlienHalf"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
@@ -195,7 +195,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.63582706, -1.6641693)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 13)
 
 [node name="Human" parent="HumanHalf" instance=ExtResource("2_706ts")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.536743e-07, 2.165863, 8.83023)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.536743e-07, 2.2430892, 7.752451)
 
 [node name="Borders_HumanHalf" type="Node3D" parent="HumanHalf"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
@@ -268,7 +268,7 @@ transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-
 transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, 2.5296993, 18.8, -1.1057699e-07)
 
 [node name="Box4" parent="HumanHalf/Boxes_HumanHalf" instance=ExtResource("4_pbqym")]
-transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, -9.427018, 26.8, 4.1206764e-07)
+transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, -9.9924555, 28.06063, 4.367837e-07)
 
 [node name="MovingPlatform1_HumanHalf" type="Node3D" parent="HumanHalf"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.314274, -8.859742)
@@ -292,10 +292,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.926594, 1.8437338)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5300112, 1.8437338)
 
 [node name="BreakableWall1" parent="." instance=ExtResource("9_j6fa1")]
-transform = Transform3D(1, 0, 0, 0, 2.243, 0, 0, 0, 1, 0, 20.881054, 21.552)
+transform = Transform3D(0.7987834, 0, 0, 0, 2.243, 0, 0, 0, 3.6521363, 0, 20.881054, 21.552)
 
 [node name="BreakableWall2" parent="." instance=ExtResource("9_j6fa1")]
-transform = Transform3D(1, 0, 0, 0, 1.692, 0, 0, 0, 1, 0, 36.08343, 0.039544344)
+transform = Transform3D(0.7987834, 0, 0, 0, 2.243, 0, 0, 0, 3.6521363, 0, 36.582054, -0.060645103)
 
 [node name="Exit" type="Node3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)

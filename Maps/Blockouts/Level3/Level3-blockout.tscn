@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://rosr55bvybx0"]
 
 [ext_resource type="Script" uid="uid://clheyshb47air" path="res://Entities/Camera/camera_controller.gd" id="1_drf14"]
-[ext_resource type="Script" uid="uid://o651tn751848" path="res://Maps/level.gd" id="1_pe32b"]
+[ext_resource type="Script" path="res://Maps/level.gd" id="1_pe32b"]
 [ext_resource type="PackedScene" uid="uid://bd388rue7yafh" path="res://Entities/Players/Human/human.tscn" id="2_btj0u"]
 [ext_resource type="PackedScene" uid="uid://bh7w25o2ijqo6" path="res://Entities/Players/Alien/alien.tscn" id="3_bryoy"]
 [ext_resource type="PackedScene" uid="uid://b6p354rt6aa7i" path="res://Entities/Ladder/ladder.tscn" id="4_visvr"]
@@ -35,10 +35,10 @@ player1 = NodePath("../Human")
 player2 = NodePath("../Alien")
 
 [node name="Human" parent="." instance=ExtResource("2_btj0u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.308464, -10.844626)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.691923, -10.141987)
 
 [node name="Alien" parent="." instance=ExtResource("3_bryoy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.2661476, -9.489989)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.534149, -9.030333)
 
 [node name="Borders" type="Node3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
