@@ -32,8 +32,9 @@ ssil_enabled = true
 sdfgi_enabled = true
 glow_enabled = true
 
-[node name="Level1-Blockout" type="Node3D"]
+[node name="Level1-Blockout" type="Node3D" node_paths=PackedStringArray("exit_manager")]
 script = ExtResource("1_sk6fj")
+exit_manager = NodePath("Exit/ExitManager")
 metadata/_custom_type_script = "uid://bmdsfg7x3w32q"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -173,22 +174,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.3891182, 1.2581391)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.1218815, -0.923861)
 
 [node name="Exit" type="Node3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 26, 0)
 
 [node name="ExitManager" parent="Exit" node_paths=PackedStringArray("button_a", "button_b", "door", "exit_area") instance=ExtResource("7_fusx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -26, 0)
 button_a = NodePath("../ExitButton")
 button_b = NodePath("../ExitButton2")
 door = NodePath("../ExitDoor")
 exit_area = NodePath("../ExitArea")
 
 [node name="ExitButton" parent="Exit" instance=ExtResource("8_bmeh1")]
-transform = Transform3D(1.3374798e-15, 3.059797e-08, 0.7, 0.7, -3.059797e-08, 0, 3.059797e-08, 0.7, -3.059797e-08, -10.000004, 25.000263, -0.8104064)
+transform = Transform3D(1.3374798e-15, 3.059797e-08, 0.7, 0.7, -3.059797e-08, 0, 3.059797e-08, 0.7, -3.059797e-08, -10.000004, -0.9997368, -0.8104064)
 
 [node name="ExitButton2" parent="Exit" instance=ExtResource("8_bmeh1")]
-transform = Transform3D(1.3374798e-15, 3.059797e-08, 0.7, 0.7, -3.059797e-08, 0, 3.059797e-08, 0.7, -3.059797e-08, 9.999996, 25.000263, -0.8104069)
+transform = Transform3D(1.3374798e-15, 3.059797e-08, 0.7, 0.7, -3.059797e-08, 0, 3.059797e-08, 0.7, -3.059797e-08, 9.999996, -0.9997368, -0.8104069)
 
 [node name="ExitArea" type="Area3D" parent="Exit"]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 27, 0)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1, 0)
 collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Exit/ExitArea"]
@@ -196,7 +198,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19494629, -0.03794861)
 shape = SubResource("BoxShape3D_kvqi4")
 
 [node name="ExitDoor" parent="Exit" instance=ExtResource("13_yqoyr")]
-transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -5.2082335e-08, 27.113132, -1.191505)
+transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -5.2082335e-08, 1.1131325, -1.191505)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_yqoyr")
