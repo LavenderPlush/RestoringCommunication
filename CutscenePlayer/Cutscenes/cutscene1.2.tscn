@@ -19,6 +19,7 @@ offset_bottom = 608.0
 texture = ExtResource("3_5kayv")
 expand_mode = 1
 stretch_mode = 4
+time_shown = 5.0
 emitter = NodePath("FmodEventEmitter3D")
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/Frame" index="0"]
@@ -33,6 +34,7 @@ offset_bottom = 624.0
 texture = ExtResource("4_xrb7b")
 expand_mode = 1
 stretch_mode = 4
+time_shown = 5.0
 emitter = NodePath("FmodEventEmitter3D")
 ambience = "Tension"
 
@@ -48,6 +50,7 @@ offset_right = 1128.0
 texture = ExtResource("5_40ge3")
 expand_mode = 1
 stretch_mode = 4
+time_shown = 5.0
 emitter = NodePath("FmodEventEmitter3D")
 ambience = "Tension"
 
@@ -64,6 +67,7 @@ offset_bottom = 616.0
 texture = ExtResource("6_xqsrw")
 expand_mode = 1
 stretch_mode = 4
+time_shown = 5.0
 emitter = NodePath("FmodEventEmitter3D")
 ambience = "Tension"
 
@@ -80,6 +84,7 @@ offset_bottom = 704.0
 texture = ExtResource("7_mg8ei")
 expand_mode = 1
 stretch_mode = 4
+time_shown = 5.0
 emitter = NodePath("FmodEventEmitter3D")
 ambience = "Tension"
 

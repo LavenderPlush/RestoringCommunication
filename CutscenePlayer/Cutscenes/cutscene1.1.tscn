@@ -12,83 +12,89 @@
 [node name="Cutescene1_1" instance=ExtResource("1_ijyp1")]
 wait_time = 1.0
 
-[node name="Frame" parent="CanvasLayer/Frames" index="0" node_paths=PackedStringArray("emitter") instance=ExtResource("2_7uixu")]
+[node name="CanvasLayer_Frames#Frame" parent="CanvasLayer/Frames" index="0" node_paths=PackedStringArray("emitter") instance=ExtResource("2_7uixu")]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("3_4ilqx")
 expand_mode = 1
 stretch_mode = 4
+time_shown = 5.0
 emitter = NodePath("FmodEventEmitter3D")
 
-[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/Frame" index="0"]
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/CanvasLayer_Frames#Frame" index="0"]
 event_name = "event:/Power Glove Throw"
 event_guid = "{d3d68252-aad3-4044-a86e-be69745977aa}"
 
-[node name="Frame2" parent="CanvasLayer/Frames" index="1" node_paths=PackedStringArray("emitter") instance=ExtResource("2_7uixu")]
+[node name="CanvasLayer_Frames#Frame2" parent="CanvasLayer/Frames" index="1" node_paths=PackedStringArray("emitter") instance=ExtResource("2_7uixu")]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("4_cjbkd")
 expand_mode = 1
 stretch_mode = 4
+time_shown = 5.0
 emitter = NodePath("FmodEventEmitter3D")
 
-[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/Frame2" index="0"]
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/CanvasLayer_Frames#Frame2" index="0"]
 event_name = "event:/Power Glove Throw"
 event_guid = "{d3d68252-aad3-4044-a86e-be69745977aa}"
 
-[node name="Frame3" parent="CanvasLayer/Frames" index="2" node_paths=PackedStringArray("emitter") instance=ExtResource("2_7uixu")]
+[node name="CanvasLayer_Frames#Frame3" parent="CanvasLayer/Frames" index="2" node_paths=PackedStringArray("emitter") instance=ExtResource("2_7uixu")]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("5_j21sv")
 expand_mode = 1
 stretch_mode = 4
+time_shown = 5.0
 emitter = NodePath("FmodEventEmitter3D")
 
-[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/Frame3" index="0"]
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/CanvasLayer_Frames#Frame3" index="0"]
 event_name = "event:/Power Glove Throw"
 event_guid = "{d3d68252-aad3-4044-a86e-be69745977aa}"
 
-[node name="Frame4" parent="CanvasLayer/Frames" index="3" node_paths=PackedStringArray("emitter") instance=ExtResource("2_7uixu")]
+[node name="CanvasLayer_Frames#Frame4" parent="CanvasLayer/Frames" index="3" node_paths=PackedStringArray("emitter") instance=ExtResource("2_7uixu")]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("6_mlfo1")
 expand_mode = 1
 stretch_mode = 4
+time_shown = 5.0
 emitter = NodePath("FmodEventEmitter3D")
 ambience = "Tension"
 
-[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/Frame4" index="0"]
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/CanvasLayer_Frames#Frame4" index="0"]
 event_name = "event:/Power Glove Throw"
 event_guid = "{d3d68252-aad3-4044-a86e-be69745977aa}"
 
-[node name="Frame5" parent="CanvasLayer/Frames" index="4" node_paths=PackedStringArray("emitter") instance=ExtResource("2_7uixu")]
+[node name="CanvasLayer_Frames#Frame5" parent="CanvasLayer/Frames" index="4" node_paths=PackedStringArray("emitter") instance=ExtResource("2_7uixu")]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("7_06t80")
 expand_mode = 1
 stretch_mode = 4
+time_shown = 5.0
 emitter = NodePath("FmodEventEmitter3D")
 ambience = "Tension"
 
-[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/Frame5" index="0"]
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/CanvasLayer_Frames#Frame5" index="0"]
 event_name = "event:/Power Glove Throw"
 event_guid = "{d3d68252-aad3-4044-a86e-be69745977aa}"
 
-[node name="Frame6" parent="CanvasLayer/Frames" index="5" node_paths=PackedStringArray("emitter") instance=ExtResource("2_7uixu")]
+[node name="CanvasLayer_Frames#Frame6" parent="CanvasLayer/Frames" index="5" node_paths=PackedStringArray("emitter") instance=ExtResource("2_7uixu")]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("8_uil53")
 expand_mode = 1
 stretch_mode = 4
+time_shown = 5.0
 emitter = NodePath("FmodEventEmitter3D")
 ambience = "Tension"
 
-[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/Frame6" index="0"]
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/CanvasLayer_Frames#Frame6" index="0"]
 event_name = "event:/Power Glove Throw"
 event_guid = "{d3d68252-aad3-4044-a86e-be69745977aa}"

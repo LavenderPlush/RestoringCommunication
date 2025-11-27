@@ -22,6 +22,7 @@ offset_bottom = 408.0
 texture = ExtResource("3_mcmor")
 expand_mode = 1
 stretch_mode = 4
+time_shown = 5.0
 emitter = NodePath("FmodEventEmitter3D")
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/Frame1" index="0"]
@@ -37,6 +38,7 @@ offset_bottom = 224.0
 texture = ExtResource("4_fyw2w")
 expand_mode = 1
 stretch_mode = 4
+time_shown = 5.0
 emitter = NodePath("FmodEventEmitter3D")
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/Frame2" index="0"]
@@ -52,6 +54,7 @@ offset_bottom = 408.0
 texture = ExtResource("5_7t3ty")
 expand_mode = 1
 stretch_mode = 4
+time_shown = 5.0
 emitter = NodePath("FmodEventEmitter3D")
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/Frame3" index="0"]
@@ -67,6 +70,7 @@ offset_bottom = 408.0
 texture = ExtResource("6_npdoq")
 expand_mode = 1
 stretch_mode = 4
+time_shown = 5.0
 emitter = NodePath("FmodEventEmitter3D")
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/Frame4" index="0"]
@@ -82,6 +86,7 @@ offset_bottom = 632.0
 texture = ExtResource("7_npdoq")
 expand_mode = 1
 stretch_mode = 4
+time_shown = 5.0
 emitter = NodePath("FmodEventEmitter3D")
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/Frame5" index="0"]
@@ -97,6 +102,7 @@ offset_bottom = 632.0
 texture = ExtResource("8_72kvw")
 expand_mode = 1
 stretch_mode = 4
+time_shown = 5.0
 emitter = NodePath("FmodEventEmitter3D")
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/Frame6" index="0"]
@@ -112,6 +118,7 @@ offset_bottom = 632.0
 texture = ExtResource("9_kw4fw")
 expand_mode = 1
 stretch_mode = 4
+time_shown = 5.0
 emitter = NodePath("FmodEventEmitter3D")
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/Frame7" index="0"]

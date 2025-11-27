@@ -16,6 +16,7 @@ offset_bottom = 632.0
 texture = ExtResource("3_i0iwx")
 expand_mode = 1
 stretch_mode = 4
+time_shown = 5.0
 emitter = NodePath("FmodEventEmitter3D")
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/Frame1" index="0"]

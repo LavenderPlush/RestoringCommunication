@@ -22,6 +22,7 @@ offset_bottom = 317.0
 texture = ExtResource("3_sfw8h")
 expand_mode = 1
 stretch_mode = 4
+time_shown = 5.0
 emitter = NodePath("FmodEventEmitter3D")
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/Frame1" index="0"]
@@ -37,6 +38,7 @@ offset_bottom = 312.0
 texture = ExtResource("4_ti8xc")
 expand_mode = 1
 stretch_mode = 4
+time_shown = 5.0
 emitter = NodePath("FmodEventEmitter3D")
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/Frame2" index="0"]
@@ -52,6 +54,7 @@ offset_bottom = 320.0
 texture = ExtResource("4_ti8xc")
 expand_mode = 1
 stretch_mode = 4
+time_shown = 5.0
 emitter = NodePath("FmodEventEmitter3D")
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/Frame3" index="0"]
@@ -67,6 +70,7 @@ offset_bottom = 312.0
 texture = ExtResource("5_eg4kf")
 expand_mode = 1
 stretch_mode = 4
+time_shown = 5.0
 emitter = NodePath("FmodEventEmitter3D")
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/Frame4" index="0"]
@@ -82,6 +86,7 @@ offset_bottom = 624.0
 texture = ExtResource("6_o6gqh")
 expand_mode = 1
 stretch_mode = 4
+time_shown = 5.0
 emitter = NodePath("FmodEventEmitter3D")
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/Frame5" index="0"]
@@ -97,6 +102,7 @@ offset_bottom = 624.0
 texture = ExtResource("7_nfaq0")
 expand_mode = 1
 stretch_mode = 4
+time_shown = 5.0
 emitter = NodePath("FmodEventEmitter3D")
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/Frame6" index="0"]
@@ -112,6 +118,7 @@ offset_bottom = 624.0
 texture = ExtResource("8_4w346")
 expand_mode = 1
 stretch_mode = 4
+time_shown = 5.0
 emitter = NodePath("FmodEventEmitter3D")
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/Frame7" index="0"]
@@ -127,6 +134,7 @@ offset_bottom = 624.0
 texture = ExtResource("9_xau6a")
 expand_mode = 1
 stretch_mode = 4
+time_shown = 5.0
 emitter = NodePath("FmodEventEmitter3D")
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/Frame8" index="0"]

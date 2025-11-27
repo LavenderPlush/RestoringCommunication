@@ -18,6 +18,7 @@ offset_bottom = 560.0
 texture = ExtResource("8_mpvn7")
 expand_mode = 1
 stretch_mode = 4
+time_shown = 5.0
 emitter = NodePath("FmodEventEmitter3D")
 ambience = "Tension"
 
@@ -34,6 +35,7 @@ offset_bottom = 568.0
 texture = ExtResource("9_4mhch")
 expand_mode = 1
 stretch_mode = 4
+time_shown = 5.0
 emitter = NodePath("FmodEventEmitter3D")
 ambience = "Tension"
 
@@ -50,6 +52,7 @@ offset_bottom = 672.0
 texture = ExtResource("10_hnt4v")
 expand_mode = 1
 stretch_mode = 4
+time_shown = 5.0
 emitter = NodePath("FmodEventEmitter3D")
 ambience = "Tension"
 
