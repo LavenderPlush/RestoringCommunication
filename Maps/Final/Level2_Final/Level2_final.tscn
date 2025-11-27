@@ -43,10 +43,8 @@ sky_material = SubResource("PhysicalSkyMaterial_k5x0g")
 background_mode = 2
 background_energy_multiplier = 2.0
 sky = SubResource("Sky_07gr3")
-ssr_enabled = true
 ssao_enabled = true
 ssil_enabled = true
-sdfgi_enabled = true
 glow_enabled = true
 
 [node name="Level2-Blockout" type="Node3D" node_paths=PackedStringArray("exit_manager")]
@@ -55,7 +53,7 @@ exit_manager = NodePath("Exit/ExitManager")
 metadata/_custom_type_script = "uid://bmdsfg7x3w32q"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.48696113, 0.20176174, -0.84980065, -0.1003131, 0.9794346, 0.17505738, 0.867644, 0, 0.49718595, -24.128925, 27.08886, 6.976858)
+transform = Transform3D(0.48696107, 0.7435668, -0.45823264, -0.1003131, 0.56878054, 0.8163491, 0.867644, -0.35156354, 0.3515635, -24.128925, 27.08886, 6.976858)
 light_color = Color(1, 0.8, 0.52, 1)
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("player1", "player2")]
@@ -67,6 +65,11 @@ player2 = NodePath("../AlienHalf/Alien")
 small_fov = 40.0
 wide_fov = 70.0
 transition_speed = 0.5
+enable_confiners = true
+small_fov_max = 40.0
+small_fov_min = 14.0
+wide_fov_max = 34.0
+wide_fov_min = 22.0
 
 [node name="AlienHalf" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13)
