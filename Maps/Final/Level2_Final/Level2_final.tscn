@@ -1,37 +1,38 @@
-[gd_scene load_steps=32 format=3 uid="uid://cjlo2enoms44b"]
+[gd_scene load_steps=33 format=3 uid="uid://cjlo2enoms44b"]
 
 [ext_resource type="Script" uid="uid://o651tn751848" path="res://Maps/level.gd" id="1_fit1s"]
 [ext_resource type="Script" uid="uid://clheyshb47air" path="res://Entities/Camera/camera_controller.gd" id="2_j7s5s"]
 [ext_resource type="PackedScene" uid="uid://bh7w25o2ijqo6" path="res://Entities/Players/Alien/alien.tscn" id="3_8hqu6"]
-[ext_resource type="PackedScene" path="res://Entities/Platform/3X_platform.tscn" id="4_6wpl1"]
+[ext_resource type="PackedScene" uid="uid://dt2d5cl475310" path="res://Entities/Platform/3X_platform.tscn" id="4_6wpl1"]
 [ext_resource type="PackedScene" uid="uid://cut37mic2ba8v" path="res://Entities/Interactables/Box/box.tscn" id="4_08nnt"]
 [ext_resource type="PackedScene" uid="uid://c3d8ssuosdpx2" path="res://Entities/Borders/11X_bottom-border.tscn" id="4_i7lwa"]
 [ext_resource type="PackedScene" uid="uid://b8hxsnh6e1jfh" path="res://Entities/Ladder/extendable_ladder.tscn" id="5_hvl66"]
-[ext_resource type="PackedScene" path="res://Entities/Platform/1X_platform.tscn" id="5_i7lwa"]
+[ext_resource type="PackedScene" uid="uid://b8k5kmbyb6nim" path="res://Entities/Platform/1X_platform.tscn" id="5_i7lwa"]
 [ext_resource type="PackedScene" uid="uid://c161xbj0sh7v" path="res://Entities/Button/LadderButton/ladder_button.tscn" id="6_4nku6"]
 [ext_resource type="PackedScene" uid="uid://dhfj2dvwjwwoh" path="res://Entities/MovingPlatform/moving_platform.tscn" id="7_7y2ts"]
-[ext_resource type="PackedScene" path="res://Entities/Platform/8X_platform.tscn" id="7_48amp"]
+[ext_resource type="PackedScene" uid="uid://cnvfles6m088e" path="res://Entities/Platform/8X_platform.tscn" id="7_48amp"]
 [ext_resource type="PackedScene" uid="uid://rxoqkldt0t5s" path="res://Entities/Button/PlatformButton/platform_button.tscn" id="8_60mcy"]
-[ext_resource type="PackedScene" path="res://Entities/Platform/0X_platform.tscn" id="8_hd4rv"]
-[ext_resource type="PackedScene" path="res://Entities/Platform/2X_platform.tscn" id="9_j2bmq"]
+[ext_resource type="PackedScene" uid="uid://biiyay6ugshvd" path="res://Entities/Platform/0X_platform.tscn" id="8_hd4rv"]
+[ext_resource type="PackedScene" uid="uid://dr8a0vyee5uwm" path="res://Entities/Platform/2X_platform.tscn" id="9_j2bmq"]
 [ext_resource type="PackedScene" uid="uid://bd388rue7yafh" path="res://Entities/Players/Human/human.tscn" id="9_yw8i5"]
 [ext_resource type="PackedScene" uid="uid://b6p354rt6aa7i" path="res://Entities/Ladder/ladder.tscn" id="10_bxhdx"]
 [ext_resource type="PackedScene" uid="uid://d3g6hgdw5u3ue" path="res://Entities/Platform/platform_left.tscn" id="10_ittuh"]
 [ext_resource type="PackedScene" uid="uid://b2mgbokpp37sx" path="res://Entities/BreakableWall/breakable_wall.tscn" id="11_hxy3h"]
-[ext_resource type="PackedScene" path="res://Entities/Platform/6X_platform.tscn" id="11_lh5rv"]
-[ext_resource type="PackedScene" path="res://Entities/Platform/7X_platform.tscn" id="12_lp0f5"]
+[ext_resource type="PackedScene" uid="uid://dc100abwiouxn" path="res://Entities/Platform/6X_platform.tscn" id="11_lh5rv"]
+[ext_resource type="PackedScene" uid="uid://cxncxrl1jobtx" path="res://Entities/Platform/7X_platform.tscn" id="12_lp0f5"]
 [ext_resource type="PackedScene" uid="uid://q5kt65k1meus" path="res://Entities/Button/ExitButton/exit_manager.tscn" id="12_wdnp7"]
 [ext_resource type="PackedScene" uid="uid://c3ocixu65cif1" path="res://Entities/Button/ExitButton/exit_button.tscn" id="13_j1i5m"]
-[ext_resource type="PackedScene" path="res://Entities/Platform/4X_platform.tscn" id="17_hd4rv"]
-[ext_resource type="PackedScene" path="res://Entities/Platform/15X_platform.tscn" id="18_j2bmq"]
+[ext_resource type="PackedScene" uid="uid://d0xf1ulhb8syi" path="res://Entities/Platform/4X_platform.tscn" id="17_hd4rv"]
+[ext_resource type="PackedScene" uid="uid://dcm74yel6wcjy" path="res://Entities/Platform/15X_platform.tscn" id="18_j2bmq"]
 [ext_resource type="PackedScene" uid="uid://dk6nscx8wfi48" path="res://Entities/Checkpoint/checkpoint.tscn" id="25_k5x0g"]
 [ext_resource type="PackedScene" uid="uid://1p2rwqwpq1w5" path="res://Entities/Checkpoint/checkpoint_light.tscn" id="26_07gr3"]
+[ext_resource type="PackedScene" uid="uid://cikinc5wcoang" path="res://Entities/ExitDoor/exit_door.tscn" id="27_07gr3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lh5rv"]
 albedo_color = Color(0.15294118, 0.105882354, 0.09019608, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w51oj"]
-albedo_color = Color(0.31, 1, 0.34449995, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_prpp8"]
+size = Vector3(1.9257813, 3.8337402, 3.8535461)
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_k5x0g"]
 
@@ -63,12 +64,15 @@ current = true
 script = ExtResource("2_j7s5s")
 player1 = NodePath("../HumanHalf/Human")
 player2 = NodePath("../AlienHalf/Alien")
+small_fov = 40.0
+wide_fov = 70.0
+transition_speed = 0.5
 
 [node name="AlienHalf" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13)
 
 [node name="Alien" parent="AlienHalf" instance=ExtResource("3_8hqu6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1874437, -6.28386)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6856203, -8.310515)
 
 [node name="Borders_AlienHalf" type="Node3D" parent="AlienHalf"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
@@ -193,7 +197,7 @@ transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-
 reset_until_checkpoint_id = 2
 
 [node name="Box5" parent="AlienHalf/Boxes_AlienHalf" instance=ExtResource("4_08nnt")]
-transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, -4.4892797, 21.725796, 1.9623306e-07)
+transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, 17.061571, 27.70218, -7.4578463e-07)
 reset_until_checkpoint_id = 2
 
 [node name="Box6" parent="AlienHalf/Boxes_AlienHalf" instance=ExtResource("4_08nnt")]
@@ -201,13 +205,14 @@ transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-
 reset_until_checkpoint_id = 2
 
 [node name="Ladders_AlienHalf" type="Node3D" parent="AlienHalf"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 33.630054, 6.2397394)
 
 [node name="ExtendableLadder1" parent="AlienHalf/Ladders_AlienHalf" instance=ExtResource("5_hvl66")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 0.93850017, 31.699093, 5)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 0.93850017, -1.3796806, -1.2397394)
 reset_until_checkpoint_id = 2
 
 [node name="LadderButton1" parent="AlienHalf/Ladders_AlienHalf" node_paths=PackedStringArray("extendable_ladder") instance=ExtResource("6_4nku6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 33.818806, 7.5439386)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18875122, 1.3041992)
 extendable_ladder = NodePath("../ExtendableLadder1")
 reset_until_checkpoint_id = 2
 
@@ -238,7 +243,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.63582706, -1.6641693)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 13)
 
 [node name="Human" parent="HumanHalf" instance=ExtResource("9_yw8i5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.536743e-07, 2.2430892, 7.752451)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.536743e-07, 2.6678152, 8.011084)
 
 [node name="Borders_HumanHalf" type="Node3D" parent="HumanHalf"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
@@ -289,8 +294,8 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.2
 [node name="Platform6" parent="HumanHalf/Platforms_HumanHalf" instance=ExtResource("4_6wpl1")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.850813, 29.249844, -6.1645886e-07)
 
-[node name="Platform7" parent="HumanHalf/Platforms_HumanHalf" instance=ExtResource("5_i7lwa")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.4410763, 31.461433, -2.1029763e-07)
+[node name="Platform7" parent="HumanHalf/Platforms_HumanHalf" instance=ExtResource("9_j2bmq")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.545147, 31.411175, -1.6203717e-07)
 
 [node name="Ladder" parent="HumanHalf/Platforms_HumanHalf" instance=ExtResource("10_bxhdx")]
 transform = Transform3D(1, 0, 1.9272301e-07, 0, 1, 0, -1.9272301e-07, 0, 1, 11.2617035, 20.979183, -0.9322816)
@@ -311,7 +316,7 @@ transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-
 reset_until_checkpoint_id = 1
 
 [node name="Box4" parent="HumanHalf/Boxes_HumanHalf" instance=ExtResource("4_08nnt")]
-transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, -9.9924555, 28.06063, 4.367837e-07)
+transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, -30.914476, 22.238958, 1.3513143e-06)
 reset_until_checkpoint_id = 2
 
 [node name="MovingPlatform1_HumanHalf" type="Node3D" parent="HumanHalf"]
@@ -348,54 +353,37 @@ reset_until_checkpoint_id = 1
 transform = Transform3D(0.7987834, 0, 0, 0, 2.243, 0, 0, 0, 3.6521363, 0, 7.489542, -10.666847)
 reset_until_checkpoint_id = 2
 
-[node name="Exit" type="Node3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+[node name="Checkpoints" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19, -1)
 
-[node name="ExitManager" parent="Exit" node_paths=PackedStringArray("button_a", "button_b", "door") instance=ExtResource("12_wdnp7")]
-button_a = NodePath("../ExitButton")
-button_b = NodePath("../ExitButton2")
-door = NodePath("../ExitDoor")
+[node name="Checkpoint1" type="Node3D" parent="Checkpoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.802468, -1.7568009)
 
-[node name="ExitButton" parent="Exit" instance=ExtResource("13_j1i5m")]
-transform = Transform3D(1.3374798e-15, 3.059797e-08, 0.7, 0.7, -3.059797e-08, 0, 3.059797e-08, 0.7, -3.059797e-08, -21.239353, 35.739204, -0.9999989)
-
-[node name="ExitButton2" parent="Exit" instance=ExtResource("13_j1i5m")]
-transform = Transform3D(1.3374798e-15, 3.059797e-08, 0.7, 0.7, -3.059797e-08, 0, 3.059797e-08, 0.7, -3.059797e-08, -12.839353, 35.739204, -0.9999993)
-
-[node name="ExitDoor" type="CSGBox3D" parent="Exit"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, -17.031536, 35.620228, -2.7919724)
-use_collision = true
-size = Vector3(4, 4, 1)
-material = SubResource("StandardMaterial3D_w51oj")
-
-[node name="Checkpoint1" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.197532, -2.756801)
-
-[node name="Checkpoint1_TriggerArea" parent="Checkpoint1" node_paths=PackedStringArray("human_spawn", "alien_spawn", "checkpoint_light1", "checkpoint_light2") instance=ExtResource("25_k5x0g")]
+[node name="Checkpoint1_TriggerArea" parent="Checkpoints/Checkpoint1" node_paths=PackedStringArray("human_spawn", "alien_spawn", "checkpoint_light1", "checkpoint_light2") instance=ExtResource("25_k5x0g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 4.8578873, 0, -0.2660246, -9.3024645)
 human_spawn = NodePath("../Checkpoint1_HumanSpawn")
 alien_spawn = NodePath("../Checkpoint1_AlienSpawn")
 checkpoint_light1 = NodePath("../Checkpoint1_AlienLight")
 checkpoint_light2 = NodePath("../Checkpoint1_HumanLight")
 
-[node name="Checkpoint1_HumanSpawn" type="Marker3D" parent="Checkpoint1"]
+[node name="Checkpoint1_HumanSpawn" type="Marker3D" parent="Checkpoints/Checkpoint1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2660246, 6.9080024)
 
-[node name="Checkpoint1_AlienSpawn" type="Marker3D" parent="Checkpoint1"]
+[node name="Checkpoint1_AlienSpawn" type="Marker3D" parent="Checkpoints/Checkpoint1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2660246, -6.2451887)
 
-[node name="Checkpoint1_AlienLight" parent="Checkpoint1" instance=ExtResource("26_07gr3")]
-transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.135, -0.185, -6.245)
-skeleton = NodePath("../..")
+[node name="Checkpoint1_AlienLight" parent="Checkpoints/Checkpoint1" instance=ExtResource("26_07gr3")]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.8755465, -0.185, -6.245)
+skeleton = NodePath("../../..")
 
-[node name="Checkpoint1_HumanLight" parent="Checkpoint1" instance=ExtResource("26_07gr3")]
-transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.1350033, 0.24984264, 7.270362)
-skeleton = NodePath("../..")
+[node name="Checkpoint1_HumanLight" parent="Checkpoints/Checkpoint1" instance=ExtResource("26_07gr3")]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.885329, 0.24984264, 7.270362)
+skeleton = NodePath("../../..")
 
-[node name="Checkpoint2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.611, 0)
+[node name="Checkpoint2" type="Node3D" parent="Checkpoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.611, 1)
 
-[node name="Checkpoint2_TriggerArea" parent="Checkpoint2" node_paths=PackedStringArray("human_spawn", "alien_spawn", "checkpoint_light1", "checkpoint_light2") instance=ExtResource("25_k5x0g")]
+[node name="Checkpoint2_TriggerArea" parent="Checkpoints/Checkpoint2" node_paths=PackedStringArray("human_spawn", "alien_spawn", "checkpoint_light1", "checkpoint_light2") instance=ExtResource("25_k5x0g")]
 transform = Transform3D(1, 0, 0, 0, 2.1442342, 0, 0, 0, 7.8737125, 0, -0.17643642, -9.3024645)
 human_spawn = NodePath("../Checkpoint2_HumanSpawn")
 alien_spawn = NodePath("../Checkpoint2_AlienSpawn")
@@ -403,39 +391,66 @@ checkpoint_light1 = NodePath("../Checkpoint2_HumanLight")
 checkpoint_light2 = NodePath("../Checkpoint2_AlienLight")
 checkpoint_id = 1
 
-[node name="Checkpoint2_HumanSpawn" type="Marker3D" parent="Checkpoint2"]
+[node name="Checkpoint2_HumanSpawn" type="Marker3D" parent="Checkpoints/Checkpoint2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0284872, 14.9952755)
 
-[node name="Checkpoint2_AlienSpawn" type="Marker3D" parent="Checkpoint2"]
+[node name="Checkpoint2_AlienSpawn" type="Marker3D" parent="Checkpoints/Checkpoint2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8637018, -10.022875)
 
-[node name="Checkpoint2_HumanLight" parent="Checkpoint2" instance=ExtResource("26_07gr3")]
-transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0, 3.1628714, 14.9952755)
-skeleton = NodePath("../..")
+[node name="Checkpoint2_HumanLight" parent="Checkpoints/Checkpoint2" instance=ExtResource("26_07gr3")]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.8888631, 3.1628714, 14.9952755)
+skeleton = NodePath("../../..")
 
-[node name="Checkpoint2_AlienLight" parent="Checkpoint2" instance=ExtResource("26_07gr3")]
-transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0, -1.8637018, -10.022875)
-skeleton = NodePath("../..")
+[node name="Checkpoint2_AlienLight" parent="Checkpoints/Checkpoint2" instance=ExtResource("26_07gr3")]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.8770556, -1.8637018, -10.022875)
+skeleton = NodePath("../../..")
 
-[node name="Checkpoint3" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.611, 0)
+[node name="Checkpoint3" type="Node3D" parent="Checkpoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.611, 1)
 
-[node name="Checkpoint3_TriggerArea" parent="Checkpoint3" node_paths=PackedStringArray("human_spawn", "alien_spawn", "checkpoint_light1") instance=ExtResource("25_k5x0g")]
+[node name="Checkpoint3_TriggerArea" parent="Checkpoints/Checkpoint3" node_paths=PackedStringArray("human_spawn", "alien_spawn", "checkpoint_light1") instance=ExtResource("25_k5x0g")]
 transform = Transform3D(1, 0, 0, 0, 1.4303532, 0, 0, 0, 1, 0, 10.562142, -9.543713)
 human_spawn = NodePath("../Checkpoint3_HumanSpawn")
 alien_spawn = NodePath("../Checkpoint3_AlienSpawn")
 checkpoint_light1 = NodePath("../Checkpoint3_Light")
 checkpoint_id = 2
 
-[node name="Checkpoint3_HumanSpawn" type="Marker3D" parent="Checkpoint3"]
+[node name="Checkpoint3_HumanSpawn" type="Marker3D" parent="Checkpoints/Checkpoint3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.028488, -3.0047245)
 
-[node name="Checkpoint3_AlienSpawn" type="Marker3D" parent="Checkpoint3"]
+[node name="Checkpoint3_AlienSpawn" type="Marker3D" parent="Checkpoints/Checkpoint3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.136299, -10.022875)
 
-[node name="Checkpoint3_Light" parent="Checkpoint3" instance=ExtResource("26_07gr3")]
-transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0, 11.113254, -10.022875)
-skeleton = NodePath("../..")
+[node name="Checkpoint3_Light" parent="Checkpoints/Checkpoint3" instance=ExtResource("26_07gr3")]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.88269055, 11.113254, -10.022875)
+skeleton = NodePath("../../..")
+
+[node name="Exit" type="Node3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.430936e-07, 35, -17)
+
+[node name="ExitManager" parent="Exit" node_paths=PackedStringArray("button_a", "button_b", "door", "exit_area") instance=ExtResource("12_wdnp7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -26, 0)
+button_a = NodePath("../ExitButton")
+button_b = NodePath("../ExitButton2")
+door = NodePath("../ExitDoor")
+exit_area = NodePath("../ExitArea")
+
+[node name="ExitButton" parent="Exit" instance=ExtResource("13_j1i5m")]
+transform = Transform3D(1.3374798e-15, 3.059797e-08, 0.7, 0.7, -3.059797e-08, 0, 3.059797e-08, 0.7, -3.059797e-08, -4.235669, -1.2185478, -0.9868078)
+
+[node name="ExitButton2" parent="Exit" instance=ExtResource("13_j1i5m")]
+transform = Transform3D(1.3374798e-15, 3.059797e-08, 0.7, 0.7, -3.059797e-08, 0, 3.059797e-08, 0.7, -3.059797e-08, 4.161781, -1.21949, -0.99288857)
+
+[node name="ExitArea" type="Area3D" parent="Exit"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1, 0)
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Exit/ExitArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19494629, -0.03794861)
+shape = SubResource("BoxShape3D_prpp8")
+
+[node name="ExitDoor" parent="Exit" instance=ExtResource("27_07gr3")]
+transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -5.2082335e-08, 1.1131325, -1.191505)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_prpp8")
