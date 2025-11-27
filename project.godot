@@ -23,6 +23,10 @@ config/features=PackedStringArray("4.5", "Forward Plus")
 FmodManager="*res://addons/fmod/FmodManager.gd"
 CheckpointManager="*res://Entities/Checkpoint/checkpoint_manager.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/fmod/plugin.cfg")
