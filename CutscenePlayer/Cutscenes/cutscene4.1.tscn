@@ -1,0 +1,103 @@
+[gd_scene load_steps=9 format=3 uid="uid://b0w1wwtm503hm"]
+
+[ext_resource type="PackedScene" uid="uid://dq77apc8gosic" path="res://CutscenePlayer/cutscene_base.tscn" id="1_th447"]
+[ext_resource type="PackedScene" uid="uid://ksm03gj3e2pf" path="res://CutscenePlayer/frame.tscn" id="2_c42oh"]
+[ext_resource type="Texture2D" uid="uid://dmysgrqkjemtp" path="res://Assets/Cutscenes/cutscene4.1/cutscene4.1_1.jpg" id="3_s5dsh"]
+[ext_resource type="Texture2D" uid="uid://d14jqfdwdkyct" path="res://Assets/Cutscenes/cutscene4.1/cutscene4.1_2.jpg" id="4_1febu"]
+[ext_resource type="Texture2D" uid="uid://bgd18jlgeaffl" path="res://Assets/Cutscenes/cutscene4.1/cutscene4.1_3.jpg" id="5_0tlcc"]
+[ext_resource type="Texture2D" uid="uid://c0e620rx73ed" path="res://Assets/Cutscenes/cutscene4.1/cutscene4.1_4.jpg" id="6_2pn1y"]
+[ext_resource type="Texture2D" uid="uid://c7ib3cxw2sart" path="res://Assets/Cutscenes/cutscene4.1/cutscene4.1_5.jpg" id="7_aom3w"]
+[ext_resource type="Texture2D" uid="uid://byoyogob5ojuu" path="res://Assets/Cutscenes/cutscene4.1/cutscene4.1_6.jpg" id="8_1febu"]
+
+[node name="CutesceneOne" instance=ExtResource("1_th447")]
+wait_time = 1.0
+
+[node name="Frame1" parent="CanvasLayer/Frames" index="0" node_paths=PackedStringArray("emitter") instance=ExtResource("2_c42oh")]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 16.0
+offset_right = 336.0
+offset_bottom = 208.0
+texture = ExtResource("3_s5dsh")
+expand_mode = 1
+stretch_mode = 4
+emitter = NodePath("FmodEventEmitter3D")
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/Frame1" index="0"]
+event_name = "event:/Power Glove Throw"
+event_guid = "{d3d68252-aad3-4044-a86e-be69745977aa}"
+
+[node name="Frame2" parent="CanvasLayer/Frames" index="1" node_paths=PackedStringArray("emitter") instance=ExtResource("2_c42oh")]
+layout_mode = 0
+offset_left = 352.0
+offset_top = 16.0
+offset_right = 757.5238
+offset_bottom = 336.0
+texture = ExtResource("4_1febu")
+expand_mode = 1
+stretch_mode = 4
+emitter = NodePath("FmodEventEmitter3D")
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/Frame2" index="0"]
+event_name = "event:/Power Glove Throw"
+event_guid = "{d3d68252-aad3-4044-a86e-be69745977aa}"
+
+[node name="Frame3" parent="CanvasLayer/Frames" index="2" node_paths=PackedStringArray("emitter") instance=ExtResource("2_c42oh")]
+layout_mode = 0
+offset_left = 768.0
+offset_top = 16.0
+offset_right = 1072.0
+offset_bottom = 328.0
+texture = ExtResource("5_0tlcc")
+expand_mode = 1
+stretch_mode = 4
+emitter = NodePath("FmodEventEmitter3D")
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/Frame3" index="0"]
+event_name = "event:/Power Glove Throw"
+event_guid = "{d3d68252-aad3-4044-a86e-be69745977aa}"
+
+[node name="Frame4" parent="CanvasLayer/Frames" index="3" node_paths=PackedStringArray("emitter") instance=ExtResource("2_c42oh")]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 216.0
+offset_right = 336.0
+offset_bottom = 336.0
+texture = ExtResource("6_2pn1y")
+expand_mode = 1
+stretch_mode = 4
+emitter = NodePath("FmodEventEmitter3D")
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/Frame4" index="0"]
+event_name = "event:/Power Glove Throw"
+event_guid = "{d3d68252-aad3-4044-a86e-be69745977aa}"
+
+[node name="Frame5" parent="CanvasLayer/Frames" index="4" node_paths=PackedStringArray("emitter") instance=ExtResource("2_c42oh")]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 352.0
+offset_right = 336.0
+offset_bottom = 640.0
+texture = ExtResource("7_aom3w")
+expand_mode = 1
+stretch_mode = 4
+emitter = NodePath("FmodEventEmitter3D")
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/Frame5" index="0"]
+event_name = "event:/Power Glove Throw"
+event_guid = "{d3d68252-aad3-4044-a86e-be69745977aa}"
+
+[node name="Frame6" parent="CanvasLayer/Frames" index="5" node_paths=PackedStringArray("emitter") instance=ExtResource("2_c42oh")]
+layout_mode = 0
+offset_left = 352.0
+offset_top = 336.0
+offset_right = 1056.0
+offset_bottom = 656.0
+texture = ExtResource("8_1febu")
+expand_mode = 1
+stretch_mode = 4
+emitter = NodePath("FmodEventEmitter3D")
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/Frame6" index="0"]
+event_name = "event:/Power Glove Throw"
+event_guid = "{d3d68252-aad3-4044-a86e-be69745977aa}"
