@@ -35,6 +35,7 @@ expand_mode = 1
 stretch_mode = 4
 time_shown = 5.0
 emitter = NodePath("FmodEventEmitter3D")
+ambience = "Panic"
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/CanvasLayer_Frames#Frame2" index="0"]
 event_name = "event:/Power Glove Throw"
@@ -49,6 +50,7 @@ expand_mode = 1
 stretch_mode = 4
 time_shown = 5.0
 emitter = NodePath("FmodEventEmitter3D")
+ambience = "Triumphant"
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/CanvasLayer_Frames#Frame3" index="0"]
 event_name = "event:/Power Glove Throw"
@@ -63,7 +65,7 @@ expand_mode = 1
 stretch_mode = 4
 time_shown = 5.0
 emitter = NodePath("FmodEventEmitter3D")
-ambience = "Tension"
+ambience = "Tense"
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/CanvasLayer_Frames#Frame4" index="0"]
 event_name = "event:/Power Glove Throw"
@@ -78,7 +80,7 @@ expand_mode = 1
 stretch_mode = 4
 time_shown = 5.0
 emitter = NodePath("FmodEventEmitter3D")
-ambience = "Tension"
+ambience = "Tense"
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/CanvasLayer_Frames#Frame5" index="0"]
 event_name = "event:/Power Glove Throw"
@@ -93,8 +95,11 @@ expand_mode = 1
 stretch_mode = 4
 time_shown = 5.0
 emitter = NodePath("FmodEventEmitter3D")
-ambience = "Tension"
+ambience = "Magnificent"
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/CanvasLayer_Frames#Frame6" index="0"]
 event_name = "event:/Power Glove Throw"
 event_guid = "{d3d68252-aad3-4044-a86e-be69745977aa}"
+
+[node name="FmodEventEmitter3D" parent="." index="3"]
+event_name = "event:/BGM/Cutscene"

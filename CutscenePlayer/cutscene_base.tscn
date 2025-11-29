@@ -71,7 +71,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="."]
-event_name = "event:/BGM/Cutscene Test"
+event_name = "event:/BGM/Cutscene"
 event_guid = "{d6fe329a-dc7f-4bcf-a174-b2945e4d0837}"
 fmod_parameters/Ambience/id = -1899470134043834807
 fmod_parameters/Ambience = "Chill"
