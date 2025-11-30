@@ -242,7 +242,7 @@ auto_start = false
 
 [node name="MovingPlatform1_Button" parent="AlienHalf/MovingPlatform1_AlienHalf" node_paths=PackedStringArray("moving_platform") instance=ExtResource("8_60mcy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8286467, 0.9287975)
-moving_platform = NodePath("../MovingPlatform1_Platform")
+moving_platform = NodePath("../../../HumanHalf/MovingPlatform1_HumanHalf/MovingPlatform1_Platform")
 reset_until_checkpoint_id = 1
 
 [node name="MovingPlatform1_A" type="Marker3D" parent="AlienHalf/MovingPlatform1_AlienHalf"]
@@ -345,7 +345,7 @@ auto_start = false
 
 [node name="MovingPlatform1_Button" parent="HumanHalf/MovingPlatform1_HumanHalf" node_paths=PackedStringArray("moving_platform") instance=ExtResource("8_60mcy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.7575083, -1.7941461)
-moving_platform = NodePath("../MovingPlatform1_Platform")
+moving_platform = NodePath("../../../AlienHalf/MovingPlatform1_AlienHalf/MovingPlatform1_Platform")
 reset_until_checkpoint_id = 1
 
 [node name="MovingPlatform1_A" type="Marker3D" parent="HumanHalf/MovingPlatform1_HumanHalf"]
