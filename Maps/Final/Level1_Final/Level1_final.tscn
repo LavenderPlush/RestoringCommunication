@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cryhwogoyglmt"]
+[gd_scene load_steps=22 format=3 uid="uid://cryhwogoyglmt"]
 
 [ext_resource type="Script" uid="uid://o651tn751848" path="res://Maps/level.gd" id="1_sk6fj"]
 [ext_resource type="Script" uid="uid://clheyshb47air" path="res://Entities/Camera/camera_controller.gd" id="2_ljjfv"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://q5kt65k1meus" path="res://Entities/Button/ExitButton/exit_manager.tscn" id="7_fusx4"]
 [ext_resource type="PackedScene" uid="uid://biiyay6ugshvd" path="res://Entities/Platform/0X_platform.tscn" id="7_m8yh1"]
 [ext_resource type="PackedScene" uid="uid://c3ocixu65cif1" path="res://Entities/Button/ExitButton/exit_button.tscn" id="8_bmeh1"]
+[ext_resource type="PackedScene" uid="uid://rxoqkldt0t5s" path="res://Entities/Button/PlatformButton/platform_button.tscn" id="11_tnt20"]
 [ext_resource type="PackedScene" uid="uid://cikinc5wcoang" path="res://Entities/ExitDoor/exit_door.tscn" id="13_yqoyr"]
 [ext_resource type="PackedScene" uid="uid://ddcknlbag4qiy" path="res://Assets/Environment/environment.glb" id="14_kvqi4"]
 [ext_resource type="PackedScene" uid="uid://088ghaqo8clh" path="res://Assets/Tower/tower.glb" id="15_dg3vp"]
@@ -163,6 +164,11 @@ point_a = NodePath("../MovingPlatform1_A")
 point_b = NodePath("../MovingPlatform1_B")
 speed = 4.0
 wait_time = 0.8
+auto_start = false
+
+[node name="MovingPlatform1_Button" parent="MovingPlatform1" node_paths=PackedStringArray("moving_platform") instance=ExtResource("11_tnt20")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.8716087, 2.2063131)
+moving_platform = NodePath("../MovingPlatform1_Platform")
 
 [node name="MovingPlatform1_A" type="Marker3D" parent="MovingPlatform1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.3895035, -1.4334993)
@@ -179,6 +185,11 @@ point_a = NodePath("../MovingPlatform2_A")
 point_b = NodePath("../MovingPlatform2_B")
 speed = 4.0
 wait_time = 0.3
+auto_start = false
+
+[node name="MovingPlatform2_Button" parent="MovingPlatform2" node_paths=PackedStringArray("moving_platform") instance=ExtResource("11_tnt20")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.86059, -4.0276704)
+moving_platform = NodePath("../MovingPlatform2_Platform")
 
 [node name="MovingPlatform2_A" type="Marker3D" parent="MovingPlatform2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.3891182, 1.2581391)
