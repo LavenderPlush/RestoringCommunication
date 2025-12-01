@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cjlo2enoms44b"]
+[gd_scene load_steps=36 format=3 uid="uid://cjlo2enoms44b"]
 
 [ext_resource type="Script" uid="uid://o651tn751848" path="res://Maps/level.gd" id="1_fit1s"]
 [ext_resource type="Script" uid="uid://clheyshb47air" path="res://Entities/Camera/camera_controller.gd" id="2_j7s5s"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://dk6nscx8wfi48" path="res://Entities/Checkpoint/checkpoint.tscn" id="25_k5x0g"]
 [ext_resource type="PackedScene" uid="uid://1p2rwqwpq1w5" path="res://Entities/Checkpoint/checkpoint_light.tscn" id="26_07gr3"]
 [ext_resource type="PackedScene" uid="uid://cikinc5wcoang" path="res://Entities/ExitDoor/exit_door.tscn" id="27_07gr3"]
+[ext_resource type="PackedScene" uid="uid://77p1mkxy2ris" path="res://Menus/Pause/pause_menu.tscn" id="29_mjesy"]
 [ext_resource type="PackedScene" uid="uid://088ghaqo8clh" path="res://Assets/Tower/tower.glb" id="29_phwff"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lh5rv"]
@@ -479,3 +480,5 @@ material = SubResource("FogMaterial_v7q81")
 event_name = "event:/BGM/Level 2 BGM"
 event_guid = "{ff60e275-ba36-4629-92b0-23a4da214b28}"
 autoplay = true
+
+[node name="PauseMenu" parent="." instance=ExtResource("29_mjesy")]
