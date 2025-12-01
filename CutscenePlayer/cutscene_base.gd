@@ -30,7 +30,7 @@ func _ready() -> void:
 	wait_timer.start(wait_time)
 	
 	# Start music
-	bgm_emitter.play()
+	get_tree().create_timer(wait_time).timeout.connect(func (): bgm_emitter.play())
 
 func _process(delta: float) -> void:
 	if hold_to_skip:
