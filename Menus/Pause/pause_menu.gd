@@ -1,8 +1,8 @@
 extends Control
 
-@onready var resume_button: Button = $ResumeButton
-@onready var main_menu_button: Button = $MainMenuButton
-@onready var quit_button: Button = $QuitButton
+@onready var resume_button: Button = $ButtonContainer/ResumeButton
+@onready var main_menu_button: Button = $ButtonContainer/MainMenuButton
+@onready var quit_button: Button = $ButtonContainer/QuitButton
 
 func _ready():
 	visible = false
@@ -23,6 +23,9 @@ func toggle_pause() -> void:
 	get_tree().paused = is_paused
 
 	visible = is_paused
+
+	if is_paused:
+		resume_button.grab_focus()
 
 func _on_resume_button_pressed() -> void:
 	toggle_pause()
