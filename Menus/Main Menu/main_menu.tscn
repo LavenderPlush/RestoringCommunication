@@ -94,3 +94,15 @@ offset_bottom = 259.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "BACK"
+
+[node name="Sound" type="Node" parent="."]
+
+[node name="FmodBankLoader" type="FmodBankLoader" parent="Sound"]
+bank_paths = ["res://Assets/FMODBank/Desktop/Master.bank"]
+
+[node name="FmodListener3D" type="FmodListener3D" parent="Sound"]
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="Sound"]
+event_name = "event:/BGM/TitleBGM"
+event_guid = "{faa49a9c-a41b-4388-b97b-3d4323ddd252}"
+autoplay = true
