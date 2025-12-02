@@ -1,18 +1,22 @@
 class_name Animator extends Node3D
 
+@export var movement: Movement
 @export var animation_tree: AnimationTree
 
 enum State {
 	IDLE,
 	MOVING,
-	CLIMB,
+	CLIMBING,
 	FALLING
 }
 
 var speed: float = 0:
 	set(s): speed = s
 
-var player_velocity: float = 0.0
+var climbing_speed: float = 0:
+	set(s): climbing_speed = s
+
+var horizontal_velocity: float = 0.0
 
 var state: State = State.IDLE
 
@@ -22,6 +26,13 @@ var jump_amount: float = 0.0  # 0.0 to 1.0
 
 var blend_speed: float = 15
 
+func _process(delta: float) -> void:
+	handle_animations(delta)
+	update_tree()
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed(movement.control_prefix + "_jump"):
+		jump()
 
 func update_tree():
 	animation_tree["parameters/Move/blend_amount"] = move_amount
@@ -33,12 +44,10 @@ func handle_animations(delta):
 			move_amount = lerpf(move_amount, -1, blend_speed * delta)
 			climb_amount = 0.0
 		State.MOVING:
-			move_amount = lerpf(move_amount, (player_velocity / speed), speed * delta)
+			move_amount = lerpf(move_amount, (horizontal_velocity / speed), speed * delta)
 			climb_amount = 0.0
-
-func _process(delta: float) -> void:
-	handle_animations(delta)
-	update_tree()
+		State.CLIMBING:
+			pass
 
 func jump():
 	transition("Jumping")
@@ -52,6 +61,14 @@ func set_falling():
 	transition("Jumping")
 	state = State.FALLING
 
+func set_climbing(is_climbing: bool):
+	if is_climbing:
+		state = State.CLIMBING
+		transition("Climbing")
+	else:
+		state = State.IDLE
+		transition("Idle")
+
 func land():
 	if !animation_tree["parameters/Land/active"]:
 		animation_tree["parameters/Land/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
@@ -59,12 +76,12 @@ func land():
 		transition("Idle")
 
 func move(velocity: float):
-	player_velocity = abs(velocity)
-	if player_velocity > 0.0 and state == State.IDLE:
+	horizontal_velocity = abs(velocity)
+	if horizontal_velocity > 0.0 and state == State.IDLE:
 		# animation_tree["parameters/Land/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_ABORT
 		state = State.MOVING
 		transition("Moving")
-	elif player_velocity == 0.0 and state == State.MOVING:
+	elif horizontal_velocity == 0.0 and state == State.MOVING:
 		state = State.IDLE
 		transition("Idle")
 

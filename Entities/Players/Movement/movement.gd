@@ -16,7 +16,6 @@ var gravity: float:
 @export var body: CharacterBody3D
 @export var floor_rays: Array[RayCast3D]
 @export var player_mesh: Node3D
-@export var animator: Animator
 
 @export_group("Sound")
 @export var footstep_sound_timer: Timer
@@ -32,9 +31,6 @@ var is_falling: bool = false
 var _fall_velocity: float
 
 func _ready() -> void:
-	if animator:
-		animator.speed = speed
-	
 	footstep_sound_timer.timeout.connect(_on_footstep_timer)
 
 func process_climb(can_climb: bool):
@@ -76,14 +72,10 @@ func process_climb(can_climb: bool):
 
 func process_gravity(delta: float):
 	if on_floor() and is_falling:
-		if animator:
-			animator.land()
 		is_falling = false
 		_handle_landing_sound()
 	elif not on_floor():
 		is_falling = true
-		if animator:
-			animator.set_falling()
 		_fall_velocity = abs(body.velocity.y)
 		body.velocity.y -= gravity * delta
 
@@ -91,8 +83,6 @@ func process_jump():
 	if (Input.is_action_just_pressed("%s_jump" % control_prefix)
 		and on_floor()):
 			Common.play_sound(jump_emitter)
-			if animator:
-				animator.jump()
 			
 			var platform_velocity = body.get_platform_velocity()
 
@@ -112,13 +102,10 @@ func process_movement():
 	if direction:
 		_handle_walk_sound()
 		body.velocity.z = direction.z * speed
-		if animator:
-			animator.move(body.velocity.z)
-		_set_facing_direction(direction)
+		if !is_climbing:
+			_set_facing_direction(direction)
 	else:
 		body.velocity.z = move_toward(body.velocity.z, 0, speed)
-		if animator:
-			animator.move(0)
 
 func _handle_walk_sound():
 	if on_floor() and footstep_sound_timer.is_stopped():
