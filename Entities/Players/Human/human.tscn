@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bkkcqtuj5t1cq" path="res://Entities/Players/Movement/movement.tscn" id="1_rmm0b"]
 [ext_resource type="PackedScene" uid="uid://dlvox6gkjblrb" path="res://Entities/Players/Animator/animator.tscn" id="2_6nsww"]
 [ext_resource type="Animation" uid="uid://b2j6vwu2w3rcy" path="res://Assets/Animations/human_climb.res" id="2_6twc2"]
-[ext_resource type="Animation" uid="uid://bh8kjlyxjug6a" path="res://Assets/Animations/human_jump.res" id="2_ajoss"]
+[ext_resource type="Animation" uid="uid://bodp22w8wyx5b" path="res://Assets/Animations/human_jump.res" id="2_ajoss"]
 [ext_resource type="PackedScene" uid="uid://bsqwvch37wg86" path="res://Entities/Players/Abilities/PowerGloves/power_gloves.tscn" id="2_rj3cs"]
 [ext_resource type="Animation" uid="uid://ddjq6fdnlb3tt" path="res://Assets/Animations/human_fall.res" id="3_ajoss"]
 [ext_resource type="Animation" uid="uid://dnj520lsid282" path="res://Assets/Animations/human_idle.res" id="4_6nsww"]
@@ -59,7 +59,7 @@ input_3/reset = true
 animation = &"Neutral Idle"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_k1oay"]
-graph_offset = Vector2(-285.96796, 30.79657)
+graph_offset = Vector2(-338.81918, 178.11852)
 nodes/output/position = Vector2(600, 0)
 nodes/Idle/node = SubResource("AnimationNodeAnimation_6nsww")
 nodes/Idle/position = Vector2(-380, -120)
