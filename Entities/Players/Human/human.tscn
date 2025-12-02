@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://bd388rue7yafh"]
+[gd_scene load_steps=41 format=4 uid="uid://bd388rue7yafh"]
 
 [ext_resource type="Script" uid="uid://cp0jcwymqkbr0" path="res://Entities/Players/Human/human.gd" id="1_q78xk"]
 [ext_resource type="PackedScene" uid="uid://bkkcqtuj5t1cq" path="res://Entities/Players/Movement/movement.tscn" id="1_rmm0b"]
@@ -6,25 +6,20 @@
 [ext_resource type="Animation" uid="uid://b2j6vwu2w3rcy" path="res://Assets/Animations/human_climb.res" id="2_6twc2"]
 [ext_resource type="Animation" uid="uid://bh8kjlyxjug6a" path="res://Assets/Animations/human_jump.res" id="2_ajoss"]
 [ext_resource type="PackedScene" uid="uid://bsqwvch37wg86" path="res://Entities/Players/Abilities/PowerGloves/power_gloves.tscn" id="2_rj3cs"]
-[ext_resource type="Animation" uid="uid://cmiv0pf1o1xpu" path="res://Assets/Animations/human_fall.res" id="3_ajoss"]
-[ext_resource type="Animation" uid="uid://dnsb1eyl0bb1p" path="res://Assets/Animations/human_idle.res" id="4_6nsww"]
-[ext_resource type="Animation" uid="uid://bfqk40ul5iol7" path="res://Assets/Animations/human_running.res" id="5_scid8"]
-[ext_resource type="Animation" uid="uid://djkscdj5aufnk" path="res://Assets/Animations/human_walking.res" id="6_v21w3"]
+[ext_resource type="Animation" uid="uid://ddjq6fdnlb3tt" path="res://Assets/Animations/human_fall.res" id="3_ajoss"]
+[ext_resource type="Animation" uid="uid://dnj520lsid282" path="res://Assets/Animations/human_idle.res" id="4_6nsww"]
+[ext_resource type="Animation" uid="uid://bshbrol8gwpkq" path="res://Assets/Animations/human_running.res" id="5_scid8"]
+[ext_resource type="Animation" uid="uid://cm7mday3q2cl6" path="res://Assets/Animations/human_walking.res" id="6_v21w3"]
 
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_ajoss"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ajoss"]
 animation = &"Climbing Up Wall"
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_6nsww"]
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6nsww"]
 animation = &"Neutral Idle"
 
-[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_scid8"]
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_scid8"]
-animation = &"Jumping Up"
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_6nsww"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k1oay"]
 animation = &"Jumping Up"
@@ -34,50 +29,63 @@ animation = &"Jumping Up"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v21w3"]
 animation = &"Falling To Landing"
 
-[sub_resource type="AnimationNodeBlend3" id="AnimationNodeBlend3_6twc2"]
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_6nsww"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n06t3"]
 animation = &"Running"
 
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_scid8"]
+xfade_time = 0.1
+input_0/name = "Idle"
+input_0/auto_advance = false
+input_0/break_loop_at_end = false
+input_0/reset = true
+input_1/name = "Moving"
+input_1/auto_advance = false
+input_1/break_loop_at_end = false
+input_1/reset = true
+input_2/name = "Climbing"
+input_2/auto_advance = false
+input_2/break_loop_at_end = false
+input_2/reset = true
+input_3/name = "Jumping"
+input_3/auto_advance = false
+input_3/break_loop_at_end = false
+input_3/reset = true
+
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_scid8"]
 
-[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_6nsww"]
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1723t"]
-animation = &"Walking"
+animation = &"Neutral Idle"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_k1oay"]
-graph_offset = Vector2(27.714294, -26.048767)
-nodes/output/position = Vector2(1420, 60)
+graph_offset = Vector2(-285.96796, 30.79657)
+nodes/output/position = Vector2(600, 0)
 nodes/Idle/node = SubResource("AnimationNodeAnimation_6nsww")
-nodes/Idle/position = Vector2(-220, 0)
+nodes/Idle/position = Vector2(-380, -120)
 nodes/Running/node = SubResource("AnimationNodeAnimation_n06t3")
-nodes/Running/position = Vector2(-220, 360)
+nodes/Running/position = Vector2(-580, 300)
 nodes/Walking/node = SubResource("AnimationNodeAnimation_1723t")
-nodes/Walking/position = Vector2(-220, 180)
-nodes/Jumping/node = SubResource("AnimationNodeAnimation_scid8")
-nodes/Jumping/position = Vector2(500, 340)
+nodes/Walking/position = Vector2(-580, 120)
+nodes/JumpScale/node = SubResource("AnimationNodeTimeScale_6nsww")
+nodes/JumpScale/position = Vector2(-60, 280)
 nodes/Landing/node = SubResource("AnimationNodeAnimation_v21w3")
-nodes/Landing/position = Vector2(840, 320)
+nodes/Landing/position = Vector2(40, 460)
 nodes/Climbing/node = SubResource("AnimationNodeAnimation_ajoss")
-nodes/Climbing/position = Vector2(40, 300)
-nodes/Move/node = SubResource("AnimationNodeBlend3_6twc2")
-nodes/Move/position = Vector2(40, 0)
+nodes/Climbing/position = Vector2(-580, 580)
+nodes/State/node = SubResource("AnimationNodeTransition_scid8")
+nodes/State/position = Vector2(60, -20)
 nodes/Climb/node = SubResource("AnimationNodeBlend2_ajoss")
-nodes/Climb/position = Vector2(240, 0)
-nodes/Jump/node = SubResource("AnimationNodeOneShot_scid8")
-nodes/Jump/position = Vector2(820, 40)
-nodes/HoldJump/node = SubResource("AnimationNodeBlend2_6nsww")
-nodes/HoldJump/position = Vector2(500, 20)
-nodes/JumpingHold/node = SubResource("AnimationNodeAnimation_k1oay")
-nodes/JumpingHold/position = Vector2(320, 320)
+nodes/Climb/position = Vector2(-320, 340)
 nodes/Land/node = SubResource("AnimationNodeOneShot_k8dd4")
-nodes/Land/position = Vector2(1220, 60)
-nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_6nsww")
-nodes/TimeScale/position = Vector2(660, 240)
-"nodes/TimeScale 2/node" = SubResource("AnimationNodeTimeScale_scid8")
-"nodes/TimeScale 2/position" = Vector2(1040, 260)
-node_connections = [&"output", 0, &"Land", &"Move", 0, &"Idle", &"Move", 1, &"Walking", &"Move", 2, &"Running", &"Climb", 0, &"Move", &"Climb", 1, &"Climbing", &"Jump", 0, &"HoldJump", &"Jump", 1, &"TimeScale", &"HoldJump", 0, &"Climb", &"HoldJump", 1, &"JumpingHold", &"Land", 0, &"Jump", &"Land", 1, &"TimeScale 2", &"TimeScale", 0, &"Jumping", &"TimeScale 2", 0, &"Landing"]
+nodes/Land/position = Vector2(360, -40)
+nodes/Move/node = SubResource("AnimationNodeBlend2_6nsww")
+nodes/Move/position = Vector2(-260, 60)
+nodes/JumpingUp/node = SubResource("AnimationNodeAnimation_k1oay")
+nodes/JumpingUp/position = Vector2(-200, 440)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_scid8")
+nodes/TimeScale/position = Vector2(220, 280)
+node_connections = [&"output", 0, &"Land", &"JumpScale", 0, &"JumpingUp", &"State", 0, &"Idle", &"State", 1, &"Move", &"State", 2, &"Climb", &"State", 3, &"JumpScale", &"Climb", 1, &"Climbing", &"Land", 0, &"State", &"Land", 1, &"TimeScale", &"Move", 0, &"Walking", &"Move", 1, &"Running", &"TimeScale", 0, &"Landing"]
 
 [sub_resource type="Animation" id="Animation_3rycb"]
 tracks/0/type = "position_3d"
@@ -897,17 +905,16 @@ animation_tree = NodePath("../AnimationTree")
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeBlendTree_k1oay")
 anim_player = NodePath("../AnimationPlayer")
-parameters/Move/blend_amount = -1.0
+parameters/JumpScale/scale = 2.0
+parameters/State/current_state = "Idle"
+parameters/State/transition_request = ""
+parameters/State/current_index = 0
 parameters/Climb/blend_amount = 0.0
-parameters/Jump/active = false
-parameters/Jump/internal_active = false
-parameters/Jump/request = 0
-parameters/HoldJump/blend_amount = 0.0
 parameters/Land/active = false
 parameters/Land/internal_active = false
 parameters/Land/request = 0
-parameters/TimeScale/scale = 3.0
-"parameters/TimeScale 2/scale" = 2.0
+parameters/Move/blend_amount = 0.0
+parameters/TimeScale/scale = 2.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -82,6 +82,8 @@ func process_gravity(delta: float):
 		_handle_landing_sound()
 	elif not on_floor():
 		is_falling = true
+		if animator:
+			animator.set_falling()
 		_fall_velocity = abs(body.velocity.y)
 		body.velocity.y -= gravity * delta
 
