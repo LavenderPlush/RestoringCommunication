@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dp1odyr1v87bv"]
+[gd_scene load_steps=33 format=3 uid="uid://dp1odyr1v87bv"]
 
 [ext_resource type="Script" uid="uid://o651tn751848" path="res://Maps/level.gd" id="1_xlq1i"]
 [ext_resource type="Script" uid="uid://clheyshb47air" path="res://Entities/Camera/camera_controller.gd" id="2_vqw3q"]
@@ -25,7 +25,6 @@
 [ext_resource type="PackedScene" uid="uid://1p2rwqwpq1w5" path="res://Entities/Checkpoint/checkpoint_light.tscn" id="23_61hp7"]
 [ext_resource type="PackedScene" uid="uid://cikinc5wcoang" path="res://Entities/ExitDoor/exit_door.tscn" id="24_61hp7"]
 [ext_resource type="PackedScene" uid="uid://088ghaqo8clh" path="res://Assets/Tower/tower.glb" id="25_sflib"]
-[ext_resource type="PackedScene" uid="uid://77p1mkxy2ris" path="res://Menus/Pause/pause_menu.tscn" id="26_yyxql"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4maoy"]
 albedo_color = Color(0.15294118, 0.105882354, 0.09019608, 1)
@@ -458,5 +457,3 @@ transform = Transform3D(-1.9294058e-08, 0, -0.44999996, 0, 2.3223894, 0, 0.44139
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -61.661415, 0)
 size = Vector3(300, 48, 300)
 material = SubResource("FogMaterial_yyxql")
-
-[node name="PauseMenu" parent="." instance=ExtResource("26_yyxql")]

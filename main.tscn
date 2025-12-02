@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://dsqe0taye0dcr"]
+[gd_scene load_steps=14 format=3 uid="uid://dsqe0taye0dcr"]
 
 [ext_resource type="PackedScene" uid="uid://v3m1jj473kmr" path="res://SceneManager/scene_manager.tscn" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://77p1mkxy2ris" path="res://Menus/Pause/pause_menu.tscn" id="1_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://m3adhinc17pt" path="res://CutscenePlayer/Cutscenes/cutscene1.1.tscn" id="2_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://bpvkoqyhej8xl" path="res://CutscenePlayer/Cutscenes/cutscene1.2.tscn" id="3_7mycd"]
 [ext_resource type="PackedScene" uid="uid://cryhwogoyglmt" path="res://Maps/Final/Level1_Final/Level1_final.tscn" id="4_7mycd"]
@@ -15,6 +16,8 @@
 
 [node name="Main" type="Node3D"]
 process_mode = 3
+
+[node name="PauseMenu" parent="." instance=ExtResource("1_ycdy4")]
 
 [node name="SceneManager" parent="." instance=ExtResource("1_h2yge")]
 process_mode = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cryhwogoyglmt"]
+[gd_scene load_steps=21 format=3 uid="uid://cryhwogoyglmt"]
 
 [ext_resource type="Script" uid="uid://o651tn751848" path="res://Maps/level.gd" id="1_sk6fj"]
 [ext_resource type="Script" uid="uid://clheyshb47air" path="res://Entities/Camera/camera_controller.gd" id="2_ljjfv"]
@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://cikinc5wcoang" path="res://Entities/ExitDoor/exit_door.tscn" id="13_yqoyr"]
 [ext_resource type="PackedScene" uid="uid://ddcknlbag4qiy" path="res://Assets/Environment/environment.glb" id="14_kvqi4"]
 [ext_resource type="PackedScene" uid="uid://088ghaqo8clh" path="res://Assets/Tower/tower.glb" id="15_dg3vp"]
-[ext_resource type="PackedScene" uid="uid://77p1mkxy2ris" path="res://Menus/Pause/pause_menu.tscn" id="16_tnt20"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kvqi4"]
 size = Vector3(1.9257813, 3.8337402, 3.8535461)
@@ -232,5 +231,3 @@ material = SubResource("FogMaterial_dg3vp")
 event_name = "event:/BGM/Level 1 BGM"
 event_guid = "{55b57034-338d-4b4f-87dd-333afc50a5f8}"
 autoplay = true
-
-[node name="PauseMenu" parent="." instance=ExtResource("16_tnt20")]
