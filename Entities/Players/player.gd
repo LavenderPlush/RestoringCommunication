@@ -10,6 +10,8 @@ var ability_active: bool = false
 var can_climb: bool = false
 var climb_snap_position: float = 0
 
+var weighed_down: bool = false
+
 func _ready() -> void:
 	ability.engaged.connect(ability_engaged)
 	ability.disengaged.connect(ability_disengaged)
