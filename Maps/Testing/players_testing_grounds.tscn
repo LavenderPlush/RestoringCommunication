@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://wv7mhgpex08w"]
+[gd_scene load_steps=21 format=3 uid="uid://wv7mhgpex08w"]
 
 [ext_resource type="PackedScene" uid="uid://bh7w25o2ijqo6" path="res://Entities/Players/Alien/alien.tscn" id="1_vfhqw"]
 [ext_resource type="PackedScene" uid="uid://bd388rue7yafh" path="res://Entities/Players/Human/human.tscn" id="2_kqrly"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dhfj2dvwjwwoh" path="res://Entities/MovingPlatform/moving_platform.tscn" id="11_ddmds"]
 [ext_resource type="PackedScene" uid="uid://1p2rwqwpq1w5" path="res://Entities/Checkpoint/checkpoint_light.tscn" id="12_xgm8l"]
 [ext_resource type="PackedScene" uid="uid://rxoqkldt0t5s" path="res://Entities/Button/PlatformButton/platform_button.tscn" id="13_xitqv"]
+[ext_resource type="PackedScene" uid="uid://77p1mkxy2ris" path="res://Menus/Pause/pause_menu.tscn" id="14_sro3d"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_08bup"]
 
@@ -139,11 +140,10 @@ bank_paths = ["res://Assets/FMODBank/Desktop/Master.bank"]
 
 [node name="FmodListener3D" type="FmodListener3D" parent="."]
 
-[node name="Checkpoint" parent="." node_paths=PackedStringArray("human_spawn", "alien_spawn", "checkpoint_light") instance=ExtResource("8_ajho5")]
+[node name="Checkpoint" parent="." node_paths=PackedStringArray("human_spawn", "alien_spawn") instance=ExtResource("8_ajho5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 11)
 human_spawn = NodePath("HumanSpawn2")
 alien_spawn = NodePath("AlienSpawn2")
-checkpoint_light = NodePath("CheckpointLight")
 
 [node name="HumanSpawn2" type="Marker3D" parent="Checkpoint"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
@@ -211,3 +211,5 @@ environment = SubResource("Environment_xgm8l")
 [node name="PlatformButton" parent="." node_paths=PackedStringArray("moving_platform") instance=ExtResource("13_xitqv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08084059, 0.6, -4.643197)
 moving_platform = NodePath("../MovingPlatform")
+
+[node name="PauseMenu" parent="." instance=ExtResource("14_sro3d")]

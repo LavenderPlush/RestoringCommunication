@@ -64,11 +64,13 @@ func _start_loop() -> void:
 
 func _on_body_entered(body):
 	if body.is_in_group("Player") || body is Interactable:
-		tween.pause()
+		if tween:
+			tween.pause()
 
 func _on_body_exited(body):
 	if body.is_in_group("Player") || body is Interactable:
-		tween.play()
+		if tween:
+			tween.play()
 
 func reset_state():
 	if auto_start: return
