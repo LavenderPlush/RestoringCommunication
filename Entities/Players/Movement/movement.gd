@@ -132,17 +132,19 @@ func _set_facing_direction(direction: Vector3) -> void:
 		
 
 func on_floor() -> bool:
-	if floor_rays.is_empty():
-		return body.is_on_floor()
-	for ray in floor_rays:
-		if !ray.is_colliding():
-			continue
-		var collider = ray.get_collider()
-		if collider is not Player:
-			return true
-		else:
-			_handle_land_on_player(collider)
-	return false
+	return body.is_on_floor()
+	# RIP
+	#if floor_rays.is_empty():
+	#	return body.is_on_floor()
+	#for ray in floor_rays:
+	#	if !ray.is_colliding():
+	#		continue
+	#	var collider = ray.get_collider()
+	#	if collider is not Player:
+	#		return true
+	#	else:
+	#		_handle_land_on_player(collider)
+	#return false
 
 func _handle_land_on_player(other_player: Player):
 	var slide_direction = body.global_position - other_player.global_position

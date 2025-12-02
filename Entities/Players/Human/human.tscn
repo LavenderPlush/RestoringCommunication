@@ -341,6 +341,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_hvdbg")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vbhk0"]
+radius = 0.22363281
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rj3cs"]
 size = Vector3(1, 2, 2)
@@ -360,6 +361,7 @@ mesh = SubResource("ArrayMesh_6jtnt")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.33210844, 0, 0)
 shape = SubResource("CapsuleShape3D_vbhk0")
 
 [node name="Movement" parent="." node_paths=PackedStringArray("body", "floor_rays", "player_mesh", "jump_emitter", "footstep_emitter", "land_emitter") instance=ExtResource("1_rmm0b")]
