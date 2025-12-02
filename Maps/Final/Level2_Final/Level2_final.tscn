@@ -5,9 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://bh7w25o2ijqo6" path="res://Entities/Players/Alien/alien.tscn" id="3_8hqu6"]
 [ext_resource type="PackedScene" uid="uid://dt2d5cl475310" path="res://Entities/Platform/3X_platform.tscn" id="4_6wpl1"]
 [ext_resource type="PackedScene" uid="uid://cut37mic2ba8v" path="res://Entities/Interactables/Box/box.tscn" id="4_08nnt"]
-[ext_resource type="PackedScene" uid="uid://c3d8ssuosdpx2" path="res://Entities/Borders/11X_bottom-border.tscn" id="4_i7lwa"]
+[ext_resource type="PackedScene" uid="uid://c3d8ssuosdpx2" path="res://Entities/Borders/12X_bottom-border.tscn" id="4_i7lwa"]
 [ext_resource type="PackedScene" uid="uid://b8hxsnh6e1jfh" path="res://Entities/Ladder/extendable_ladder.tscn" id="5_hvl66"]
 [ext_resource type="PackedScene" uid="uid://b8k5kmbyb6nim" path="res://Entities/Platform/1X_platform.tscn" id="5_i7lwa"]
+[ext_resource type="Material" uid="uid://dq5qtidau355u" path="res://Materials/Brown_platform_base.tres" id="5_mjesy"]
 [ext_resource type="PackedScene" uid="uid://c161xbj0sh7v" path="res://Entities/Button/LadderButton/ladder_button.tscn" id="6_4nku6"]
 [ext_resource type="PackedScene" uid="uid://dhfj2dvwjwwoh" path="res://Entities/MovingPlatform/moving_platform.tscn" id="7_7y2ts"]
 [ext_resource type="PackedScene" uid="uid://cnvfles6m088e" path="res://Entities/Platform/8X_platform.tscn" id="7_48amp"]
@@ -28,9 +29,6 @@
 [ext_resource type="PackedScene" uid="uid://1p2rwqwpq1w5" path="res://Entities/Checkpoint/checkpoint_light.tscn" id="26_07gr3"]
 [ext_resource type="PackedScene" uid="uid://cikinc5wcoang" path="res://Entities/ExitDoor/exit_door.tscn" id="27_07gr3"]
 [ext_resource type="PackedScene" uid="uid://088ghaqo8clh" path="res://Assets/Tower/tower.glb" id="29_phwff"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lh5rv"]
-albedo_color = Color(0.15294118, 0.105882354, 0.09019608, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_prpp8"]
 size = Vector3(1.9257813, 3.8337402, 3.8535461)
@@ -93,27 +91,32 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.8984394, 0)
 
 [node name="Border2" type="CSGBox3D" parent="AlienHalf/Borders_AlienHalf"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.997, 12.256866, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.031492, 13.162659, 0.01738548)
+material_override = ExtResource("5_mjesy")
 use_collision = true
-size = Vector3(2, 26.507935, 2)
+size = Vector3(2, 24.69635, 2)
 
 [node name="Border3" type="CSGBox3D" parent="AlienHalf/Borders_AlienHalf"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.957001, 20.000458, 2.842171e-13)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.054167, 20.000458, 2.842171e-13)
+visible = false
 use_collision = true
 size = Vector3(2, 42.000916, 2)
 
 [node name="Border4" type="CSGBox3D" parent="AlienHalf/Borders_AlienHalf"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01373291, 40.033943, -1.0103838)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6093674, 40.033943, -0.99299836)
+material_override = ExtResource("5_mjesy")
 use_collision = true
-size = Vector3(24, 2, 4)
+size = Vector3(25.260254, 2, 4)
 
 [node name="Border5" type="CSGBox3D" parent="AlienHalf/Borders_AlienHalf"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.997, 30.588951, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.031492, 30.588951, 0.01738548)
+material_override = ExtResource("5_mjesy")
 use_collision = true
 size = Vector3(2, 5.8673706, 2)
 
 [node name="Border6" type="CSGBox3D" parent="AlienHalf/Borders_AlienHalf"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.997, 40.038204, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.031492, 40.038204, 0.01738548)
+material_override = ExtResource("5_mjesy")
 use_collision = true
 size = Vector3(2, 1.9901123, 2)
 
@@ -125,7 +128,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.92
 
 [node name="Platform1_Base" type="CSGBox3D" parent="AlienHalf/Platforms_AlienHalf/Platform1"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.3339657e-09, -0.98768425, -0.030517578)
-material_override = SubResource("StandardMaterial3D_lh5rv")
+material_override = ExtResource("5_mjesy")
 use_collision = true
 size = Vector3(8.061035, 1.7167969, 2)
 
@@ -134,40 +137,40 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.93
 
 [node name="Platform2_Base" type="CSGBox3D" parent="AlienHalf/Platforms_AlienHalf/Platform2"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.1632181e-09, -1.857544, -0.026611328)
-material_override = SubResource("StandardMaterial3D_lh5rv")
+material_override = ExtResource("5_mjesy")
 use_collision = true
 size = Vector3(4.0532227, 3.4128418, 2)
 
 [node name="Platform3" parent="AlienHalf/Platforms_AlienHalf" instance=ExtResource("7_48amp")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3, 7.889945, 1.3113416e-07)
+transform = Transform3D(-4.371139e-08, 0, 1.0183204, 0, 1, 0, -1, 0, -4.4512195e-08, -3.9983068, 7.889945, 1.7477154e-07)
 
 [node name="Platform4" parent="AlienHalf/Platforms_AlienHalf" instance=ExtResource("8_hd4rv")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.9637756, 13.61459, 1.7326214e-07)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.1391625, 13.61459, 2.2463992e-07)
 
 [node name="Platform4_Base" type="CSGBox3D" parent="AlienHalf/Platforms_AlienHalf/Platform4"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.1685539e-09, -0.97700024, -0.026733398)
-material_override = SubResource("StandardMaterial3D_lh5rv")
+material_override = ExtResource("5_mjesy")
 use_collision = true
 size = Vector3(2.0534668, 1.6977539, 2)
 
 [node name="Platform5" parent="AlienHalf/Platforms_AlienHalf" instance=ExtResource("9_j2bmq")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.9509106, 10.625702, 2.601226e-07)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.1262975, 10.625702, 3.115004e-07)
 
 [node name="Platform6" parent="AlienHalf/Platforms_AlienHalf" instance=ExtResource("5_i7lwa")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.94223, 11.623764, 2.1603175e-07)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.117617, 11.623764, 2.6740955e-07)
 
 [node name="Platform6_Base" type="CSGBox3D" parent="AlienHalf/Platforms_AlienHalf/Platform6"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.0458291e-09, -0.4862442, -0.023925781)
-material_override = SubResource("StandardMaterial3D_lh5rv")
+material_override = ExtResource("5_mjesy")
 use_collision = true
 size = Vector3(4.0478516, 0.6982422, 2)
 
 [node name="Platform7" parent="AlienHalf/Platforms_AlienHalf" instance=ExtResource("10_ittuh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4292755, 8.836957, -0.0041192165)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.689442, 8.836957, -0.0041192165)
 
 [node name="Platform7_Base" type="CSGBox3D" parent="AlienHalf/Platforms_AlienHalf/Platform7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.45053005, 0)
-material_override = SubResource("StandardMaterial3D_lh5rv")
+material_override = ExtResource("5_mjesy")
 use_collision = true
 size = Vector3(1, 0.65966797, 2)
 
@@ -176,18 +179,18 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.05
 
 [node name="Platform8_Base" type="CSGBox3D" parent="AlienHalf/Platforms_AlienHalf/Platform8"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.1855499e-08, -0.8615093, -2.5172539)
-material_override = SubResource("StandardMaterial3D_lh5rv")
+material_override = ExtResource("5_mjesy")
 use_collision = true
 size = Vector3(1, 1.470459, 2)
 
 [node name="Platform9" parent="AlienHalf/Platforms_AlienHalf" instance=ExtResource("7_48amp")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3, 20.621878, 1.3113419e-07)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.141576, 20.621878, 1.8103405e-07)
 
 [node name="Platform10" parent="AlienHalf/Platforms_AlienHalf" instance=ExtResource("11_lh5rv")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 13.053439, 33.62484, 1.7053026e-13)
 
 [node name="Platform11" parent="AlienHalf/Platforms_AlienHalf" instance=ExtResource("12_lp0f5")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.9465218, 33.61589, 8.28179e-07)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.1397314, 33.61589, 8.8033585e-07)
 
 [node name="Boxes_AlienHalf" type="Node3D" parent="AlienHalf"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
@@ -197,11 +200,11 @@ transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-
 reset_until_checkpoint_id = 0
 
 [node name="Box2" parent="AlienHalf/Boxes_AlienHalf" instance=ExtResource("4_08nnt")]
-transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, 0, 9, 0)
+transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, -0.9403095, 9, 4.1102233e-08)
 reset_until_checkpoint_id = 1
 
 [node name="Box3" parent="AlienHalf/Boxes_AlienHalf" instance=ExtResource("4_08nnt")]
-transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, -4.9345455, 8.885456, 2.1569599e-07)
+transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, -5.8748555, 8.885456, 2.5679822e-07)
 reset_until_checkpoint_id = 1
 
 [node name="Box4" parent="AlienHalf/Boxes_AlienHalf" instance=ExtResource("4_08nnt")]
@@ -220,7 +223,7 @@ reset_until_checkpoint_id = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 33.630054, 6.2397394)
 
 [node name="ExtendableLadder1" parent="AlienHalf/Ladders_AlienHalf" instance=ExtResource("5_hvl66")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 0.93850017, -1.3796806, -1.2397394)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 0.9385001, -1.3796806, -1.7309852)
 reset_until_checkpoint_id = 2
 
 [node name="LadderButton1" parent="AlienHalf/Ladders_AlienHalf" node_paths=PackedStringArray("extendable_ladder") instance=ExtResource("6_4nku6")]
@@ -264,12 +267,14 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.898, 0)
 
 [node name="Border2" type="CSGBox3D" parent="HumanHalf/Borders_HumanHalf"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.997, 20.050049, -3.410605e-13)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.997, 20.324753, -4.5474735e-13)
+visible = false
 use_collision = true
-size = Vector3(2, 42.0943, 2)
+size = Vector3(2, 42.643707, 2)
 
 [node name="Border4" type="CSGBox3D" parent="HumanHalf/Borders_HumanHalf"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01373291, 40.033943, -1.0103838)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.020759583, 40.033943, -0.99299836)
+material_override = ExtResource("5_mjesy")
 use_collision = true
 size = Vector3(24, 2, 4)
 
@@ -284,7 +289,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.0
 
 [node name="Platform2_Base" type="CSGBox3D" parent="HumanHalf/Platforms_HumanHalf/Platform2"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -1.8518066, 0)
-material_override = SubResource("StandardMaterial3D_lh5rv")
+material_override = ExtResource("5_mjesy")
 use_collision = true
 size = Vector3(10, 3.4013672, 2)
 
@@ -293,7 +298,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.
 
 [node name="Platform3_Base" type="CSGBox3D" parent="HumanHalf/Platforms_HumanHalf/Platform3"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -1.8535743, 0)
-material_override = SubResource("StandardMaterial3D_lh5rv")
+material_override = ExtResource("5_mjesy")
 use_collision = true
 size = Vector3(4, 3.4458008, 2)
 
@@ -382,10 +387,10 @@ checkpoint_light2 = NodePath("../Checkpoint1_HumanLight")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2660246, 6.9080024)
 
 [node name="Checkpoint1_AlienSpawn" type="Marker3D" parent="Checkpoints/Checkpoint1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2660246, -6.2451887)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2660246, -6.650841)
 
 [node name="Checkpoint1_AlienLight" parent="Checkpoints/Checkpoint1" instance=ExtResource("26_07gr3")]
-transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.8755465, -0.185, -6.245)
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.8755465, -0.185, -7.9315395)
 skeleton = NodePath("../../..")
 
 [node name="Checkpoint1_HumanLight" parent="Checkpoints/Checkpoint1" instance=ExtResource("26_07gr3")]
@@ -414,7 +419,7 @@ transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.8888631, 3.1628714, 14.
 skeleton = NodePath("../../..")
 
 [node name="Checkpoint2_AlienLight" parent="Checkpoints/Checkpoint2" instance=ExtResource("26_07gr3")]
-transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.8770556, -1.8637018, -10.022875)
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.8770556, -1.8637018, -11.342755)
 skeleton = NodePath("../../..")
 
 [node name="Checkpoint3" type="Node3D" parent="Checkpoints"]
@@ -434,11 +439,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.028488, -3.0047245)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.136299, -10.022875)
 
 [node name="Checkpoint3_Light" parent="Checkpoints/Checkpoint3" instance=ExtResource("26_07gr3")]
-transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.88269055, 11.113254, -10.022875)
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.88269055, 11.113254, -12.168241)
 skeleton = NodePath("../../..")
 
 [node name="Exit" type="Node3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.430936e-07, 35, -17)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8.3352455e-07, 35, -19.068819)
 
 [node name="ExitManager" parent="Exit" node_paths=PackedStringArray("button_a", "button_b", "door", "exit_area") instance=ExtResource("12_wdnp7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -26, 0)
@@ -468,7 +473,7 @@ transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -5.2
 environment = SubResource("Environment_prpp8")
 
 [node name="tower" parent="." instance=ExtResource("29_phwff")]
-transform = Transform3D(-3.934025e-08, 0, -0.44999996, 0, 2.065749, 0, 0.9, 0, -1.9670123e-08, 14.010597, -17.820498, 0)
+transform = Transform3D(-3.934025e-08, 0, -0.44999996, 0, 2.065749, 0, 0.9, 0, -1.9670123e-08, 13.082272, -17.820498, -4.0578414e-08)
 
 [node name="FogVolume" type="FogVolume" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -61.661415, 0)
