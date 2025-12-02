@@ -140,6 +140,11 @@ func on_floor() -> bool:
 		var collider = ray.get_collider()
 		if collider is not Player:
 			return true
+		elif collider is Player:
+			if collider.ability_active:
+				collider.weighed_down = true
+				return true
+				
 		else:
 			_handle_land_on_player(collider)
 	return false
