@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://c161xbj0sh7v"]
+[gd_scene load_steps=19 format=4 uid="uid://c161xbj0sh7v"]
 
 [ext_resource type="Script" uid="uid://d0vjlxip75nr7" path="res://Entities/Button/LadderButton/ladder_button.gd" id="1_r04n3"]
 [ext_resource type="Texture2D" uid="uid://ixo8sbdyq26i" path="res://Assets/Button/button_Steel Glossy_BaseColor-Steel Glossy_Opacity.png" id="2_3jtf8"]
@@ -154,58 +154,6 @@ tracks/3/keys = {
 "values": [Vector3(0, 0.42601627, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_ul2m7"]
-resource_name = "new_animation"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Cylinder_001:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, -0.3, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Cylinder:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(1, 1, 1), Vector3(1, 0.5, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../CollisionShape3D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-0.013969064, 0.44395047, 0), Vector3(-0.013969064, 0.13357931, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../ActivationArea/CollisionShape3D:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0.42601627, 0), Vector3(0, 0.09685105, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_anoe4"]
 resource_name = "full_press"
 length = 0.5
@@ -219,7 +167,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, -0.3, 0), Vector3(0, -0.6, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, -0.6, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -231,7 +179,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(1, 0.5, 1), Vector3(1, 0.1, 1)]
+"values": [Vector3(1, 1, 1), Vector3(1, 0.1, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -249,8 +197,7 @@ tracks/2/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t4koy"]
 _data = {
 &"RESET": SubResource("Animation_t4koy"),
-&"full_press": SubResource("Animation_anoe4"),
-&"half_press": SubResource("Animation_ul2m7")
+&"full_press": SubResource("Animation_anoe4")
 }
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_3fn0b"]
@@ -261,12 +208,10 @@ radius = 0.5361328
 height = 0.44667053
 radius = 0.44384766
 
-[node name="LadderButton" type="AnimatableBody3D" node_paths=PackedStringArray("half_emitter", "full_emitter", "release_emitter")]
+[node name="LadderButton" type="AnimatableBody3D" node_paths=PackedStringArray("full_emitter")]
 sync_to_physics = false
 script = ExtResource("1_r04n3")
-half_emitter = NodePath("HalfPress")
 full_emitter = NodePath("FullPress")
-release_emitter = NodePath("Release")
 
 [node name="Mesh" type="Node3D" parent="."]
 
@@ -297,17 +242,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42601627, 0)
 shape = SubResource("CylinderShape3D_71fid")
 debug_color = Color(1, 1, 1, 0.41960785)
 
-[node name="Timer" type="Timer" parent="."]
-one_shot = true
-
-[node name="HalfPress" type="FmodEventEmitter3D" parent="."]
-event_name = "event:/Button Press Half"
-event_guid = "{69064f0a-4508-43bc-bf88-1d417e30cc35}"
-
 [node name="FullPress" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/Button Press Full"
 event_guid = "{047443db-8668-4683-a2ab-8a256fcb56bc}"
-
-[node name="Release" type="FmodEventEmitter3D" parent="."]
-event_name = "event:/Button Release"
-event_guid = "{9aa475f9-c085-4dea-9cb5-1564bec2359a}"

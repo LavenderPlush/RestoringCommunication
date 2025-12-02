@@ -201,9 +201,12 @@ wait_time = 0.4
 auto_start = false
 
 [node name="Marker3D" type="Marker3D" parent="MovingPlatform"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09, 0.003)
+top_level = true
 
 [node name="Marker3D2" type="Marker3D" parent="MovingPlatform"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 6.940991)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.09, 6.9439907)
+top_level = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_xgm8l")
