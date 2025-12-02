@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cut37mic2ba8v"]
+[gd_scene load_steps=11 format=3 uid="uid://cut37mic2ba8v"]
 
 [ext_resource type="Script" uid="uid://b55gqcvyk20u" path="res://Entities/Interactables/interactable.gd" id="1_6eev6"]
 [ext_resource type="Material" uid="uid://bbp852166q7um" path="res://Materials/outline_human_material.tres" id="2_eolob"]
 [ext_resource type="Material" uid="uid://dj155ieclu81o" path="res://Materials/outline_alien_material.tres" id="3_i3jk6"]
 [ext_resource type="Material" uid="uid://djb8yrpyqcmfs" path="res://Materials/outline_together_material.tres" id="4_cegm6"]
 [ext_resource type="PackedScene" uid="uid://cal44diu6jvsv" path="res://Assets/MetalBox/box.glb" id="5_eolob"]
+[ext_resource type="Material" uid="uid://cydcuj8rq6o53" path="res://Materials/pink_box.tres" id="6_i3jk6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oovab"]
 size = Vector3(2, 2, 2)
@@ -25,6 +26,7 @@ collision_mask = 7
 script = ExtResource("1_6eev6")
 human_outline = ExtResource("2_eolob")
 alien_outline = ExtResource("3_i3jk6")
+alien_control_overlay = ExtResource("6_i3jk6")
 together_outline = ExtResource("4_cegm6")
 floor_rays = NodePath("FloorRays")
 ability_extension_area = NodePath("AbilityExtensionArea")
@@ -38,8 +40,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01091814, 0, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_oovab")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="PinkOverlay" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.02, 0, 0, 0, 1.02, 0, 0, 0, 1.02, 0, 0, 0)
 visible = false
+material_override = ExtResource("6_i3jk6")
 mesh = SubResource("BoxMesh_k5cr6")
 
 [node name="FloorRays" type="Node3D" parent="."]

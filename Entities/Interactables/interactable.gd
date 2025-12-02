@@ -6,6 +6,7 @@ class_name Interactable extends CharacterBody3D
 @export var reset_until_checkpoint_id: int = -1
 @export var human_outline: Material
 @export var alien_outline: Material
+@export var alien_control_overlay: Material
 @export var together_outline: Material
 
 @export_category("Developers")
@@ -16,6 +17,7 @@ class_name Interactable extends CharacterBody3D
 @export var landing_sound: FmodEventEmitter3D
 
 @onready var mesh: MeshInstance3D = $Mesh/Cube
+@onready var pink_mesh: MeshInstance3D = $PinkOverlay
 
 var initial_transform: Transform3D
 
@@ -41,6 +43,8 @@ var air_time: float
 func _ready() -> void:
 	add_to_group("resettable")
 
+	pink_mesh.visible = false
+
 	initial_transform = self.global_transform
 
 	for ray in floor_rays.get_children():
@@ -56,6 +60,8 @@ func control(new_controlled: bool) -> void:
 		ray.enabled = new_controlled
 
 	if is_controlled:
+		pink_mesh.visible = true
+
 		for body in ability_extension_area.get_overlapping_bodies():
 			_on_ability_extension_area_entered(body)
 	else:
@@ -65,6 +71,7 @@ func control(new_controlled: bool) -> void:
 
 		targeted_by_alien = false
 		targeted_by_extension = false
+		pink_mesh.visible = false
 
 	_update_outline()
 
