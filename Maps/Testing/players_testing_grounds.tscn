@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://wv7mhgpex08w"]
+[gd_scene load_steps=24 format=3 uid="uid://wv7mhgpex08w"]
 
 [ext_resource type="PackedScene" uid="uid://bh7w25o2ijqo6" path="res://Entities/Players/Alien/alien.tscn" id="1_vfhqw"]
 [ext_resource type="PackedScene" uid="uid://bd388rue7yafh" path="res://Entities/Players/Human/human.tscn" id="2_kqrly"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://1p2rwqwpq1w5" path="res://Entities/Checkpoint/checkpoint_light.tscn" id="12_xgm8l"]
 [ext_resource type="PackedScene" uid="uid://rxoqkldt0t5s" path="res://Entities/Button/PlatformButton/platform_button.tscn" id="13_xitqv"]
 [ext_resource type="PackedScene" uid="uid://77p1mkxy2ris" path="res://Menus/Pause/pause_menu.tscn" id="14_sro3d"]
+[ext_resource type="PackedScene" uid="uid://c3ocixu65cif1" path="res://Entities/Button/ExitButton/exit_button.tscn" id="15_8gx3o"]
 [ext_resource type="Shader" uid="uid://bw140y77xuq20" path="res://Assets/Shaders/lines.gdshader" id="15_w5vvp"]
 [ext_resource type="Shader" uid="uid://dywana7pa5vy2" path="res://Assets/Shaders/dots.gdshader" id="16_8gx3o"]
 
@@ -201,13 +202,12 @@ transform = Transform3D(0.71105725, 0, -0.7031341, 0.14808585, 0.97757053, 0.149
 [node name="BreakableWall" parent="." instance=ExtResource("10_6h5gp")]
 transform = Transform3D(5.452853, 0, 0, 0, 3.6019025, 0, 0, 0, 1, -0.057981968, 2.2166824, 18.506971)
 
-[node name="MovingPlatform" parent="." node_paths=PackedStringArray("point_a", "point_b", "cheat_area") instance=ExtResource("11_ddmds")]
+[node name="MovingPlatform" parent="." node_paths=PackedStringArray("point_a", "point_b") instance=ExtResource("11_ddmds")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09, 0.003)
 point_a = NodePath("Marker3D")
 point_b = NodePath("Marker3D2")
 wait_time = 0.4
 auto_start = false
-cheat_area = NodePath("../CheatArea")
 
 [node name="Marker3D" type="Marker3D" parent="MovingPlatform"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09, 0.003)
@@ -227,6 +227,7 @@ moving_platform = NodePath("../MovingPlatform")
 [node name="PauseMenu" parent="." instance=ExtResource("14_sro3d")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Shader" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_37yrt")
@@ -235,3 +236,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ExitButton" parent="." instance=ExtResource("15_8gx3o")]
+transform = Transform3D(-3.059797e-08, -0.7, 0, 0.7, -3.059797e-08, 0, 0, 0, 0.7, 0.020748377, 0.5179367, 6.3962917)

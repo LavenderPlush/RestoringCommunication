@@ -36,6 +36,7 @@ func _process(_delta):
 	if !player_in_area: return
 
 	var player = current_player_body as Player
+
 	var player_action = player.get_interact_action()
 
 	if Input.is_action_just_pressed(player_action):
@@ -76,6 +77,8 @@ func lock_engaged():
 func _on_player_entered(body: Node3D):
 	if is_locked: return
 
+	if body is Interactable: return
+	
 	if body is Player:
 		mesh.material_overlay = outline
 
