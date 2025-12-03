@@ -43,7 +43,6 @@ density = 0.8
 
 [node name="Level1-Blockout" type="Node3D" node_paths=PackedStringArray("exit_manager")]
 script = ExtResource("1_sk6fj")
-branching = true
 exit_manager = NodePath("Exit/ExitManager")
 metadata/_custom_type_script = "uid://bmdsfg7x3w32q"
 
