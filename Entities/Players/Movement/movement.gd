@@ -15,7 +15,7 @@ var gravity: float:
 @export var control_prefix: String
 @export var body: CharacterBody3D
 @export var floor_rays: Array[RayCast3D]
-@export var player_mesh: MeshInstance3D
+@export var player_mesh: Node3D
 
 @export_group("Sound")
 @export var footstep_sound_timer: Timer
@@ -45,6 +45,8 @@ func process_climb(can_climb: bool):
 	var just_pressed_jump = Input.is_action_just_pressed("%s_jump" % control_prefix)
 
 	if !is_climbing and can_climb and abs(climb_input_vertical) > 0.1:
+		if player_mesh:
+			player_mesh.rotation.y = PI/2.0
 		is_climbing = true
 	elif is_climbing and just_pressed_jump:
 		is_climbing = false
@@ -61,7 +63,7 @@ func process_climb(can_climb: bool):
 		var direction = Vector3(0, 0, climb_input_horizontal)
 
 		if direction:
-			body.velocity.z = direction.z * speed 
+			body.velocity.z = direction.z * speed
 
 			_set_facing_direction(direction)
 		else:
@@ -102,7 +104,8 @@ func process_movement():
 	if direction:
 		_handle_walk_sound()
 		body.velocity.z = direction.z * speed
-		_set_facing_direction(direction)
+		if !is_climbing:
+			_set_facing_direction(direction)
 	else:
 		body.velocity.z = move_toward(body.velocity.z, 0, speed)
 
@@ -121,6 +124,8 @@ func _handle_landing_sound():
 	Common.play_sound(land_emitter)
 
 func _set_facing_direction(direction: Vector3) -> void:
+	if is_climbing:
+		return
 	if direction.z < 0:
 		is_facing_left = true
 		if player_mesh:

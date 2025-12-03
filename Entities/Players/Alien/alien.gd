@@ -16,6 +16,8 @@ func _physics_process(delta: float) -> void:
 		movement.process_gravity(delta)
 		if movement.on_floor():
 			ability.process_ability()
+	if !ability_active:
+		animator.process(delta)
 	move_and_slide()
 
 func get_target_position() -> Vector3:
