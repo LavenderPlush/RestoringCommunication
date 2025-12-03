@@ -1,9 +1,9 @@
 extends Control
 
-@onready var play_button: Button = $ButtonContainer/PlayButton
-@onready var controls_button: Button = $ButtonContainer/ControlsButton
-@onready var quit_button: Button = $ButtonContainer/QuitButton
-@onready var back_button: Button = $ControlsGroup/BackButton
+@onready var play_button: TextureButton = $PlayButton
+@onready var controls_button: TextureButton = $ControlsButton
+@onready var quit_button: TextureButton = $QuitButton
+@onready var back_button: TextureButton = $ControlsGroup/BackButton
 
 @export var controls_image = Control
 

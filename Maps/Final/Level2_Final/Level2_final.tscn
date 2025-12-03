@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cjlo2enoms44b"]
+[gd_scene load_steps=39 format=3 uid="uid://cjlo2enoms44b"]
 
 [ext_resource type="Script" uid="uid://o651tn751848" path="res://Maps/level.gd" id="1_fit1s"]
 [ext_resource type="Script" uid="uid://clheyshb47air" path="res://Entities/Camera/camera_controller.gd" id="2_j7s5s"]
