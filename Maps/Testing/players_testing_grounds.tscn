@@ -226,6 +226,7 @@ moving_platform = NodePath("../MovingPlatform")
 [node name="PauseMenu" parent="." instance=ExtResource("14_sro3d")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Shader" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_37yrt")
