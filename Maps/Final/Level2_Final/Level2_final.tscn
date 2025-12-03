@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cjlo2enoms44b"]
+[gd_scene load_steps=40 format=3 uid="uid://cjlo2enoms44b"]
 
 [ext_resource type="Script" uid="uid://o651tn751848" path="res://Maps/level.gd" id="1_fit1s"]
 [ext_resource type="Script" uid="uid://clheyshb47air" path="res://Entities/Camera/camera_controller.gd" id="2_j7s5s"]
@@ -29,6 +29,24 @@
 [ext_resource type="PackedScene" uid="uid://1p2rwqwpq1w5" path="res://Entities/Checkpoint/checkpoint_light.tscn" id="26_07gr3"]
 [ext_resource type="PackedScene" uid="uid://cikinc5wcoang" path="res://Entities/ExitDoor/exit_door.tscn" id="27_07gr3"]
 [ext_resource type="PackedScene" uid="uid://088ghaqo8clh" path="res://Assets/Tower/tower.glb" id="29_phwff"]
+[ext_resource type="Shader" uid="uid://bw140y77xuq20" path="res://Assets/Shaders/lines.gdshader" id="30_phwff"]
+[ext_resource type="Shader" uid="uid://dywana7pa5vy2" path="res://Assets/Shaders/dots.gdshader" id="31_v7q81"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3nf5n"]
+render_priority = 0
+shader = ExtResource("30_phwff")
+shader_parameter/edge_color = Color(0, 0, 0, 1)
+shader_parameter/threshold = -0.249
+shader_parameter/blend = 0.432
+shader_parameter/enable_depth_pass = true
+shader_parameter/threshold_depth = -1.509
+shader_parameter/blend_depth = 0.291
+shader_parameter/distance_fade_length = 50.0
+shader_parameter/distance_fade_blend = 20.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_phwff"]
+material = SubResource("ShaderMaterial_3nf5n")
+size = Vector2(2, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_prpp8"]
 size = Vector3(1.9257813, 3.8337402, 3.8535461)
@@ -46,13 +64,24 @@ ssao_enabled = true
 ssil_enabled = true
 glow_enabled = true
 fog_enabled = true
-fog_light_color = Color(0.54555297, 0.5134235, 0.7531947, 1)
+fog_light_color = Color(1, 0.7882353, 0.38431373, 1)
+fog_density = 0.0
 fog_height_density = 0.1
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.0
 
 [sub_resource type="FogMaterial" id="FogMaterial_v7q81"]
 density = 0.8
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v7q81"]
+shader = ExtResource("31_v7q81")
+shader_parameter/UseColor = true
+shader_parameter/BlackDot = true
+shader_parameter/AspectRatio = 1.77
+shader_parameter/Dots = 120.0
+shader_parameter/_min = 0.49
+shader_parameter/_max = 0.48
+shader_parameter/UseReshade = false
 
 [node name="Level2-Blockout" type="Node3D" node_paths=PackedStringArray("exit_manager")]
 script = ExtResource("1_fit1s")
@@ -77,6 +106,10 @@ small_fov_max = 40.0
 small_fov_min = 14.0
 wide_fov_max = 34.0
 wide_fov_min = 22.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D"]
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_phwff")
 
 [node name="AlienHalf" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13)
@@ -484,3 +517,13 @@ material = SubResource("FogMaterial_v7q81")
 event_name = "event:/BGM/Level 2 BGM"
 event_guid = "{ff60e275-ba36-4629-92b0-23a4da214b28}"
 autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Shader" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_v7q81")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

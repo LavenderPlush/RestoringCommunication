@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://wv7mhgpex08w"]
+[gd_scene load_steps=26 format=3 uid="uid://wv7mhgpex08w"]
 
 [ext_resource type="PackedScene" uid="uid://bh7w25o2ijqo6" path="res://Entities/Players/Alien/alien.tscn" id="1_vfhqw"]
 [ext_resource type="PackedScene" uid="uid://bd388rue7yafh" path="res://Entities/Players/Human/human.tscn" id="2_kqrly"]
@@ -12,6 +12,24 @@
 [ext_resource type="PackedScene" uid="uid://1p2rwqwpq1w5" path="res://Entities/Checkpoint/checkpoint_light.tscn" id="12_xgm8l"]
 [ext_resource type="PackedScene" uid="uid://rxoqkldt0t5s" path="res://Entities/Button/PlatformButton/platform_button.tscn" id="13_xitqv"]
 [ext_resource type="PackedScene" uid="uid://77p1mkxy2ris" path="res://Menus/Pause/pause_menu.tscn" id="14_sro3d"]
+[ext_resource type="Shader" uid="uid://bw140y77xuq20" path="res://Assets/Shaders/lines.gdshader" id="15_w5vvp"]
+[ext_resource type="Shader" uid="uid://dywana7pa5vy2" path="res://Assets/Shaders/dots.gdshader" id="16_8gx3o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w5vvp"]
+render_priority = 0
+shader = ExtResource("15_w5vvp")
+shader_parameter/edge_color = Color(0, 0, 0, 1)
+shader_parameter/threshold = -0.249
+shader_parameter/blend = 0.432
+shader_parameter/enable_depth_pass = true
+shader_parameter/threshold_depth = -1.509
+shader_parameter/blend_depth = 0.291
+shader_parameter/distance_fade_length = 50.0
+shader_parameter/distance_fade_blend = 20.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_8gx3o"]
+material = SubResource("ShaderMaterial_w5vvp")
+size = Vector2(2, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_08bup"]
 
@@ -32,8 +50,15 @@ ssil_enabled = true
 sdfgi_enabled = true
 glow_enabled = true
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_sro3d"]
-size = Vector3(1, 1, 4.479431)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_37yrt"]
+shader = ExtResource("16_8gx3o")
+shader_parameter/UseColor = true
+shader_parameter/BlackDot = true
+shader_parameter/AspectRatio = 1.77
+shader_parameter/Dots = 120.0
+shader_parameter/_min = 0.49
+shader_parameter/_max = 0.48
+shader_parameter/UseReshade = false
 
 [node name="PlayersTestingGrounds" type="Node3D"]
 
@@ -48,6 +73,10 @@ transform = Transform3D(-4.371139e-08, 0.1736482, -0.9848077, 0, 0.9848077, 0.17
 script = ExtResource("3_g32nx")
 player1 = NodePath("../Human")
 player2 = NodePath("../Alien")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D"]
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_8gx3o")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0.16052532)
@@ -138,10 +167,11 @@ bank_paths = ["res://Assets/FMODBank/Desktop/Master.bank"]
 
 [node name="FmodListener3D" type="FmodListener3D" parent="."]
 
-[node name="Checkpoint" parent="." node_paths=PackedStringArray("human_spawn", "alien_spawn") instance=ExtResource("8_ajho5")]
+[node name="Checkpoint" parent="." node_paths=PackedStringArray("human_spawn", "alien_spawn", "checkpoint_light1") instance=ExtResource("8_ajho5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 11)
 human_spawn = NodePath("HumanSpawn2")
 alien_spawn = NodePath("AlienSpawn2")
+checkpoint_light1 = NodePath("CheckpointLight")
 
 [node name="HumanSpawn2" type="Marker3D" parent="Checkpoint"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
@@ -196,9 +226,12 @@ moving_platform = NodePath("../MovingPlatform")
 
 [node name="PauseMenu" parent="." instance=ExtResource("14_sro3d")]
 
-[node name="CheatArea" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.572805, 0)
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CheatArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.21040154, 0.38320923)
-shape = SubResource("BoxShape3D_sro3d")
+[node name="Shader" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_37yrt")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
