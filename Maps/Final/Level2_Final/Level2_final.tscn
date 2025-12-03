@@ -162,23 +162,14 @@ size = Vector3(2, 1.9901123, 2)
 [node name="Platforms_AlienHalf" type="Node3D" parent="AlienHalf"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 
-[node name="Platform1" parent="AlienHalf/Platforms_AlienHalf" instance=ExtResource("4_6wpl1")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.9873323, 3.1826446, -3.4913722e-07)
-
-[node name="Platform1_Base" type="CSGBox3D" parent="AlienHalf/Platforms_AlienHalf/Platform1"]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.1212649e-08, -1.1219463, 0.2565155)
-material_override = ExtResource("5_mjesy")
-use_collision = true
-size = Vector3(8.580963, 1.985321, 2)
-
 [node name="Platform2" parent="AlienHalf/Platforms_AlienHalf" instance=ExtResource("5_i7lwa")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.937681, 6.601934, -4.3438988e-07)
 
 [node name="Platform2_Base" type="CSGBox3D" parent="AlienHalf/Platforms_AlienHalf/Platform2"]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.0894647e-09, -1.6803894, 0.07067871)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.0894647e-09, -1.8333664, 0.07067871)
 material_override = ExtResource("5_mjesy")
 use_collision = true
-size = Vector3(4.2478027, 3.0585327, 2)
+size = Vector3(4.2478027, 3.3644867, 2)
 
 [node name="Platform3" parent="AlienHalf/Platforms_AlienHalf" instance=ExtResource("7_48amp")]
 transform = Transform3D(-4.371139e-08, 0, 1.0183204, 0, 1, 0, -1, 0, -4.4512195e-08, -3.9983068, 7.889945, 1.7477154e-07)
@@ -263,6 +254,15 @@ size = Vector3(16.116234, 0.8227539, 2)
 
 [node name="EntranceDoor" parent="AlienHalf/Platforms_AlienHalf" instance=ExtResource("27_07gr3")]
 transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, -8.270004, 3.0558207, -0.9033381)
+
+[node name="Platform1" parent="AlienHalf/Platforms_AlienHalf" instance=ExtResource("4_6wpl1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.927452, 2.8765383, -3.465199e-07)
+
+[node name="Platform1_Base" type="CSGBox3D" parent="AlienHalf/Platforms_AlienHalf/Platform1"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.8973735e-09, -0.98768425, 0.06628418)
+material_override = ExtResource("5_mjesy")
+use_collision = true
+size = Vector3(8.254639, 1.7167969, 2)
 
 [node name="Boxes_AlienHalf" type="Node3D" parent="AlienHalf"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
