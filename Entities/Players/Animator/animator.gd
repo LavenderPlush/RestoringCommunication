@@ -3,8 +3,6 @@ class_name Animator extends Node3D
 @export var movement: Movement
 @export var animation_tree: AnimationTree
 
-@onready var fall_timer: Timer = $FallingTimer
-
 enum State {
 	IDLE,
 	MOVING,
@@ -22,7 +20,7 @@ var climb_amount: float = 0.0 # 0.0 to 1.0
 
 var blend_speed: float = 15
 
-func _process(delta: float) -> void:
+func process(delta: float) -> void:
 	handle_animations(delta)
 	update_tree()
 	if movement.on_floor():
@@ -30,11 +28,9 @@ func _process(delta: float) -> void:
 	if !movement.is_climbing:
 		process_falling()
 	process_climb()
-
-func _input(event: InputEvent) -> void:
-	if (event.is_action_pressed(movement.control_prefix + "_jump")
+	if (Input.is_action_just_pressed("%s_jump" % movement.control_prefix)
 		and movement.on_floor()):
-		jump()
+			jump()
 
 func update_tree():
 	animation_tree["parameters/Move/blend_amount"] = move_amount
@@ -51,12 +47,15 @@ func handle_animations(delta):
 		State.CLIMBING:
 			climb_amount = lerpf(climb_amount, (vert_speed / movement.climb_speed), movement.climb_speed * delta)
 			move_amount = 0.0
+
 func jump():
+	animation_tree["parameters/JumpScale/scale"] = 2.0
 	transition("Jumping")
 	state = State.FALLING
 
 func process_falling():
 	if state != State.FALLING and movement.is_falling:
+		animation_tree["parameters/JumpScale/scale"] = 1.0
 		transition("Jumping")
 		state = State.FALLING
 	elif state == State.FALLING and !movement.is_falling:

@@ -3,6 +3,7 @@ extends CharacterBody3D
 class_name Player
 
 @export var movement: Movement
+@export var animator: Animator
 @export var ability: Ability
 @export var action_prefix: StringName = &""
 

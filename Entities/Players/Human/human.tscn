@@ -35,7 +35,7 @@ animation = &"Falling To Landing"
 animation = &"Running"
 
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_scid8"]
-xfade_time = 0.1
+xfade_time = 0.15
 input_0/name = "Idle"
 input_0/auto_advance = false
 input_0/break_loop_at_end = false
@@ -59,7 +59,7 @@ input_3/reset = true
 animation = &"Neutral Idle"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_k1oay"]
-graph_offset = Vector2(-681.58856, 36.45117)
+graph_offset = Vector2(-206.24042, -96.139)
 nodes/output/position = Vector2(600, 0)
 nodes/Idle/node = SubResource("AnimationNodeAnimation_6nsww")
 nodes/Idle/position = Vector2(-380, -120)
@@ -891,12 +891,13 @@ radius = 0.22363281
 [sub_resource type="BoxShape3D" id="BoxShape3D_rj3cs"]
 size = Vector3(1, 2, 4)
 
-[node name="Human" type="CharacterBody3D" node_paths=PackedStringArray("movement", "ability") groups=["Player"]]
+[node name="Human" type="CharacterBody3D" node_paths=PackedStringArray("movement", "animator", "ability") groups=["Player"]]
 collision_layer = 2
 axis_lock_linear_x = true
 axis_lock_angular_z = true
 script = ExtResource("1_q78xk")
 movement = NodePath("Movement")
+animator = NodePath("Animator")
 ability = NodePath("PowerGloves")
 action_prefix = &"human"
 
