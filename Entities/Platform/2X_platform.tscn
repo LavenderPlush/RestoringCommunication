@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://8rl4ctn0rhq3" path="res://Entities/Platform/platform_right.tscn" id="3_83hmg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pxq8d"]
-size = Vector3(1, 0.31054688, 6.1540527)
+size = Vector3(2.046875, 0.31054688, 6.1540527)
 
 [node name="2X_platform" type="StaticBody3D"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
