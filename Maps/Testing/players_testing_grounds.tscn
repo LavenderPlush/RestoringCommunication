@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://wv7mhgpex08w"]
+[gd_scene load_steps=25 format=3 uid="uid://wv7mhgpex08w"]
 
 [ext_resource type="PackedScene" uid="uid://bh7w25o2ijqo6" path="res://Entities/Players/Alien/alien.tscn" id="1_vfhqw"]
 [ext_resource type="PackedScene" uid="uid://bd388rue7yafh" path="res://Entities/Players/Human/human.tscn" id="2_kqrly"]
@@ -14,8 +14,23 @@
 [ext_resource type="PackedScene" uid="uid://1p2rwqwpq1w5" path="res://Entities/Checkpoint/checkpoint_light.tscn" id="12_xgm8l"]
 [ext_resource type="PackedScene" uid="uid://rxoqkldt0t5s" path="res://Entities/Button/PlatformButton/platform_button.tscn" id="13_xitqv"]
 [ext_resource type="PackedScene" uid="uid://77p1mkxy2ris" path="res://Menus/Pause/pause_menu.tscn" id="14_sro3d"]
-[ext_resource type="Shader" uid="uid://ce67yusx2mev0" path="res://Assets/Shaders/chowder.gdshader" id="15_w5vvp"]
-[ext_resource type="Texture2D" uid="uid://bdf8euyiumtov" path="res://Assets/Shaders/chowder_test.jpg" id="16_8gx3o"]
+[ext_resource type="Shader" uid="uid://bw140y77xuq20" path="res://Assets/Shaders/borderlands.gdshader" id="15_w5vvp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w5vvp"]
+render_priority = 0
+shader = ExtResource("15_w5vvp")
+shader_parameter/edge_color = Color(0, 0, 0, 1)
+shader_parameter/threshold = 0.1
+shader_parameter/blend = 0.432
+shader_parameter/enable_depth_pass = true
+shader_parameter/threshold_depth = 0.1
+shader_parameter/blend_depth = 0.291
+shader_parameter/distance_fade_length = 50.0
+shader_parameter/distance_fade_blend = 20.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_w5vvp"]
+material = SubResource("ShaderMaterial_w5vvp")
+size = Vector2(2, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_08bup"]
 
@@ -40,13 +55,6 @@ sdfgi_enabled = true
 glow_enabled = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8gx3o"]
-shader = ExtResource("15_w5vvp")
-shader_parameter/image = ExtResource("16_8gx3o")
-shader_parameter/image_scale = Vector2(1, 1)
-shader_parameter/image_offset = Vector2(0, 0)
-shader_parameter/min_alpha = 0.1
-shader_parameter/target_color = Color(0, 0, 0, 1)
-shader_parameter/color_match_threshold = 0.8
 
 [node name="PlayersTestingGrounds" type="Node3D"]
 
@@ -61,6 +69,10 @@ transform = Transform3D(-4.371139e-08, 0.1736482, -0.9848077, 0, 0.9848077, 0.17
 script = ExtResource("3_g32nx")
 player1 = NodePath("../Human")
 player2 = NodePath("../Alien")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D"]
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_w5vvp")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0.16052532)
@@ -151,10 +163,11 @@ bank_paths = ["res://Assets/FMODBank/Desktop/Master.bank"]
 
 [node name="FmodListener3D" type="FmodListener3D" parent="."]
 
-[node name="Checkpoint" parent="." node_paths=PackedStringArray("human_spawn", "alien_spawn") instance=ExtResource("8_ajho5")]
+[node name="Checkpoint" parent="." node_paths=PackedStringArray("human_spawn", "alien_spawn", "checkpoint_light1") instance=ExtResource("8_ajho5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 11)
 human_spawn = NodePath("HumanSpawn2")
 alien_spawn = NodePath("AlienSpawn2")
+checkpoint_light1 = NodePath("CheckpointLight")
 
 [node name="HumanSpawn2" type="Marker3D" parent="Checkpoint"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)

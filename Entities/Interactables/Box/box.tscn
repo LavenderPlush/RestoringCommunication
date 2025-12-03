@@ -11,7 +11,6 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0hbof"]
 resource_name = "Steel Glossy"
-transparency = 4
 cull_mode = 2
 albedo_texture = ExtResource("8_lxf5v")
 metallic = 1.0
