@@ -45,6 +45,8 @@ func process_climb(can_climb: bool):
 	var just_pressed_jump = Input.is_action_just_pressed("%s_jump" % control_prefix)
 
 	if !is_climbing and can_climb and abs(climb_input_vertical) > 0.1:
+		if player_mesh:
+			player_mesh.rotation.y = PI/2.0
 		is_climbing = true
 	elif is_climbing and just_pressed_jump:
 		is_climbing = false
@@ -122,6 +124,8 @@ func _handle_landing_sound():
 	Common.play_sound(land_emitter)
 
 func _set_facing_direction(direction: Vector3) -> void:
+	if is_climbing:
+		return
 	if direction.z < 0:
 		is_facing_left = true
 		if player_mesh:

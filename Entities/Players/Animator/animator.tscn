@@ -4,3 +4,6 @@
 
 [node name="Animator" type="Node3D"]
 script = ExtResource("1_tn20n")
+
+[node name="FallingTimer" type="Timer" parent="."]
+wait_time = 0.2
