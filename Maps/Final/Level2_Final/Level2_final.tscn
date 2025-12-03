@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://cikinc5wcoang" path="res://Entities/ExitDoor/exit_door.tscn" id="27_07gr3"]
 [ext_resource type="PackedScene" uid="uid://088ghaqo8clh" path="res://Assets/Tower/tower.glb" id="29_phwff"]
 [ext_resource type="Shader" uid="uid://bw140y77xuq20" path="res://Assets/Shaders/lines.gdshader" id="30_phwff"]
+[ext_resource type="PackedScene" uid="uid://ddcknlbag4qiy" path="res://Assets/Environment/environment.glb" id="31_3nf5n"]
 [ext_resource type="Shader" uid="uid://dywana7pa5vy2" path="res://Assets/Shaders/dots.gdshader" id="31_v7q81"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3nf5n"]
@@ -51,20 +52,20 @@ size = Vector2(2, 2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_prpp8"]
 size = Vector3(1.9257813, 3.8337402, 3.8535461)
 
-[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_k5x0g"]
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_v7q81"]
 
-[sub_resource type="Sky" id="Sky_07gr3"]
-sky_material = SubResource("PhysicalSkyMaterial_k5x0g")
+[sub_resource type="Sky" id="Sky_v7q81"]
+sky_material = SubResource("PhysicalSkyMaterial_v7q81")
 
-[sub_resource type="Environment" id="Environment_prpp8"]
+[sub_resource type="Environment" id="Environment_3nf5n"]
 background_mode = 2
 background_energy_multiplier = 2.0
-sky = SubResource("Sky_07gr3")
+sky = SubResource("Sky_v7q81")
 ssao_enabled = true
 ssil_enabled = true
 glow_enabled = true
 fog_enabled = true
-fog_light_color = Color(1, 0.7882353, 0.38431373, 1)
+fog_light_color = Color(0.70454717, 0.49724048, 0.36058182, 1)
 fog_density = 0.0
 fog_height_density = 0.1
 volumetric_fog_enabled = true
@@ -107,7 +108,7 @@ small_fov_min = 12.0
 wide_fov_max = 34.0
 wide_fov_min = 18.0
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D"]
+[node name="LineShader" type="MeshInstance3D" parent="Camera3D"]
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_phwff")
 
@@ -162,23 +163,14 @@ size = Vector3(2, 1.9901123, 2)
 [node name="Platforms_AlienHalf" type="Node3D" parent="AlienHalf"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 
-[node name="Platform1" parent="AlienHalf/Platforms_AlienHalf" instance=ExtResource("4_6wpl1")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.927452, 2.8765383, -3.465199e-07)
-
-[node name="Platform1_Base" type="CSGBox3D" parent="AlienHalf/Platforms_AlienHalf/Platform1"]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.3339657e-09, -0.98768425, -0.030517578)
-material_override = ExtResource("5_mjesy")
-use_collision = true
-size = Vector3(8.061035, 1.7167969, 2)
-
 [node name="Platform2" parent="AlienHalf/Platforms_AlienHalf" instance=ExtResource("5_i7lwa")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.937681, 6.601934, -4.3438988e-07)
 
 [node name="Platform2_Base" type="CSGBox3D" parent="AlienHalf/Platforms_AlienHalf/Platform2"]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.1632181e-09, -1.857544, -0.026611328)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.0894647e-09, -1.8333664, 0.07067871)
 material_override = ExtResource("5_mjesy")
 use_collision = true
-size = Vector3(4.0532227, 3.4128418, 2)
+size = Vector3(4.2478027, 3.3644867, 2)
 
 [node name="Platform3" parent="AlienHalf/Platforms_AlienHalf" instance=ExtResource("7_48amp")]
 transform = Transform3D(-4.371139e-08, 0, 1.0183204, 0, 1, 0, -1, 0, -4.4512195e-08, -3.9983068, 7.889945, 1.7477154e-07)
@@ -296,6 +288,15 @@ size = Vector3(3.963501, 0.6481967, 5.5585175)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0134887695, 0.78753513, -4.1308594)
 material_override = ExtResource("5_mjesy")
 size = Vector3(3.963501, 0.48193443, 5.5585175)
+
+[node name="Platform1" parent="AlienHalf/Platforms_AlienHalf" instance=ExtResource("4_6wpl1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.927452, 2.8765383, -3.465199e-07)
+
+[node name="Platform1_Base" type="CSGBox3D" parent="AlienHalf/Platforms_AlienHalf/Platform1"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.8973735e-09, -0.98768425, 0.06628418)
+material_override = ExtResource("5_mjesy")
+use_collision = true
+size = Vector3(8.254639, 1.7167969, 2)
 
 [node name="Boxes_AlienHalf" type="Node3D" parent="AlienHalf"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
@@ -731,13 +732,14 @@ material_override = ExtResource("5_mjesy")
 size = Vector3(3.963501, 12.105543, 1.2133207)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_prpp8")
+environment = SubResource("Environment_3nf5n")
 
 [node name="tower" parent="." instance=ExtResource("29_phwff")]
-transform = Transform3D(-3.934025e-08, 0, -0.44999996, 0, 2.065749, 0, 0.9, 0, -1.9670123e-08, 13.082272, -17.820498, -4.0578414e-08)
+transform = Transform3D(-3.934025e-08, 0, -0.45, 0, 3.091, 0, 0.9, 0, -1.9670125e-08, 13.082272, -58.384125, -4.0578414e-08)
 
 [node name="FogVolume" type="FogVolume" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -61.661415, 0)
+visible = false
 size = Vector3(300, 48, 300)
 material = SubResource("FogMaterial_v7q81")
 
@@ -746,12 +748,16 @@ event_name = "event:/BGM/Level 2 BGM"
 event_guid = "{ff60e275-ba36-4629-92b0-23a4da214b28}"
 autoplay = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="DotShader" type="CanvasLayer" parent="."]
+visible = false
 
-[node name="Shader" type="ColorRect" parent="CanvasLayer"]
+[node name="Shader" type="ColorRect" parent="DotShader"]
 material = SubResource("ShaderMaterial_v7q81")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="environment" parent="." instance=ExtResource("31_3nf5n")]
+transform = Transform3D(-0.97488976, -0.22268866, -8.5227576e-08, -0.22268869, 0.97488964, -1.9468064e-08, 8.742279e-08, 0, -1.0000001, 88.190186, -56.799644, 0)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://cryhwogoyglmt"]
+[gd_scene load_steps=26 format=3 uid="uid://cryhwogoyglmt"]
 
 [ext_resource type="Script" uid="uid://o651tn751848" path="res://Maps/level.gd" id="1_sk6fj"]
 [ext_resource type="Script" uid="uid://clheyshb47air" path="res://Entities/Camera/camera_controller.gd" id="2_ljjfv"]
+[ext_resource type="Shader" uid="uid://bw140y77xuq20" path="res://Assets/Shaders/lines.gdshader" id="3_ax6pw"]
 [ext_resource type="PackedScene" uid="uid://bd388rue7yafh" path="res://Entities/Players/Human/human.tscn" id="3_oaioo"]
 [ext_resource type="PackedScene" uid="uid://bh7w25o2ijqo6" path="res://Entities/Players/Alien/alien.tscn" id="4_4yj03"]
 [ext_resource type="PackedScene" uid="uid://dr8a0vyee5uwm" path="res://Entities/Platform/2X_platform.tscn" id="5_5tig6"]
@@ -20,22 +21,41 @@
 [ext_resource type="PackedScene" uid="uid://088ghaqo8clh" path="res://Assets/Tower/tower.glb" id="15_dg3vp"]
 [ext_resource type="PackedScene" uid="uid://cut37mic2ba8v" path="res://Entities/Interactables/Box/box.tscn" id="17_1ov8n"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3nf5n"]
+render_priority = 0
+shader = ExtResource("3_ax6pw")
+shader_parameter/edge_color = Color(0, 0, 0, 1)
+shader_parameter/threshold = -0.249
+shader_parameter/blend = 0.432
+shader_parameter/enable_depth_pass = true
+shader_parameter/threshold_depth = -1.509
+shader_parameter/blend_depth = 0.291
+shader_parameter/distance_fade_length = 50.0
+shader_parameter/distance_fade_blend = 20.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_1ov8n"]
+material = SubResource("ShaderMaterial_3nf5n")
+size = Vector2(2, 2)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_kvqi4"]
 size = Vector3(1.9257813, 3.8337402, 3.8535461)
 
-[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_m8yh1"]
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_ax6pw"]
 
-[sub_resource type="Sky" id="Sky_07gr3"]
-sky_material = SubResource("PhysicalSkyMaterial_m8yh1")
+[sub_resource type="Sky" id="Sky_xitqv"]
+sky_material = SubResource("PhysicalSkyMaterial_ax6pw")
 
-[sub_resource type="Environment" id="Environment_yqoyr"]
+[sub_resource type="Environment" id="Environment_1ov8n"]
 background_mode = 2
 background_energy_multiplier = 2.0
-sky = SubResource("Sky_07gr3")
+sky = SubResource("Sky_xitqv")
 ssao_enabled = true
 ssil_enabled = true
 glow_enabled = true
-fog_light_color = Color(0.54555297, 0.5134235, 0.7531947, 1)
+fog_enabled = true
+fog_light_color = Color(0.6744152, 0.5022648, 0.4814062, 1)
+fog_density = 0.0
+fog_height_density = 0.1
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.0
 
@@ -66,6 +86,10 @@ small_fov_max = 29.0
 small_fov_min = 13.0
 wide_fov_max = 24.0
 wide_fov_min = 21.0
+
+[node name="LineShader" type="MeshInstance3D" parent="Camera3D"]
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_1ov8n")
 
 [node name="Human" parent="." instance=ExtResource("3_oaioo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2397625, 0.885283)
@@ -365,7 +389,7 @@ transform = Transform3D(0.54851246, 0, 0.5823522, 0, 0.8, 0, -0.5823522, 0, 0.54
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.11410596, 1.9758339, -4.936194)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_yqoyr")
+environment = SubResource("Environment_1ov8n")
 
 [node name="environment" parent="." instance=ExtResource("14_kvqi4")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 78.570366, -20.346226, 6.9405975)
@@ -375,6 +399,7 @@ transform = Transform3D(-1.9670125e-08, 0, -0.45, 0, 1.0872362, 0, 0.45, 0, -1.9
 
 [node name="FogVolume" type="FogVolume" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8444309, 0)
+visible = false
 size = Vector3(300, 5, 300)
 material = SubResource("FogMaterial_dg3vp")
 

@@ -14,8 +14,10 @@ wait_time = 1.0
 
 [node name="cutscene1_1_1" parent="CanvasLayer/Frames" index="0" node_paths=PackedStringArray("emitter") instance=ExtResource("2_7uixu")]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = -6.1518097
+offset_top = 5.0
+offset_right = 1150.5537
+offset_bottom = 671.7769
 texture = ExtResource("3_4ilqx")
 expand_mode = 1
 stretch_mode = 4
@@ -29,8 +31,10 @@ event_guid = "{45152a73-3c3a-4d29-aaac-6d59fa64347b}"
 
 [node name="cutscene1_1_2" parent="CanvasLayer/Frames" index="1" node_paths=PackedStringArray("emitter") instance=ExtResource("2_7uixu")]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = -34.086
+offset_top = 6.1046143
+offset_right = 1158.0264
+offset_bottom = 699.5833
 texture = ExtResource("4_cjbkd")
 expand_mode = 1
 stretch_mode = 4
@@ -44,8 +48,10 @@ event_guid = "{2fd462a0-f5b3-475d-b7a7-3804f88c0b99}"
 
 [node name="cutscene1_1_3" parent="CanvasLayer/Frames" index="2" node_paths=PackedStringArray("emitter") instance=ExtResource("2_7uixu")]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = -39.230995
+offset_top = -6.012644
+offset_right = 1159.22
+offset_bottom = 678.9777
 texture = ExtResource("5_j21sv")
 expand_mode = 1
 stretch_mode = 4
@@ -59,8 +65,10 @@ event_guid = "{a3d59e6e-964d-4d79-888d-18e4c219aba5}"
 
 [node name="cutscene1_1_4" parent="CanvasLayer/Frames" index="3" node_paths=PackedStringArray("emitter") instance=ExtResource("2_7uixu")]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = -5.8791504
+offset_top = -10.85783
+offset_right = 1163.9999
+offset_bottom = 653.9645
 texture = ExtResource("6_mlfo1")
 expand_mode = 1
 stretch_mode = 4
@@ -74,8 +82,10 @@ event_guid = "{2fff423b-6ee6-409b-9bc9-96bee428da59}"
 
 [node name="cutscene1_1_5" parent="CanvasLayer/Frames" index="4" node_paths=PackedStringArray("emitter") instance=ExtResource("2_7uixu")]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = -18.0
+offset_top = -16.0
+offset_right = 1166.0
+offset_bottom = 664.0
 texture = ExtResource("7_06t80")
 expand_mode = 1
 stretch_mode = 4
@@ -88,8 +98,10 @@ event_guid = "{372f854b-e778-4ca8-a4b0-b5218cef1aeb}"
 
 [node name="cutscene1_1_6" parent="CanvasLayer/Frames" index="5" node_paths=PackedStringArray("emitter") instance=ExtResource("2_7uixu")]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = -27.763153
+offset_top = -16.0
+offset_right = 1159.9999
+offset_bottom = 663.2474
 texture = ExtResource("8_uil53")
 expand_mode = 1
 stretch_mode = 4

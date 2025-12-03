@@ -30,9 +30,9 @@ event_guid = "{d4278957-f87b-4863-8689-cd84340368f9}"
 [node name="cutscene1_2_7" parent="CanvasLayer/Frames" index="1" node_paths=PackedStringArray("emitter") instance=ExtResource("2_scdd1")]
 layout_mode = 0
 offset_left = -208.0
-offset_top = -80.0
-offset_right = 944.0
-offset_bottom = 568.0
+offset_top = -78.0
+offset_right = 952.0
+offset_bottom = 578.0
 texture = ExtResource("9_4mhch")
 expand_mode = 1
 stretch_mode = 4

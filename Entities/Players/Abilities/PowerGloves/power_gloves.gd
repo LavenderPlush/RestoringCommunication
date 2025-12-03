@@ -68,6 +68,7 @@ func pick_up():
 	player_held_collider = CollisionShape3D.new()
 	player_held_collider.shape = original_collider.shape
 	player_held_collider.position = holding_position.position
+	player_held_collider.scale.y -= 0.2
 	
 	player.collision_layer = 3
 

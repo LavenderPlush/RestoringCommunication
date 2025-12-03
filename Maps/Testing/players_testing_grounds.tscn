@@ -153,7 +153,7 @@ mesh = SubResource("BoxMesh_jw2t6")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 25.91248)
 
 [node name="Box2" parent="." instance=ExtResource("3_8aafw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 3.17661)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.3562183, 7.3799386)
 
 [node name="AnimatableBody3D" parent="." node_paths=PackedStringArray("extendable_ladder") instance=ExtResource("5_u5ick")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5635568, -8.601)
@@ -226,6 +226,7 @@ moving_platform = NodePath("../MovingPlatform")
 [node name="PauseMenu" parent="." instance=ExtResource("14_sro3d")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Shader" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_37yrt")

@@ -12,14 +12,14 @@ uniform float _max = 1.0;
 uniform bool UseReshade = true;
 
 void fragment() {
-	
+
     vec3 uv_grid = fract(vec3(UV, 0.0) * vec3(AspectRatio * Dots, Dots, 0.0));
 
     float grid = distance(uv_grid, vec3(0.5, 0.5, 0.5));
-    
+
     vec3 raw_cam_image;
     {
-		
+
         vec4 _tex_read = textureLod(screen_texture, SCREEN_UV, 0.0);
         raw_cam_image = _tex_read.rgb;
     }
@@ -62,7 +62,7 @@ void fragment() {
         } else {
             c= vec3(1.0,1.0,1.0);
         }
-        
+
         saturated_image.rgb = c;
     }
 
@@ -87,4 +87,7 @@ void fragment() {
     }
 
     COLOR.rgb = final_image;
+
+	float alpha = 1.0 - smoothstep(0.8, 0.8 - 0.5, distance(UV, vec2(0.5, 0.5)));
+	COLOR.a = alpha;
 }

@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bgejj63sikh40"
+uid="uid://qobvygtfaeej"
 path="res://.godot/imported/alien.glb-87da078847776f1455b01be4ed327319.scn"
 
 [deps]
@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/alien.glb-87da078847776f1455b01be4ed327319.sc
 
 [params]
 
-nodes/root_type="Node3D"
+nodes/root_type=""
 nodes/root_name=""
 nodes/root_script=null
 nodes/apply_root_scale=true
@@ -24,7 +24,7 @@ nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
-meshes/light_baking=3
+meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
 meshes/force_disable_compression=false
 skins/use_named_skins=true
