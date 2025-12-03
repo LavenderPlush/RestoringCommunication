@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://cut37mic2ba8v" path="res://Entities/Interactables/Box/box.tscn" id="3_8aafw"]
 [ext_resource type="Script" uid="uid://clheyshb47air" path="res://Entities/Camera/camera_controller.gd" id="3_g32nx"]
 [ext_resource type="PackedScene" uid="uid://c161xbj0sh7v" path="res://Entities/Button/LadderButton/ladder_button.tscn" id="5_u5ick"]
-[ext_resource type="Material" uid="uid://bbp852166q7um" path="res://Materials/outline_human_material.tres" id="6_8gx3o"]
 [ext_resource type="PackedScene" uid="uid://b8hxsnh6e1jfh" path="res://Entities/Ladder/extendable_ladder.tscn" id="6_hly84"]
 [ext_resource type="PackedScene" uid="uid://dk6nscx8wfi48" path="res://Entities/Checkpoint/checkpoint.tscn" id="8_ajho5"]
 [ext_resource type="PackedScene" uid="uid://q5kt65k1meus" path="res://Entities/Button/ExitButton/exit_manager.tscn" id="8_vlpq4"]
@@ -15,21 +14,22 @@
 [ext_resource type="PackedScene" uid="uid://1p2rwqwpq1w5" path="res://Entities/Checkpoint/checkpoint_light.tscn" id="12_xgm8l"]
 [ext_resource type="PackedScene" uid="uid://rxoqkldt0t5s" path="res://Entities/Button/PlatformButton/platform_button.tscn" id="13_xitqv"]
 [ext_resource type="PackedScene" uid="uid://77p1mkxy2ris" path="res://Menus/Pause/pause_menu.tscn" id="14_sro3d"]
-[ext_resource type="Shader" uid="uid://bw140y77xuq20" path="res://Assets/Shaders/borderlands.gdshader" id="15_w5vvp"]
+[ext_resource type="Shader" uid="uid://bw140y77xuq20" path="res://Assets/Shaders/lines.gdshader" id="15_w5vvp"]
+[ext_resource type="Shader" uid="uid://dywana7pa5vy2" path="res://Assets/Shaders/dots.gdshader" id="16_8gx3o"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w5vvp"]
 render_priority = 0
 shader = ExtResource("15_w5vvp")
 shader_parameter/edge_color = Color(0, 0, 0, 1)
-shader_parameter/threshold = 0.1
+shader_parameter/threshold = -0.249
 shader_parameter/blend = 0.432
 shader_parameter/enable_depth_pass = true
-shader_parameter/threshold_depth = 0.1
+shader_parameter/threshold_depth = -1.509
 shader_parameter/blend_depth = 0.291
 shader_parameter/distance_fade_length = 50.0
 shader_parameter/distance_fade_blend = 20.0
 
-[sub_resource type="QuadMesh" id="QuadMesh_w5vvp"]
+[sub_resource type="QuadMesh" id="QuadMesh_8gx3o"]
 material = SubResource("ShaderMaterial_w5vvp")
 size = Vector2(2, 2)
 
@@ -55,7 +55,15 @@ ssil_enabled = true
 sdfgi_enabled = true
 glow_enabled = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8gx3o"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_37yrt"]
+shader = ExtResource("16_8gx3o")
+shader_parameter/UseColor = true
+shader_parameter/BlackDot = true
+shader_parameter/AspectRatio = 1.77
+shader_parameter/Dots = 120.0
+shader_parameter/_min = 0.49
+shader_parameter/_max = 0.48
+shader_parameter/UseReshade = false
 
 [node name="PlayersTestingGrounds" type="Node3D"]
 
@@ -73,7 +81,7 @@ player2 = NodePath("../Alien")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D"]
 extra_cull_margin = 16384.0
-mesh = SubResource("QuadMesh_w5vvp")
+mesh = SubResource("QuadMesh_8gx3o")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0.16052532)
@@ -151,9 +159,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 25.91248)
 
 [node name="Box2" parent="." instance=ExtResource("3_8aafw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 9.171949)
-
-[node name="Cube" parent="Box2/Mesh" index="0"]
-material_overlay = ExtResource("6_8gx3o")
 
 [node name="AnimatableBody3D" parent="." node_paths=PackedStringArray("extendable_ladder") instance=ExtResource("5_u5ick")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5635568, -8.601)
@@ -246,14 +251,11 @@ moving_platform = NodePath("../MovingPlatform")
 [node name="PauseMenu" parent="." instance=ExtResource("14_sro3d")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
-[node name="Dots Shader" type="ColorRect" parent="CanvasLayer"]
-material = SubResource("ShaderMaterial_8gx3o")
+[node name="Shader" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_37yrt")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[editable path="Box2"]

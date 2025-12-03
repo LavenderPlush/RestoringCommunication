@@ -29,10 +29,10 @@
 [ext_resource type="PackedScene" uid="uid://1p2rwqwpq1w5" path="res://Entities/Checkpoint/checkpoint_light.tscn" id="26_07gr3"]
 [ext_resource type="PackedScene" uid="uid://cikinc5wcoang" path="res://Entities/ExitDoor/exit_door.tscn" id="27_07gr3"]
 [ext_resource type="PackedScene" uid="uid://088ghaqo8clh" path="res://Assets/Tower/tower.glb" id="29_phwff"]
-[ext_resource type="Shader" uid="uid://bw140y77xuq20" path="res://Assets/Shaders/borderlands.gdshader" id="30_phwff"]
-[ext_resource type="Shader" uid="uid://dywana7pa5vy2" path="res://Assets/Shaders/comic_book.gdshader" id="31_v7q81"]
+[ext_resource type="Shader" uid="uid://bw140y77xuq20" path="res://Assets/Shaders/lines.gdshader" id="30_phwff"]
+[ext_resource type="Shader" uid="uid://dywana7pa5vy2" path="res://Assets/Shaders/dots.gdshader" id="31_v7q81"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_w5vvp"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3nf5n"]
 render_priority = 0
 shader = ExtResource("30_phwff")
 shader_parameter/edge_color = Color(0, 0, 0, 1)
@@ -45,7 +45,7 @@ shader_parameter/distance_fade_length = 50.0
 shader_parameter/distance_fade_blend = 20.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_phwff"]
-material = SubResource("ShaderMaterial_w5vvp")
+material = SubResource("ShaderMaterial_3nf5n")
 size = Vector2(2, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_prpp8"]
@@ -63,7 +63,9 @@ sky = SubResource("Sky_07gr3")
 ssao_enabled = true
 ssil_enabled = true
 glow_enabled = true
-fog_light_color = Color(0.54555297, 0.5134235, 0.7531947, 1)
+fog_enabled = true
+fog_light_color = Color(1, 0.7882353, 0.38431373, 1)
+fog_density = 0.0
 fog_height_density = 0.1
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.0
@@ -78,7 +80,7 @@ shader_parameter/BlackDot = true
 shader_parameter/AspectRatio = 1.77
 shader_parameter/Dots = 120.0
 shader_parameter/_min = 0.49
-shader_parameter/_max = 1.0
+shader_parameter/_max = 0.48
 shader_parameter/UseReshade = false
 
 [node name="Level2-Blockout" type="Node3D" node_paths=PackedStringArray("exit_manager")]
