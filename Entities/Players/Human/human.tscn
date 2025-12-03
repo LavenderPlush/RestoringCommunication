@@ -473,18 +473,21 @@ _data = {
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_im406"]
 resource_name = "Material.001"
+render_priority = 5
 cull_mode = 2
 albedo_color = Color(0.08643132, 0.30953652, 0.56281257, 1)
 roughness = 0.5555556
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0elu0"]
 resource_name = "Material.002"
+render_priority = 5
 cull_mode = 2
 albedo_color = Color(0.4824062, 0.2820287, 0.1060968, 1)
 roughness = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hrxbt"]
 resource_name = "Material.003"
+render_priority = 5
 cull_mode = 2
 albedo_color = Color(0.6733595, 0.6733595, 0.6733595, 1)
 metallic = 0.8611111
@@ -492,6 +495,7 @@ roughness = 0.5277778
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_afaen"]
 resource_name = "Material.004"
+render_priority = 5
 cull_mode = 2
 albedo_color = Color(0.3627642, 0.40488097, 0.51716983, 1)
 metallic = 0.5648148
@@ -499,35 +503,41 @@ roughness = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_14l5x"]
 resource_name = "Material.005"
+render_priority = 5
 cull_mode = 2
 albedo_color = Color(0.7035028, 0.54379046, 0.41418442, 1)
 roughness = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iev8o"]
 resource_name = "Material.006"
+render_priority = 5
 cull_mode = 2
 albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
 roughness = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i1gi6"]
 resource_name = "Material.018"
+render_priority = 5
 cull_mode = 2
 albedo_color = Color(0.05527127, 0.01222677, 0, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ml8yi"]
 resource_name = "Material.019"
+render_priority = 5
 cull_mode = 2
 albedo_color = Color(0.5577857, 0.3366403, 0.31241068, 1)
 roughness = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x67tt"]
 resource_name = "Material.020"
+render_priority = 5
 cull_mode = 2
 albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
 roughness = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eao46"]
 resource_name = "Material.021"
+render_priority = 5
 cull_mode = 2
 albedo_color = Color(0.5742857, 0.58834547, 0.64812, 1)
 metallic = 1.0
@@ -535,6 +545,7 @@ roughness = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vd2s1"]
 resource_name = "Material.022"
+render_priority = 5
 transparency = 4
 cull_mode = 2
 albedo_color = Color(0, 1, 0.98560315, 0.88888884)
