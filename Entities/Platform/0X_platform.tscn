@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://biiyay6ugshvd"]
+[gd_scene load_steps=4 format=3 uid="uid://biiyay6ugshvd"]
 
 [ext_resource type="PackedScene" uid="uid://d3g6hgdw5u3ue" path="res://Entities/Platform/platform_left.tscn" id="1_8exdb"]
 [ext_resource type="PackedScene" uid="uid://8rl4ctn0rhq3" path="res://Entities/Platform/platform_right.tscn" id="3_42cg8"]
 
-[node name="0X_platform" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_6o34q"]
+size = Vector3(2.0181885, 0.29345703, 2.1308594)
+
+[node name="0X_platform" type="StaticBody3D"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 
 [node name="PlatformLeft" parent="." instance=ExtResource("1_8exdb")]
@@ -11,3 +14,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.3
 
 [node name="PlatformRight" parent="." instance=ExtResource("3_42cg8")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.371139e-08, 0, 0.5317513)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0011291504, 0.02, -3.469447e-18)
+shape = SubResource("BoxShape3D_6o34q")

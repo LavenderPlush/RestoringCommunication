@@ -10,11 +10,13 @@ func _physics_process(delta: float) -> void:
 		and not ability_active):
 		movement.process_climb(can_climb)
 	if !movement.is_climbing:
-		movement.process_jump()
+		if not weighed_down:
+			movement.process_jump()
 		movement.process_movement()
 		movement.process_gravity(delta)
 		ability.process_ability()
 	move_and_slide()
+	weighed_down = false
 
 func get_target_position() -> Vector3:
 	return self.global_position

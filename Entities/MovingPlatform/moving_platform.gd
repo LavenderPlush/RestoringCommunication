@@ -11,6 +11,7 @@ extends AnimatableBody3D
 @export var wait_time: float = 0.2
 ##Auto-Start is false when its used by a button.
 @export var auto_start: bool = true
+@export var cheat_area: Area3D
 
 @onready var area: Area3D = $Area3D
 
@@ -19,10 +20,17 @@ var tween: Tween
 func _ready() -> void:
 	add_to_group("resettable")
 
+	point_a.top_level = true
+	point_b.top_level = true
+
 	global_position = point_a.global_position
 	
 	area.body_entered.connect(_on_body_entered)
 	area.body_exited.connect(_on_body_exited)
+
+	if cheat_area != null:
+		cheat_area.body_entered.connect(_on_cheat_entered)
+		cheat_area.body_exited.connect(_on_cheat_exited)
 
 	if auto_start:
 		_start_loop()
@@ -64,11 +72,23 @@ func _start_loop() -> void:
 
 func _on_body_entered(body):
 	if body.is_in_group("Player") || body is Interactable:
-		tween.pause()
+		if tween:
+			tween.pause()
 
 func _on_body_exited(body):
 	if body.is_in_group("Player") || body is Interactable:
-		tween.play()
+		if tween:
+			tween.play()
+
+func _on_cheat_entered(body):
+	if body.is_in_group("Player"):
+		if tween:
+			tween.pause()
+
+func _on_cheat_exited(body):
+	if body.is_in_group("Player"):
+		if tween:
+			tween.play()
 
 func reset_state():
 	if auto_start: return

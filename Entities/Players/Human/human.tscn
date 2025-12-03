@@ -886,9 +886,10 @@ bind/57/bone = -1
 bind/57/pose = Transform3D(-0.93357074, 0.026813334, -0.3573868, -0.3570899, 0.01519126, 0.9339429, 0.030470768, 0.99952507, -0.0046066777, -0.20821883, -0.18417762, 2.0277157)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vbhk0"]
+radius = 0.22363281
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rj3cs"]
-size = Vector3(1, 2, 2)
+size = Vector3(1, 2, 4)
 
 [node name="Human" type="CharacterBody3D" node_paths=PackedStringArray("movement", "ability") groups=["Player"]]
 collision_layer = 2
@@ -1337,6 +1338,7 @@ mesh = SubResource("ArrayMesh_hvdbg")
 skin = SubResource("Skin_6jtnt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.33210844, 0, 0)
 shape = SubResource("CapsuleShape3D_vbhk0")
 
 [node name="Movement" parent="." node_paths=PackedStringArray("body", "floor_rays", "player_mesh", "animator", "jump_emitter", "footstep_emitter", "land_emitter") instance=ExtResource("1_rmm0b")]
@@ -1371,6 +1373,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.47329843, 2)
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_rj3cs")
 
 [node name="Sound" type="Node" parent="."]
