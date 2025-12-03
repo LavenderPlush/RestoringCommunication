@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dsqe0taye0dcr"]
+[gd_scene load_steps=13 format=3 uid="uid://dsqe0taye0dcr"]
 
 [ext_resource type="PackedScene" uid="uid://v3m1jj473kmr" path="res://SceneManager/scene_manager.tscn" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://77p1mkxy2ris" path="res://Menus/Pause/pause_menu.tscn" id="1_ycdy4"]
@@ -8,9 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://c3vnrvfqg8t5k" path="res://CutscenePlayer/Cutscenes/cutscene1.3.tscn" id="4_dg77c"]
 [ext_resource type="PackedScene" uid="uid://cjlo2enoms44b" path="res://Maps/Final/Level2_Final/Level2_final.tscn" id="5_272bh"]
 [ext_resource type="PackedScene" uid="uid://dp1odyr1v87bv" path="res://Maps/Final/Level3_Final/Level3-final.tscn" id="6_5vw27"]
-[ext_resource type="PackedScene" uid="uid://cvelx2lcu54lt" path="res://CutscenePlayer/Cutscenes/cutscene2.1b.tscn" id="6_ycdy4"]
-[ext_resource type="PackedScene" uid="uid://ct5cbdibvgixs" path="res://CutscenePlayer/Cutscenes/cutscene2.1a.tscn" id="7_w48qg"]
-[ext_resource type="PackedScene" uid="uid://n3ui6hqufe27" path="res://CutscenePlayer/Cutscenes/cutscene3.1a.tscn" id="9_vivmo"]
+[ext_resource type="PackedScene" uid="uid://ct5cbdibvgixs" path="res://CutscenePlayer/Cutscenes/cutscene2.1.tscn" id="7_w48qg"]
+[ext_resource type="PackedScene" uid="uid://n3ui6hqufe27" path="res://CutscenePlayer/Cutscenes/cutscene3.1.tscn" id="9_vivmo"]
 [ext_resource type="PackedScene" uid="uid://b0w1wwtm503hm" path="res://CutscenePlayer/Cutscenes/cutscene4.1.tscn" id="11_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://bew6sg7yh1pby" path="res://CutscenePlayer/Cutscenes/cutscene4.2.tscn" id="12_yaehf"]
 
@@ -21,7 +20,7 @@ process_mode = 3
 
 [node name="SceneManager" parent="." instance=ExtResource("1_h2yge")]
 process_mode = 1
-scenes = Array[PackedScene]([ExtResource("2_1bvp3"), ExtResource("3_7mycd"), ExtResource("4_dg77c"), ExtResource("4_7mycd"), ExtResource("6_ycdy4"), ExtResource("7_w48qg"), ExtResource("5_272bh"), ExtResource("9_vivmo"), ExtResource("6_5vw27"), ExtResource("11_2cqfq"), ExtResource("12_yaehf")])
+scenes = Array[PackedScene]([ExtResource("2_1bvp3"), ExtResource("3_7mycd"), ExtResource("4_dg77c"), ExtResource("4_7mycd"), ExtResource("7_w48qg"), ExtResource("5_272bh"), ExtResource("9_vivmo"), ExtResource("6_5vw27"), ExtResource("11_2cqfq"), ExtResource("12_yaehf")])
 
 [node name="Sound" type="Node" parent="."]
 

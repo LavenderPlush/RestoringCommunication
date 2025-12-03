@@ -1,7 +1,6 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://fe1iqtyv210"]
 
 [resource]
-blend_mode = 4
 cull_mode = 1
 shading_mode = 0
 grow = true

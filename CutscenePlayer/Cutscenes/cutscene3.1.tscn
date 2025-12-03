@@ -1,0 +1,155 @@
+[gd_scene load_steps=11 format=3 uid="uid://n3ui6hqufe27"]
+
+[ext_resource type="PackedScene" uid="uid://dq77apc8gosic" path="res://CutscenePlayer/cutscene_base.tscn" id="1_ht85v"]
+[ext_resource type="PackedScene" uid="uid://ksm03gj3e2pf" path="res://CutscenePlayer/frame.tscn" id="2_mcmor"]
+[ext_resource type="Texture2D" uid="uid://i6q875wuysna" path="res://Assets/Cutscenes/cutscene3.1/cutscene3.1_1a.jpg" id="3_mcmor"]
+[ext_resource type="Texture2D" uid="uid://47efxuudcmad" path="res://Assets/Cutscenes/cutscene3.1/cutscene3.1_2a.jpg" id="4_fyw2w"]
+[ext_resource type="Texture2D" uid="uid://cq3dd14as7aeo" path="res://Assets/Cutscenes/blank.png" id="4_pqagt"]
+[ext_resource type="Texture2D" uid="uid://dtngvogb8vfnk" path="res://Assets/Cutscenes/cutscene3.1/cutscene3.1_3a.jpg" id="5_7t3ty"]
+[ext_resource type="Texture2D" uid="uid://b1uqc8v7xoq61" path="res://Assets/Cutscenes/cutscene3.1/cutscene3.1_4.jpg" id="6_npdoq"]
+[ext_resource type="Texture2D" uid="uid://bkm1hin3gu51l" path="res://Assets/Cutscenes/cutscene3.1/cutscene3.1_5.jpg" id="7_npdoq"]
+[ext_resource type="Texture2D" uid="uid://ddrpb65a8bub8" path="res://Assets/Cutscenes/cutscene3.1/cutscene3.1_6.jpg" id="8_72kvw"]
+[ext_resource type="Texture2D" uid="uid://bgr3de4i7rt5e" path="res://Assets/Cutscenes/cutscene3.1/cutscene3.1_7.jpg" id="9_kw4fw"]
+
+[node name="CutesceneOne" instance=ExtResource("1_ht85v")]
+wait_time = 1.0
+
+[node name="cutscene3_1_1" parent="CanvasLayer/Frames" index="0" node_paths=PackedStringArray("emitter") instance=ExtResource("2_mcmor")]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 296.0
+offset_bottom = 408.0
+texture = ExtResource("3_mcmor")
+expand_mode = 1
+stretch_mode = 4
+time_shown = 3.0
+emitter = NodePath("FmodEventEmitter3D")
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/cutscene3_1_1" index="0"]
+event_name = "event:/cutscene_sfx/cutscene2.1_1"
+event_guid = "{7bbc6da8-2b94-451d-a2fe-d249b4d0c7fe}"
+
+[node name="cutscene3_1_1b" parent="CanvasLayer/Frames" index="1" node_paths=PackedStringArray("emitter") instance=ExtResource("2_mcmor")]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 296.0
+offset_bottom = 408.0
+texture = ExtResource("4_pqagt")
+expand_mode = 1
+stretch_mode = 4
+time_shown = 1.5
+emitter = NodePath("FmodEventEmitter3D")
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/cutscene3_1_1b" index="0"]
+event_name = "event:/cutscene_sfx/cutscene3.1_1b"
+event_guid = "{130cd165-eb02-4ed7-841b-eb7279e783d7}"
+
+[node name="cutscene3_1_2" parent="CanvasLayer/Frames" index="2" node_paths=PackedStringArray("emitter") instance=ExtResource("2_mcmor")]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 16.0
+offset_right = 616.0
+offset_bottom = 224.0
+texture = ExtResource("4_fyw2w")
+expand_mode = 1
+stretch_mode = 4
+emitter = NodePath("FmodEventEmitter3D")
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/cutscene3_1_2" index="0"]
+event_name = "event:/cutscene_sfx/cutscene3.1_2"
+event_guid = "{744c2399-30dc-4a99-a3af-3778a3349494}"
+
+[node name="cutscene3_1_3" parent="CanvasLayer/Frames" index="3" node_paths=PackedStringArray("emitter") instance=ExtResource("2_mcmor")]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 240.0
+offset_right = 608.0
+offset_bottom = 408.0
+texture = ExtResource("5_7t3ty")
+expand_mode = 1
+stretch_mode = 4
+time_shown = 2.5
+emitter = NodePath("FmodEventEmitter3D")
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/cutscene3_1_3" index="0"]
+event_name = "event:/cutscene_sfx/cutscene3.1_3"
+event_guid = "{c7618a18-d0b8-4650-93fc-fb233c18beaf}"
+
+[node name="cutscene3_1_4" parent="CanvasLayer/Frames" index="4" node_paths=PackedStringArray("emitter") instance=ExtResource("2_mcmor")]
+layout_mode = 0
+offset_left = 632.0
+offset_top = 16.0
+offset_right = 1176.0
+offset_bottom = 408.0
+texture = ExtResource("6_npdoq")
+expand_mode = 1
+stretch_mode = 4
+emitter = NodePath("FmodEventEmitter3D")
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/cutscene3_1_4" index="0"]
+event_name = "event:/cutscene_sfx/cutscene3.1_4a"
+event_guid = "{ccb21236-e313-4ea5-acc7-3fbf6d34496c}"
+
+[node name="cutscene3_1_4b" parent="CanvasLayer/Frames" index="5" node_paths=PackedStringArray("emitter") instance=ExtResource("2_mcmor")]
+layout_mode = 0
+offset_left = 632.0
+offset_top = 16.0
+offset_right = 1176.0
+offset_bottom = 408.0
+texture = ExtResource("4_pqagt")
+expand_mode = 1
+stretch_mode = 4
+emitter = NodePath("FmodEventEmitter3D")
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/cutscene3_1_4b" index="0"]
+event_name = "event:/cutscene_sfx/cutscene3.1_4b"
+event_guid = "{63a7efc6-07db-41d3-a3e2-5eb31143510e}"
+
+[node name="cutscene3_1_5" parent="CanvasLayer/Frames" index="6" node_paths=PackedStringArray("emitter") instance=ExtResource("2_mcmor")]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 424.0
+offset_right = 480.0
+offset_bottom = 632.0
+texture = ExtResource("7_npdoq")
+expand_mode = 1
+stretch_mode = 4
+time_shown = 3.0
+emitter = NodePath("FmodEventEmitter3D")
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/cutscene3_1_5" index="0"]
+event_name = "event:/cutscene_sfx/cutscene3.1_5"
+event_guid = "{e5fc02ec-0145-4b04-90ea-fab04f3bd3be}"
+
+[node name="cutscene3_1_6" parent="CanvasLayer/Frames" index="7" node_paths=PackedStringArray("emitter") instance=ExtResource("2_mcmor")]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 424.0
+offset_right = 824.0
+offset_bottom = 632.0
+texture = ExtResource("8_72kvw")
+expand_mode = 1
+stretch_mode = 4
+emitter = NodePath("FmodEventEmitter3D")
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/cutscene3_1_6" index="0"]
+event_name = "event:/cutscene_sfx/cutscene3.1_6"
+event_guid = "{0be6162a-5ecb-47b1-ac93-7784caaa2628}"
+
+[node name="cutscene3_1_7" parent="CanvasLayer/Frames" index="8" node_paths=PackedStringArray("emitter") instance=ExtResource("2_mcmor")]
+layout_mode = 0
+offset_left = 856.0
+offset_top = 424.0
+offset_right = 1144.0
+offset_bottom = 632.0
+texture = ExtResource("9_kw4fw")
+expand_mode = 1
+stretch_mode = 4
+time_shown = 3.0
+emitter = NodePath("FmodEventEmitter3D")
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/cutscene3_1_7" index="0"]
+event_name = "event:/cutscene_sfx/cutscene3.1_7"
+event_guid = "{a4e9adea-cc89-42ad-b72b-d59429caf885}"

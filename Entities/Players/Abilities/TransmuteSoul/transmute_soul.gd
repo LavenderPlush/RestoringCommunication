@@ -38,6 +38,7 @@ func _physics_process(_delta: float) -> void:
 		movement.process_jump()
 
 func transmute_soul():
+	ensure_static(alien_body)
 	transmuted_object = transmutable_object
 	movement.set_body(transmutable_object)
 	movement.set_floor_rays(transmutable_object.get_floor_rays())
@@ -45,6 +46,7 @@ func transmute_soul():
 	Common.play_sound(engage_emitter)
 
 func untransmute_soul():
+	ensure_static(transmuted_object)
 	transmuted_object.control(false)
 	transmuted_object = null
 	Common.play_sound(disengage_emitter)
@@ -54,3 +56,6 @@ func extend_transmute():
 		transmutable_object = transmuted_object.interactable_extension
 		untransmute_soul()
 		transmute_soul()
+
+func ensure_static(body: CharacterBody3D):
+	body.velocity = Vector3.ZERO
