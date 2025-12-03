@@ -28,6 +28,8 @@
 [ext_resource type="PackedScene" uid="uid://088ghaqo8clh" path="res://Assets/Tower/tower.glb" id="25_sflib"]
 [ext_resource type="PackedScene" uid="uid://ddcknlbag4qiy" path="res://Assets/Environment/environment.glb" id="26_yyxql"]
 [ext_resource type="Shader" uid="uid://dywana7pa5vy2" path="res://Assets/Shaders/dots.gdshader" id="27_yqbme"]
+[ext_resource type="PackedScene" uid="uid://cn8oh206opqdw" path="res://Entities/EntranceDoor/entrance_door.tscn" id="25_yqbme"]
+[ext_resource type="Material" uid="uid://dq5qtidau355u" path="res://Materials/Brown_platform_base.tres" id="26_88h3y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3nf5n"]
 render_priority = 0
@@ -113,10 +115,10 @@ extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_ojkdo")
 
 [node name="Human" parent="." instance=ExtResource("3_niywx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.355295, -9.205196)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.4495926, -8.9098835)
 
 [node name="Alien" parent="." instance=ExtResource("4_8cnft")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.1975193, -7.9203863)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.2918167, -7.6250734)
 
 [node name="Borders" type="Node3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
@@ -471,6 +473,42 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.4589567, 1.9211285)
 transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.8779614, -3.7571416, -1.4805264)
 skeleton = NodePath("../../..")
 
+[node name="EntranceShaft" type="Node3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.2803964, 5.020834, -8.340774)
+
+[node name="EntranceDoor" parent="EntranceShaft" instance=ExtResource("25_yqbme")]
+transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, 0.020196915, 3.056, -1.1738113)
+
+[node name="EntranceWall1" type="CSGBox3D" parent="EntranceShaft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0134887695, -9.454215, -3.9151993)
+material_override = ExtResource("26_88h3y")
+size = Vector3(3.963501, 17.116713, 5.9898376)
+
+[node name="EntranceWall2" type="CSGBox3D" parent="EntranceShaft"]
+transform = Transform3D(-4.3711385e-08, -1, 4.371139e-08, 1, -4.371139e-08, -4.371139e-08, 4.371139e-08, 4.371139e-08, 1, -2.5152626, -6.525074, -4.5932503)
+material_override = ExtResource("26_88h3y")
+size = Vector3(23.396736, 1.1003265, 6.7619095)
+
+[node name="EntranceWall3" type="CSGBox3D" parent="EntranceShaft"]
+transform = Transform3D(-4.3711385e-08, -1, 4.371139e-08, 1, -4.371139e-08, -4.371139e-08, 4.371139e-08, 4.371139e-08, 1, 2.5284843, -6.4608345, -4.5943756)
+material_override = ExtResource("26_88h3y")
+size = Vector3(23.268257, 1.1048508, 6.7728424)
+
+[node name="EntranceWall4" type="CSGBox3D" parent="EntranceShaft"]
+transform = Transform3D(4.3711392e-08, 8.742278e-08, 1, 1, -4.371139e-08, -4.371139e-08, 4.371138e-08, 1, -8.742278e-08, 0.012571606, 1.6886482, -7.427518)
+material_override = ExtResource("26_88h3y")
+size = Vector3(6.9692917, 1.1048508, 4.0021973)
+
+[node name="EntranceWall5" type="CSGBox3D" parent="EntranceShaft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0134887695, 4.8445377, -4.1308594)
+material_override = ExtResource("26_88h3y")
+size = Vector3(3.963501, 0.6481967, 5.5585175)
+
+[node name="EntranceWall6" type="CSGBox3D" parent="EntranceShaft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0134887695, 0.7858262, -4.1308594)
+material_override = ExtResource("26_88h3y")
+size = Vector3(3.963501, 0.47851646, 5.5585175)
+
 [node name="Exit" type="Node3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9.615264e-08, 50.311123, -2.1997178)
 
@@ -498,8 +536,33 @@ shape = SubResource("BoxShape3D_sflib")
 [node name="ExitDoor" parent="Exit" instance=ExtResource("24_61hp7")]
 transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -5.2082335e-08, 1.1131325, -1.191505)
 
-[node name="EntranceDoor" parent="." instance=ExtResource("24_61hp7")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.8954083, 8.037554, -8.312521)
+[node name="ExitShaft" type="Node3D" parent="Exit"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3635292, -0.18638605)
+
+[node name="ExitWall1" type="CSGBox3D" parent="Exit/ExitShaft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0134887695, -1.5700836, -3.9699216)
+material_override = ExtResource("26_88h3y")
+size = Vector3(3.963501, 0.45449448, 5.880394)
+
+[node name="ExitWall2" type="CSGBox3D" parent="Exit/ExitShaft"]
+transform = Transform3D(-4.3711385e-08, -1, 4.371139e-08, 1, -4.371139e-08, -4.371139e-08, 4.371139e-08, 4.371139e-08, 1, -2.5152624, 5.4675064, -4.490844)
+material_override = ExtResource("26_88h3y")
+size = Vector3(14.547512, 1.1003265, 6.9667225)
+
+[node name="ExitWall3" type="CSGBox3D" parent="Exit/ExitShaft"]
+transform = Transform3D(-4.3711385e-08, -1, 4.371139e-08, 1, -4.371139e-08, -4.371139e-08, 4.371139e-08, 4.371139e-08, 1, 2.528484, 5.4955826, -4.493841)
+material_override = ExtResource("26_88h3y")
+size = Vector3(14.583157, 1.1048508, 6.9739113)
+
+[node name="ExitWall4" type="CSGBox3D" parent="Exit/ExitShaft"]
+transform = Transform3D(4.3711392e-08, 8.742278e-08, 1, 1, -4.371139e-08, -4.371139e-08, 4.371138e-08, 1, -8.742278e-08, 0.01257205, 5.479431, -7.427518)
+material_override = ExtResource("26_88h3y")
+size = Vector3(14.550856, 1.1048508, 4.0021973)
+
+[node name="ExitWall5" type="CSGBox3D" parent="Exit/ExitShaft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.013489008, 7.7760925, -1.6176014)
+material_override = ExtResource("26_88h3y")
+size = Vector3(3.963501, 9.953993, 1.1757536)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_yyxql")
