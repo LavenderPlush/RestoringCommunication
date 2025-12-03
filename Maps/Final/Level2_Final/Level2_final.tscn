@@ -82,7 +82,7 @@ wide_fov_min = 22.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13)
 
 [node name="Alien" parent="AlienHalf" instance=ExtResource("3_8hqu6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6856203, -8.310515)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 31.68562, 32.81288)
 
 [node name="Borders_AlienHalf" type="Node3D" parent="AlienHalf"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
@@ -212,7 +212,7 @@ transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-
 reset_until_checkpoint_id = 2
 
 [node name="Box5" parent="AlienHalf/Boxes_AlienHalf" instance=ExtResource("4_08nnt")]
-transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, 17.061571, 27.70218, -7.4578463e-07)
+transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, 31.335463, 30.811966, -1.3697163e-06)
 reset_until_checkpoint_id = 2
 
 [node name="Box6" parent="AlienHalf/Boxes_AlienHalf" instance=ExtResource("4_08nnt")]
@@ -258,7 +258,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.63582706, -1.6641693)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 13)
 
 [node name="Human" parent="HumanHalf" instance=ExtResource("9_yw8i5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.536743e-07, 2.6678152, 8.011084)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.536743e-07, 31.667816, 9.829615)
 
 [node name="Borders_HumanHalf" type="Node3D" parent="HumanHalf"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
@@ -312,7 +312,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.2
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.850813, 29.249844, -6.1645886e-07)
 
 [node name="Platform7" parent="HumanHalf/Platforms_HumanHalf" instance=ExtResource("9_j2bmq")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.545147, 31.411175, -1.6203717e-07)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.5005445, 31.411175, -2.0769818e-07)
 
 [node name="Ladder" parent="HumanHalf/Platforms_HumanHalf" instance=ExtResource("10_bxhdx")]
 transform = Transform3D(1, 0, 1.9272301e-07, 0, 1, 0, -1.9272301e-07, 0, 1, 11.2617035, 20.979183, -0.9322816)
@@ -436,7 +436,7 @@ checkpoint_id = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.028488, -3.0047245)
 
 [node name="Checkpoint3_AlienSpawn" type="Marker3D" parent="Checkpoints/Checkpoint3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.136299, -10.022875)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.136299, -11.911111)
 
 [node name="Checkpoint3_Light" parent="Checkpoints/Checkpoint3" instance=ExtResource("26_07gr3")]
 transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.88269055, 11.113254, -12.168241)

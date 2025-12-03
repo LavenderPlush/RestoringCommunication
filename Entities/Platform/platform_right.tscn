@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://8rl4ctn0rhq3"]
+[gd_scene load_steps=7 format=4 uid="uid://8rl4ctn0rhq3"]
 
 [ext_resource type="Texture2D" uid="uid://bin7c48vw3rd0" path="res://Assets/Platform/Right/platform_right_rock-62_diffusev3.jpg" id="1_pbn2a"]
 [ext_resource type="Texture2D" uid="uid://co338q113q757" path="res://Assets/Platform/Right/platform_right_stone-88_diffuse.png" id="2_843bn"]
@@ -52,9 +52,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_4ftt2")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_gybvb"]
-size = Vector3(1.0563965, 0.2769165, 1.9963379)
-
 [node name="PlatformRight" type="Node3D"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 
@@ -63,9 +60,3 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0
 [node name="Cube_005" type="MeshInstance3D" parent="platform_right"]
 mesh = SubResource("ArrayMesh_ouxe8")
 skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="platform_right/Cube_005"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="platform_right/Cube_005/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.021759033, 0)
-shape = SubResource("BoxShape3D_gybvb")

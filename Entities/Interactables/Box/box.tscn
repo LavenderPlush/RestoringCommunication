@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cut37mic2ba8v"]
+[gd_scene load_steps=12 format=3 uid="uid://cut37mic2ba8v"]
 
 [ext_resource type="Script" uid="uid://b55gqcvyk20u" path="res://Entities/Interactables/interactable.gd" id="1_6eev6"]
 [ext_resource type="Material" uid="uid://bbp852166q7um" path="res://Materials/outline_human_material.tres" id="2_eolob"]
@@ -9,6 +9,11 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oovab"]
 size = Vector3(2, 2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i3jk6"]
+render_priority = 1
+transparency = 1
+albedo_color = Color(1, 0, 0.916667, 0.27450982)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6eev6"]
 albedo_color = Color(0.34901962, 0.09411765, 0, 1)
@@ -43,7 +48,7 @@ shape = SubResource("BoxShape3D_oovab")
 [node name="PinkOverlay" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.02, 0, 0, 0, 1.02, 0, 0, 0, 1.02, 0, 0, 0)
 visible = false
-material_override = ExtResource("6_i3jk6")
+material_override = SubResource("StandardMaterial3D_i3jk6")
 mesh = SubResource("BoxMesh_k5cr6")
 
 [node name="FloorRays" type="Node3D" parent="."]
