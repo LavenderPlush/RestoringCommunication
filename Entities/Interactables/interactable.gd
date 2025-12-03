@@ -2,6 +2,7 @@ class_name Interactable extends CharacterBody3D
 
 @export_category("Designers")
 @export var collision_push_off_velocity: float = 0.75
+@export var slide_speed: float = 3.0
 ##This Object will keep resetting until Players reach this Checkpoint ID. Keep at -1 to always reset.
 @export var reset_until_checkpoint_id: int = -1
 @export var human_outline: Material
@@ -110,7 +111,7 @@ func _physics_process(delta: float) -> void:
 			velocity.z = horizontal_velocity
 			velocity.y = initial_vertical_velocity - gravity * air_time
 	else:
-		velocity.z = 0
+		velocity.z = move_toward(velocity.z, 0, 10.0 * delta)
 		velocity.y -= gravity * delta
 
 func _handle_collisions():
@@ -126,6 +127,8 @@ func _handle_collisions():
 			if collider is Player:
 				velocity.y += collision_push_off_velocity
 
+				_handle_land_on_player(collider)
+
 func _update_outline():
 	mesh.material_overlay = null
 
@@ -137,6 +140,14 @@ func _update_outline():
 		mesh.material_overlay = human_outline
 	elif alien_active:
 		mesh.material_overlay = alien_outline
+
+func _handle_land_on_player(collider: Node3D):
+	var slide_direction = global_position - collider.global_position
+
+	if abs(slide_direction.z) < 0.1:
+		slide_direction.z = 1.0
+		
+	velocity.z += slide_direction.normalized().z * slide_speed
 
 func set_targeted(is_human: bool, state: bool) -> void:
 	if is_human:
