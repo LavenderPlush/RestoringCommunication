@@ -5,11 +5,12 @@
 [sub_resource type="Theme" id="Theme_wvej0"]
 default_font_size = 19
 
-[node name="CutsceneBase" type="Node3D" node_paths=PackedStringArray("frame_holder", "wait_timer", "progress_bar", "bgm_emitter")]
+[node name="CutsceneBase" type="Node3D" node_paths=PackedStringArray("frame_holder", "wait_timer", "progress_bar", "skip_label", "bgm_emitter")]
 script = ExtResource("1_fcd0k")
 frame_holder = NodePath("CanvasLayer/Frames")
 wait_timer = NodePath("WaitTimer")
 progress_bar = NodePath("CanvasLayer/ProgressBar")
+skip_label = NodePath("CanvasLayer/Skip label")
 bgm_emitter = NodePath("FmodEventEmitter3D")
 
 [node name="WaitTimer" type="Timer" parent="."]
@@ -25,6 +26,7 @@ bank_paths = ["res://Assets/FMODBank/Desktop/Master.bank"]
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+visible = false
 z_index = 1
 offset_left = 888.0
 offset_top = 596.0
@@ -36,6 +38,7 @@ rounded = true
 show_percentage = false
 
 [node name="Skip label" type="Label" parent="CanvasLayer"]
+visible = false
 z_index = 2
 offset_left = 900.0
 offset_top = 600.0
