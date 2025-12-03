@@ -7,8 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://c161xbj0sh7v" path="res://Entities/Button/LadderButton/ladder_button.tscn" id="5_u5ick"]
 [ext_resource type="PackedScene" uid="uid://b8hxsnh6e1jfh" path="res://Entities/Ladder/extendable_ladder.tscn" id="6_hly84"]
 [ext_resource type="PackedScene" uid="uid://dk6nscx8wfi48" path="res://Entities/Checkpoint/checkpoint.tscn" id="8_ajho5"]
-[ext_resource type="PackedScene" uid="uid://q5kt65k1meus" path="res://Entities/Button/ExitButton/exit_manager.tscn" id="8_vlpq4"]
-[ext_resource type="PackedScene" uid="uid://c3ocixu65cif1" path="res://Entities/Button/ExitButton/exit_button.tscn" id="9_6h5gp"]
 [ext_resource type="PackedScene" uid="uid://b2mgbokpp37sx" path="res://Entities/BreakableWall/breakable_wall.tscn" id="10_6h5gp"]
 [ext_resource type="PackedScene" uid="uid://dhfj2dvwjwwoh" path="res://Entities/MovingPlatform/moving_platform.tscn" id="11_ddmds"]
 [ext_resource type="PackedScene" uid="uid://1p2rwqwpq1w5" path="res://Entities/Checkpoint/checkpoint_light.tscn" id="12_xgm8l"]
@@ -36,9 +34,6 @@ size = Vector2(2, 2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_08bup"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_jw2t6"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ddmds"]
-albedo_color = Color(0.195, 0.75, 0.22274995, 1)
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_xgm8l"]
 
@@ -71,7 +66,7 @@ shader_parameter/UseReshade = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4554796, -2.5371113)
 
 [node name="Alien" parent="." instance=ExtResource("1_vfhqw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4554799, 2.7854738)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4554799, 6.8859286)
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("player1", "player2")]
 transform = Transform3D(-4.371139e-08, 0.1736482, -0.9848077, 0, 0.9848077, 0.1736482, 1, 7.590404e-09, -4.304731e-08, -15, 5.486, -7.562)
@@ -143,7 +138,7 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
 mesh = SubResource("BoxMesh_jw2t6")
 
 [node name="RigidBody3D2" type="RigidBody3D" parent="."]
-transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 8.8904, -3.7516916)
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 12.751215, -0.0011100769)
 freeze = true
 freeze_mode = 1
 
@@ -158,7 +153,7 @@ mesh = SubResource("BoxMesh_jw2t6")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 25.91248)
 
 [node name="Box2" parent="." instance=ExtResource("3_8aafw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 9.171949)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 3.17661)
 
 [node name="AnimatableBody3D" parent="." node_paths=PackedStringArray("extendable_ladder") instance=ExtResource("5_u5ick")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5635568, -8.601)
@@ -203,42 +198,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.890049)
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.71105725, 0, -0.7031341, 0.14808585, 0.97757053, 0.14975452, 0.6873632, -0.21060824, 0.6951086, 0, 4.4490185, 9.657062)
 
-[node name="Exit" type="Node3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
-
-[node name="ExitManager" parent="Exit" node_paths=PackedStringArray("button_a", "button_b", "door") instance=ExtResource("8_vlpq4")]
-button_a = NodePath("../ExitButton")
-button_b = NodePath("../ExitButton2")
-door = NodePath("../ExitDoor")
-
-[node name="ExitButton" parent="Exit" instance=ExtResource("9_6h5gp")]
-transform = Transform3D(1.3374798e-15, 3.059797e-08, 0.7, 0.7, -3.059797e-08, 0, 3.059797e-08, 0.7, -3.059797e-08, -5.0000043, 2.477159, -0.9999999)
-
-[node name="ExitButton2" parent="Exit" instance=ExtResource("9_6h5gp")]
-transform = Transform3D(1.3374798e-15, 3.059797e-08, 0.7, 0.7, -3.059797e-08, 0, 3.059797e-08, 0.7, -3.059797e-08, 4.999996, 2.477159, -1)
-
-[node name="ExitDoor" type="CSGBox3D" parent="Exit"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, 0.012756216, 2.477159, -3.0004456)
-use_collision = true
-size = Vector3(4, 4, 1)
-material = SubResource("StandardMaterial3D_ddmds")
-
 [node name="BreakableWall" parent="." instance=ExtResource("10_6h5gp")]
 transform = Transform3D(5.452853, 0, 0, 0, 3.6019025, 0, 0, 0, 1, -0.057981968, 2.2166824, 18.506971)
 
-[node name="MovingPlatform" parent="." node_paths=PackedStringArray("point_a", "point_b") instance=ExtResource("11_ddmds")]
+[node name="MovingPlatform" parent="." node_paths=PackedStringArray("point_a", "point_b", "cheat_area") instance=ExtResource("11_ddmds")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09, 0.003)
 point_a = NodePath("Marker3D")
 point_b = NodePath("Marker3D2")
 wait_time = 0.4
 auto_start = false
+cheat_area = NodePath("../CheatArea")
 
 [node name="Marker3D" type="Marker3D" parent="MovingPlatform"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09, 0.003)
 top_level = true
 
 [node name="Marker3D2" type="Marker3D" parent="MovingPlatform"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.09, 6.9439907)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.09, -0.056009293)
 top_level = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

@@ -344,7 +344,7 @@ shadow_mesh = SubResource("ArrayMesh_hvdbg")
 radius = 0.22363281
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rj3cs"]
-size = Vector3(1, 2, 2)
+size = Vector3(1, 2, 4)
 
 [node name="Human" type="CharacterBody3D" node_paths=PackedStringArray("movement", "ability") groups=["Player"]]
 collision_layer = 2
@@ -395,6 +395,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.47329843, 2)
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_rj3cs")
 
 [node name="Sound" type="Node" parent="."]
