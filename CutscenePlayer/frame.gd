@@ -6,7 +6,7 @@ class_name Frame extends TextureRect
 
 @export_group("Sound")
 @export var emitter: FmodEventEmitter3D
-@export_enum("Chill", "Panic", "Triumphant", "Tense", "Magnificent") var ambience: String = "Chill":
+@export_enum("Chill", "Panic", "Triumphant", "Tense", "Magnificent", "Silence") var ambience: String = "Silence":
 	get(): return ambience
 
 var id: int
