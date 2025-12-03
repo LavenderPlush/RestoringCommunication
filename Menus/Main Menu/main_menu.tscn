@@ -1,7 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://daxbyfh4i85sk"]
+[gd_scene load_steps=16 format=3 uid="uid://daxbyfh4i85sk"]
 
 [ext_resource type="Script" uid="uid://b8y3avcygd3g2" path="res://Menus/Main Menu/main_menu.gd" id="1_vw53x"]
-[ext_resource type="Texture2D" uid="uid://bjxiy7pf5hxu" path="res://Assets/Menu/Controls.png" id="2_i30oo"]
+[ext_resource type="Texture2D" uid="uid://iqmgj6irldut" path="res://Assets/Menu/Buttons/Start/start_button.png" id="2_clbkk"]
+[ext_resource type="Texture2D" uid="uid://dmvvn7kvl87f2" path="res://Assets/Menu/main_menu.png" id="2_txv1j"]
+[ext_resource type="Texture2D" uid="uid://bdxwc7xhawygo" path="res://Assets/Menu/Buttons/Start/start_button_press.png" id="3_bsnas"]
+[ext_resource type="Texture2D" uid="uid://3mkw6idt4rdh" path="res://Assets/Menu/Buttons/Start/start_button_highlight.png" id="4_8gymj"]
+[ext_resource type="Texture2D" uid="uid://wmlrsmxop25q" path="res://Assets/Menu/Buttons/Controls/controls_button.png" id="5_q6t3s"]
+[ext_resource type="Texture2D" uid="uid://b7e761pb28sp6" path="res://Assets/Menu/Buttons/Controls/controls_button_press.png" id="6_r1l2g"]
+[ext_resource type="Texture2D" uid="uid://dxlrwg7tg2yde" path="res://Assets/Menu/Buttons/Controls/controls_button_highlight.png" id="7_7fbjv"]
+[ext_resource type="Texture2D" uid="uid://dl3faaxicscd7" path="res://Assets/Menu/Buttons/Quit/quit_button.png" id="8_j8f7t"]
+[ext_resource type="Texture2D" uid="uid://cjhmrnxphbn0u" path="res://Assets/Menu/Buttons/Quit/quit_button_press.png" id="9_0nbd1"]
+[ext_resource type="Texture2D" uid="uid://32tojpddyc1f" path="res://Assets/Menu/Buttons/Quit/quit_button_highlight.png" id="10_txv1j"]
+[ext_resource type="Texture2D" uid="uid://c85msc6ubnw8m" path="res://Assets/Menu/controls_menu.png" id="12_0nbd1"]
+[ext_resource type="Texture2D" uid="uid://dl600687ftng8" path="res://Assets/Menu/Buttons/Back/back_button.png" id="12_j8f7t"]
+[ext_resource type="Texture2D" uid="uid://jec7v5m2unn3" path="res://Assets/Menu/Buttons/Back/back_button_press.png" id="13_0nbd1"]
+[ext_resource type="Texture2D" uid="uid://bi0f6k4pdk52k" path="res://Assets/Menu/Buttons/Back/back_button_highlight.png" id="14_txv1j"]
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("controls_image")]
 layout_mode = 3
@@ -13,54 +26,51 @@ grow_vertical = 2
 script = ExtResource("1_vw53x")
 controls_image = NodePath("ControlsGroup")
 
-[node name="Image" type="ColorRect" parent="."]
+[node name="Image" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.39215687)
+texture = ExtResource("2_txv1j")
+expand_mode = 1
 
-[node name="Title" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -117.5
-offset_top = 100.0
-offset_right = 117.5
-offset_bottom = 123.00003
-grow_horizontal = 2
-text = "RESTORING COMMUNICATION"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="PlayButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 408.0
+offset_top = 334.0
+offset_right = 1031.9998
+offset_bottom = 542.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("2_clbkk")
+texture_pressed = ExtResource("3_bsnas")
+texture_hover = ExtResource("4_8gymj")
+texture_focused = ExtResource("4_8gymj")
 
-[node name="ButtonContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="ControlsButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 408.0
+offset_top = 430.0
+offset_right = 1032.0
+offset_bottom = 638.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("5_q6t3s")
+texture_pressed = ExtResource("6_r1l2g")
+texture_hover = ExtResource("7_7fbjv")
+texture_focused = ExtResource("7_7fbjv")
 
-[node name="PlayButton" type="Button" parent="ButtonContainer"]
-layout_mode = 2
-text = "PLAY"
-
-[node name="ControlsButton" type="Button" parent="ButtonContainer"]
-layout_mode = 2
-text = "CONTROLS"
-
-[node name="QuitButton" type="Button" parent="ButtonContainer"]
-layout_mode = 2
-text = "QUIT"
+[node name="QuitButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 408.0
+offset_top = 532.0
+offset_right = 1031.9998
+offset_bottom = 740.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("8_j8f7t")
+texture_pressed = ExtResource("9_0nbd1")
+texture_hover = ExtResource("10_txv1j")
+texture_focused = ExtResource("10_txv1j")
 
 [node name="ControlsGroup" type="Control" parent="."]
 visible = false
@@ -72,28 +82,33 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Image" type="TextureRect" parent="ControlsGroup"]
-layout_mode = 0
-offset_left = 106.0
-offset_top = 37.0
-offset_right = 1035.0
-offset_bottom = 598.0
-texture = ExtResource("2_i30oo")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_0nbd1")
 expand_mode = 1
 
-[node name="BackButton" type="Button" parent="ControlsGroup"]
+[node name="BackButton" type="TextureButton" parent="ControlsGroup"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 286.0
-offset_top = 214.0
-offset_right = 436.0
-offset_bottom = 259.0
+offset_left = 396.99994
+offset_top = 163.0
+offset_right = 861.0
+offset_bottom = 531.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "BACK"
+scale = Vector2(0.36, 0.36)
+texture_normal = ExtResource("12_j8f7t")
+texture_pressed = ExtResource("13_0nbd1")
+texture_hover = ExtResource("14_txv1j")
+texture_focused = ExtResource("14_txv1j")
 
 [node name="Sound" type="Node" parent="."]
 

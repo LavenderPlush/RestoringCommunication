@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://wv7mhgpex08w"]
+[gd_scene load_steps=23 format=3 uid="uid://wv7mhgpex08w"]
 
 [ext_resource type="PackedScene" uid="uid://bh7w25o2ijqo6" path="res://Entities/Players/Alien/alien.tscn" id="1_vfhqw"]
 [ext_resource type="PackedScene" uid="uid://bd388rue7yafh" path="res://Entities/Players/Human/human.tscn" id="2_kqrly"]
@@ -201,13 +201,12 @@ transform = Transform3D(0.71105725, 0, -0.7031341, 0.14808585, 0.97757053, 0.149
 [node name="BreakableWall" parent="." instance=ExtResource("10_6h5gp")]
 transform = Transform3D(5.452853, 0, 0, 0, 3.6019025, 0, 0, 0, 1, -0.057981968, 2.2166824, 18.506971)
 
-[node name="MovingPlatform" parent="." node_paths=PackedStringArray("point_a", "point_b", "cheat_area") instance=ExtResource("11_ddmds")]
+[node name="MovingPlatform" parent="." node_paths=PackedStringArray("point_a", "point_b") instance=ExtResource("11_ddmds")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09, 0.003)
 point_a = NodePath("Marker3D")
 point_b = NodePath("Marker3D2")
 wait_time = 0.4
 auto_start = false
-cheat_area = NodePath("../CheatArea")
 
 [node name="Marker3D" type="Marker3D" parent="MovingPlatform"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09, 0.003)
