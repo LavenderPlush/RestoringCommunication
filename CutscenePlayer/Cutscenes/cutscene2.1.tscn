@@ -1,0 +1,201 @@
+[gd_scene load_steps=10 format=3 uid="uid://ct5cbdibvgixs"]
+
+[ext_resource type="PackedScene" uid="uid://dq77apc8gosic" path="res://CutscenePlayer/cutscene_base.tscn" id="1_3108d"]
+[ext_resource type="PackedScene" uid="uid://ksm03gj3e2pf" path="res://CutscenePlayer/frame.tscn" id="2_3t6k2"]
+[ext_resource type="Texture2D" uid="uid://37ns64i0id1b" path="res://Assets/Cutscenes/cutscene2.1/cutscene2.1_1.jpg" id="3_lqdel"]
+[ext_resource type="Texture2D" uid="uid://bo86ojufdy40r" path="res://Assets/Cutscenes/cutscene2.1/cutscene2.1_2.jpg" id="4_c6e4k"]
+[ext_resource type="Texture2D" uid="uid://cq3dd14as7aeo" path="res://Assets/Cutscenes/blank.png" id="4_tbrhs"]
+[ext_resource type="Texture2D" uid="uid://bu4rjic72wxxx" path="res://Assets/Cutscenes/cutscene2.1/cutscene2.1_3.jpg" id="5_tbrhs"]
+[ext_resource type="Texture2D" uid="uid://odm6xv83on0q" path="res://Assets/Cutscenes/cutscene2.1/cutscene2.1_4.jpg" id="6_maduj"]
+[ext_resource type="Texture2D" uid="uid://ddhlbp2byvvnq" path="res://Assets/Cutscenes/cutscene2.1/cutscene2.1_5.jpg" id="7_vywi0"]
+[ext_resource type="Texture2D" uid="uid://b6gs3et3070rv" path="res://Assets/Cutscenes/cutscene2.1/cutscene2.1_6.jpg" id="8_laqw1"]
+
+[node name="CutesceneOne" instance=ExtResource("1_3108d")]
+wait_time = 1.0
+
+[node name="cutscene2_1_1" parent="CanvasLayer/Frames" index="0" node_paths=PackedStringArray("emitter") instance=ExtResource("2_3t6k2")]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 472.0
+offset_bottom = 360.0
+texture = ExtResource("3_lqdel")
+expand_mode = 1
+stretch_mode = 4
+time_shown = 5.0
+emitter = NodePath("FmodEventEmitter3D")
+ambience = "Tense"
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/cutscene2_1_1" index="0"]
+event_name = "event:/cutscene_sfx/cutscene2.1_1"
+event_guid = "{7bbc6da8-2b94-451d-a2fe-d249b4d0c7fe}"
+
+[node name="cutscene2_1_1b" parent="CanvasLayer/Frames" index="1" node_paths=PackedStringArray("emitter") instance=ExtResource("2_3t6k2")]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 472.0
+offset_bottom = 360.0
+texture = ExtResource("4_tbrhs")
+expand_mode = 1
+stretch_mode = 4
+time_shown = 5.0
+emitter = NodePath("FmodEventEmitter3D")
+ambience = "Tense"
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/cutscene2_1_1b" index="0"]
+event_name = "event:/cutscene_sfx/cutscene2.1_1b"
+event_guid = "{37596041-34dd-4ced-a561-fef34e47408b}"
+
+[node name="cutscene2_1_2" parent="CanvasLayer/Frames" index="2" node_paths=PackedStringArray("emitter") instance=ExtResource("2_3t6k2")]
+layout_mode = 0
+offset_left = 496.0
+offset_top = 16.0
+offset_right = 800.0
+offset_bottom = 352.0
+texture = ExtResource("4_c6e4k")
+expand_mode = 1
+stretch_mode = 4
+time_shown = 5.0
+emitter = NodePath("FmodEventEmitter3D")
+ambience = "Tense"
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/cutscene2_1_2" index="0"]
+event_name = "event:/cutscene_sfx/cutscene2.1_2"
+event_guid = "{e9aa1ca7-d20a-4622-9211-faa54028e0fb}"
+
+[node name="cutscene2_1_3" parent="CanvasLayer/Frames" index="3" node_paths=PackedStringArray("emitter") instance=ExtResource("2_3t6k2")]
+layout_mode = 0
+offset_left = 792.0
+offset_top = 16.0
+offset_right = 1128.0
+offset_bottom = 360.0
+texture = ExtResource("5_tbrhs")
+expand_mode = 1
+stretch_mode = 4
+time_shown = 5.0
+emitter = NodePath("FmodEventEmitter3D")
+ambience = "Tense"
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/cutscene2_1_3" index="0"]
+event_name = "event:/cutscene_sfx/cutscene2.1_3"
+event_guid = "{1dd7f92c-7c91-4e34-83dc-51793f3d8441}"
+
+[node name="cutscene2_1_4" parent="CanvasLayer/Frames" index="4" node_paths=PackedStringArray("emitter") instance=ExtResource("2_3t6k2")]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 368.0
+offset_right = 608.0
+offset_bottom = 624.0
+texture = ExtResource("6_maduj")
+expand_mode = 1
+stretch_mode = 4
+time_shown = 5.0
+emitter = NodePath("FmodEventEmitter3D")
+ambience = "Tense"
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/cutscene2_1_4" index="0"]
+event_name = "event:/cutscene_sfx/cutscene2.1_4"
+event_guid = "{98ff4c5a-031e-4fc5-86d8-cdf71e6592a3}"
+
+[node name="cutscene2_1_4b" parent="CanvasLayer/Frames" index="5" node_paths=PackedStringArray("emitter") instance=ExtResource("2_3t6k2")]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 368.0
+offset_right = 608.0
+offset_bottom = 624.0
+texture = ExtResource("4_tbrhs")
+expand_mode = 1
+stretch_mode = 4
+time_shown = 5.0
+emitter = NodePath("FmodEventEmitter3D")
+ambience = "Tense"
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/cutscene2_1_4b" index="0"]
+event_name = "event:/cutscene_sfx/cutscene2.1_4b"
+event_guid = "{e36926e4-dc2f-46c0-b5af-1a37b645fc21}"
+
+[node name="cutscene2_1_4c" parent="CanvasLayer/Frames" index="6" node_paths=PackedStringArray("emitter") instance=ExtResource("2_3t6k2")]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 368.0
+offset_right = 608.0
+offset_bottom = 624.0
+texture = ExtResource("4_tbrhs")
+expand_mode = 1
+stretch_mode = 4
+time_shown = 5.0
+emitter = NodePath("FmodEventEmitter3D")
+ambience = "Tense"
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/cutscene2_1_4c" index="0"]
+event_name = "event:/cutscene_sfx/cutscene2.1_4c"
+event_guid = "{17de9964-feda-4c2d-ab97-3e4f30f66f12}"
+
+[node name="cutscene2_1_4d" parent="CanvasLayer/Frames" index="7" node_paths=PackedStringArray("emitter") instance=ExtResource("2_3t6k2")]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 368.0
+offset_right = 608.0
+offset_bottom = 624.0
+texture = ExtResource("4_tbrhs")
+expand_mode = 1
+stretch_mode = 4
+time_shown = 5.0
+emitter = NodePath("FmodEventEmitter3D")
+ambience = "Tense"
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/cutscene2_1_4d" index="0"]
+event_name = "event:/cutscene_sfx/cutscene2.1_4d"
+event_guid = "{55f61350-c1a1-4df8-9769-bf5d4ad056d7}"
+
+[node name="cutscene2_1_4e" parent="CanvasLayer/Frames" index="8" node_paths=PackedStringArray("emitter") instance=ExtResource("2_3t6k2")]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 368.0
+offset_right = 608.0
+offset_bottom = 624.0
+texture = ExtResource("4_tbrhs")
+expand_mode = 1
+stretch_mode = 4
+time_shown = 5.0
+emitter = NodePath("FmodEventEmitter3D")
+ambience = "Tense"
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/cutscene2_1_4e" index="0"]
+event_name = "event:/cutscene_sfx/cutscene2.1_4e"
+event_guid = "{123c2544-55e3-47d0-aca1-01043e5db000}"
+
+[node name="cutscene2_1_5" parent="CanvasLayer/Frames" index="9" node_paths=PackedStringArray("emitter") instance=ExtResource("2_3t6k2")]
+layout_mode = 0
+offset_left = 592.0
+offset_top = 368.0
+offset_right = 848.0
+offset_bottom = 664.0
+texture = ExtResource("7_vywi0")
+expand_mode = 1
+stretch_mode = 4
+time_shown = 5.0
+emitter = NodePath("FmodEventEmitter3D")
+ambience = "Tense"
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/cutscene2_1_5" index="0"]
+event_name = "event:/cutscene_sfx/cutscene2.1_5"
+event_guid = "{4cda82c8-d9ac-4662-b9c0-2694905e570b}"
+
+[node name="cutscene2_1_6" parent="CanvasLayer/Frames" index="10" node_paths=PackedStringArray("emitter") instance=ExtResource("2_3t6k2")]
+layout_mode = 0
+offset_left = 864.0
+offset_top = 368.0
+offset_right = 1128.0
+offset_bottom = 632.0
+texture = ExtResource("8_laqw1")
+expand_mode = 1
+stretch_mode = 4
+time_shown = 5.0
+emitter = NodePath("FmodEventEmitter3D")
+ambience = "Tense"
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/cutscene2_1_6" index="0"]
+event_name = "event:/cutscene_sfx/cutscene2.1_6"
+event_guid = "{6520a253-9a06-49b8-9908-0d2d242b0bcd}"

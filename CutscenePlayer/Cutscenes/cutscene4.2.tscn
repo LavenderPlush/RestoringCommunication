@@ -7,7 +7,7 @@
 [node name="CutesceneOne" instance=ExtResource("1_rh1el")]
 wait_time = 1.0
 
-[node name="Frame1" parent="CanvasLayer/Frames" index="0" node_paths=PackedStringArray("emitter") instance=ExtResource("2_rmkpj")]
+[node name="cutscene4_2_1" parent="CanvasLayer/Frames" index="0" node_paths=PackedStringArray("emitter") instance=ExtResource("2_rmkpj")]
 layout_mode = 0
 offset_left = 104.0
 offset_top = 16.0
@@ -20,6 +20,6 @@ time_shown = 5.0
 emitter = NodePath("FmodEventEmitter3D")
 ambience = "Magnificent"
 
-[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/Frame1" index="0"]
-event_name = "event:/Power Glove Throw"
-event_guid = "{d3d68252-aad3-4044-a86e-be69745977aa}"
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/cutscene4_2_1" index="0"]
+event_name = "event:/cutscene_sfx/cutscene4.1_7"
+event_guid = "{3f09206e-4dc0-4e34-b463-c4a9b5139b6c}"
