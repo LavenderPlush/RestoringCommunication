@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bpr5uieovmsbn"]
+
+[ext_resource type="Texture2D" uid="uid://4s3lo4llf5ol" path="res://Assets/WoodWall/wood_wall_wood32_diffuse.jpg" id="1_xbt8i"]
+
+[resource]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_xbt8i")
