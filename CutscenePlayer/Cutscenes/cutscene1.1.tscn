@@ -21,6 +21,7 @@ expand_mode = 1
 stretch_mode = 4
 time_shown = 3.0
 emitter = NodePath("FmodEventEmitter3D")
+ambience = "Chill"
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/cutscene1_1_1" index="0"]
 event_name = "event:/cutscene_sfx/cutscene1.1_1"
@@ -35,6 +36,7 @@ expand_mode = 1
 stretch_mode = 4
 time_shown = 3.0
 emitter = NodePath("FmodEventEmitter3D")
+ambience = "Chill"
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/cutscene1_1_2" index="0"]
 event_name = "event:/cutscene_sfx/cutscene1.1_2"

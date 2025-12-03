@@ -124,7 +124,6 @@ expand_mode = 1
 stretch_mode = 4
 time_shown = 5.0
 emitter = NodePath("FmodEventEmitter3D")
-ambience = "Tense"
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/cutscene1_2_4b" index="0"]
 event_name = "event:/cutscene_sfx/cutscene1.2_4b"
@@ -140,7 +139,6 @@ texture = ExtResource("7_mg8ei")
 expand_mode = 1
 stretch_mode = 4
 emitter = NodePath("FmodEventEmitter3D")
-ambience = "Tense"
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/cutscene1_2_5" index="0"]
 event_name = "event:/cutscene_sfx/cutscene1.2_5"
@@ -156,7 +154,6 @@ texture = ExtResource("9_xrb7b")
 expand_mode = 1
 stretch_mode = 4
 emitter = NodePath("FmodEventEmitter3D")
-ambience = "Tense"
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/cutscene1_2_5a" index="0"]
 event_name = "event:/cutscene_sfx/cutscene1.2_5a"
@@ -173,7 +170,6 @@ expand_mode = 1
 stretch_mode = 4
 time_shown = 3.7
 emitter = NodePath("FmodEventEmitter3D")
-ambience = "Tense"
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/cutscene1_2_5b" index="0"]
 event_name = "event:/cutscene_sfx/cutscene1.2_5b"
