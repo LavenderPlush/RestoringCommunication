@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://m3adhinc17pt"]
+[gd_scene load_steps=9 format=3 uid="uid://m3adhinc17pt"]
 
 [ext_resource type="PackedScene" uid="uid://dq77apc8gosic" path="res://CutscenePlayer/cutscene_base.tscn" id="1_ijyp1"]
 [ext_resource type="PackedScene" uid="uid://ksm03gj3e2pf" path="res://CutscenePlayer/frame.tscn" id="2_7uixu"]
@@ -8,17 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://dfjenfqqx6msx" path="res://Assets/Cutscenes/cutscene1.1/cutscene1.1_4.png" id="6_mlfo1"]
 [ext_resource type="Texture2D" uid="uid://dfj5aa6oterx8" path="res://Assets/Cutscenes/cutscene1.1/cutscene1.1_5.png" id="7_06t80"]
 [ext_resource type="Texture2D" uid="uid://dl4dmdkb8j8lf" path="res://Assets/Cutscenes/cutscene1.1/cutscene1.1_6.png" id="8_uil53"]
-[ext_resource type="Shader" uid="uid://dywana7pa5vy2" path="res://Assets/Shaders/comic_book.gdshader" id="9_ijyp1"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ijyp1"]
-shader = ExtResource("9_ijyp1")
-shader_parameter/UseColor = true
-shader_parameter/BlackDot = true
-shader_parameter/AspectRatio = 1.77
-shader_parameter/Dots = 120.0
-shader_parameter/_min = 0.49
-shader_parameter/_max = 0.48
-shader_parameter/UseReshade = false
 
 [node name="Cutescene1_1" instance=ExtResource("1_ijyp1")]
 wait_time = 1.0
@@ -111,12 +100,3 @@ ambience = "Magnificent"
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/CanvasLayer_Frames#Frame6" index="0"]
 event_name = "event:/Power Glove Pickup"
 event_guid = "{99bf67dd-38e2-413d-ad1e-ab9b807e8681}"
-
-[node name="Shader" type="ColorRect" parent="CanvasLayer/Frames" index="6"]
-material = SubResource("ShaderMaterial_ijyp1")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
