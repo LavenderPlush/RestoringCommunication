@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cjlo2enoms44b"]
+[gd_scene load_steps=37 format=3 uid="uid://cjlo2enoms44b"]
 
 [ext_resource type="Script" uid="uid://o651tn751848" path="res://Maps/level.gd" id="1_fit1s"]
 [ext_resource type="Script" uid="uid://clheyshb47air" path="res://Entities/Camera/camera_controller.gd" id="2_j7s5s"]
@@ -29,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://1p2rwqwpq1w5" path="res://Entities/Checkpoint/checkpoint_light.tscn" id="26_07gr3"]
 [ext_resource type="PackedScene" uid="uid://cikinc5wcoang" path="res://Entities/ExitDoor/exit_door.tscn" id="27_07gr3"]
 [ext_resource type="PackedScene" uid="uid://088ghaqo8clh" path="res://Assets/Tower/tower.glb" id="29_phwff"]
+[ext_resource type="Shader" uid="uid://c77xngjutclpf" path="res://Assets/Shaders/lines.gdshader" id="30_phwff"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_prpp8"]
 size = Vector3(1.9257813, 3.8337402, 3.8535461)
@@ -53,6 +54,18 @@ volumetric_fog_density = 0.0
 
 [sub_resource type="FogMaterial" id="FogMaterial_v7q81"]
 density = 0.8
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v7q81"]
+shader = ExtResource("30_phwff")
+shader_parameter/hatch_color = Color(0.23031479, 0.23031497, 0.23031488, 1)
+shader_parameter/spacing = 0.011
+shader_parameter/thickness = 0.005
+shader_parameter/freq = 50.0
+shader_parameter/amp = 0.008
+shader_parameter/hatch_angle = 45.0
+shader_parameter/contrast = 0.425
+shader_parameter/smoothness = 0.35
+shader_parameter/uv_scale = Vector2(1, 1)
 
 [node name="Level2-Blockout" type="Node3D" node_paths=PackedStringArray("exit_manager")]
 script = ExtResource("1_fit1s")
@@ -484,3 +497,13 @@ material = SubResource("FogMaterial_v7q81")
 event_name = "event:/BGM/Level 2 BGM"
 event_guid = "{ff60e275-ba36-4629-92b0-23a4da214b28}"
 autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Shader" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_v7q81")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

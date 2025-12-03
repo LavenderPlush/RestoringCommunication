@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://wv7mhgpex08w"]
+[gd_scene load_steps=24 format=3 uid="uid://wv7mhgpex08w"]
 
 [ext_resource type="PackedScene" uid="uid://bh7w25o2ijqo6" path="res://Entities/Players/Alien/alien.tscn" id="1_vfhqw"]
 [ext_resource type="PackedScene" uid="uid://bd388rue7yafh" path="res://Entities/Players/Human/human.tscn" id="2_kqrly"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://1p2rwqwpq1w5" path="res://Entities/Checkpoint/checkpoint_light.tscn" id="12_xgm8l"]
 [ext_resource type="PackedScene" uid="uid://rxoqkldt0t5s" path="res://Entities/Button/PlatformButton/platform_button.tscn" id="13_xitqv"]
 [ext_resource type="PackedScene" uid="uid://77p1mkxy2ris" path="res://Menus/Pause/pause_menu.tscn" id="14_sro3d"]
+[ext_resource type="Shader" uid="uid://ce67yusx2mev0" path="res://Assets/Shaders/chowder.gdshader" id="15_w5vvp"]
+[ext_resource type="Texture2D" uid="uid://bdf8euyiumtov" path="res://Assets/Shaders/chowder_test.jpg" id="16_8gx3o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_08bup"]
 
@@ -36,6 +38,15 @@ ssao_enabled = true
 ssil_enabled = true
 sdfgi_enabled = true
 glow_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8gx3o"]
+shader = ExtResource("15_w5vvp")
+shader_parameter/image = ExtResource("16_8gx3o")
+shader_parameter/image_scale = Vector2(1, 1)
+shader_parameter/image_offset = Vector2(0, 0)
+shader_parameter/min_alpha = 0.1
+shader_parameter/target_color = Color(0, 0, 0, 1)
+shader_parameter/color_match_threshold = 0.8
 
 [node name="PlayersTestingGrounds" type="Node3D"]
 
@@ -216,3 +227,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08084059, 0.6, -4.643197)
 moving_platform = NodePath("../MovingPlatform")
 
 [node name="PauseMenu" parent="." instance=ExtResource("14_sro3d")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Dots Shader" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_8gx3o")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

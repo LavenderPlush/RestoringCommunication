@@ -1,8 +1,19 @@
-[gd_scene load_steps=19 format=4 uid="uid://bd388rue7yafh"]
+[gd_scene load_steps=21 format=4 uid="uid://bd388rue7yafh"]
 
 [ext_resource type="Script" uid="uid://cp0jcwymqkbr0" path="res://Entities/Players/Human/human.gd" id="1_q78xk"]
 [ext_resource type="PackedScene" uid="uid://bkkcqtuj5t1cq" path="res://Entities/Players/Movement/movement.tscn" id="1_rmm0b"]
+[ext_resource type="Shader" uid="uid://dywana7pa5vy2" path="res://Assets/Shaders/comic_book.gdshader" id="2_bicdd"]
 [ext_resource type="PackedScene" uid="uid://bsqwvch37wg86" path="res://Entities/Players/Abilities/PowerGloves/power_gloves.tscn" id="2_rj3cs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aeomb"]
+shader = ExtResource("2_bicdd")
+shader_parameter/UseColor = true
+shader_parameter/BlackDot = true
+shader_parameter/AspectRatio = 1.0
+shader_parameter/Dots = 15.815
+shader_parameter/_min = 0.0
+shader_parameter/_max = 1.0
+shader_parameter/UseReshade = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_im406"]
 resource_name = "Material.010"
@@ -356,6 +367,7 @@ ability = NodePath("PowerGloves")
 action_prefix = &"human"
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
+material_overlay = SubResource("ShaderMaterial_aeomb")
 gi_mode = 2
 mesh = SubResource("ArrayMesh_6jtnt")
 skeleton = NodePath("")
