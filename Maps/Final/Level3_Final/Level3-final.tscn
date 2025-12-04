@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dp1odyr1v87bv"]
+[gd_scene load_steps=41 format=3 uid="uid://dp1odyr1v87bv"]
 
 [ext_resource type="Script" uid="uid://o651tn751848" path="res://Maps/level.gd" id="1_xlq1i"]
 [ext_resource type="Script" uid="uid://clheyshb47air" path="res://Entities/Camera/camera_controller.gd" id="2_vqw3q"]
@@ -26,10 +26,11 @@
 [ext_resource type="PackedScene" uid="uid://1p2rwqwpq1w5" path="res://Entities/Checkpoint/checkpoint_light.tscn" id="23_61hp7"]
 [ext_resource type="PackedScene" uid="uid://cikinc5wcoang" path="res://Entities/ExitDoor/exit_door.tscn" id="24_61hp7"]
 [ext_resource type="PackedScene" uid="uid://088ghaqo8clh" path="res://Assets/Tower/tower.glb" id="25_sflib"]
-[ext_resource type="PackedScene" uid="uid://ddcknlbag4qiy" path="res://Assets/Environment/environment.glb" id="26_yyxql"]
-[ext_resource type="Shader" uid="uid://dywana7pa5vy2" path="res://Assets/Shaders/dots.gdshader" id="27_yqbme"]
 [ext_resource type="PackedScene" uid="uid://cn8oh206opqdw" path="res://Entities/EntranceDoor/entrance_door.tscn" id="25_yqbme"]
 [ext_resource type="Material" uid="uid://dq5qtidau355u" path="res://Materials/Brown_platform_base.tres" id="26_88h3y"]
+[ext_resource type="PackedScene" uid="uid://ddcknlbag4qiy" path="res://Assets/Environment/environment.glb" id="26_yyxql"]
+[ext_resource type="Shader" uid="uid://dywana7pa5vy2" path="res://Assets/Shaders/dots.gdshader" id="27_yqbme"]
+[ext_resource type="PackedScene" uid="uid://qaceafvtx2nm" path="res://Assets/SatelliteDisc/satellite_disc.glb" id="31_1cm5i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3nf5n"]
 render_priority = 0
@@ -597,3 +598,24 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Discs" type="Node3D" parent="."]
+
+[node name="satellite_disc" parent="Discs" instance=ExtResource("31_1cm5i")]
+transform = Transform3D(0.78624535, 0, -0.61791444, 0.22353348, 0.93227327, 0.28442797, 0.5760651, -0.36175475, 0.7329955, 0.2333479, 56.309425, 13.877052)
+
+[node name="satellite_disc2" parent="Discs" instance=ExtResource("31_1cm5i")]
+transform = Transform3D(-0.34387273, 0, -0.9390163, 0, 1, 0, 0.9390163, 0, -0.34387273, -1.0500436, 51.670033, -13.978028)
+
+[node name="satellite_disc3" parent="Discs" instance=ExtResource("31_1cm5i")]
+transform = Transform3D(-0.97007996, 0, -0.24278557, 0, 1, 0, 0.24278557, 0, -0.97007996, 25.260384, 55.573883, -14.56775)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Discs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.241566, 62.1699, 0)
+height = 11.645508
+
+[node name="satellite_disc4" parent="Discs" instance=ExtResource("31_1cm5i")]
+transform = Transform3D(-2.6213412, 0, -1.2403901, 0, 2.8999999, 0, 1.2403901, 0, -2.6213412, 12.112946, 67.27772, -1.872236)
+
+[node name="satellite_disc" parent="." instance=ExtResource("31_1cm5i")]
+transform = Transform3D(0.4017075, -0.09739745, -0.5649292, -0.07284911, 0.6755574, -0.16827172, 0.568616, 0.15535796, 0.37754443, -0.86513877, 44.562588, 13.485638)
