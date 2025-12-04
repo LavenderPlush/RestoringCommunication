@@ -11,6 +11,11 @@
 [node name="CutesceneOne" instance=ExtResource("1_1nw0o")]
 wait_time = 1.0
 
+[node name="Frames" parent="CanvasLayer" index="3"]
+offset_left = 71.99999
+offset_right = 72.0
+scale = Vector2(1.6800008, 1.6800008)
+
 [node name="cutscene1_2_6" parent="CanvasLayer/Frames" index="0" node_paths=PackedStringArray("emitter") instance=ExtResource("2_scdd1")]
 layout_mode = 0
 offset_left = -272.0
