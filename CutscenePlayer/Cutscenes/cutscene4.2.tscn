@@ -2,17 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://dq77apc8gosic" path="res://CutscenePlayer/cutscene_base.tscn" id="1_rh1el"]
 [ext_resource type="PackedScene" uid="uid://ksm03gj3e2pf" path="res://CutscenePlayer/frame.tscn" id="2_rmkpj"]
-[ext_resource type="Texture2D" uid="uid://b2wno5ihvmahc" path="res://Assets/Cutscenes/cutscene4.2/cutscene4.2_1.jpg" id="3_i0iwx"]
+[ext_resource type="Texture2D" uid="uid://bkbchpcra5ve3" path="res://Assets/Cutscenes/cutscene4.2/cutscene 4_2.png" id="3_i0iwx"]
 
 [node name="CutesceneOne" instance=ExtResource("1_rh1el")]
 wait_time = 1.0
 
 [node name="cutscene4_2_1" parent="CanvasLayer/Frames" index="0" node_paths=PackedStringArray("emitter") instance=ExtResource("2_rmkpj")]
 layout_mode = 0
-offset_left = 104.0
-offset_top = 16.0
-offset_right = 1128.0
-offset_bottom = 632.0
+offset_right = 1152.0
+offset_bottom = 648.0
 texture = ExtResource("3_i0iwx")
 expand_mode = 1
 stretch_mode = 4

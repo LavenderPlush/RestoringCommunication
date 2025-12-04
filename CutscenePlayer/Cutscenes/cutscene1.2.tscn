@@ -111,7 +111,6 @@ expand_mode = 1
 stretch_mode = 4
 time_shown = 2.75
 emitter = NodePath("FmodEventEmitter3D")
-ambience = "Panic"
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/cutscene1_2_4" index="0"]
 event_name = "event:/cutscene_sfx/cutscene1.2_4a"
