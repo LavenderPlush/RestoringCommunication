@@ -1,8 +1,8 @@
 extends Control
 
-@onready var resume_button: TextureButton = $ResumeButton
-@onready var main_menu_button: TextureButton = $MainMenuButton
-@onready var quit_button: TextureButton = $QuitButton
+@onready var resume_button: TextureButton = $Buttons/ResumeButton
+@onready var main_menu_button: TextureButton = $Buttons/MainMenuButton
+@onready var quit_button: TextureButton = $Buttons/QuitButton
 
 func _ready():
 	visible = false

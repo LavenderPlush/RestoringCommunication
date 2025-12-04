@@ -7,6 +7,9 @@
 [node name="CutesceneOne" instance=ExtResource("1_rh1el")]
 wait_time = 1.0
 
+[node name="Frames" parent="CanvasLayer" index="3"]
+scale = Vector2(1.68, 1.68)
+
 [node name="cutscene4_2_1" parent="CanvasLayer/Frames" index="0" node_paths=PackedStringArray("emitter") instance=ExtResource("2_rmkpj")]
 layout_mode = 0
 offset_left = 104.0

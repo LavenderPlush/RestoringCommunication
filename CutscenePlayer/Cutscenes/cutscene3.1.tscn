@@ -14,6 +14,13 @@
 [node name="CutesceneOne" instance=ExtResource("1_ht85v")]
 wait_time = 1.0
 
+[node name="Frames" parent="CanvasLayer" index="3"]
+offset_left = 16.000002
+offset_top = 8.000001
+offset_right = 16.0
+offset_bottom = 8.0
+scale = Vector2(1.6400001, 1.6400001)
+
 [node name="cutscene3_1_1" parent="CanvasLayer/Frames" index="0" node_paths=PackedStringArray("emitter") instance=ExtResource("2_mcmor")]
 layout_mode = 0
 offset_left = 24.0

@@ -32,37 +32,30 @@ grow_vertical = 2
 texture = ExtResource("2_rh7v2")
 expand_mode = 1
 
-[node name="ResumeButton" type="TextureButton" parent="."]
+[node name="Buttons" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 408.0
-offset_top = 334.0
-offset_right = 1031.9998
-offset_bottom = 542.0
-scale = Vector2(0.5, 0.5)
+offset_left = 735.00006
+offset_top = 630.0
+offset_right = 1359.0
+offset_bottom = 1262.0
+scale = Vector2(0.695, 0.695)
+
+[node name="ResumeButton" type="TextureButton" parent="Buttons"]
+layout_mode = 2
 texture_normal = ExtResource("3_rh7v2")
 texture_pressed = ExtResource("4_wrt0g")
 texture_hover = ExtResource("5_e31bd")
 texture_focused = ExtResource("5_e31bd")
 
-[node name="MainMenuButton" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 408.0
-offset_top = 430.0
-offset_right = 1032.0
-offset_bottom = 638.0
-scale = Vector2(0.5, 0.5)
+[node name="MainMenuButton" type="TextureButton" parent="Buttons"]
+layout_mode = 2
 texture_normal = ExtResource("6_rh7v2")
 texture_pressed = ExtResource("7_wrt0g")
 texture_hover = ExtResource("8_e31bd")
 texture_focused = ExtResource("8_e31bd")
 
-[node name="QuitButton" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 408.0
-offset_top = 532.0
-offset_right = 1031.9998
-offset_bottom = 740.0
-scale = Vector2(0.5, 0.5)
+[node name="QuitButton" type="TextureButton" parent="Buttons"]
+layout_mode = 2
 texture_normal = ExtResource("9_xdbry")
 texture_pressed = ExtResource("10_77cgs")
 texture_hover = ExtResource("11_kk1su")
