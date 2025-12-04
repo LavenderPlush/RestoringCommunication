@@ -65,7 +65,7 @@ ssao_enabled = true
 ssil_enabled = true
 glow_enabled = true
 fog_enabled = true
-fog_light_color = Color(0.70454717, 0.49724048, 0.36058182, 1)
+fog_light_color = Color(0.7411765, 0.4745098, 0.3529412, 1)
 fog_density = 0.0
 fog_height_density = 0.1
 volumetric_fog_enabled = true
@@ -308,11 +308,11 @@ reset_until_checkpoint_id = 0
 
 [node name="Box2" parent="AlienHalf/Boxes_AlienHalf" instance=ExtResource("4_08nnt")]
 transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, -0.9403095, 9, 4.1102233e-08)
-reset_until_checkpoint_id = 1
+reset_until_checkpoint_id = 0
 
 [node name="Box3" parent="AlienHalf/Boxes_AlienHalf" instance=ExtResource("4_08nnt")]
 transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, -5.8748555, 8.885456, 2.5679822e-07)
-reset_until_checkpoint_id = 1
+reset_until_checkpoint_id = 0
 
 [node name="Box4" parent="AlienHalf/Boxes_AlienHalf" instance=ExtResource("4_08nnt")]
 transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, -8.083292, 21.840595, 3.5333227e-07)
@@ -343,7 +343,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.660075, 9.284562)
 
 [node name="MovingPlatform1_Platform" parent="AlienHalf/MovingPlatform1_AlienHalf" node_paths=PackedStringArray("point_a", "point_b") instance=ExtResource("7_7y2ts")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9113073, -1.6334186)
-reset_until_checkpoint_id = 1
+reset_until_checkpoint_id = 0
 point_a = NodePath("../MovingPlatform1_A")
 point_b = NodePath("../MovingPlatform1_B")
 speed = 4.0
@@ -353,7 +353,7 @@ auto_start = false
 [node name="MovingPlatform1_Button" parent="AlienHalf/MovingPlatform1_AlienHalf" node_paths=PackedStringArray("moving_platform") instance=ExtResource("8_60mcy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8286467, 0.9287975)
 moving_platform = NodePath("../../../HumanHalf/MovingPlatform1_HumanHalf/MovingPlatform1_Platform")
-reset_until_checkpoint_id = 1
+reset_until_checkpoint_id = 0
 
 [node name="MovingPlatform1_A" type="Marker3D" parent="AlienHalf/MovingPlatform1_AlienHalf"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.364173, -1.6641693)
@@ -521,7 +521,7 @@ transform = Transform3D(1, 0, 1.9272301e-07, 0, 1, 0, -1.9272301e-07, 0, 1, 11.2
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 
 [node name="Box1" parent="HumanHalf/Boxes_HumanHalf" instance=ExtResource("4_08nnt")]
-transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, -1.5223856, 1.8, 6.654545e-08)
+transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, -2.6824808, 1.8, 1.1725482e-07)
 reset_until_checkpoint_id = 0
 
 [node name="Box2" parent="HumanHalf/Boxes_HumanHalf" instance=ExtResource("4_08nnt")]
@@ -530,7 +530,7 @@ reset_until_checkpoint_id = 0
 
 [node name="Box3" parent="HumanHalf/Boxes_HumanHalf" instance=ExtResource("4_08nnt")]
 transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, 2.5296993, 18.8, -1.1057699e-07)
-reset_until_checkpoint_id = 1
+reset_until_checkpoint_id = 0
 
 [node name="Box4" parent="HumanHalf/Boxes_HumanHalf" instance=ExtResource("4_08nnt")]
 transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, -30.914476, 22.238958, 1.3513143e-06)
@@ -541,7 +541,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.314274, -8.859742)
 
 [node name="MovingPlatform1_Platform" parent="HumanHalf/MovingPlatform1_HumanHalf" node_paths=PackedStringArray("point_a", "point_b") instance=ExtResource("7_7y2ts")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2571087, -0.0089764595)
-reset_until_checkpoint_id = 1
+reset_until_checkpoint_id = 0
 point_a = NodePath("../MovingPlatform1_A")
 point_b = NodePath("../MovingPlatform1_B")
 speed = 4.0
@@ -551,7 +551,7 @@ auto_start = false
 [node name="MovingPlatform1_Button" parent="HumanHalf/MovingPlatform1_HumanHalf" node_paths=PackedStringArray("moving_platform") instance=ExtResource("8_60mcy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.7575083, -1.7941461)
 moving_platform = NodePath("../../../AlienHalf/MovingPlatform1_AlienHalf/MovingPlatform1_Platform")
-reset_until_checkpoint_id = 1
+reset_until_checkpoint_id = 0
 
 [node name="MovingPlatform1_A" type="Marker3D" parent="HumanHalf/MovingPlatform1_HumanHalf"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.926594, -0.03972721)
@@ -600,7 +600,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 29.092512, 10.606202)
 
 [node name="BreakableWall1" parent="BreakableWalls" instance=ExtResource("11_hxy3h")]
 transform = Transform3D(0.7987834, 0, 0, 0, 2.5145125, 0, 0, 0, 3.6521363, 0, -7.875849, 10.945798)
-reset_until_checkpoint_id = 1
+reset_until_checkpoint_id = 0
 
 [node name="BreakableWall2" parent="BreakableWalls" instance=ExtResource("11_hxy3h")]
 transform = Transform3D(0.7987834, 0, 0, 0, 2.243, 0, 0, 0, 3.6521363, 0, 7.489542, -10.666847)
@@ -608,30 +608,6 @@ reset_until_checkpoint_id = 2
 
 [node name="Checkpoints" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19, -1)
-
-[node name="Checkpoint1" type="Node3D" parent="Checkpoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.802468, -1.7568009)
-
-[node name="Checkpoint1_TriggerArea" parent="Checkpoints/Checkpoint1" node_paths=PackedStringArray("human_spawn", "alien_spawn", "checkpoint_light1", "checkpoint_light2") instance=ExtResource("25_k5x0g")]
-transform = Transform3D(1, 0, 0, 0, 0.8798063, -1.6389463, 0, 0.47533247, 3.033572, 0, 5.062026, -4.1362944)
-human_spawn = NodePath("../Checkpoint1_HumanSpawn")
-alien_spawn = NodePath("../Checkpoint1_AlienSpawn")
-checkpoint_light1 = NodePath("../Checkpoint1_AlienLight")
-checkpoint_light2 = NodePath("../Checkpoint1_HumanLight")
-
-[node name="Checkpoint1_HumanSpawn" type="Marker3D" parent="Checkpoints/Checkpoint1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.733975, 9.908002)
-
-[node name="Checkpoint1_AlienSpawn" type="Marker3D" parent="Checkpoints/Checkpoint1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.7339754, 0.34915853)
-
-[node name="Checkpoint1_AlienLight" parent="Checkpoints/Checkpoint1" instance=ExtResource("26_07gr3")]
-transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.8755465, 4.5885935, -2.9315393)
-skeleton = NodePath("../../..")
-
-[node name="Checkpoint1_HumanLight" parent="Checkpoints/Checkpoint1" instance=ExtResource("26_07gr3")]
-transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.885329, 8.834861, 9.270362)
-skeleton = NodePath("../../..")
 
 [node name="Checkpoint2" type="Node3D" parent="Checkpoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.611, 1)
@@ -642,7 +618,6 @@ human_spawn = NodePath("../Checkpoint2_HumanSpawn")
 alien_spawn = NodePath("../Checkpoint2_AlienSpawn")
 checkpoint_light1 = NodePath("../Checkpoint2_HumanLight")
 checkpoint_light2 = NodePath("../Checkpoint2_AlienLight")
-checkpoint_id = 1
 
 [node name="Checkpoint2_HumanSpawn" type="Marker3D" parent="Checkpoints/Checkpoint2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0284872, 14.9952755)
