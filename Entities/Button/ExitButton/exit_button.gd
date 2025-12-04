@@ -4,7 +4,8 @@ class_name ExitButton
 signal engaged
 signal disengaged
 
-@onready var mesh: MeshInstance3D = $Button
+@onready var button_mesh: MeshInstance3D = $Button
+@onready var stand_mesh: MeshInstance3D = $Stand
 @onready var light: OmniLight3D = $OmniLight3D
 
 @export var outline: Material
@@ -72,7 +73,7 @@ func lock_engaged():
 	button_engaged = true
 	material.albedo_color = engaged_color
 	light.light_color = engaged_color
-	mesh.material_overlay = null
+	stand_mesh.material_overlay = null
 
 func _on_player_entered(body: Node3D):
 	if is_locked: return
@@ -80,7 +81,7 @@ func _on_player_entered(body: Node3D):
 	if body is Interactable: return
 	
 	if body is Player:
-		mesh.material_overlay = outline
+		stand_mesh.material_overlay = outline
 
 	if current_player_body == null:
 		current_player_body = body
@@ -90,7 +91,7 @@ func _on_player_exited(body: Node3D):
 	if is_locked: return
 
 	if body is Player:
-		mesh.material_overlay = null
+		stand_mesh.material_overlay = null
 
 	if body == current_player_body:
 		current_player_body = null
@@ -98,11 +99,11 @@ func _on_player_exited(body: Node3D):
 
 		update_state(false)
 
-#Creates a new material to not affect buttons that share the same mesh. Red is default.
+#Creates a new material to not affect buttons that share the same button_mesh. Red is default.
 func setup_material():
 	material = StandardMaterial3D.new()
 
-	mesh.material_override = material
+	button_mesh.material_override = material
 	material.albedo_color = disengaged_color
 	light.light_color = disengaged_color
 

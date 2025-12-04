@@ -111,7 +111,8 @@ func _physics_process(delta: float) -> void:
 			velocity.z = horizontal_velocity
 			velocity.y = initial_vertical_velocity - gravity * air_time
 	else:
-		velocity.z = move_toward(velocity.z, 0, 10.0 * delta)
+		# velocity.z = move_toward(velocity.z, 0, 10.0 * delta)
+		velocity.z = 0
 		velocity.y -= gravity * delta
 
 func _handle_collisions():

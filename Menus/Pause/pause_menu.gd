@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 @onready var resume_button: TextureButton = $Buttons/ResumeButton
 @onready var main_menu_button: TextureButton = $Buttons/MainMenuButton

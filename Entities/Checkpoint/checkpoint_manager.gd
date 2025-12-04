@@ -28,6 +28,7 @@ func set_active_checkpoint(p1_spawn: Transform3D, p2_spawn: Transform3D, id: int
 
 #Resets players and objects back to their original state.
 func reset_to_checkpoint():
+	print("1")
 	var players = []
 
 	if is_instance_valid(player1):

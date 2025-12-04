@@ -17,6 +17,7 @@
 process_mode = 3
 
 [node name="PauseMenu" parent="." instance=ExtResource("1_ycdy4")]
+layer = 100
 
 [node name="SceneManager" parent="." instance=ExtResource("1_h2yge")]
 process_mode = 1

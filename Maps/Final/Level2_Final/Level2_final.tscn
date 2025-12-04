@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cjlo2enoms44b"]
+[gd_scene load_steps=41 format=3 uid="uid://cjlo2enoms44b"]
 
 [ext_resource type="Script" uid="uid://o651tn751848" path="res://Maps/level.gd" id="1_fit1s"]
 [ext_resource type="Script" uid="uid://clheyshb47air" path="res://Entities/Camera/camera_controller.gd" id="2_j7s5s"]
@@ -109,6 +109,7 @@ wide_fov_max = 34.0
 wide_fov_min = 18.0
 
 [node name="LineShader" type="MeshInstance3D" parent="Camera3D"]
+visible = false
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_phwff")
 
@@ -612,24 +613,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19, -1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.802468, -1.7568009)
 
 [node name="Checkpoint1_TriggerArea" parent="Checkpoints/Checkpoint1" node_paths=PackedStringArray("human_spawn", "alien_spawn", "checkpoint_light1", "checkpoint_light2") instance=ExtResource("25_k5x0g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 4.8578873, 0, -0.2660246, -9.3024645)
+transform = Transform3D(1, 0, 0, 0, 0.8798063, -1.6389463, 0, 0.47533247, 3.033572, 0, 5.062026, -4.1362944)
 human_spawn = NodePath("../Checkpoint1_HumanSpawn")
 alien_spawn = NodePath("../Checkpoint1_AlienSpawn")
 checkpoint_light1 = NodePath("../Checkpoint1_AlienLight")
 checkpoint_light2 = NodePath("../Checkpoint1_HumanLight")
 
 [node name="Checkpoint1_HumanSpawn" type="Marker3D" parent="Checkpoints/Checkpoint1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2660246, 6.9080024)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.733975, 9.908002)
 
 [node name="Checkpoint1_AlienSpawn" type="Marker3D" parent="Checkpoints/Checkpoint1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2660246, -6.650841)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.7339754, 0.34915853)
 
 [node name="Checkpoint1_AlienLight" parent="Checkpoints/Checkpoint1" instance=ExtResource("26_07gr3")]
-transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.8755465, -0.185, -7.9315395)
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.8755465, 4.5885935, -2.9315393)
 skeleton = NodePath("../../..")
 
 [node name="Checkpoint1_HumanLight" parent="Checkpoints/Checkpoint1" instance=ExtResource("26_07gr3")]
-transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.885329, 0.24984264, 7.270362)
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.885329, 8.834861, 9.270362)
 skeleton = NodePath("../../..")
 
 [node name="Checkpoint2" type="Node3D" parent="Checkpoints"]
