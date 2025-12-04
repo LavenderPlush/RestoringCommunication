@@ -66,7 +66,6 @@ texture_hover = ExtResource("10_txv1j")
 texture_focused = ExtResource("10_txv1j")
 
 [node name="ControlsGroup" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -91,13 +90,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 396.99994
-offset_top = 163.0
-offset_right = 861.0
-offset_bottom = 531.0
+offset_left = 680.0
+offset_top = 286.0
+offset_right = 1144.0
+offset_bottom = 654.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.36, 0.36)
+scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("12_j8f7t")
 texture_pressed = ExtResource("13_0nbd1")
 texture_hover = ExtResource("14_txv1j")
