@@ -1,0 +1,100 @@
+[gd_scene load_steps=8 format=3 uid="uid://c3vnrvfqg8t5k"]
+
+[ext_resource type="PackedScene" uid="uid://dq77apc8gosic" path="res://CutscenePlayer/cutscene_base.tscn" id="1_1nw0o"]
+[ext_resource type="PackedScene" uid="uid://ksm03gj3e2pf" path="res://CutscenePlayer/frame.tscn" id="2_scdd1"]
+[ext_resource type="Texture2D" uid="uid://jjtecjvnkalx" path="res://Assets/Cutscenes/cutscene1.2/cutscene1.2_8a.png" id="5_asvcu"]
+[ext_resource type="Texture2D" uid="uid://beq7md1kajw8k" path="res://Assets/Cutscenes/cutscene1.2/cutscene1.2_8b.png" id="6_g2orh"]
+[ext_resource type="Texture2D" uid="uid://ddaet0a0guh3s" path="res://Assets/Cutscenes/cutscene1.2/cutscene1.2_8c.png" id="7_3rw6q"]
+[ext_resource type="Texture2D" uid="uid://deevb4sy4hb1w" path="res://Assets/Cutscenes/cutscene1.2/cutscene1.2_6.png" id="8_mpvn7"]
+[ext_resource type="Texture2D" uid="uid://1koi6ninn2w" path="res://Assets/Cutscenes/cutscene1.2/cutscene1.2_7.png" id="9_4mhch"]
+
+[node name="CutesceneOne" instance=ExtResource("1_1nw0o")]
+wait_time = 1.0
+
+[node name="Frames" parent="CanvasLayer" index="3"]
+offset_left = 71.99999
+offset_right = 72.0
+scale = Vector2(1.6800008, 1.6800008)
+
+[node name="cutscene1_2_6" parent="CanvasLayer/Frames" index="0" node_paths=PackedStringArray("emitter") instance=ExtResource("2_scdd1")]
+layout_mode = 0
+offset_left = -272.0
+offset_top = -88.0
+offset_right = 880.0
+offset_bottom = 560.0
+texture = ExtResource("8_mpvn7")
+expand_mode = 1
+stretch_mode = 4
+emitter = NodePath("FmodEventEmitter3D")
+ambience = "Tense"
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/cutscene1_2_6" index="0"]
+event_name = "event:/cutscene_sfx/cutscene1.2_6"
+event_guid = "{d4278957-f87b-4863-8689-cd84340368f9}"
+
+[node name="cutscene1_2_7" parent="CanvasLayer/Frames" index="1" node_paths=PackedStringArray("emitter") instance=ExtResource("2_scdd1")]
+layout_mode = 0
+offset_left = -208.0
+offset_top = -78.0
+offset_right = 952.0
+offset_bottom = 578.0
+texture = ExtResource("9_4mhch")
+expand_mode = 1
+stretch_mode = 4
+time_shown = 2.5
+emitter = NodePath("FmodEventEmitter3D")
+ambience = "Tense"
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/cutscene1_2_7" index="0"]
+event_name = "event:/cutscene_sfx/cutscene1.2_7"
+event_guid = "{91cb1b25-c91c-4638-901c-b2f0e38740bb}"
+
+[node name="cutscene1_2_8" parent="CanvasLayer/Frames" index="2" node_paths=PackedStringArray("emitter") instance=ExtResource("2_scdd1")]
+layout_mode = 0
+offset_left = -208.0
+offset_top = -8.0
+offset_right = 976.0
+offset_bottom = 672.0
+texture = ExtResource("5_asvcu")
+expand_mode = 1
+stretch_mode = 4
+time_shown = 2.5
+emitter = NodePath("FmodEventEmitter3D")
+ambience = "Tense"
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/cutscene1_2_8" index="0"]
+event_name = "event:/cutscene_sfx/cutscene1.2_8"
+event_guid = "{9067cb94-1b05-44c4-882d-c8d3c4eac408}"
+
+[node name="cutscene1_2_8b" parent="CanvasLayer/Frames" index="3" node_paths=PackedStringArray("emitter") instance=ExtResource("2_scdd1")]
+layout_mode = 0
+offset_left = -208.0
+offset_top = -8.0
+offset_right = 976.0
+offset_bottom = 672.0
+texture = ExtResource("6_g2orh")
+expand_mode = 1
+stretch_mode = 4
+emitter = NodePath("FmodEventEmitter3D")
+ambience = "Tense"
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/cutscene1_2_8b" index="0"]
+event_name = "event:/cutscene_sfx/cutscene1.2_8b"
+event_guid = "{e25189d3-4863-4d95-a7a5-495dc0820b2c}"
+
+[node name="cutscene1_2_8c" parent="CanvasLayer/Frames" index="4" node_paths=PackedStringArray("emitter") instance=ExtResource("2_scdd1")]
+layout_mode = 0
+offset_left = -208.0
+offset_top = -8.0
+offset_right = 976.0
+offset_bottom = 672.0
+texture = ExtResource("7_3rw6q")
+expand_mode = 1
+stretch_mode = 4
+time_shown = 3.7
+emitter = NodePath("FmodEventEmitter3D")
+ambience = "Tense"
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/cutscene1_2_8c" index="0"]
+event_name = "event:/cutscene_sfx/cutscene1.2_8c"
+event_guid = "{014f34f1-1eb3-4de8-86d3-df388d8adf90}"

@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2mgbokpp37sx"]
+
+[ext_resource type="Script" uid="uid://ci84h3o7v4cky" path="res://Entities/BreakableWall/breakable_wall.gd" id="1_y28ec"]
+[ext_resource type="PackedScene" uid="uid://cs6b88nc7x13q" path="res://Assets/WoodWall/wood_wall.glb" id="2_4awdx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y28ec"]
+size = Vector3(2.4315796, 3.1139832, 0.21826172)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4awdx"]
+size = Vector3(2.4315796, 3.170395, 0.30249023)
+
+[node name="BreakableWall" type="StaticBody3D" groups=["Destructable"]]
+script = ExtResource("1_y28ec")
+
+[node name="Mesh" parent="." instance=ExtResource("2_4awdx")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -1.4474804, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02041626, 0.1733551, 0.0041503906)
+shape = SubResource("BoxShape3D_y28ec")
+
+[node name="DestructionArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DestructionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14820588, 0.0072021484)
+shape = SubResource("BoxShape3D_4awdx")
+
+[node name="BreakSoundEmitter" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/Wall Break"
+event_guid = "{e73eab3a-b5d2-48ec-bcf9-3aeabf74abce}"
+
+[editable path="Mesh"]

@@ -1,0 +1,117 @@
+extends ButtonBase
+class_name ExitButton
+
+signal engaged
+signal disengaged
+
+@onready var button_mesh: MeshInstance3D = $Button
+@onready var stand_mesh: MeshInstance3D = $Stand
+@onready var light: OmniLight3D = $OmniLight3D
+
+@export var outline: Material
+
+@export_category("Sound")
+@export var full_emitter: FmodEventEmitter3D
+@export var release_emitter: FmodEventEmitter3D
+
+var engaged_color: Color = Color.GREEN
+var disengaged_color: Color = Color.RED
+var material: StandardMaterial3D
+var current_player_body: Node3D = null
+var player_in_area: bool = false
+var button_engaged: bool = false
+var is_locked: bool = false
+
+func _ready() -> void:
+	super._ready()
+	
+	player_entered.connect(_on_player_entered)
+	player_exited.connect(_on_player_exited)
+	
+	setup_material()
+	set_process(true)
+
+func _process(_delta):
+	if is_locked: return
+
+	if !player_in_area: return
+
+	var player = current_player_body as Player
+
+	var player_action = player.get_interact_action()
+
+	if Input.is_action_just_pressed(player_action):
+		update_state(true)
+
+	if Input.is_action_just_released(player_action):
+		update_state(false)
+
+#Compares the desired state with the current state and emits the correct signal to engage or disengage the button.
+func update_state(should_be_engaged: bool):
+	if is_locked: return
+
+	if should_be_engaged and not button_engaged:
+		button_engaged = true
+		
+		Common.play_sound(full_emitter)
+
+		engaged.emit()
+
+		material.albedo_color = engaged_color
+		light.light_color = engaged_color
+	elif not should_be_engaged and button_engaged:
+		button_engaged = false
+
+		Common.play_sound(release_emitter)
+		
+		disengaged.emit()
+		
+		material.albedo_color = disengaged_color
+		light.light_color = disengaged_color
+func lock_engaged():
+	is_locked = true
+	button_engaged = true
+	material.albedo_color = engaged_color
+	light.light_color = engaged_color
+	stand_mesh.material_overlay = null
+
+func _on_player_entered(body: Node3D):
+	if is_locked: return
+
+	if body is Interactable: return
+	
+	if body is Player:
+		stand_mesh.material_overlay = outline
+
+	if current_player_body == null:
+		current_player_body = body
+		player_in_area = true
+
+func _on_player_exited(body: Node3D):
+	if is_locked: return
+
+	if body is Player:
+		stand_mesh.material_overlay = null
+
+	if body == current_player_body:
+		current_player_body = null
+		player_in_area = false
+
+		update_state(false)
+
+#Creates a new material to not affect buttons that share the same button_mesh. Red is default.
+func setup_material():
+	material = StandardMaterial3D.new()
+
+	button_mesh.material_override = material
+	material.albedo_color = disengaged_color
+	light.light_color = disengaged_color
+
+func reset_state():
+	super()
+
+	is_locked = false
+	player_in_area = false
+	current_player_body = null
+
+	update_state(false)

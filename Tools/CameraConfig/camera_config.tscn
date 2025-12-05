@@ -1,0 +1,90 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0glvy4nmgyh5"]
+
+[ext_resource type="Script" uid="uid://dafdfr2mormek" path="res://Tools/CameraConfig/camera_config.gd" id="1_lqah3"]
+
+[node name="CameraConfig" type="Control" node_paths=PackedStringArray("small_fov_control", "wide_fov_control", "transition_speed_control", "distance_treshold_control", "follow_speed_control", "vertical_offset_control")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_lqah3")
+small_fov_control = NodePath("Options/SmallFOV/LineEdit")
+wide_fov_control = NodePath("Options/WideFOV/LineEdit")
+transition_speed_control = NodePath("Options/TransitionSpeed/LineEdit")
+distance_treshold_control = NodePath("Options/DistanceTreshold/LineEdit")
+follow_speed_control = NodePath("Options/FollowSpeed/LineEdit")
+vertical_offset_control = NodePath("Options/VerticalOffset/LineEdit")
+
+[node name="Options" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 317.0
+offset_bottom = 58.0
+
+[node name="Camera" type="Label" parent="Options"]
+layout_mode = 2
+text = "Camera"
+horizontal_alignment = 1
+
+[node name="SmallFOV" type="VBoxContainer" parent="Options"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="Options/SmallFOV"]
+layout_mode = 2
+text = "Small FOV"
+
+[node name="LineEdit" type="LineEdit" parent="Options/SmallFOV"]
+layout_mode = 2
+
+[node name="WideFOV" type="VBoxContainer" parent="Options"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="Options/WideFOV"]
+layout_mode = 2
+text = "Wide FOV"
+
+[node name="LineEdit" type="LineEdit" parent="Options/WideFOV"]
+layout_mode = 2
+
+[node name="TransitionSpeed" type="VBoxContainer" parent="Options"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="Options/TransitionSpeed"]
+layout_mode = 2
+text = "Transition Speed"
+
+[node name="LineEdit" type="LineEdit" parent="Options/TransitionSpeed"]
+layout_mode = 2
+
+[node name="DistanceTreshold" type="VBoxContainer" parent="Options"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="Options/DistanceTreshold"]
+layout_mode = 2
+text = "Distance Treshold"
+
+[node name="LineEdit" type="LineEdit" parent="Options/DistanceTreshold"]
+layout_mode = 2
+
+[node name="FollowSpeed" type="VBoxContainer" parent="Options"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="Options/FollowSpeed"]
+layout_mode = 2
+text = "Follow Speed"
+
+[node name="LineEdit" type="LineEdit" parent="Options/FollowSpeed"]
+layout_mode = 2
+
+[node name="VerticalOffset" type="VBoxContainer" parent="Options"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="Options/VerticalOffset"]
+layout_mode = 2
+text = "Vertical Offset"
+
+[node name="LineEdit" type="LineEdit" parent="Options/VerticalOffset"]
+layout_mode = 2

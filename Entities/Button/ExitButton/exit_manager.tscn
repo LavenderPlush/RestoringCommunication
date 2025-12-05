@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://q5kt65k1meus"]
+
+[ext_resource type="Script" uid="uid://c6vqx611ypbao" path="res://Entities/Button/ExitButton/exit_manager.gd" id="1_mkfal"]
+
+[node name="ExitManager" type="Node3D"]
+script = ExtResource("1_mkfal")

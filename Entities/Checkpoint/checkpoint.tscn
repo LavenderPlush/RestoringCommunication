@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk6nscx8wfi48"]
+
+[ext_resource type="Script" uid="uid://deem1y8sjso26" path="res://Entities/Checkpoint/checkpoint.gd" id="1_rhvwg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m2s36"]
+size = Vector3(1, 4, 4)
+
+[node name="Checkpoint" type="Area3D"]
+collision_mask = 7
+script = ExtResource("1_rhvwg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 1.5)
+shape = SubResource("BoxShape3D_m2s36")
+debug_color = Color(0, 11.618606, 13.50434, 1)
+
+[node name="HumanSpawn" type="Marker3D" parent="."]
+
+[node name="AlienSpawn" type="Marker3D" parent="."]

@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3 uid="uid://wv7mhgpex08w"]
+
+[ext_resource type="PackedScene" uid="uid://bh7w25o2ijqo6" path="res://Entities/Players/Alien/alien.tscn" id="1_vfhqw"]
+[ext_resource type="PackedScene" uid="uid://bd388rue7yafh" path="res://Entities/Players/Human/human.tscn" id="2_kqrly"]
+[ext_resource type="PackedScene" uid="uid://cut37mic2ba8v" path="res://Entities/Transmutables/Box/box.tscn" id="3_8aafw"]
+[ext_resource type="PackedScene" uid="uid://c161xbj0sh7v" path="res://Entities/Button/button.tscn" id="5_u5ick"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_08bup"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jw2t6"]
+
+[node name="PlayersTestingGrounds" type="Node3D"]
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_vfhqw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4554799, 1.96766)
+
+[node name="CharacterBody3D2" parent="." instance=ExtResource("2_kqrly")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 1.4554796, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0.1736482, -0.9848078, 0, 0.9848078, 0.1736482, 1, 7.590404e-09, -4.3047315e-08, -12, 10, -14.716718)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0.16052532)
+freeze = true
+freeze_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_08bup")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("BoxMesh_jw2t6")
+
+[node name="RigidBody3D3" type="RigidBody3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, -25.839474)
+freeze = true
+freeze_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D3"]
+shape = SubResource("BoxShape3D_08bup")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D3"]
+mesh = SubResource("BoxMesh_jw2t6")
+
+[node name="RigidBody3D2" type="RigidBody3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 5.96797, -3.7516916)
+freeze = true
+freeze_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2"]
+shape = SubResource("BoxShape3D_08bup")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D2"]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0.039888382, 0)
+mesh = SubResource("BoxMesh_jw2t6")
+
+[node name="Box" parent="." instance=ExtResource("3_8aafw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1300778, -2.7074518)
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -6.601)
+
+[node name="AnimatableBody3D" parent="." node_paths=PackedStringArray("ladder_spawn_point") instance=ExtResource("5_u5ick")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5635568, -8.601)
+ladder_spawn_point = NodePath("../Node3D")
+
+[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
+bank_paths = ["res://Assets/FMODBank/Desktop/Master.bank"]
+
+[node name="FmodListener3D" type="FmodListener3D" parent="."]

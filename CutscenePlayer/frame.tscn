@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://ksm03gj3e2pf"]
+
+[ext_resource type="Texture2D" uid="uid://dcqqe8msgn7yg" path="res://Assets/Cutscenes/placeholder.png" id="1_ia7hp"]
+[ext_resource type="Script" uid="uid://cvb2vdwlekhgw" path="res://CutscenePlayer/frame.gd" id="1_rax8u"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ia7hp"]
+
+[node name="Frame" type="TextureRect"]
+material = SubResource("CanvasItemMaterial_ia7hp")
+offset_right = 600.0
+offset_bottom = 600.0
+texture = ExtResource("1_ia7hp")
+script = ExtResource("1_rax8u")

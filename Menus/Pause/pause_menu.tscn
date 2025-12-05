@@ -1,0 +1,54 @@
+[gd_scene load_steps=12 format=3 uid="uid://77p1mkxy2ris"]
+
+[ext_resource type="Script" uid="uid://b3n5iilkqm3kk" path="res://Menus/Pause/pause_menu.gd" id="1_qnp8t"]
+[ext_resource type="Texture2D" uid="uid://dmvvn7kvl87f2" path="res://Assets/Menu/main_menu.png" id="2_rh7v2"]
+[ext_resource type="Texture2D" uid="uid://cl55f488j30xs" path="res://Assets/Menu/Buttons/Resume/resume_button.png" id="3_rh7v2"]
+[ext_resource type="Texture2D" uid="uid://bclgb7syebrp6" path="res://Assets/Menu/Buttons/Resume/resume_button_press.png" id="4_wrt0g"]
+[ext_resource type="Texture2D" uid="uid://qre21wb7h42w" path="res://Assets/Menu/Buttons/Resume/resume_button_highlight.png" id="5_e31bd"]
+[ext_resource type="Texture2D" uid="uid://48niw4uf5j36" path="res://Assets/Menu/Buttons/Menu/menu_button.png" id="6_rh7v2"]
+[ext_resource type="Texture2D" uid="uid://ciucs3ffi7go4" path="res://Assets/Menu/Buttons/Menu/menu_button_press.png" id="7_wrt0g"]
+[ext_resource type="Texture2D" uid="uid://bs3ofd1bulptd" path="res://Assets/Menu/Buttons/Menu/menu_button_highlight.png" id="8_e31bd"]
+[ext_resource type="Texture2D" uid="uid://dl3faaxicscd7" path="res://Assets/Menu/Buttons/Quit/quit_button.png" id="9_xdbry"]
+[ext_resource type="Texture2D" uid="uid://cjhmrnxphbn0u" path="res://Assets/Menu/Buttons/Quit/quit_button_press.png" id="10_77cgs"]
+[ext_resource type="Texture2D" uid="uid://32tojpddyc1f" path="res://Assets/Menu/Buttons/Quit/quit_button_highlight.png" id="11_kk1su"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_qnp8t")
+
+[node name="Image" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_rh7v2")
+expand_mode = 1
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+offset_left = 735.00006
+offset_top = 630.0
+offset_right = 1359.0
+offset_bottom = 1262.0
+scale = Vector2(0.695, 0.695)
+
+[node name="ResumeButton" type="TextureButton" parent="Buttons"]
+layout_mode = 2
+texture_normal = ExtResource("3_rh7v2")
+texture_pressed = ExtResource("4_wrt0g")
+texture_hover = ExtResource("5_e31bd")
+texture_focused = ExtResource("5_e31bd")
+
+[node name="MainMenuButton" type="TextureButton" parent="Buttons"]
+layout_mode = 2
+texture_normal = ExtResource("6_rh7v2")
+texture_pressed = ExtResource("7_wrt0g")
+texture_hover = ExtResource("8_e31bd")
+texture_focused = ExtResource("8_e31bd")
+
+[node name="QuitButton" type="TextureButton" parent="Buttons"]
+layout_mode = 2
+texture_normal = ExtResource("9_xdbry")
+texture_pressed = ExtResource("10_77cgs")
+texture_hover = ExtResource("11_kk1su")
+texture_focused = ExtResource("11_kk1su")

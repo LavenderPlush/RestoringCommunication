@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://v3m1jj473kmr"]
+
+[ext_resource type="Script" uid="uid://bn1aesncs3j3q" path="res://SceneManager/scene_manager.gd" id="1_llndr"]
+
+[node name="SceneManager" type="Node3D" node_paths=PackedStringArray("overlay")]
+script = ExtResource("1_llndr")
+overlay = NodePath("TransitionLayer/Overlay/ColorRect")
+
+[node name="TransitionLayer" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="Overlay" type="Control" parent="TransitionLayer"]
+z_index = 3
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="TransitionLayer/Overlay"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

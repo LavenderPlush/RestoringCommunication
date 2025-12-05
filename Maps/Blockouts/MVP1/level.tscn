@@ -1,0 +1,391 @@
+[gd_scene load_steps=22 format=3 uid="uid://c6oklhpgf3nhd"]
+
+[ext_resource type="Script" uid="uid://clheyshb47air" path="res://Entities/Camera/camera_controller.gd" id="1_byane"]
+[ext_resource type="Script" uid="uid://bmdsfg7x3w32q" path="res://SceneManager/BaseScene/game_scene.gd" id="1_nws2a"]
+[ext_resource type="PackedScene" uid="uid://bd388rue7yafh" path="res://Entities/Players/Human/human.tscn" id="2_6s5ol"]
+[ext_resource type="PackedScene" uid="uid://b8hxsnh6e1jfh" path="res://Entities/Ladder/extendable_ladder.tscn" id="3_1xxi2"]
+[ext_resource type="PackedScene" uid="uid://cut37mic2ba8v" path="res://Entities/Interactables/Box/box.tscn" id="4_vwio2"]
+[ext_resource type="PackedScene" uid="uid://c161xbj0sh7v" path="res://Entities/Button/LadderButton/ladder_button.tscn" id="4_ylgno"]
+[ext_resource type="PackedScene" uid="uid://q5kt65k1meus" path="res://Entities/Button/ExitButton/exit_manager.tscn" id="5_78qo5"]
+[ext_resource type="PackedScene" uid="uid://bh7w25o2ijqo6" path="res://Entities/Players/Alien/alien.tscn" id="5_vwio2"]
+[ext_resource type="PackedScene" uid="uid://c3ocixu65cif1" path="res://Entities/Button/ExitButton/exit_button.tscn" id="6_pyl4j"]
+[ext_resource type="PackedScene" uid="uid://dhnhxmanovl57" path="res://Tools/PlayerConfig/Movement/movement_config.tscn" id="8_5g1l7"]
+[ext_resource type="PackedScene" uid="uid://dthh7uiror650" path="res://Tools/PlayerConfig/PowerGloves/power_gloves_config.tscn" id="9_byane"]
+[ext_resource type="PackedScene" uid="uid://c0glvy4nmgyh5" path="res://Tools/CameraConfig/camera_config.tscn" id="11_78qo5"]
+[ext_resource type="PackedScene" uid="uid://cuqaic5jm6rvq" path="res://Assets/Building/first_level.glb" id="12_ksjg2"]
+[ext_resource type="PackedScene" uid="uid://ddcknlbag4qiy" path="res://Assets/Environment/environment.glb" id="13_ee4kv"]
+[ext_resource type="PackedScene" uid="uid://0wwb38onynv2" path="res://Assets/Spaceship/spaceship_meme.glb" id="14_ee4kv"]
+[ext_resource type="PackedScene" uid="uid://dk6nscx8wfi48" path="res://Entities/Checkpoint/checkpoint.tscn" id="15_d2822"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_78qo5"]
+albedo_color = Color(0.31, 1, 0.34449995, 1)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ksjg2"]
+sky_top_color = Color(0.10860119, 0.34974724, 0.6893964, 1)
+sky_curve = 0.08038292
+ground_bottom_color = Color(0.29411766, 0.24705882, 0.23529412, 1)
+ground_horizon_color = Color(0.6313726, 0.6392157, 0.6666667, 1)
+ground_curve = 0.28840128
+
+[sub_resource type="Sky" id="Sky_ee4kv"]
+sky_material = SubResource("ProceduralSkyMaterial_ksjg2")
+
+[sub_resource type="Environment" id="Environment_d2822"]
+background_mode = 2
+sky = SubResource("Sky_ee4kv")
+fog_density = 0.0005
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+
+[sub_resource type="FogMaterial" id="FogMaterial_nws2a"]
+density = 0.8
+
+[node name="MVP Map" type="Node3D"]
+script = ExtResource("1_nws2a")
+metadata/_custom_type_script = "uid://bmdsfg7x3w32q"
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("player1", "player2")]
+transform = Transform3D(-4.371139e-08, 0.25881907, -0.9659258, 0, 0.9659259, 0.25881907, 1, 1.1313341e-08, -4.222196e-08, -20, 25, 1)
+current = true
+script = ExtResource("1_byane")
+player1 = NodePath("../Human")
+player2 = NodePath("../Alien")
+
+[node name="Human" parent="." instance=ExtResource("2_6s5ol")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7110214, -10.821039)
+
+[node name="Alien" parent="." instance=ExtResource("5_vwio2")]
+transform = Transform3D(0.99827075, 0, -0.058783688, 0, 1, 0, 0.058783688, 0, 0.99827075, 0, 2.655487, -9.38542)
+
+[node name="Borders" type="Node3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -3, 0, 1, 0, 1, 0, -1.3113416e-07, 0, 0, 0)
+
+[node name="Border1" type="CSGBox3D" parent="Borders"]
+use_collision = true
+size = Vector3(24, 2, 1)
+
+[node name="Border2" type="CSGBox3D" parent="Borders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.997, 23.591034, 0)
+use_collision = true
+size = Vector3(2, 49.17627, 1)
+
+[node name="Border3" type="CSGBox3D" parent="Borders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.957, 23.58081, 0)
+use_collision = true
+size = Vector3(2, 49.16162, 1)
+
+[node name="Border4" type="CSGBox3D" parent="Borders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01373291, 47.18062, -1.5001485)
+use_collision = true
+size = Vector3(24, 2, 4)
+
+[node name="Platforms" type="Node3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -3, 0, 1, 0, 1, 0, -1.3113416e-07, 0, 0, 0)
+
+[node name="Platform1" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 6.100586, -2.842171e-14)
+use_collision = true
+size = Vector3(3, 1.7988281, 1)
+
+[node name="Platform9" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.997862, 8.98659, -3.1178615e-11)
+use_collision = true
+size = Vector3(2, 4, 1)
+
+[node name="Platform2" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 3, 0)
+use_collision = true
+size = Vector3(6, 4, 1)
+
+[node name="Platform3" type="CSGMesh3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 6, 2.9140926e-08)
+use_collision = true
+
+[node name="Platform3_Shape1" type="CSGBox3D" parent="Platforms/Platform3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.50699997, -3.5527137e-15)
+size = Vector3(6, 1, 1)
+
+[node name="Platform3_Shape2" type="CSGBox3D" parent="Platforms/Platform3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, -0.99300003, 1.7763568e-15)
+size = Vector3(1, 4, 1)
+
+[node name="Platform4" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.001, 13.010246, 0)
+use_collision = true
+size = Vector3(18, 2, 1)
+
+[node name="Platform10" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9820757, 12.509083, 0)
+use_collision = true
+size = Vector3(2, 1, 1)
+
+[node name="Platform11" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 15, 0)
+use_collision = true
+size = Vector3(8, 2, 1)
+
+[node name="Platform12" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 17, 0)
+use_collision = true
+size = Vector3(6, 2, 1)
+
+[node name="Platform13" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 19, 0)
+use_collision = true
+size = Vector3(4, 2, 1)
+
+[node name="Platform5" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0668323, 22.5, 1.5544249e-08)
+use_collision = true
+size = Vector3(6, 1, 1)
+
+[node name="Platform6" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 23, 0)
+use_collision = true
+size = Vector3(4, 2, 1)
+
+[node name="Platform7" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 25, -4.2632564e-14)
+use_collision = true
+size = Vector3(2, 2, 1)
+
+[node name="Platform8" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5, 26.4892, -1.4210855e-14)
+use_collision = true
+
+[node name="Platform14" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 29, 0)
+use_collision = true
+size = Vector3(8, 2, 1)
+
+[node name="Platform15" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.77124, 28.5, 2.1316282e-14)
+use_collision = true
+size = Vector3(5.5424805, 1, 1)
+
+[node name="Platform16" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.294861, 28.5, 0)
+use_collision = true
+size = Vector3(4.5897217, 1, 1)
+
+[node name="Platform17" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 28.5, 0)
+use_collision = true
+size = Vector3(2, 1, 1)
+
+[node name="Platform18" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5, 32.5, 1.16563726e-07)
+use_collision = true
+
+[node name="Platform19" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 35.5, -1.7484557e-07)
+use_collision = true
+size = Vector3(4, 1, 1)
+
+[node name="Platform20" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 37.5, -2.9140944e-08)
+use_collision = true
+size = Vector3(8, 1, 1)
+
+[node name="Platform21" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2495117, 41.67448, -0.00014845512)
+use_collision = true
+size = Vector3(19.52649, 1, 1)
+
+[node name="Platform26" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.012756215, 41.67448, -2.0001488)
+use_collision = true
+size = Vector3(4, 1, 3)
+
+[node name="Platform24" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.012756, 44.17448, -2.0001483)
+use_collision = true
+size = Vector3(10, 4, 3)
+
+[node name="Platform25" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.987244, 44.17448, -2.0001488)
+use_collision = true
+size = Vector3(10, 4, 3)
+
+[node name="Platform23" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 39.072437, 3.0597977e-07)
+use_collision = true
+size = Vector3(2, 2.203125, 1)
+
+[node name="Platform22" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.754456, 37.5, 5.828184e-08)
+use_collision = true
+size = Vector3(4.491089, 1, 1)
+
+[node name="Boxes" type="Node3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="Box" parent="Boxes" instance=ExtResource("4_vwio2")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.087198, 4.56271, 3.0979126e-07)
+reset_until_checkpoint_id = 0
+
+[node name="Box2" parent="Boxes" instance=ExtResource("4_vwio2")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.0999236, 2.504706, 3.1034753e-07)
+reset_until_checkpoint_id = 0
+
+[node name="Box3" parent="Boxes" instance=ExtResource("4_vwio2")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.22023201, 15.17771, 9.626647e-09)
+reset_until_checkpoint_id = 1
+
+[node name="Box4" parent="Boxes" instance=ExtResource("4_vwio2")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.2116976, 30.257084, -2.2781053e-07)
+
+[node name="Box5" parent="Boxes" instance=ExtResource("4_vwio2")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.767114, 34.1127, 4.706455e-07)
+
+[node name="Exit" type="Node3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="ExitManager" parent="Exit" node_paths=PackedStringArray("button_a", "button_b", "door") instance=ExtResource("5_78qo5")]
+button_a = NodePath("../ExitButton")
+button_b = NodePath("../ExitButton2")
+door = NodePath("../ExitDoor")
+
+[node name="ExitButton" parent="Exit" instance=ExtResource("6_pyl4j")]
+transform = Transform3D(1.3374798e-15, 3.059797e-08, 0.7, 0.7, -3.059797e-08, 0, 3.059797e-08, 0.7, -3.059797e-08, -5.0000043, 43.64745, -0.9999999)
+
+[node name="ExitButton2" parent="Exit" instance=ExtResource("6_pyl4j")]
+transform = Transform3D(1.3374798e-15, 3.059797e-08, 0.7, 0.7, -3.059797e-08, 0, 3.059797e-08, 0.7, -3.059797e-08, 4.999996, 43.64745, -1)
+
+[node name="ExitDoor" type="CSGBox3D" parent="Exit"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, 0.012756226, 44.17448, -2.7919724)
+use_collision = true
+size = Vector3(4, 4, 1)
+material = SubResource("StandardMaterial3D_78qo5")
+
+[node name="Button1" parent="." node_paths=PackedStringArray("extendable_ladder") instance=ExtResource("4_ylgno")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 7.0904193, -1.3192549)
+extendable_ladder = NodePath("../ExtendableLadder1")
+reset_until_checkpoint_id = 0
+
+[node name="Button2" parent="." node_paths=PackedStringArray("extendable_ladder") instance=ExtResource("4_ylgno")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 29.083527, -5.151583)
+extendable_ladder = NodePath("../ExtendableLadder2")
+reset_until_checkpoint_id = 1
+
+[node name="Button3" parent="." node_paths=PackedStringArray("extendable_ladder") instance=ExtResource("4_ylgno")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 38.083527, -4.460356)
+extendable_ladder = NodePath("../ExtendableLadder3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.48696113, 0.20176174, -0.84980065, -0.1003131, 0.9794346, 0.17505738, 0.867644, 0, 0.49718595, -24.128925, 27.08886, 6.976858)
+light_color = Color(1, 0.8, 0.52, 1)
+
+[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
+bank_paths = ["res://Assets/FMODBank/Desktop/Master.bank"]
+
+[node name="FmodListener3D" type="FmodListener3D" parent="."]
+
+[node name="ExtendableLadder1" parent="." instance=ExtResource("3_1xxi2")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 1, 5.5, 1)
+reset_until_checkpoint_id = 0
+
+[node name="ExtendableLadder2" parent="." instance=ExtResource("3_1xxi2")]
+transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, 0.99999976, 27.951836, 9.30291)
+reset_until_checkpoint_id = 1
+
+[node name="ExtendableLadder3" parent="." instance=ExtResource("3_1xxi2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1, 37.325745, -6.765045)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="TabContainer" type="TabContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+current_tab = 0
+tab_focus_mode = 0
+
+[node name="MovementConfig" parent="CanvasLayer/VBoxContainer/TabContainer" node_paths=PackedStringArray("alien", "human") instance=ExtResource("8_5g1l7")]
+layout_mode = 2
+alien = NodePath("../../../../Alien")
+human = NodePath("../../../../Human")
+metadata/_tab_index = 0
+
+[node name="PowerGlovesConfig" parent="CanvasLayer/VBoxContainer/TabContainer" node_paths=PackedStringArray("human") instance=ExtResource("9_byane")]
+visible = false
+layout_mode = 2
+human = NodePath("../../../../Human")
+metadata/_tab_index = 1
+
+[node name="CameraConfig" parent="CanvasLayer/VBoxContainer/TabContainer" node_paths=PackedStringArray("camera") instance=ExtResource("11_78qo5")]
+visible = false
+layout_mode = 2
+camera = NodePath("../../../../Camera3D")
+metadata/_tab_index = 2
+
+[node name="first_level" parent="." instance=ExtResource("12_ksjg2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 14.44956, 24.32663, 0.06960833)
+
+[node name="environment" parent="." instance=ExtResource("13_ee4kv")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 78.570366, -20.346226, 6.9405975)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_d2822")
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8444309, 0)
+size = Vector3(300, 5, 300)
+material = SubResource("FogMaterial_nws2a")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.06157589, 23.255192, -2.1973135)
+light_energy = 14.526
+spot_range = 10.492873
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.06157589, 13.062639, 7.4175477)
+light_energy = 14.526
+spot_range = 10.492873
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.06157589, 38.586296, 0.12372351)
+light_energy = 14.526
+spot_range = 10.492873
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.06157589, 6.9786587, -3.1304812)
+light_energy = 14.526
+spot_range = 10.492873
+
+[node name="spaceship_meme" parent="." instance=ExtResource("14_ee4kv")]
+transform = Transform3D(-1.9325638, -4.1990354e-08, 0.5149738, -0.25096807, 1.746423, -0.9418187, -0.44968098, -0.9746833, -1.6875367, 11.970518, 3.7883644, 35.838085)
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.06157589, 47.13987, 0.113068104)
+light_energy = 14.526
+spot_range = 10.492873
+
+[node name="Checkpoints" type="Node3D" parent="."]
+
+[node name="Checkpoint" parent="Checkpoints" node_paths=PackedStringArray("human_spawn", "alien_spawn") instance=ExtResource("15_d2822")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, -11)
+human_spawn = NodePath("HumanSpawn2")
+alien_spawn = NodePath("AlienSpawn2")
+
+[node name="HumanSpawn2" type="Marker3D" parent="Checkpoints/Checkpoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 6)
+
+[node name="AlienSpawn2" type="Marker3D" parent="Checkpoints/Checkpoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 8)
+
+[node name="Checkpoint2" parent="Checkpoints" node_paths=PackedStringArray("human_spawn", "alien_spawn") instance=ExtResource("15_d2822")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 26, -11)
+human_spawn = NodePath("HumanSpawn2")
+alien_spawn = NodePath("AlienSpawn2")
+checkpoint_id = 1
+
+[node name="HumanSpawn2" type="Marker3D" parent="Checkpoints/Checkpoint2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 8)
+
+[node name="AlienSpawn2" type="Marker3D" parent="Checkpoints/Checkpoint2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 10)
