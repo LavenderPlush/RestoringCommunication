@@ -17,7 +17,6 @@ func _physics_process(delta: float) -> void:
 		if movement.on_floor():
 			ability.process_ability()
 	if !ability_active:
-		animator.idle()
 		animator.process(delta)
 	move_and_slide()
 
