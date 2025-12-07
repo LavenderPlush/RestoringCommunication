@@ -9,6 +9,7 @@ class_name CutscenePlayer extends GameScene
 @export var wait_timer: Timer
 @export var progress_bar: ProgressBar
 @export var skip_label: Label
+@export var allow_skip: bool = true
 
 @export_category("Sound")
 @export var bgm_emitter: FmodEventEmitter3D
@@ -43,6 +44,8 @@ func _process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("human_jump") or event.is_action_pressed("alien_jump"):
+		if !allow_skip:
+			return
 		hold_to_skip = true
 		skip_frame()
 		progress_bar.visible = true

@@ -6,6 +6,7 @@
 
 [node name="CutesceneOne" instance=ExtResource("1_rh1el")]
 wait_time = 1.0
+allow_skip = false
 
 [node name="Frames" parent="CanvasLayer" index="3"]
 scale = Vector2(1.68, 1.68)

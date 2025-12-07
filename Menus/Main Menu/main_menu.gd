@@ -8,6 +8,7 @@ extends Control
 @export var controls_image = Control
 
 func _ready():
+	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 	controls_image.visible = false
 
 	play_button.pressed.connect(_on_play_button_pressed)

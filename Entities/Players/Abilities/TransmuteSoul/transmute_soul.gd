@@ -4,6 +4,7 @@ extends Ability
 @export var interaction_area: Area3D
 @export var movement: Movement
 @export var alien_body: CharacterBody3D
+@export var animator: Animator
 
 @export_category("Sound")
 @export var engage_emitter: FmodEventEmitter3D
@@ -38,6 +39,8 @@ func _physics_process(_delta: float) -> void:
 		movement.process_jump()
 
 func transmute_soul():
+	if animator:
+		animator.idle()
 	ensure_static(alien_body)
 	transmuted_object = transmutable_object
 	movement.set_body(transmutable_object)

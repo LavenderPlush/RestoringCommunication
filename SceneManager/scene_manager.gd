@@ -1,5 +1,7 @@
 extends Node3D
 
+const MAIN_MENU: PackedScene = preload("uid://daxbyfh4i85sk")
+
 ##This decides how long the fade takes when transitioning scenes
 @export var fade_time: float = 1.0
 ##The order decides the order of the scenes
@@ -17,6 +19,7 @@ func _ready() -> void:
 	if scenes.size() == 0:
 		return
 	load_scene(0)
+	Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("developer_next_scene"):
@@ -27,6 +30,10 @@ func _input(event: InputEvent) -> void:
 		var previous_scene = current_scene - 1
 		if previous_scene >= 0:
 			load_scene(previous_scene)
+	if (event.is_action_pressed("alien_jump") or
+		event.is_action_pressed("human_jump")):
+			if current_scene == scenes.size() - 1:
+				main_menu()
 	
 func load_scene(id: int):
 	await fade_in()
@@ -52,6 +59,10 @@ func fade_in():
 func fade_out():
 	var tween = get_tree().create_tween()
 	await tween.tween_property(overlay, "modulate", Color.TRANSPARENT, fade_time).finished
+
+func main_menu():
+	await fade_out()
+	get_tree().change_scene_to_packed(MAIN_MENU)
 
 # Signals
 func scene_finished():
