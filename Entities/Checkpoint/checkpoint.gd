@@ -10,6 +10,7 @@ extends Area3D
 var players_in_area: Dictionary = {}
 
 func _ready():
+	CheckpointManager.reset()
 	body_entered.connect(_on_body_entered)
 
 func activate_checkpoint():

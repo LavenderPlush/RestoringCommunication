@@ -11,6 +11,10 @@ func _process(_delta):
 	if Input.is_action_just_pressed("restart"):
 		reset_to_checkpoint()
 
+func reset():
+	current_checkpoint_id = -1
+	checkpoint_active = false
+
 func set_original_position(player: Player):
 	if player.is_in_group("Human"):
 		player1 = player
@@ -28,7 +32,6 @@ func set_active_checkpoint(p1_spawn: Transform3D, p2_spawn: Transform3D, id: int
 
 #Resets players and objects back to their original state.
 func reset_to_checkpoint():
-	print("1")
 	var players = []
 
 	if is_instance_valid(player1):
