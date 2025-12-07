@@ -127,6 +127,12 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0
 [node name="Border1" parent="Borders" instance=ExtResource("5_77ttj")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.2830441, 0.885973, 1.2372251e-08)
 
+[node name="Border1_Base" type="CSGBox3D" parent="Borders/Border1"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.3869794e-11, -0.7861433, -0.00031661987)
+material_override = SubResource("StandardMaterial3D_4maoy")
+use_collision = true
+size = Vector3(26, 1.31604, 2)
+
 [node name="Border2" type="CSGBox3D" parent="Borders"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.218454, 26.276146, 0)
 visible = false
@@ -149,10 +155,10 @@ size = Vector3(27.676025, 2.0272217, 2.1855469)
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 
 [node name="Platform1_Base" type="CSGBox3D" parent="Platforms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.403325, 3.3977222, -3.0831725e-07)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.403684, 3.3977222, -3.0831728e-07)
 material_override = SubResource("StandardMaterial3D_4maoy")
 use_collision = true
-size = Vector3(8.901825, 4.73291, 2)
+size = Vector3(8.901108, 4.73291, 2)
 
 [node name="Platform1" parent="Platforms" instance=ExtResource("6_vyclr")]
 transform = Transform3D(-4.371139e-08, 0, 1.0879506, 0, 1, 0, -1, 0, -4.7555837e-08, -8.401096, 5.8923006, -2.8844724e-07)
@@ -206,52 +212,52 @@ size = Vector3(20.164917, 0.46348572, 2)
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.172739, 21.872614, -3.7043193e-07)
 
 [node name="Platform6_Base" type="CSGBox3D" parent="Platforms/Platform6"]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.0005042523, -0.98615646, 0.050590515)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.00050425314, -0.98615646, 0.031661987)
 material_override = SubResource("StandardMaterial3D_4maoy")
 use_collision = true
-size = Vector3(8.160614, 1.7160645, 1.8513184)
+size = Vector3(8.198471, 1.7160645, 1.8513184)
 
 [node name="Platform7" parent="Platforms" instance=ExtResource("11_gsre5")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10.250845, 24.866526, -2.9726573e-07)
 
 [node name="Platform7_Base" type="CSGBox3D" parent="Platforms/Platform7"]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9.804637e-10, -1.4824028, 0.02243042)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.3954174e-10, -1.4824028, -0.010055542)
 material_override = SubResource("StandardMaterial3D_4maoy")
 use_collision = true
-size = Vector3(4.044861, 2.7085571, 1.982666)
+size = Vector3(4.109833, 2.7085571, 1.982666)
 
 [node name="Platform8" parent="Platforms" instance=ExtResource("10_iwg27")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.7384567, 25.866808, -2.3216626e-07)
 
 [node name="Platform8_Base" type="CSGBox3D" parent="Platforms/Platform8"]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.536993e-11, -0.3598671, -0.0014953613)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.3537617e-12, -0.3598671, 7.6293945e-05)
 material_override = SubResource("StandardMaterial3D_4maoy")
 use_collision = true
-size = Vector3(12.1814575, 0.46348572, 2)
+size = Vector3(12.184601, 0.46348572, 2)
 
 [node name="Platform9" parent="Platforms" instance=ExtResource("11_gsre5")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.738457, 29.526787, -2.3216626e-07)
 
 [node name="Platform6_Base" type="CSGBox3D" parent="Platforms/Platform9"]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.262425e-09, -1.8087616, -0.051757813)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.0158633e-10, -1.8087616, -0.011474609)
 material_override = SubResource("StandardMaterial3D_4maoy")
 use_collision = true
-size = Vector3(4.1035156, 3.3612747, 2)
+size = Vector3(4.184082, 3.3612747, 2)
 
 [node name="Platform10" parent="Platforms" instance=ExtResource("8_mkaig")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.0528264, 31.46548, -2.839917e-07)
 
 [node name="Platform10_Base" type="CSGBox3D" parent="Platforms/Platform10"]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.241336e-10, -0.35165787, -0.005126953)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -0.34950066, 0)
 material_override = SubResource("StandardMaterial3D_4maoy")
 use_collision = true
-size = Vector3(2.1401367, 0.48561096, 2)
+size = Vector3(2.14, 0.486, 1.912)
 
 [node name="Platform11" parent="Platforms" instance=ExtResource("10_iwg27")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.0058274, 32.867058, -1.3329895e-07)
 
 [node name="Platform6_Base" type="CSGBox3D" parent="Platforms/Platform11"]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.7261499e-09, -1.0518208, 0.039489746)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.004313467, -1.043354, -0.030979633)
 material_override = SubResource("StandardMaterial3D_4maoy")
 use_collision = true
 size = Vector3(12.0789795, 1.8890724, 1.9121094)
@@ -330,7 +336,7 @@ transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-
 reset_until_checkpoint_id = 1
 
 [node name="Box5" parent="Boxes" instance=ExtResource("5_2om41")]
-transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, 2.0232317, 34.014915, -8.843825e-08)
+transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, 3.0232246, 34.014915, -1.3214932e-07)
 reset_until_checkpoint_id = 2
 
 [node name="Box6" parent="Boxes" instance=ExtResource("5_2om41")]
