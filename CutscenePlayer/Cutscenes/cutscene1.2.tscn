@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c52tto4f771js" path="res://Assets/Cutscenes/cutscene1.2/cutscene1.2_4.png" id="6_xqsrw"]
 [ext_resource type="Texture2D" uid="uid://d2l58uv6ssvd0" path="res://Assets/Cutscenes/cutscene1.2/cutscene1.2_5.png" id="7_mg8ei"]
 [ext_resource type="Texture2D" uid="uid://s22b2kfyg8uf" path="res://Assets/Cutscenes/cutscene1.2/cutscene1.2_3b.png" id="7_xqsrw"]
-[ext_resource type="Texture2D" uid="uid://cq3dd14as7aeo" path="res://Assets/Cutscenes/blank.png" id="9_mg8ei"]
+[ext_resource type="Texture2D" uid="uid://cq3dd14as7aeo" path="res://Assets/Cutscenes/blank.png" id="9_40ge3"]
 [ext_resource type="Texture2D" uid="uid://jpu0lwbb4oes" path="res://Assets/Cutscenes/cutscene1.2/cutscene1.2_5a.png" id="9_xrb7b"]
 [ext_resource type="Texture2D" uid="uid://chyq73cc0qdew" path="res://Assets/Cutscenes/cutscene1.2/cutscene1.2_5b.png" id="10_40ge3"]
 
@@ -28,9 +28,9 @@ offset_bottom = 618.0
 texture = ExtResource("3_5kayv")
 expand_mode = 1
 stretch_mode = 4
-time_shown = 1.0
+time_shown = 1.25
 emitter = NodePath("FmodEventEmitter3D")
-ambience = "Tense"
+ambience = "Triumphant"
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/cutscene1_2_1" index="0"]
 event_name = "event:/cutscene_sfx/cutscene1.2_1"
@@ -45,9 +45,8 @@ offset_bottom = 618.0
 texture = ExtResource("4_5kayv")
 expand_mode = 1
 stretch_mode = 4
-time_shown = 2.25
 emitter = NodePath("FmodEventEmitter3D")
-ambience = "Tense"
+ambience = "Panic"
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/cutscene1_2_1b" index="0"]
 event_name = "event:/cutscene_sfx/cutscene1.2_1b"
@@ -96,7 +95,7 @@ offset_bottom = 618.0
 texture = ExtResource("7_xqsrw")
 expand_mode = 1
 stretch_mode = 4
-time_shown = 0.8
+time_shown = 0.75
 emitter = NodePath("FmodEventEmitter3D")
 ambience = "Panic"
 
@@ -112,28 +111,24 @@ offset_bottom = 624.0
 texture = ExtResource("6_xqsrw")
 expand_mode = 1
 stretch_mode = 4
-time_shown = 2.75
+time_shown = 2.5
 emitter = NodePath("FmodEventEmitter3D")
+ambience = "Panic"
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/cutscene1_2_4" index="0"]
-event_name = "event:/cutscene_sfx/cutscene1.2_4a"
+event_name = "event:/cutscene_sfx/cutscene1.2_4"
 event_guid = "{9e7456b7-e523-4dbe-b975-1ab445634ddc}"
 
 [node name="cutscene1_2_4b" parent="CanvasLayer/Frames" index="6" node_paths=PackedStringArray("emitter") instance=ExtResource("2_c3ayx")]
 layout_mode = 0
-offset_left = 72.0
-offset_top = 10.0
-offset_right = 1120.0
-offset_bottom = 618.0
-texture = ExtResource("9_mg8ei")
+offset_left = 64.0
+offset_right = 1128.0
+offset_bottom = 624.0
+texture = ExtResource("9_40ge3")
 expand_mode = 1
 stretch_mode = 4
-time_shown = 5.0
-emitter = NodePath("FmodEventEmitter3D")
-
-[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/cutscene1_2_4b" index="0"]
-event_name = "event:/cutscene_sfx/cutscene1.2_4b"
-event_guid = "{d70aa4af-8b51-46ce-afa5-5dd191608afb}"
+time_shown = 5.75
+emitter = NodePath("")
 
 [node name="cutscene1_2_5" parent="CanvasLayer/Frames" index="7" node_paths=PackedStringArray("emitter") instance=ExtResource("2_c3ayx")]
 layout_mode = 0
@@ -159,6 +154,7 @@ offset_bottom = 714.0
 texture = ExtResource("9_xrb7b")
 expand_mode = 1
 stretch_mode = 4
+time_shown = 1.75
 emitter = NodePath("FmodEventEmitter3D")
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="CanvasLayer/Frames/cutscene1_2_5a" index="0"]
