@@ -1,17 +1,18 @@
-[gd_scene load_steps=13 format=3 uid="uid://b0w1wwtm503hm"]
+[gd_scene load_steps=14 format=3 uid="uid://b0w1wwtm503hm"]
 
 [ext_resource type="PackedScene" uid="uid://dq77apc8gosic" path="res://CutscenePlayer/cutscene_base.tscn" id="1_th447"]
 [ext_resource type="PackedScene" uid="uid://ksm03gj3e2pf" path="res://CutscenePlayer/frame.tscn" id="2_c42oh"]
-[ext_resource type="Texture2D" uid="uid://bjlbbjgklqayq" path="res://Assets/Cutscenes/cutscene4.1/cutscene4.1_1.png" id="3_s5dsh"]
-[ext_resource type="Texture2D" uid="uid://bp26a0mon7gq5" path="res://Assets/Cutscenes/cutscene4.1/cutscene4.1_2.png" id="4_1febu"]
-[ext_resource type="Texture2D" uid="uid://cp6wyyn7den5p" path="res://Assets/Cutscenes/cutscene4.1/cutscene4.1_3.png" id="5_0tlcc"]
-[ext_resource type="Texture2D" uid="uid://cjhsp5xwdetd1" path="res://Assets/Cutscenes/cutscene4.1/cutscene4.1_2b.png" id="5_jathd"]
-[ext_resource type="Texture2D" uid="uid://cj854t5g5lnbe" path="res://Assets/Cutscenes/cutscene4.1/cutscene4.1_4.png" id="6_2pn1y"]
-[ext_resource type="Texture2D" uid="uid://c0nmnqtc1kvt4" path="res://Assets/Cutscenes/cutscene4.1/cutscene4.1_3b.png" id="7_aeiau"]
-[ext_resource type="Texture2D" uid="uid://13qhb3attqil" path="res://Assets/Cutscenes/cutscene4.1/cutscene4.1_5.png" id="7_aom3w"]
-[ext_resource type="Texture2D" uid="uid://dk382ajvbm051" path="res://Assets/Cutscenes/cutscene4.1/cutscene4.1_6.png" id="8_1febu"]
-[ext_resource type="Texture2D" uid="uid://lf5ohpgyxxok" path="res://Assets/Cutscenes/cutscene4.1/cutscene4.1_4b.png" id="9_5ay4f"]
-[ext_resource type="Texture2D" uid="uid://o4secsn1mouq" path="res://Assets/Cutscenes/cutscene4.1/cutscene4.1_5b.png" id="11_wltso"]
+[ext_resource type="Texture2D" uid="uid://dddmabfly56k1" path="res://Assets/Cutscenes/cutscene4.1/cutscene4.1_1.png" id="3_s5dsh"]
+[ext_resource type="Texture2D" uid="uid://cahlu7qxpeknv" path="res://Assets/Cutscenes/cutscene4.1/cutscene4.1_2.png" id="4_1febu"]
+[ext_resource type="Texture2D" uid="uid://bsc6lq3fbr05d" path="res://Assets/Cutscenes/cutscene4.1/cutscene4.1_3.png" id="5_0tlcc"]
+[ext_resource type="Texture2D" uid="uid://b52nf82m1ymhu" path="res://Assets/Cutscenes/cutscene4.1/cutscene4.1_2b.png" id="5_jathd"]
+[ext_resource type="Texture2D" uid="uid://c8yf4rf0jp38u" path="res://Assets/Cutscenes/cutscene4.1/cutscene4.1_4.png" id="6_2pn1y"]
+[ext_resource type="Texture2D" uid="uid://bd138x7qf5jk6" path="res://Assets/Cutscenes/cutscene4.1/cutscene4.1_2c.png" id="6_aeiau"]
+[ext_resource type="Texture2D" uid="uid://dnugqm1d4hsl" path="res://Assets/Cutscenes/cutscene4.1/cutscene4.1_3b.png" id="7_aeiau"]
+[ext_resource type="Texture2D" uid="uid://caxnoshr5qqpu" path="res://Assets/Cutscenes/cutscene4.1/cutscene4.1_5.png" id="7_aom3w"]
+[ext_resource type="Texture2D" uid="uid://c8jwo88m0nk11" path="res://Assets/Cutscenes/cutscene4.1/cutscene4.1_6.png" id="8_1febu"]
+[ext_resource type="Texture2D" uid="uid://bpo5trj1oos2s" path="res://Assets/Cutscenes/cutscene4.1/cutscene4.1_4b.png" id="9_5ay4f"]
+[ext_resource type="Texture2D" uid="uid://dsm3fise21002" path="res://Assets/Cutscenes/cutscene4.1/cutscene4.1_5b.png" id="11_wltso"]
 
 [node name="CutesceneOne" instance=ExtResource("1_th447")]
 wait_time = 1.0
@@ -25,12 +26,14 @@ scale = Vector2(1.6399994, 1.6399994)
 
 [node name="cutscene4_1_1" parent="CanvasLayer/Frames" index="0" node_paths=PackedStringArray("emitter") instance=ExtResource("2_c42oh")]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = -19.51221
+offset_top = -9.7561
+offset_right = 1151.22
+offset_bottom = 658.53687
 texture = ExtResource("3_s5dsh")
 expand_mode = 1
 stretch_mode = 4
-time_shown = 3.0
+time_shown = 2.75
 emitter = NodePath("FmodEventEmitter3D")
 ambience = "Triumphant"
 
@@ -40,12 +43,13 @@ event_guid = "{021ea6c6-3b0c-43a6-9205-0f4e5a3487a6}"
 
 [node name="cutscene4_1_2" parent="CanvasLayer/Frames" index="1" node_paths=PackedStringArray("emitter") instance=ExtResource("2_c42oh")]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = -19.51221
+offset_top = -9.7561
+offset_right = 1151.22
+offset_bottom = 658.53687
 texture = ExtResource("4_1febu")
 expand_mode = 1
 stretch_mode = 4
-time_shown = 3.0
 emitter = NodePath("FmodEventEmitter3D")
 ambience = "Triumphant"
 
@@ -55,12 +59,14 @@ event_guid = "{16ae2a4f-ff85-4b49-b05f-c310ddeb44ba}"
 
 [node name="cutscene4_1_2b" parent="CanvasLayer/Frames" index="2" node_paths=PackedStringArray("emitter") instance=ExtResource("2_c42oh")]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = -19.51221
+offset_top = -9.7561
+offset_right = 1151.22
+offset_bottom = 658.53687
 texture = ExtResource("5_jathd")
 expand_mode = 1
 stretch_mode = 4
-time_shown = 4.0
+time_shown = 2.5
 emitter = NodePath("FmodEventEmitter3D")
 ambience = "Triumphant"
 
@@ -68,14 +74,30 @@ ambience = "Triumphant"
 event_name = "event:/cutscene_sfx/cutscene4.1_2b"
 event_guid = "{a76ecbfb-4f4c-46fb-9f85-ccb4356defc9}"
 
-[node name="cutscene4_1_3" parent="CanvasLayer/Frames" index="3" node_paths=PackedStringArray("emitter") instance=ExtResource("2_c42oh")]
+[node name="cutscene4_1_2c" parent="CanvasLayer/Frames" index="3" node_paths=PackedStringArray("emitter") instance=ExtResource("2_c42oh")]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = -19.51221
+offset_top = -9.7561
+offset_right = 1151.22
+offset_bottom = 658.53687
+texture = ExtResource("6_aeiau")
+expand_mode = 1
+stretch_mode = 4
+time_shown = 1.5
+fade_in_time = 0.1
+emitter = NodePath("")
+ambience = "Triumphant"
+
+[node name="cutscene4_1_3" parent="CanvasLayer/Frames" index="4" node_paths=PackedStringArray("emitter") instance=ExtResource("2_c42oh")]
+layout_mode = 0
+offset_left = -29.268314
+offset_top = -8.5365925
+offset_right = 1142.2439
+offset_bottom = 658.53687
 texture = ExtResource("5_0tlcc")
 expand_mode = 1
 stretch_mode = 4
-time_shown = 3.0
+time_shown = 2.75
 emitter = NodePath("FmodEventEmitter3D")
 ambience = "Triumphant"
 
@@ -83,14 +105,16 @@ ambience = "Triumphant"
 event_name = "event:/cutscene_sfx/cutscene4.1_3a"
 event_guid = "{e911a08b-1631-4dd0-aaeb-7e06774ee71b}"
 
-[node name="cutscene4_1_3b" parent="CanvasLayer/Frames" index="4" node_paths=PackedStringArray("emitter") instance=ExtResource("2_c42oh")]
+[node name="cutscene4_1_3b" parent="CanvasLayer/Frames" index="5" node_paths=PackedStringArray("emitter") instance=ExtResource("2_c42oh")]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = -28.048801
+offset_top = -8.5365925
+offset_right = 1142.6833
+offset_bottom = 659.75635
 texture = ExtResource("7_aeiau")
 expand_mode = 1
 stretch_mode = 4
-time_shown = 3.0
+time_shown = 3.5
 emitter = NodePath("FmodEventEmitter3D")
 ambience = "Triumphant"
 
@@ -98,14 +122,16 @@ ambience = "Triumphant"
 event_name = "event:/cutscene_sfx/cutscene4.1_3b"
 event_guid = "{fea8ea10-ab0b-472d-bc24-a2e66eb55a4f}"
 
-[node name="cutscene4_1_4" parent="CanvasLayer/Frames" index="5" node_paths=PackedStringArray("emitter") instance=ExtResource("2_c42oh")]
+[node name="cutscene4_1_4" parent="CanvasLayer/Frames" index="6" node_paths=PackedStringArray("emitter") instance=ExtResource("2_c42oh")]
 layout_mode = 0
-offset_right = 1152.0
+offset_left = -21.341473
+offset_top = -9.7561
+offset_right = 1145.2926
 offset_bottom = 648.0
 texture = ExtResource("6_2pn1y")
 expand_mode = 1
 stretch_mode = 4
-time_shown = 1.0
+time_shown = 1.25
 emitter = NodePath("FmodEventEmitter3D")
 ambience = "Triumphant"
 
@@ -113,9 +139,11 @@ ambience = "Triumphant"
 event_name = "event:/cutscene_sfx/cutscene4.1_4a"
 event_guid = "{a1d630da-e2bd-4dcb-aa84-51517a47076c}"
 
-[node name="cutscene4_1_4b" parent="CanvasLayer/Frames" index="6" node_paths=PackedStringArray("emitter") instance=ExtResource("2_c42oh")]
+[node name="cutscene4_1_4b" parent="CanvasLayer/Frames" index="7" node_paths=PackedStringArray("emitter") instance=ExtResource("2_c42oh")]
 layout_mode = 0
-offset_right = 1152.0
+offset_left = -21.341473
+offset_top = -9.7561
+offset_right = 1145.2926
 offset_bottom = 648.0
 texture = ExtResource("9_5ay4f")
 expand_mode = 1
@@ -128,10 +156,12 @@ ambience = "Triumphant"
 event_name = "event:/cutscene_sfx/cutscene4.1_4b"
 event_guid = "{d250f914-46fa-4f0e-a3e9-92d0add80cb5}"
 
-[node name="cutscene4_1_5" parent="CanvasLayer/Frames" index="7" node_paths=PackedStringArray("emitter") instance=ExtResource("2_c42oh")]
+[node name="cutscene4_1_5" parent="CanvasLayer/Frames" index="8" node_paths=PackedStringArray("emitter") instance=ExtResource("2_c42oh")]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = -24.390251
+offset_top = -14.634152
+offset_right = 1156.098
+offset_bottom = 653.6588
 texture = ExtResource("7_aom3w")
 expand_mode = 1
 stretch_mode = 4
@@ -142,13 +172,16 @@ ambience = "Triumphant"
 event_name = "event:/cutscene_sfx/cutscene4.1_5a"
 event_guid = "{89cd04d6-f8a8-47b1-9268-cde03d172918}"
 
-[node name="cutscene4_1_5b" parent="CanvasLayer/Frames" index="8" node_paths=PackedStringArray("emitter") instance=ExtResource("2_c42oh")]
+[node name="cutscene4_1_5b" parent="CanvasLayer/Frames" index="9" node_paths=PackedStringArray("emitter") instance=ExtResource("2_c42oh")]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = -24.390251
+offset_top = -14.634152
+offset_right = 1156.098
+offset_bottom = 653.6588
 texture = ExtResource("11_wltso")
 expand_mode = 1
 stretch_mode = 4
+time_shown = 1.75
 emitter = NodePath("FmodEventEmitter3D")
 ambience = "Triumphant"
 
@@ -156,10 +189,12 @@ ambience = "Triumphant"
 event_name = "event:/cutscene_sfx/cutscene4.1_5b"
 event_guid = "{11572037-2379-4081-8a93-0fbfc7ff495c}"
 
-[node name="cutscene4_1_6" parent="CanvasLayer/Frames" index="9" node_paths=PackedStringArray("emitter") instance=ExtResource("2_c42oh")]
+[node name="cutscene4_1_6" parent="CanvasLayer/Frames" index="10" node_paths=PackedStringArray("emitter") instance=ExtResource("2_c42oh")]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = -35.975624
+offset_top = -14.024395
+offset_right = 1149.3907
+offset_bottom = 649.3905
 texture = ExtResource("8_1febu")
 expand_mode = 1
 stretch_mode = 4
