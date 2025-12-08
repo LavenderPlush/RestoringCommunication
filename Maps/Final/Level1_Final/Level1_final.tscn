@@ -325,6 +325,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6100826, -0.923861)
 [node name="EntranceDoor" parent="." instance=ExtResource("13_ax6pw")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.96558917, 3.025669, 0)
 
+[node name="EntranceDoor_Base1" type="CSGBox3D" parent="EntranceDoor"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.052702278, 0.16860533, 1.1534493)
+material_override = ExtResource("6_o5y8o")
+size = Vector3(0.3078804, 2.3220434, 0.09996033)
+
+[node name="EntranceDoor_Base2" type="CSGBox3D" parent="EntranceDoor"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.052702278, 0.16860533, -1.1566255)
+material_override = ExtResource("6_o5y8o")
+size = Vector3(0.3078804, 2.3220434, 0.09996033)
+
+[node name="EntranceDoor_Base3" type="CSGBox3D" parent="EntranceDoor"]
+transform = Transform3D(-4.371139e-08, 0, -1, 1, -4.371139e-08, -4.371139e-08, -4.371139e-08, -1, 1.9106855e-15, 0.052702278, 1.1775169, 0.003286928)
+material_override = ExtResource("6_o5y8o")
+size = Vector3(0.3077488, 2.019842, 0.09996033)
+
 [node name="Exit" type="Node3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 26, 0)
 
