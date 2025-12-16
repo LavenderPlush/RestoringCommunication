@@ -15,7 +15,7 @@ General/banks_path="res://Assets/FMODBank/Desktop"
 [application]
 
 config/name="Restoring Communication"
-run/main_scene="uid://daxbyfh4i85sk"
+run/main_scene="uid://l3jau2h5hymn"
 config/features=PackedStringArray("4.5", "Forward Plus")
 
 [autoload]
