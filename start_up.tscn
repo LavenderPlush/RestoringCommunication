@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://l3jau2h5hymn"]
+
+[ext_resource type="Script" uid="uid://dbnw4xw1togs0" path="res://start_up.gd" id="1_xg6s0"]
+[ext_resource type="Texture2D" uid="uid://crrucu75do2ko" path="res://Assets/Menu/FMOD Logo White - Black Background.png" id="1_xm347"]
+[ext_resource type="PackedScene" uid="uid://daxbyfh4i85sk" path="res://Menus/Main Menu/main_menu.tscn" id="2_ao0on"]
+
+[node name="StartUp" type="Node2D"]
+script = ExtResource("1_xg6s0")
+first_scene = ExtResource("2_ao0on")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="ColorRect" parent="CenterContainer"]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
+layout_mode = 2
+texture = ExtResource("1_xm347")
+
+[node name="Fade" type="ColorRect" parent="CenterContainer"]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
