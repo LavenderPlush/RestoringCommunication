@@ -12,16 +12,21 @@ config_version=5
 
 General/banks_path="res://Assets/FMODBank/Desktop"
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="Restoring Communication"
 run/main_scene="uid://l3jau2h5hymn"
-config/features=PackedStringArray("4.5", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 
 [autoload]
 
 FmodManager="*res://addons/fmod/FmodManager.gd"
 CheckpointManager="*res://Entities/Checkpoint/checkpoint_manager.gd"
+Talo="*uid://bpmdn8oc34pg7"
 
 [display]
 
@@ -32,7 +37,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/fmod/plugin.cfg")
+enabled=PackedStringArray("res://addons/fmod/plugin.cfg", "res://addons/talo/plugin.cfg")
 
 [global_group]
 
