@@ -21,14 +21,16 @@ func _process(delta: float) -> void:
 	time += delta
 
 func start_entered(body: Node3D):
-	if body is not Player or timing:
-		return
+	if body is Player and !timing:
+		timing = true
 	
 func end_entered(body: Node3D):
-	if body is not Player or not timing:
+	if body is not Player or !timing:
 		return
 	timing = false
-	Talo.events.track(player + "_puzzle", {
-		"puzzle_" + str(puzzle): str(time / 60.0)
-	});
+	var data: Dictionary[String, Variant] = {
+		"Puzzle " + str(puzzle): time
+	}
+	Talo.events.track(player + " puzzle", data)
+	Talo.events.flush()
 	set_process(false)
