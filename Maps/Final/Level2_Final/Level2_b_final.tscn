@@ -90,7 +90,7 @@ shader_parameter/UseReshade = false
 size = Vector3(1.6074219, 1, 4.4676514)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1rrhu"]
-size = Vector3(1.8447266, 1, 1)
+size = Vector3(1.8447266, 2.2368164, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_whd25"]
 size = Vector3(1.7441406, 5, 1)
@@ -779,6 +779,7 @@ shape = SubResource("BoxShape3D_04p4b")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.365536, 3.9280453)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HumanTimers/Puzzle1/End1" unique_id=866609068]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6184082, -1.5049243)
 shape = SubResource("BoxShape3D_1rrhu")
 
 [node name="Puzzle2" parent="HumanTimers" unique_id=1660897767 node_paths=PackedStringArray("start", "end") instance=ExtResource("33_1rrhu")]
