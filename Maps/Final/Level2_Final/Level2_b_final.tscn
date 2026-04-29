@@ -93,10 +93,13 @@ size = Vector3(1.6074219, 1, 4.4676514)
 size = Vector3(1.8447266, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_whd25"]
-size = Vector3(1.7441406, 1, 1)
+size = Vector3(1.7441406, 5, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4d46o"]
-size = Vector3(1.9287109, 4.029297, 1)
+size = Vector3(1.9287109, 7.100403, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f4riw"]
+size = Vector3(4.2615967, 1, 6.4677124)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vqa0c"]
 size = Vector3(2.6777344, 1, 3.595337)
@@ -788,13 +791,28 @@ end = NodePath("End2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.691906, 5.903374)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HumanTimers/Puzzle2/Start2" unique_id=1230644360]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("BoxShape3D_whd25")
 
 [node name="End2" type="Area3D" parent="HumanTimers/Puzzle2" unique_id=1983581679]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.863096, 22.335363)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HumanTimers/Puzzle2/End2" unique_id=847763414]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1912327, 0)
 shape = SubResource("BoxShape3D_4d46o")
+
+[node name="AlienTimers" type="Node" parent="." unique_id=1039040751]
+
+[node name="Puzzle1" parent="AlienTimers" unique_id=1262916496 node_paths=PackedStringArray("start", "end") instance=ExtResource("33_1rrhu")]
+player = "alien"
+start = NodePath("../../HumanTimers/Puzzle1/Start1")
+end = NodePath("End1")
+
+[node name="End1" type="Area3D" parent="AlienTimers/Puzzle1" unique_id=66798727]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AlienTimers/Puzzle1/End1" unique_id=2120416728]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.58013916, 13.120396, -3.9717398)
+shape = SubResource("BoxShape3D_f4riw")
 
 [node name="Throwing" type="Node" parent="." unique_id=1944826496]
 
