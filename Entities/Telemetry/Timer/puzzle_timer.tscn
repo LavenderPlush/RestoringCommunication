@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://lqs3urk6sogq"]
+
+[ext_resource type="Script" uid="uid://b6oxvqf5v4t6a" path="res://Entities/Telemetry/Timer/puzzle_timer.gd" id="1_lav4p"]
+
+[node name="PuzzleTimer" type="Node" unique_id=1950399494]
+script = ExtResource("1_lav4p")

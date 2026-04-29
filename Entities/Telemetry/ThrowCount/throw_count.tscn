@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dtepg1v4umc51"]
+
+[ext_resource type="Script" uid="uid://v5nnnitok322" path="res://Entities/Telemetry/ThrowCount/throw_count.gd" id="1_prnxn"]
+
+[node name="ThrowCount" type="Node" unique_id=1505879067]
+script = ExtResource("1_prnxn")

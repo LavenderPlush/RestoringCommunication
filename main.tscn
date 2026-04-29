@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bpvkoqyhej8xl" path="res://CutscenePlayer/Cutscenes/cutscene1.2.tscn" id="3_7mycd"]
 [ext_resource type="PackedScene" uid="uid://cryhwogoyglmt" path="res://Maps/Final/Level1_Final/Level1_final.tscn" id="4_7mycd"]
 [ext_resource type="PackedScene" uid="uid://c3vnrvfqg8t5k" path="res://CutscenePlayer/Cutscenes/cutscene1.3.tscn" id="4_dg77c"]
-[ext_resource type="PackedScene" uid="uid://cjlo2enoms44b" path="res://Maps/Final/Level2_Final/Level2_final.tscn" id="5_272bh"]
+[ext_resource type="PackedScene" uid="uid://cjlo2enoms44b" path="res://Maps/Final/Level2_Final/Level2_b_final.tscn" id="5_272bh"]
 [ext_resource type="PackedScene" uid="uid://dp1odyr1v87bv" path="res://Maps/Final/Level3_Final/Level3-final.tscn" id="6_5vw27"]
 [ext_resource type="PackedScene" uid="uid://ct5cbdibvgixs" path="res://CutscenePlayer/Cutscenes/cutscene2.1.tscn" id="7_w48qg"]
 [ext_resource type="PackedScene" uid="uid://n3ui6hqufe27" path="res://CutscenePlayer/Cutscenes/cutscene3.1.tscn" id="9_vivmo"]
