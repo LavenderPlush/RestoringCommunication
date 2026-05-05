@@ -85,9 +85,6 @@ shader_parameter/_min = 0.49
 shader_parameter/_max = 0.48
 shader_parameter/UseReshade = false
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_vj63t"]
-size = Vector3(1.6074219, 1, 4.4676514)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_r4rxj"]
 size = Vector3(1.8447266, 2.2368164, 1)
 
@@ -98,7 +95,7 @@ size = Vector3(1.7441406, 4.5633545, 1)
 size = Vector3(1.9287109, 7.100403, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wfcne"]
-size = Vector3(4.2615967, 1, 6.4677124)
+size = Vector3(4.2615967, 2.9208984, 6.4677124)
 
 [node name="Level2-Blockout" type="Node3D" unique_id=1494405191 node_paths=PackedStringArray("exit_manager")]
 script = ExtResource("1_fit1s")
@@ -756,22 +753,14 @@ transform = Transform3D(-0.97488976, -0.22268866, -8.5227576e-08, -0.22268869, 0
 
 [node name="HumanTimers" type="Node" parent="." unique_id=380578044]
 
-[node name="Puzzle1" parent="HumanTimers" unique_id=1950399494 node_paths=PackedStringArray("start", "end") instance=ExtResource("33_wfcne")]
+[node name="Puzzle1Human" parent="HumanTimers" unique_id=1950399494 node_paths=PackedStringArray("end") instance=ExtResource("33_wfcne")]
 player = "human"
-start = NodePath("Start1")
-end = NodePath("End1")
+end = NodePath("End1Human")
 
-[node name="Start1" type="Area3D" parent="HumanTimers/Puzzle1" unique_id=1948155103]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.757165, 14.400511)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HumanTimers/Puzzle1/Start1" unique_id=1948984307]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.04095459)
-shape = SubResource("BoxShape3D_vj63t")
-
-[node name="End1" type="Area3D" parent="HumanTimers/Puzzle1" unique_id=212719788]
+[node name="End1Human" type="Area3D" parent="HumanTimers/Puzzle1Human" unique_id=212719788]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.365536, 3.9280453)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HumanTimers/Puzzle1/End1" unique_id=165164082]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HumanTimers/Puzzle1Human/End1Human" unique_id=165164082]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6184082, -1.5049243)
 shape = SubResource("BoxShape3D_r4rxj")
 
@@ -797,13 +786,13 @@ shape = SubResource("BoxShape3D_stfgi")
 
 [node name="AlienTimers" type="Node" parent="." unique_id=14519177]
 
-[node name="Puzzle1" parent="AlienTimers" unique_id=928459734 node_paths=PackedStringArray("start", "end") instance=ExtResource("33_wfcne")]
+[node name="Puzzle1Alien" parent="AlienTimers" unique_id=928459734 node_paths=PackedStringArray("end") instance=ExtResource("33_wfcne")]
 player = "alien"
-start = NodePath("../../HumanTimers/Puzzle1/Start1")
-end = NodePath("End1")
+end = NodePath("End1Alien")
 
-[node name="End1" type="Area3D" parent="AlienTimers/Puzzle1" unique_id=31587295]
+[node name="End1Alien" type="Area3D" parent="AlienTimers/Puzzle1Alien" unique_id=31587295]
+collision_mask = 7
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AlienTimers/Puzzle1/End1" unique_id=1574264501]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.58013916, 13.120396, -3.9717398)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AlienTimers/Puzzle1Alien/End1Alien" unique_id=1574264501]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.58013916, 14.080845, -3.9717398)
 shape = SubResource("BoxShape3D_wfcne")
