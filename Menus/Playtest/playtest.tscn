@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://g8qtvvsgcq8n"]
+
+[ext_resource type="Script" uid="uid://pwt5ktajmwsf" path="res://Menus/Playtest/playtest.gd" id="1_idfr0"]
+
+[node name="Playtest" type="CanvasLayer" unique_id=1817201558]
+script = ExtResource("1_idfr0")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1156917428]
+offset_left = 662.0
+offset_top = 333.0
+offset_right = 1301.0
+offset_bottom = 749.0
+color = Color(0.55, 0.55, 0.55, 1)
+
+[node name="TextEdit" type="TextEdit" parent="." unique_id=964252506]
+offset_left = 780.0
+offset_top = 487.0
+offset_right = 1191.0
+offset_bottom = 555.0
+theme_override_font_sizes/font_size = 24
+
+[node name="Button" type="Button" parent="." unique_id=1588777593]
+offset_left = 926.0
+offset_top = 575.0
+offset_right = 1035.0
+offset_bottom = 632.0
+text = "Enter"
+
+[node name="Label" type="Label" parent="." unique_id=297654340]
+offset_left = 827.0
+offset_top = 440.0
+offset_right = 1163.0
+offset_bottom = 499.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+text = "ENTER PLAYTEST CODE"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
